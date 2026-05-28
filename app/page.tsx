@@ -1,58 +1,93 @@
 "use client";
 
-import Script from "next/script";
+import { useEffect } from "react";
 
 export default function Home() {
+  useEffect(() => {
+    const script = document.createElement("script");
+
+    script.src =
+      "https://tpwdg.com/content?currency=try&trs=18030&shmarker=567496&locale=tr&powered_by=true";
+
+    script.async = true;
+
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
   return (
     <main
       style={{
         minHeight: "100vh",
-        background: "#020817",
+        background:
+          "linear-gradient(to bottom, #020817 0%, #071226 100%)",
         color: "white",
         fontFamily: "Arial, sans-serif",
       }}
     >
-      {/* TP SCRIPT */}
-      <Script
-        src="https://tpwdg.com/content?currency=try&trs=18030&shmarker=567496&locale=tr&powered_by=true"
-        strategy="afterInteractive"
-      />
-
       {/* HEADER */}
       <header
         style={{
-          padding: "24px 40px",
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
+          padding: "24px 48px",
           borderBottom: "1px solid rgba(255,255,255,0.08)",
         }}
       >
-        <h1 style={{ fontSize: "32px", fontWeight: "bold" }}>
+        <h1
+          style={{
+            fontSize: "34px",
+            fontWeight: "bold",
+            margin: 0,
+          }}
+        >
           ✈️ UçGit
         </h1>
 
-        <nav style={{ display: "flex", gap: "24px" }}>
-          <a href="#">Kampanyalar</a>
-          <a href="#">Blog</a>
-          <a href="#">İletişim</a>
-          <a href="#">Hakkımızda</a>
+        <nav
+          style={{
+            display: "flex",
+            gap: "28px",
+            alignItems: "center",
+            fontSize: "17px",
+          }}
+        >
+          <a href="#" style={{ color: "white", textDecoration: "none" }}>
+            Kampanyalar
+          </a>
+
+          <a href="#" style={{ color: "white", textDecoration: "none" }}>
+            Blog
+          </a>
+
+          <a href="#" style={{ color: "white", textDecoration: "none" }}>
+            İletişim
+          </a>
+
+          <a href="#" style={{ color: "white", textDecoration: "none" }}>
+            Hakkımızda
+          </a>
         </nav>
       </header>
 
       {/* HERO */}
       <section
         style={{
-          maxWidth: "1200px",
+          maxWidth: "1280px",
           margin: "0 auto",
-          padding: "80px 20px",
+          padding: "100px 20px 40px",
           textAlign: "center",
         }}
       >
         <p
           style={{
             color: "#3b82f6",
-            marginBottom: "16px",
+            marginBottom: "18px",
+            fontSize: "18px",
           }}
         >
           En uygun uçuşları saniyeler içinde bul
@@ -60,10 +95,10 @@ export default function Home() {
 
         <h2
           style={{
-            fontSize: "72px",
+            fontSize: "76px",
             fontWeight: "bold",
-            marginBottom: "24px",
             lineHeight: 1.1,
+            marginBottom: "26px",
           }}
         >
           Ucuza uçmanın{" "}
@@ -76,26 +111,34 @@ export default function Home() {
           style={{
             fontSize: "22px",
             opacity: 0.8,
-            marginBottom: "50px",
+            maxWidth: "900px",
+            margin: "0 auto 50px",
+            lineHeight: 1.6,
           }}
         >
           Tüm havayollarını karşılaştır, gerçek zamanlı fiyatları gör
           ve en uygun bileti hemen bul.
         </p>
 
-        {/* TP WIDGET */}
+        {/* TRAVELPAYOUTS */}
         <div
-          className="tp-widget-wrapper"
           style={{
-            background: "#111827",
-            borderRadius: "24px",
-            padding: "24px",
+            background: "rgba(17,24,39,0.92)",
+            borderRadius: "28px",
+            padding: "30px",
             overflow: "hidden",
+            border: "1px solid rgba(255,255,255,0.06)",
+            boxShadow: "0 10px 40px rgba(0,0,0,0.35)",
           }}
         >
           <div
-            className="tp-widget-search-form"
-            data-pw-widget="search"
+            data-tpw-widget="search"
+            data-tpw-currency="TRY"
+            data-tpw-language="tr"
+            data-tpw-origin="IST"
+            style={{
+              minHeight: "120px",
+            }}
           ></div>
         </div>
       </section>
@@ -103,36 +146,47 @@ export default function Home() {
       {/* AIRLINES */}
       <section
         style={{
-          maxWidth: "1200px",
+          maxWidth: "1280px",
           margin: "0 auto",
-          padding: "20px",
+          padding: "40px 20px 100px",
         }}
       >
         <div
           style={{
             display: "flex",
             justifyContent: "space-between",
-            marginBottom: "24px",
             alignItems: "center",
+            marginBottom: "28px",
           }}
         >
           <h3
             style={{
               fontSize: "42px",
               fontWeight: "bold",
+              margin: 0,
             }}
           >
             Popüler Havayolları
           </h3>
 
-          <a href="#">Tümünü Gör</a>
+          <a
+            href="#"
+            style={{
+              color: "#3b82f6",
+              textDecoration: "none",
+              fontSize: "18px",
+            }}
+          >
+            Tümünü Gör
+          </a>
         </div>
 
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit,minmax(160px,1fr))",
-            gap: "20px",
+            gridTemplateColumns:
+              "repeat(auto-fit,minmax(180px,1fr))",
+            gap: "22px",
           }}
         >
           {[
@@ -147,11 +201,12 @@ export default function Home() {
               key={airline}
               style={{
                 background: "#111827",
-                borderRadius: "20px",
-                padding: "40px 20px",
+                borderRadius: "22px",
+                padding: "42px 20px",
                 textAlign: "center",
                 fontWeight: "bold",
-                fontSize: "22px",
+                fontSize: "24px",
+                border: "1px solid rgba(255,255,255,0.05)",
               }}
             >
               {airline}
