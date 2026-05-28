@@ -29,11 +29,13 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
 
           <div className="flex items-center gap-3">
+
             <span className="text-3xl">✈️</span>
 
             <span className="text-4xl font-black">
               UçGit
             </span>
+
           </div>
 
           <nav className="hidden md:flex items-center gap-10 text-white/80">
@@ -62,9 +64,11 @@ export default function HomePage() {
       </header>
 
       {/* HERO */}
-      <section className="py-24">
+      <section className="relative py-24 overflow-hidden">
 
-        <div className="max-w-6xl mx-auto px-6 text-center">
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/20 via-transparent to-blue-900/20" />
+
+        <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
 
           <p className="text-blue-400 mb-6 text-lg">
             En uygun uçuşları saniyeler içinde bul
@@ -80,7 +84,7 @@ export default function HomePage() {
 
           </h1>
 
-          <p className="mt-8 text-xl text-white/70">
+          <p className="mt-8 text-xl text-white/70 leading-relaxed">
             Tüm havayollarını karşılaştır, gerçek zamanlı fiyatları gör ve
             en uygun bileti hemen bul.
           </p>
@@ -89,8 +93,8 @@ export default function HomePage() {
 
       </section>
 
-      {/* SEARCH WIDGET */}
-      <section className="w-full px-6 mb-20">
+      {/* SEARCH */}
+      <section className="w-full px-6 mb-24">
 
         <div className="max-w-7xl mx-auto">
 
@@ -145,26 +149,120 @@ export default function HomePage() {
 
       </section>
 
-      {/* RESULTS */}
-      <section className="w-full px-6 mb-24">
+      {/* POPULAR ROUTES */}
+      <section className="max-w-7xl mx-auto px-6 pb-24">
 
-        <div className="max-w-7xl mx-auto">
+        <div className="flex items-center justify-between mb-10">
 
-          <div className="flex items-center justify-between mb-10">
+          <h2 className="text-5xl font-black">
+            En Popüler Rotalar
+          </h2>
 
-            <h2 className="text-5xl font-black">
-              En Popüler Rotalar
-            </h2>
+          <a href="#" className="text-blue-400">
+            Tümünü Gör
+          </a>
 
-            <a href="#" className="text-blue-400">
-              Tümünü Gör
-            </a>
+        </div>
+
+        <div className="grid md:grid-cols-4 gap-6">
+
+          <div className="rounded-3xl overflow-hidden bg-white/5 border border-white/10">
+
+            <img
+              src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200"
+              className="w-full h-72 object-cover"
+            />
+
+            <div className="p-6">
+
+              <h3 className="text-2xl font-bold">
+                Amsterdam
+              </h3>
+
+              <p className="text-white/60 mt-2">
+                Başlangıç fiyatı
+              </p>
+
+              <p className="text-4xl font-black mt-3">
+                2490₺
+              </p>
+
+            </div>
 
           </div>
 
-          <div className="rounded-3xl overflow-hidden">
+          <div className="rounded-3xl overflow-hidden bg-white/5 border border-white/10">
 
-            <div id="tpwl-tickets"></div>
+            <img
+              src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=1200"
+              className="w-full h-72 object-cover"
+            />
+
+            <div className="p-6">
+
+              <h3 className="text-2xl font-bold">
+                Dubai
+              </h3>
+
+              <p className="text-white/60 mt-2">
+                Başlangıç fiyatı
+              </p>
+
+              <p className="text-4xl font-black mt-3">
+                6490₺
+              </p>
+
+            </div>
+
+          </div>
+
+          <div className="rounded-3xl overflow-hidden bg-white/5 border border-white/10">
+
+            <img
+              src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?q=80&w=1200"
+              className="w-full h-72 object-cover"
+            />
+
+            <div className="p-6">
+
+              <h3 className="text-2xl font-bold">
+                Paris
+              </h3>
+
+              <p className="text-white/60 mt-2">
+                Başlangıç fiyatı
+              </p>
+
+              <p className="text-4xl font-black mt-3">
+                3190₺
+              </p>
+
+            </div>
+
+          </div>
+
+          <div className="rounded-3xl overflow-hidden bg-white/5 border border-white/10">
+
+            <img
+              src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=1200"
+              className="w-full h-72 object-cover"
+            />
+
+            <div className="p-6">
+
+              <h3 className="text-2xl font-bold">
+                Londra
+              </h3>
+
+              <p className="text-white/60 mt-2">
+                Başlangıç fiyatı
+              </p>
+
+              <p className="text-4xl font-black mt-3">
+                3890₺
+              </p>
+
+            </div>
 
           </div>
 
