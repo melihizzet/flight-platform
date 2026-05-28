@@ -1,35 +1,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  background: #020817;
-  color: white;
-  overflow-x: hidden;
-}
-
-/* TP WIDGET FIX */
-#tpwl-search {
-  width: 100%;
-}
-
-#tpwl-tickets {
-  margin-top: 32px;
-}
-
-/* TP TEXT COLORS */
-.tp-widget-origin-switch,
-.tp-widget-multi-city,
-.tp-widget-hotels-checkbox label {
-  color: white !important;
-}
-
-/* LOGO FIX */
-img {
-  max-width: 100%;
-  height: auto;
-}
