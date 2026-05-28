@@ -203,3 +203,162 @@ footer {
   }
 
 }
+/* ===== UCGIT UI FIX ===== */
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #020617;
+  color: white;
+  font-family: Inter, sans-serif;
+  overflow-x: hidden;
+}
+
+/* MAIN CONTAINER */
+main {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* HEADER */
+header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+/* NAV */
+nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* HERO */
+.hero {
+  text-align: center;
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+
+.hero h1 {
+  font-size: 64px;
+  font-weight: 900;
+  margin-bottom: 16px;
+}
+
+.hero p {
+  color: #cbd5e1;
+  max-width: 760px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* TP SECTION */
+.tp-wrapper {
+  margin-top: 40px;
+  padding: 28px;
+  border-radius: 28px;
+  background: linear-gradient(135deg,#172554,#1e293b);
+  overflow: hidden;
+}
+
+/* TP FIX */
+#tpwl-search {
+  width: 100%;
+}
+
+/* WHITE TEXT FIX */
+.tp-widget-origin-switch,
+.tp-widget-multi-city,
+.tp-widget-hotels-checkbox label {
+  color: white !important;
+}
+
+/* AIRLINES */
+.airlines {
+  margin-top: 80px;
+}
+
+.airlines h2 {
+  font-size: 36px;
+  margin-bottom: 24px;
+}
+
+.airlines-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+  gap: 24px;
+}
+
+.airline-card {
+  background: #0f172a;
+  border-radius: 22px;
+  padding: 40px 20px;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: 0.25s;
+}
+
+.airline-card:hover {
+  transform: translateY(-5px);
+  border-color: #3b82f6;
+}
+
+/* FOOTER */
+footer {
+  margin-top: 100px;
+  padding: 60px 0;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px;
+}
+
+.footer-grid h4 {
+  margin-bottom: 18px;
+}
+
+.footer-grid a {
+  display: block;
+  margin-bottom: 10px;
+  color: #94a3b8;
+  text-decoration: none;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+  header{
+    flex-direction:column;
+    gap:20px;
+  }
+
+  nav{
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+
+  .hero h1{
+    font-size:42px;
+  }
+
+  .footer-grid{
+    grid-template-columns:1fr;
+  }
+
+}
