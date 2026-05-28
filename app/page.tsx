@@ -1,8 +1,23 @@
 "use client";
 
-import Image from "next/image";
+import { useEffect } from "react";
 
 export default function HomePage() {
+
+  useEffect(() => {
+    const existingScript = document.getElementById("tp-script");
+
+    if (!existingScript) {
+      const script = document.createElement("script");
+
+      script.id = "tp-script";
+      script.async = true;
+      script.src = "https://tpwdg.com/wl_web/main.js?wl_id=18030";
+
+      document.body.appendChild(script);
+    }
+  }, []);
+
   return (
     <main className="min-h-screen bg-[#020817] text-white overflow-x-hidden">
 
@@ -23,7 +38,9 @@ export default function HomePage() {
           </nav>
 
           <div className="flex items-center gap-4">
-            <button className="text-white">Giriş Yap</button>
+            <button className="text-white">
+              Giriş Yap
+            </button>
 
             <button className="bg-blue-500 hover:bg-blue-600 transition px-5 py-2 rounded-xl font-semibold">
               Kayıt Ol
@@ -53,7 +70,7 @@ export default function HomePage() {
             ve en uygun bileti hemen bul.
           </p>
 
-          {/* TRAVELPAYOUTS */}
+          {/* SEARCH WIDGET */}
           <div className="mt-14 max-w-6xl mx-auto">
 
             <div className="bg-[#111827]/90 border border-white/10 rounded-[32px] p-5 shadow-2xl backdrop-blur-xl">
@@ -189,13 +206,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* SEARCH RESULTS */}
+      {/* RESULTS */}
       <section className="px-6 py-12">
         <div className="max-w-7xl mx-auto">
 
-          <div
-            className="travel-results rounded-3xl overflow-hidden"
-          >
+          <div className="travel-results rounded-3xl overflow-hidden">
             <div id="tpwl-tickets"></div>
           </div>
 
@@ -255,15 +270,13 @@ export default function HomePage() {
         </div>
       </footer>
 
-      {/* GLOBAL FIX */}
       <style jsx global>{`
         body {
           overflow-x: hidden;
           background: #020817;
         }
 
-        .travel-widget iframe,
-        .travel-results iframe {
+        iframe {
           width: 100% !important;
           border: none !important;
           border-radius: 24px !important;
@@ -280,6 +293,7 @@ export default function HomePage() {
           width: 100%;
         }
       `}</style>
+
     </main>
   );
 }
