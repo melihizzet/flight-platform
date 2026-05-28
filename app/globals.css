@@ -6,81 +6,41 @@
   box-sizing:border-box;
 }
 
-html{
-  scroll-behavior:smooth;
-}
-
+html,
 body{
+  width:100%;
+  overflow-x:hidden;
   background:#020617;
   color:white;
   font-family:'Inter',sans-serif;
-  overflow-x:hidden;
 }
 
-/* LINKS */
+/* GENEL */
 a{
   text-decoration:none;
   color:inherit;
 }
 
-/* TP WIDGET FIX */
+main{
+  width:100%;
+  overflow:hidden;
+}
+
+/* TP WIDGET */
 .tp-widget,
 [data-tp-widget],
 .tp-widget-wrapper{
   width:100% !important;
-  min-height:180px !important;
-}
-
-/* SEARCH BOX */
-.tp-widget{
-  border-radius:24px !important;
   overflow:hidden !important;
+  border-radius:24px !important;
 }
 
-/* HEADER */
-header{
-  position:sticky;
-  top:0;
-  z-index:999;
-  backdrop-filter:blur(14px);
-}
-
-/* NAVBAR */
-nav{
-  display:flex;
-  align-items:center;
-  gap:28px;
-}
-
-/* BUTTONS */
-button{
-  transition:0.25s ease;
-}
-
-button:hover{
-  transform:translateY(-2px);
-}
-
-/* HERO TITLE */
-h1{
-  letter-spacing:-2px;
-}
-
-/* AIRLINE CARDS */
-.airline-card{
-  transition:0.25s ease;
-}
-
-.airline-card:hover{
-  transform:translateY(-6px);
-  border-color:#3b82f6 !important;
-  box-shadow:0 10px 30px rgba(37,99,235,0.2);
-}
-
-/* SECTION SPACING */
-section{
-  position:relative;
-  z-index:1;
+/* TP SEARCH ALANI */
+#tpwl-search,
+#tpwl-tickets{
+  width:100%;
+  max-width:1280px;
+  margin:0 auto;
 }
 
 /* FOOTER */
@@ -88,26 +48,16 @@ footer{
   margin-top:80px;
 }
 
-/* MOBILE */
+/* RESPONSIVE */
+img{
+  max-width:100%;
+  display:block;
+}
+
 @media(max-width:768px){
 
-  h1{
-    font-size:42px !important;
-    line-height:1.1 !important;
-  }
-
-  h2{
-    font-size:32px !important;
-  }
-
-  nav{
-    gap:16px;
-    font-size:14px;
-  }
-
-  header{
-    padding-left:10px;
-    padding-right:10px;
+  body{
+    overflow-x:hidden;
   }
 
 }
