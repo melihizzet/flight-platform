@@ -5,170 +5,278 @@ import Script from "next/script";
 export default function HomePage() {
   return (
     <>
-      <Script id="travelpayouts-widget" strategy="afterInteractive">
-        {`
-          (function () {
-            var script = document.createElement("script");
-            script.async = true;
-            script.type = "module";
-            script.src = "https://tpwdg.com/wl_web/main.js?wl_id=18030";
-            document.head.appendChild(script);
-          })();
-        `}
-      </Script>
+      <Script
+        id="travelpayouts"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            (function () {
+              var script = document.createElement("script");
+              script.async = true;
+              script.src = "https://tpwdg.com/wl_web/main.js?wl_id=18030";
+              document.body.appendChild(script);
+            })();
+          `,
+        }}
+      />
 
-      <main className="min-h-screen bg-[#020817] text-white overflow-x-hidden">
-
+      <main
+        style={{
+          minHeight: "100vh",
+          background: "#020617",
+          color: "white",
+          fontFamily: "Inter, sans-serif",
+        }}
+      >
         {/* HEADER */}
-        <header className="border-b border-white/10 backdrop-blur-xl sticky top-0 z-50 bg-[#020817]/90">
-          <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-
-            <div className="flex items-center gap-3">
-              <span className="text-3xl">✈️</span>
-              <h1 className="text-3xl font-black">UçGit</h1>
+        <header
+          style={{
+            borderBottom: "1px solid rgba(255,255,255,0.08)",
+            position: "sticky",
+            top: 0,
+            zIndex: 50,
+            background: "rgba(2,6,23,0.92)",
+            backdropFilter: "blur(12px)",
+          }}
+        >
+          <div
+            style={{
+              maxWidth: "1280px",
+              margin: "0 auto",
+              padding: "18px 24px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+            }}
+          >
+            <div
+              style={{
+                fontSize: "30px",
+                fontWeight: 900,
+              }}
+            >
+              ✈️ UçGit.com
             </div>
 
-            <nav className="hidden md:flex items-center gap-8 text-sm text-white/70">
+            <nav
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "28px",
+                fontWeight: 600,
+              }}
+            >
               <a href="#">Kampanyalar</a>
               <a href="#">Blog</a>
               <a href="#">İletişim</a>
               <a href="#">Hakkımızda</a>
-            </nav>
 
-            <div className="flex items-center gap-3">
-              <button className="text-sm text-white/80">
-                Giriş Yap
-              </button>
-
-              <button className="bg-blue-500 hover:bg-blue-400 transition px-5 py-2 rounded-xl text-sm font-semibold">
+              <button
+                style={{
+                  background: "#2563eb",
+                  border: "none",
+                  color: "white",
+                  padding: "12px 22px",
+                  borderRadius: "12px",
+                  fontWeight: 700,
+                  cursor: "pointer",
+                }}
+              >
                 Kayıt Ol
               </button>
-            </div>
-
+            </nav>
           </div>
         </header>
 
         {/* HERO */}
-        <section className="relative py-24 px-6">
+        <section
+          style={{
+            maxWidth: "1280px",
+            margin: "0 auto",
+            padding: "90px 24px 40px",
+            textAlign: "center",
+          }}
+        >
+          <p
+            style={{
+              color: "#3b82f6",
+              fontWeight: 700,
+              marginBottom: "18px",
+            }}
+          >
+            En uygun uçuşları saniyeler içinde bul
+          </p>
 
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.20),transparent_50%)]"></div>
+          <h1
+            style={{
+              fontSize: "72px",
+              fontWeight: 900,
+              lineHeight: 1,
+              marginBottom: "24px",
+            }}
+          >
+            Ucuza uçmanın{" "}
+            <span style={{ color: "#3b82f6" }}>
+              en kolay yolu
+            </span>
+          </h1>
 
-          <div className="max-w-7xl mx-auto relative z-10 text-center">
+          <p
+            style={{
+              color: "#94a3b8",
+              fontSize: "20px",
+              maxWidth: "900px",
+              margin: "0 auto 50px",
+              lineHeight: 1.6,
+            }}
+          >
+            Tüm havayollarını karşılaştır, gerçek zamanlı fiyatları gör ve en uygun bileti hemen bul.
+          </p>
 
-            <p className="text-blue-400 mb-6 text-sm">
-              En uygun uçuşları saniyeler içinde bul
-            </p>
-
-            <h1 className="text-6xl md:text-8xl font-black leading-tight mb-8">
-              Ucuza uçmanın{" "}
-              <span className="text-blue-500">en kolay yolu</span>
-            </h1>
-
-            <p className="text-xl text-white/60 max-w-3xl mx-auto mb-16">
-              Tüm havayollarını karşılaştır, gerçek zamanlı fiyatları gör ve
-              en uygun bileti hemen bul.
-            </p>
-
-            {/* SEARCH BOX */}
-            <div className="max-w-6xl mx-auto">
-
-              <div className="bg-white/10 backdrop-blur-2xl border border-white/10 rounded-[32px] p-6 shadow-2xl">
-
-                <div id="tpwl-search"></div>
-
-              </div>
-
-              {/* RESULTS */}
-              <div className="mt-10">
-                <div id="tpwl-tickets"></div>
-              </div>
-
-            </div>
-
+          {/* TP SEARCH */}
+          <div
+            style={{
+              background:
+                "linear-gradient(135deg,#172554,#1e293b)",
+              borderRadius: "28px",
+              padding: "28px",
+              overflow: "hidden",
+            }}
+          >
+            <div id="tpwl-search"></div>
           </div>
         </section>
 
         {/* AIRLINES */}
-        <section className="max-w-7xl mx-auto px-6 pb-20">
-
-          <div className="flex items-center justify-between mb-8">
-            <h2 className="text-4xl font-black">
+        <section
+          style={{
+            maxWidth: "1280px",
+            margin: "0 auto",
+            padding: "30px 24px",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              marginBottom: "30px",
+            }}
+          >
+            <h2
+              style={{
+                fontSize: "42px",
+                fontWeight: 800,
+              }}
+            >
               Popüler Havayolları
             </h2>
 
-            <button className="text-blue-400 text-sm">
+            <a
+              href="#"
+              style={{
+                color: "#3b82f6",
+                fontWeight: 600,
+              }}
+            >
               Tümünü Gör
-            </button>
+            </a>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5">
-
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns:
+                "repeat(auto-fit,minmax(180px,1fr))",
+              gap: "24px",
+            }}
+          >
             {[
-              {
-                name: "THY",
-                logo: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Turkish_Airlines_logo_2019_compact.svg"
-              },
-              {
-                name: "Pegasus",
-                logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Pegasus_Airlines_logo.svg/2560px-Pegasus_Airlines_logo.svg.png"
-              },
-              {
-                name: "Lufthansa",
-                logo: "https://upload.wikimedia.org/wikipedia/commons/d/d8/Lufthansa_Logo_2018.svg"
-              },
-              {
-                name: "Qatar",
-                logo: "https://upload.wikimedia.org/wikipedia/commons/0/04/Qatar_Airways_Logo.svg"
-              },
-              {
-                name: "Emirates",
-                logo: "https://upload.wikimedia.org/wikipedia/commons/d/d0/Emirates_logo.svg"
-              },
-              {
-                name: "British Airways",
-                logo: "https://upload.wikimedia.org/wikipedia/en/thumb/7/7b/British_Airways_Logo.svg/2560px-British_Airways_Logo.svg.png"
-              }
-            ].map((airline, index) => (
+              "THY",
+              "Pegasus",
+              "Lufthansa",
+              "Qatar",
+              "Emirates",
+              "British Airways",
+            ].map((airline) => (
               <div
-                key={index}
-                className="bg-white/5 border border-white/10 rounded-3xl p-6"
+                key={airline}
+                style={{
+                  background: "#0f172a",
+                  border:
+                    "1px solid rgba(255,255,255,0.08)",
+                  borderRadius: "22px",
+                  padding: "38px 20px",
+                  textAlign: "center",
+                  fontWeight: 700,
+                  fontSize: "20px",
+                }}
               >
-                <div className="h-14 flex items-center justify-center mb-4">
-                  <img
-                    src={airline.logo}
-                    alt={airline.name}
-                    className="max-h-10 object-contain"
-                  />
-                </div>
-
-                <p className="text-center text-sm font-semibold">
-                  {airline.name}
-                </p>
+                {airline}
               </div>
             ))}
           </div>
         </section>
 
         {/* FOOTER */}
-        <footer className="border-t border-white/10 py-16">
-
-          <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-12">
-
+        <footer
+          style={{
+            marginTop: "90px",
+            borderTop:
+              "1px solid rgba(255,255,255,0.08)",
+          }}
+        >
+          <div
+            style={{
+              maxWidth: "1280px",
+              margin: "0 auto",
+              padding: "60px 24px",
+              display: "grid",
+              gridTemplateColumns:
+                "2fr 1fr 1fr 1fr",
+              gap: "40px",
+            }}
+          >
             <div>
-              <div className="flex items-center gap-3 mb-5">
-                <span className="text-3xl">✈️</span>
-                <h3 className="text-3xl font-black">UçGit</h3>
-              </div>
+              <h2
+                style={{
+                  fontSize: "30px",
+                  fontWeight: 900,
+                  marginBottom: "18px",
+                }}
+              >
+                ✈️ UçGit.com
+              </h2>
 
-              <p className="text-white/50 leading-relaxed">
-                UçGit ile tüm havayollarını karşılaştırın ve en uygun uçuşları saniyeler içinde bulun.
+              <p
+                style={{
+                  color: "#94a3b8",
+                  lineHeight: 1.8,
+                }}
+              >
+                UçGit ile tüm havayollarını
+                karşılaştırın ve en uygun uçuşu
+                saniyeler içinde bulun.
               </p>
             </div>
 
             <div>
-              <h4 className="font-bold mb-5 text-lg">Menü</h4>
+              <h3
+                style={{
+                  marginBottom: "18px",
+                }}
+              >
+                Menü
+              </h3>
 
-              <div className="flex flex-col gap-3 text-white/50">
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "10px",
+                  color: "#94a3b8",
+                }}
+              >
                 <a href="#">Kampanyalar</a>
                 <a href="#">Blog</a>
                 <a href="#">İletişim</a>
@@ -177,32 +285,68 @@ export default function HomePage() {
             </div>
 
             <div>
-              <h4 className="font-bold mb-5 text-lg">Destek</h4>
+              <h3
+                style={{
+                  marginBottom: "18px",
+                }}
+              >
+                Destek
+              </h3>
 
-              <div className="flex flex-col gap-3 text-white/50">
-                <a href="#">Sık Sorulan Sorular</a>
-                <a href="#">Gizlilik Politikası</a>
-                <a href="#">Kullanım Şartları</a>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "10px",
+                  color: "#94a3b8",
+                }}
+              >
+                <a href="#">
+                  Sık Sorulan Sorular
+                </a>
+                <a href="#">
+                  Gizlilik Politikası
+                </a>
+                <a href="#">
+                  Kullanım Şartları
+                </a>
               </div>
             </div>
 
             <div>
-              <h4 className="font-bold mb-5 text-lg">İletişim</h4>
+              <h3
+                style={{
+                  marginBottom: "18px",
+                }}
+              >
+                İletişim
+              </h3>
 
-              <div className="flex flex-col gap-3 text-white/50">
-                <p>support@ucgit.com</p>
-                <p>info@ucgit.com</p>
+              <div
+                style={{
+                  color: "#94a3b8",
+                  lineHeight: 1.8,
+                }}
+              >
+                support@ucgit.com
+                <br />
+                info@ucgit.com
               </div>
             </div>
-
           </div>
 
-          <div className="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-white/10 text-center text-white/40">
+          <div
+            style={{
+              borderTop:
+                "1px solid rgba(255,255,255,0.08)",
+              textAlign: "center",
+              padding: "24px",
+              color: "#64748b",
+            }}
+          >
             © 2026 UçGit. Tüm hakları saklıdır.
           </div>
-
         </footer>
-
       </main>
     </>
   );
