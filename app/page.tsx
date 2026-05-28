@@ -1,16 +1,18 @@
-"use client";
-
-import Script from "next/script";
-
 export default function Home() {
   return (
-    <>
-      <div id="travelpayouts-widget"></div>
-
-      <Script
-        src="https://tpwdg.com/content?currency=USD"
-        strategy="afterInteractive"
-      />
-    </>
+    <main
+      style={{
+        minHeight: "100vh",
+        background: "#020817",
+        color: "white",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        fontSize: "40px",
+        fontWeight: "bold",
+      }}
+    >
+      UçGit Çalışıyor
+    </main>
   );
 }
