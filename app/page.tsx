@@ -3,19 +3,21 @@
 import { useState } from "react";
 
 export default function Home() {
+
   const [tripType, setTripType] = useState("Tek Yön");
 
   return (
     <main className="min-h-screen bg-[#020617] text-white overflow-hidden">
 
-      {/* BG */}
+      {/* BG GLOW */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1400px] h-[1400px] bg-blue-500/10 blur-[180px] rounded-full"></div>
 
       {/* NAVBAR */}
-      <nav className="relative z-50 border-b border-white/5 backdrop-blur-xl bg-[#020617]/70">
+      <nav className="relative z-50 border-b border-white/5 backdrop-blur-xl">
 
         <div className="max-w-[1700px] mx-auto px-8 py-6 flex items-center justify-between">
 
+          {/* LOGO */}
           <a
             href="/"
             className="text-5xl font-black tracking-tight flex items-center gap-3"
@@ -23,35 +25,55 @@ export default function Home() {
             ✈️ UçGit
           </a>
 
-          <div className="hidden lg:flex items-center gap-10 text-lg text-slate-300">
+          {/* MENU */}
+          <div className="hidden lg:flex items-center gap-10 text-sm font-medium text-slate-300">
 
-            <a href="#" className="hover:text-white transition">
-              Uçuşlar
-            </a>
-
-            <a href="#" className="hover:text-white transition">
+            <a
+              href="/campaigns"
+              className="hover:text-blue-400 transition"
+            >
               Kampanyalar
             </a>
 
-            <a href="#" className="hover:text-white transition">
+            <a
+              href="/blog"
+              className="hover:text-blue-400 transition"
+            >
               Blog
             </a>
 
-            <a href="#" className="hover:text-white transition">
+            <a
+              href="/contact"
+              className="hover:text-blue-400 transition"
+            >
               İletişim
+            </a>
+
+            <a
+              href="/about"
+              className="hover:text-blue-400 transition"
+            >
+              Hakkımızda
             </a>
 
           </div>
 
+          {/* AUTH */}
           <div className="flex items-center gap-4">
 
-            <button className="text-lg hover:text-blue-400 transition">
+            <a
+              href="/login"
+              className="hover:text-blue-400 transition"
+            >
               Giriş Yap
-            </button>
+            </a>
 
-            <button className="bg-blue-500 hover:bg-blue-600 transition px-6 py-3 rounded-2xl font-bold">
+            <a
+              href="/register"
+              className="bg-blue-500 hover:bg-blue-600 transition px-5 py-3 rounded-2xl font-bold"
+            >
               Kayıt Ol
-            </button>
+            </a>
 
           </div>
 
@@ -60,36 +82,39 @@ export default function Home() {
       </nav>
 
       {/* HERO */}
-      <section className="relative max-w-[1700px] mx-auto px-8 pt-24 pb-24">
+      <section className="relative max-w-[1700px] mx-auto px-8 pt-24 pb-16 text-center">
 
-        <div className="text-center">
+        <p className="text-blue-400 font-medium text-lg">
+          En uygun uçuşları saniyeler içinde bul
+        </p>
 
-          <p className="text-blue-400 text-xl font-semibold mb-6">
-            En uygun uçuşları saniyeler içinde bul
-          </p>
+        <h1 className="text-[80px] leading-[90px] font-black mt-8 tracking-tight">
 
-          <h1 className="text-7xl lg:text-8xl font-black leading-tight tracking-tight max-w-[1200px] mx-auto">
+          Ucuza uçmanın{" "}
 
-            Ucuza uçmanın
-            <span className="text-blue-500"> en kolay yolu</span>
+          <span className="text-blue-500">
+            en kolay yolu
+          </span>
 
-          </h1>
+        </h1>
 
-          <p className="text-slate-400 text-2xl mt-8 max-w-[900px] mx-auto leading-relaxed">
-            Tüm havayollarını karşılaştır, en iyi fiyatları bul ve direkt havayoluna git.
-          </p>
+        <p className="text-slate-400 text-xl mt-8 max-w-[900px] mx-auto leading-relaxed">
+          Tüm havayollarını karşılaştır, en iyi fiyatları bul ve direkt havayoluna git.
+        </p>
 
-        </div>
+      </section>
 
-        {/* SEARCH */}
-        <div className="mt-20 bg-white/10 border border-white/10 rounded-[40px] p-8 backdrop-blur-2xl shadow-2xl shadow-black/30 max-w-[1500px] mx-auto">
+      {/* SEARCH BOX */}
+      <section className="relative max-w-[1700px] mx-auto px-8">
 
-          {/* TOP */}
+        <div className="bg-white/10 border border-white/10 rounded-[40px] p-8 backdrop-blur-2xl shadow-2xl shadow-black/30">
+
+          {/* TOP FILTERS */}
           <div className="flex flex-wrap gap-4 mb-8">
 
             <button
               onClick={() => setTripType("Tek Yön")}
-              className={`px-6 py-4 rounded-2xl font-bold transition ${
+              className={`px-5 py-3 rounded-2xl font-bold transition ${
                 tripType === "Tek Yön"
                   ? "bg-blue-500"
                   : "bg-white/10 border border-white/10"
@@ -100,7 +125,7 @@ export default function Home() {
 
             <button
               onClick={() => setTripType("Gidiş - Dönüş")}
-              className={`px-6 py-4 rounded-2xl font-bold transition ${
+              className={`px-5 py-3 rounded-2xl font-bold transition ${
                 tripType === "Gidiş - Dönüş"
                   ? "bg-blue-500"
                   : "bg-white/10 border border-white/10"
@@ -109,42 +134,42 @@ export default function Home() {
               Gidiş - Dönüş
             </button>
 
-            <button className="bg-white/10 border border-white/10 px-6 py-4 rounded-2xl font-bold">
+            <button className="bg-white/10 border border-white/10 px-5 py-3 rounded-2xl font-bold">
               1 Yolcu
             </button>
 
-            <button className="bg-white/10 border border-white/10 px-6 py-4 rounded-2xl font-bold">
+            <button className="bg-white/10 border border-white/10 px-5 py-3 rounded-2xl font-bold">
               Economy
             </button>
 
           </div>
 
-          {/* INPUTS */}
+          {/* SEARCH FORM */}
           <div className="grid lg:grid-cols-5 gap-5">
 
             <input
               defaultValue="SAW - Sabiha Gökçen"
-              className="bg-slate-700/80 border border-white/10 rounded-3xl px-6 py-7 text-xl outline-none"
+              className="bg-slate-700/80 border border-white/10 rounded-3xl px-6 py-6 text-lg outline-none"
             />
 
             <input
               defaultValue="AMS - Amsterdam"
-              className="bg-slate-700/80 border border-white/10 rounded-3xl px-6 py-7 text-xl outline-none"
+              className="bg-slate-700/80 border border-white/10 rounded-3xl px-6 py-6 text-lg outline-none"
             />
 
             <input
               type="date"
-              className="bg-slate-700/80 border border-white/10 rounded-3xl px-6 py-7 text-xl outline-none"
+              className="bg-slate-700/80 border border-white/10 rounded-3xl px-6 py-6 text-lg outline-none"
             />
 
             <input
               type="date"
-              className="bg-slate-700/80 border border-white/10 rounded-3xl px-6 py-7 text-xl outline-none"
+              className="bg-slate-700/80 border border-white/10 rounded-3xl px-6 py-6 text-lg outline-none"
             />
 
             <a
-              href="/flights?from=SAW&to=AMS"
-              className="bg-gradient-to-r from-blue-500 to-blue-400 hover:scale-[1.02] transition rounded-3xl text-2xl font-black flex items-center justify-center shadow-xl shadow-blue-500/20"
+              href="/flights"
+              className="bg-blue-500 hover:bg-blue-600 transition rounded-3xl text-xl font-black flex items-center justify-center"
             >
               Uçuş Ara
             </a>
@@ -156,7 +181,7 @@ export default function Home() {
       </section>
 
       {/* AIRLINES */}
-      <section className="relative max-w-[1700px] mx-auto px-8 pb-24">
+      <section className="relative max-w-[1700px] mx-auto px-8 pt-20">
 
         <div className="flex items-center justify-between mb-10">
 
@@ -164,13 +189,16 @@ export default function Home() {
             Popüler Havayolları
           </h2>
 
-          <a href="#" className="text-blue-400 hover:text-blue-300">
+          <a
+            href="/flights"
+            className="text-blue-400"
+          >
             Tümünü Gör
           </a>
 
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-6 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
 
           {[
             "THY",
@@ -183,12 +211,12 @@ export default function Home() {
 
             <div
               key={index}
-              className="bg-white/10 border border-white/10 rounded-3xl p-8 text-center hover:border-blue-400/30 hover:bg-white/15 transition"
+              className="bg-white/10 border border-white/10 rounded-[30px] p-8 hover:border-blue-400/30 hover:scale-[1.02] transition text-center"
             >
 
               <div className="w-16 h-16 bg-white rounded-2xl mx-auto mb-5"></div>
 
-              <h3 className="text-xl font-bold">
+              <h3 className="font-bold text-lg">
                 {airline}
               </h3>
 
@@ -201,7 +229,7 @@ export default function Home() {
       </section>
 
       {/* ROUTES */}
-      <section className="relative max-w-[1700px] mx-auto px-8 pb-32">
+      <section className="relative max-w-[1700px] mx-auto px-8 pt-24 pb-24">
 
         <div className="flex items-center justify-between mb-10">
 
@@ -209,39 +237,38 @@ export default function Home() {
             En Popüler Rotalar
           </h2>
 
-          <a href="#" className="text-blue-400 hover:text-blue-300">
+          <a
+            href="/flights"
+            className="text-blue-400"
+          >
             Tümünü Gör
           </a>
 
         </div>
 
-        <div className="grid lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
 
           {[
             {
               city: "Amsterdam",
-              route: "İstanbul → Amsterdam",
               airline: "Pegasus",
               price: "2490₺",
             },
 
             {
               city: "Dubai",
-              route: "İstanbul → Dubai",
               airline: "Emirates",
               price: "6490₺",
             },
 
             {
               city: "Paris",
-              route: "İstanbul → Paris",
               airline: "Air France",
               price: "3190₺",
             },
 
             {
               city: "Londra",
-              route: "İstanbul → Londra",
               airline: "THY",
               price: "3890₺",
             },
@@ -249,18 +276,26 @@ export default function Home() {
 
             <div
               key={index}
-              className="bg-white/10 border border-white/10 rounded-[40px] overflow-hidden hover:border-blue-400/30 hover:scale-[1.01] transition"
+              className="bg-white/10 border border-white/10 rounded-[35px] overflow-hidden hover:border-blue-400/30 transition"
             >
 
-              <div className="h-[240px] bg-gradient-to-br from-blue-500/30 to-slate-700"></div>
+              <div className="h-[220px] bg-gradient-to-br from-slate-600 to-slate-800"></div>
 
               <div className="p-8">
 
                 <div className="flex items-center justify-between mb-5">
 
-                  <h3 className="text-4xl font-black">
-                    {route.city}
-                  </h3>
+                  <div>
+
+                    <h3 className="text-4xl font-black">
+                      {route.city}
+                    </h3>
+
+                    <p className="text-slate-400 mt-2">
+                      İstanbul → {route.city}
+                    </p>
+
+                  </div>
 
                   <p className="text-blue-400 text-sm">
                     {route.airline}
@@ -268,11 +303,7 @@ export default function Home() {
 
                 </div>
 
-                <p className="text-slate-400 text-lg mb-6">
-                  {route.route}
-                </p>
-
-                <div className="flex items-center justify-between">
+                <div className="flex items-end justify-between">
 
                   <div>
 
@@ -280,15 +311,15 @@ export default function Home() {
                       Başlayan fiyat
                     </p>
 
-                    <p className="text-4xl font-black mt-1">
+                    <h4 className="text-5xl font-black mt-2">
                       {route.price}
-                    </p>
+                    </h4>
 
                   </div>
 
                   <a
-                    href="/flights?from=SAW&to=AMS"
-                    className="bg-blue-500 hover:bg-blue-600 transition px-6 py-4 rounded-2xl font-bold"
+                    href="/flights"
+                    className="bg-blue-500 hover:bg-blue-600 transition px-5 py-3 rounded-2xl font-bold"
                   >
                     Uçuşları Gör
                   </a>
@@ -312,9 +343,9 @@ export default function Home() {
 
           <div>
 
-            <h2 className="text-4xl font-black">
+            <h3 className="text-3xl font-black">
               ✈️ UçGit
-            </h2>
+            </h3>
 
             <p className="text-slate-400 mt-3">
               Uygun uçuşları saniyeler içinde bul.
@@ -322,18 +353,18 @@ export default function Home() {
 
           </div>
 
-          <div className="flex items-center gap-10 text-slate-400">
+          <div className="flex items-center gap-8 text-slate-400">
 
-            <a href="#" className="hover:text-white transition">
+            <a href="/about">
               Hakkımızda
             </a>
 
-            <a href="#" className="hover:text-white transition">
+            <a href="/contact">
               İletişim
             </a>
 
-            <a href="#" className="hover:text-white transition">
-              Gizlilik
+            <a href="/login">
+              Giriş
             </a>
 
           </div>
