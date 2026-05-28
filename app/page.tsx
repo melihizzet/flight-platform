@@ -33,24 +33,49 @@ const airports = [
     city: "London",
     country: "United Kingdom",
   },
+  {
+    code: "DXB",
+    name: "Dubai International",
+    city: "Dubai",
+    country: "UAE",
+  },
 ];
 
 const destinations = [
   {
-    city: "Amsterdam",
-    country: "Netherlands",
+    from: "Istanbul",
+    to: "Amsterdam",
     price: "2.490₺",
+    airline: "Pegasus",
   },
   {
-    city: "Dubai",
-    country: "UAE",
+    from: "Istanbul",
+    to: "Dubai",
     price: "4.120₺",
+    airline: "THY",
   },
   {
-    city: "London",
-    country: "United Kingdom",
+    from: "Istanbul",
+    to: "London",
     price: "3.890₺",
+    airline: "British Airways",
   },
+  {
+    from: "Istanbul",
+    to: "Paris",
+    price: "2.990₺",
+    airline: "Air France",
+  },
+];
+
+const airlines = [
+  "THY",
+  "Pegasus",
+  "Lufthansa",
+  "Emirates",
+  "KLM",
+  "Air France",
+  "British Airways",
 ];
 
 export default function Home() {
@@ -89,7 +114,7 @@ export default function Home() {
     <main className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-800 text-white overflow-hidden">
 
       {/* Glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-blue-500/10 blur-[180px] rounded-full"></div>
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[900px] bg-blue-500/10 blur-[200px] rounded-full"></div>
 
       {/* Navbar */}
       <nav className="relative z-10 flex items-center justify-between px-6 lg:px-8 py-6 max-w-7xl mx-auto">
@@ -294,23 +319,23 @@ export default function Home() {
 
           </div>
 
-          {/* Button */}
+          {/* Search Button */}
           <button className="w-full mt-6 bg-blue-500 hover:bg-blue-600 transition rounded-2xl p-5 text-lg font-bold shadow-lg shadow-blue-500/30">
             Uçuş Ara
           </button>
 
         </div>
 
-        {/* Airline Logos */}
+        {/* Airlines */}
         <div className="mt-16">
 
           <p className="text-slate-400 text-sm mb-6 text-center">
-            Popüler Havayolları
+            En Çok Kullanılan Havayolları
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-6">
 
-            {["THY", "Pegasus", "Lufthansa", "Emirates", "KLM"].map((airline) => (
+            {airlines.map((airline) => (
               <div
                 key={airline}
                 className="bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-lg font-semibold text-slate-300 hover:bg-white/10 transition"
@@ -323,13 +348,13 @@ export default function Home() {
 
         </div>
 
-        {/* Popular Destinations */}
+        {/* Popular Routes */}
         <div className="mt-24">
 
           <div className="flex items-center justify-between mb-8">
 
             <h3 className="text-3xl font-bold">
-              Popüler Rotalar
+              En Popüler Rotalar
             </h3>
 
             <button className="text-blue-400 hover:text-blue-300">
@@ -338,44 +363,48 @@ export default function Home() {
 
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
 
             {destinations.map((destination) => (
 
               <div
-                key={destination.city}
+                key={destination.to}
                 className="bg-white/10 border border-white/10 rounded-3xl p-6 hover:bg-white/15 transition cursor-pointer"
               >
 
-                <div className="h-44 rounded-2xl bg-gradient-to-br from-blue-500/30 to-slate-700 mb-5"></div>
+                <div className="h-40 rounded-2xl bg-gradient-to-br from-blue-500/30 to-slate-700 mb-5"></div>
 
-                <h4 className="text-2xl font-bold">
-                  {destination.city}
-                </h4>
-
-                <p className="text-slate-400 mt-1">
-                  {destination.country}
-                </p>
-
-                <div className="mt-6 flex items-center justify-between">
+                <div className="flex items-center justify-between">
 
                   <div>
 
-                    <p className="text-sm text-slate-400">
-                      Başlayan fiyat
+                    <h4 className="text-2xl font-bold">
+                      {destination.to}
+                    </h4>
+
+                    <p className="text-slate-400">
+                      {destination.from} → {destination.to}
                     </p>
 
-                    <p className="text-2xl font-bold">
+                  </div>
+
+                  <div className="text-right">
+
+                    <p className="text-sm text-slate-400">
+                      {destination.airline}
+                    </p>
+
+                    <p className="text-xl font-bold">
                       {destination.price}
                     </p>
 
                   </div>
 
-                  <button className="bg-blue-500 hover:bg-blue-600 transition px-5 py-3 rounded-xl font-semibold">
-                    İncele
-                  </button>
-
                 </div>
+
+                <button className="w-full mt-6 bg-blue-500 hover:bg-blue-600 transition py-3 rounded-xl font-semibold">
+                  Uçuşları Gör
+                </button>
 
               </div>
 
