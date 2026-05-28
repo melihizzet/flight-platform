@@ -41,41 +41,37 @@ const airports = [
   },
 ];
 
-const destinations = [
+const flights = [
   {
-    from: "Istanbul",
-    to: "Amsterdam",
-    price: "2.490₺",
     airline: "Pegasus",
+    from: "SAW",
+    to: "AMS",
+    departure: "08:30",
+    arrival: "11:20",
+    duration: "3s 50dk",
+    direct: true,
+    price: "2.490₺",
   },
   {
-    from: "Istanbul",
-    to: "Dubai",
-    price: "4.120₺",
     airline: "THY",
-  },
-  {
-    from: "Istanbul",
-    to: "London",
+    from: "IST",
+    to: "LHR",
+    departure: "10:15",
+    arrival: "13:50",
+    duration: "4s 35dk",
+    direct: true,
     price: "3.890₺",
-    airline: "British Airways",
   },
   {
-    from: "Istanbul",
-    to: "Paris",
+    airline: "Lufthansa",
+    from: "IST",
+    to: "CDG",
+    departure: "07:10",
+    arrival: "11:40",
+    duration: "5s 30dk",
+    direct: false,
     price: "2.990₺",
-    airline: "Air France",
   },
-];
-
-const airlines = [
-  "THY",
-  "Pegasus",
-  "Lufthansa",
-  "Emirates",
-  "KLM",
-  "Air France",
-  "British Airways",
 ];
 
 export default function Home() {
@@ -91,6 +87,8 @@ export default function Home() {
   const [passengers, setPassengers] = useState(1);
 
   const [cabin, setCabin] = useState("Economy");
+
+  const [showResults, setShowResults] = useState(false);
 
   const filteredFrom = airports.filter((airport) =>
     airport.code.toLowerCase().includes(fromAirport.toLowerCase()) ||
@@ -320,138 +318,129 @@ export default function Home() {
           </div>
 
           {/* Search Button */}
-          <button className="w-full mt-8 bg-blue-500 hover:bg-blue-600 transition rounded-3xl p-7 text-2xl font-black shadow-lg shadow-blue-500/30">
+          <button
+            onClick={() => setShowResults(true)}
+            className="w-full mt-8 bg-blue-500 hover:bg-blue-600 transition rounded-3xl p-7 text-2xl font-black shadow-lg shadow-blue-500/30"
+          >
             Uçuş Ara
           </button>
 
         </div>
 
-        {/* Airlines */}
-        <div className="mt-24">
+        {/* Results */}
+        {showResults && (
 
-          <p className="text-slate-400 text-xl mb-8 text-center">
-            En Çok Kullanılan Havayolları
-          </p>
+          <div className="mt-24">
 
-          <div className="flex flex-wrap items-center justify-center gap-6">
+            <div className="flex items-center justify-between mb-10">
 
-            {airlines.map((airline) => (
-              <div
-                key={airline}
-                className="bg-white/5 border border-white/10 rounded-3xl px-8 py-5 text-2xl font-bold text-slate-300 hover:bg-white/10 transition"
-              >
-                {airline}
-              </div>
-            ))}
+              <h3 className="text-5xl font-black">
+                Uçuş Sonuçları
+              </h3>
 
-          </div>
+              <p className="text-slate-400 text-2xl">
+                {flights.length} uçuş bulundu
+              </p>
 
-        </div>
+            </div>
 
-        {/* Popular Routes */}
-        <div className="mt-32">
+            <div className="space-y-6">
 
-          <div className="flex items-center justify-between mb-10">
+              {flights.map((flight, index) => (
 
-            <h3 className="text-5xl font-black">
-              En Popüler Rotalar
-            </h3>
+                <div
+                  key={index}
+                  className="bg-white/10 border border-white/10 rounded-[36px] p-8 hover:bg-white/15 transition"
+                >
 
-            <button className="text-blue-400 hover:text-blue-300 text-2xl">
-              Tümünü Gör
-            </button>
+                  <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
 
-          </div>
+                    {/* Airline */}
+                    <div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                      <p className="text-slate-400 text-lg">
+                        Havayolu
+                      </p>
 
-            {destinations.map((destination) => (
+                      <h4 className="text-3xl font-black mt-2">
+                        {flight.airline}
+                      </h4>
 
-              <div
-                key={destination.to}
-                className="bg-white/10 border border-white/10 rounded-[36px] p-7 hover:bg-white/15 transition cursor-pointer"
-              >
+                    </div>
 
-                <div className="h-64 rounded-3xl bg-gradient-to-br from-blue-500/30 to-slate-700 mb-6"></div>
+                    {/* Flight */}
+                    <div className="flex items-center gap-8">
 
-                <div className="flex items-center justify-between">
+                      <div>
 
-                  <div>
+                        <p className="text-4xl font-black">
+                          {flight.departure}
+                        </p>
 
-                    <h4 className="text-3xl font-black">
-                      {destination.to}
-                    </h4>
+                        <p className="text-slate-400 mt-1">
+                          {flight.from}
+                        </p>
 
-                    <p className="text-slate-400 text-lg mt-1">
-                      {destination.from} → {destination.to}
-                    </p>
+                      </div>
 
-                  </div>
+                      <div className="text-center">
 
-                  <div className="text-right">
+                        <p className="text-slate-400">
+                          {flight.duration}
+                        </p>
 
-                    <p className="text-base text-slate-400">
-                      {destination.airline}
-                    </p>
+                        <div className="w-32 h-[2px] bg-white/20 my-3"></div>
 
-                    <p className="text-3xl font-black">
-                      {destination.price}
-                    </p>
+                        <p className="text-sm text-blue-400">
+                          {flight.direct ? "Direkt Uçuş" : "Aktarmalı"}
+                        </p>
+
+                      </div>
+
+                      <div>
+
+                        <p className="text-4xl font-black">
+                          {flight.arrival}
+                        </p>
+
+                        <p className="text-slate-400 mt-1">
+                          {flight.to}
+                        </p>
+
+                      </div>
+
+                    </div>
+
+                    {/* Price */}
+                    <div className="text-right">
+
+                      <p className="text-slate-400 text-lg">
+                        Kişi başı
+                      </p>
+
+                      <p className="text-5xl font-black mt-2">
+                        {flight.price}
+                      </p>
+
+                      <button className="bg-blue-500 hover:bg-blue-600 transition px-8 py-4 rounded-2xl mt-5 font-bold text-xl">
+                        Siteye Git
+                      </button>
+
+                    </div>
 
                   </div>
 
                 </div>
 
-                <button className="w-full mt-7 bg-blue-500 hover:bg-blue-600 transition py-5 rounded-2xl font-bold text-xl">
-                  Uçuşları Gör
-                </button>
+              ))}
 
-              </div>
-
-            ))}
+            </div>
 
           </div>
 
-        </div>
+        )}
 
       </section>
-
-      {/* Footer */}
-      <footer className="border-t border-white/10 mt-32">
-
-        <div className="max-w-[1600px] mx-auto px-8 py-12 flex flex-col lg:flex-row items-center justify-between gap-8">
-
-          <div>
-
-            <h3 className="text-4xl font-black">
-              ✈️ UçGit
-            </h3>
-
-            <p className="text-slate-400 mt-3 text-xl">
-              Uygun uçuşları saniyeler içinde bul.
-            </p>
-
-          </div>
-
-          <div className="flex items-center gap-8 text-slate-400 text-xl">
-
-            <button className="hover:text-white transition">
-              Hakkımızda
-            </button>
-
-            <button className="hover:text-white transition">
-              İletişim
-            </button>
-
-            <button className="hover:text-white transition">
-              Gizlilik
-            </button>
-
-          </div>
-
-        </div>
-
-      </footer>
 
     </main>
   );
