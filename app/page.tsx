@@ -327,10 +327,10 @@ export default function Home() {
 
         </div>
 
-        {/* Results */}
+        {/* RESULTS */}
         {showResults && (
 
-          <div className="mt-24">
+          <div className="mt-24 max-w-7xl mx-auto">
 
             <div className="flex items-center justify-between mb-10">
 
