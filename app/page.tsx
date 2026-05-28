@@ -2,139 +2,133 @@
 
 import { useState } from "react";
 
-export default function FlightsPage() {
+const airports = [
+  {
+    code: "SAW",
+    name: "Sabiha Gokcen Airport",
+    city: "Istanbul",
+    country: "Turkey",
+  },
+  {
+    code: "IST",
+    name: "Istanbul Airport",
+    city: "Istanbul",
+    country: "Turkey",
+  },
+  {
+    code: "AMS",
+    name: "Amsterdam Schiphol",
+    city: "Amsterdam",
+    country: "Netherlands",
+  },
+  {
+    code: "CDG",
+    name: "Charles de Gaulle",
+    city: "Paris",
+    country: "France",
+  },
+  {
+    code: "LHR",
+    name: "Heathrow",
+    city: "London",
+    country: "United Kingdom",
+  },
+  {
+    code: "DXB",
+    name: "Dubai International",
+    city: "Dubai",
+    country: "UAE",
+  },
+];
 
-  const flights = [
-    {
-      airline: "Pegasus",
-      from: "SAW",
-      to: "AMS",
-      departure: "08:30",
-      arrival: "11:20",
-      duration: "3s 50dk",
-      stops: 0,
-      baggage: true,
-      price: 2490,
-    },
-    {
-      airline: "THY",
-      from: "IST",
-      to: "LHR",
-      departure: "10:15",
-      arrival: "13:50",
-      duration: "4s 35dk",
-      stops: 0,
-      baggage: true,
-      price: 3890,
-    },
-    {
-      airline: "Lufthansa",
-      from: "IST",
-      to: "CDG",
-      departure: "07:10",
-      arrival: "11:40",
-      duration: "5s 30dk",
-      stops: 1,
-      baggage: false,
-      price: 2990,
-    },
-    {
-      airline: "Emirates",
-      from: "IST",
-      to: "DXB",
-      departure: "13:40",
-      arrival: "19:10",
-      duration: "4s 30dk",
-      stops: 0,
-      baggage: true,
-      price: 6490,
-    },
-  ];
+const airlines = [
+  "THY",
+  "Pegasus",
+  "Lufthansa",
+  "Emirates",
+  "KLM",
+  "Air France",
+  "British Airways",
+];
 
-  const [maxPrice, setMaxPrice] = useState(7000);
+const destinations = [
+  {
+    from: "Istanbul",
+    to: "Amsterdam",
+    price: "2.490₺",
+    airline: "Pegasus",
+  },
+  {
+    from: "Istanbul",
+    to: "Dubai",
+    price: "4.120₺",
+    airline: "THY",
+  },
+  {
+    from: "Istanbul",
+    to: "London",
+    price: "3.890₺",
+    airline: "British Airways",
+  },
+  {
+    from: "Istanbul",
+    to: "Paris",
+    price: "2.990₺",
+    airline: "Air France",
+  },
+];
 
-  const [directOnly, setDirectOnly] = useState(false);
+export default function Home() {
 
-  const [bagOnly, setBagOnly] = useState(false);
+  const [tripType, setTripType] = useState("roundtrip");
 
-  const [selectedAirlines, setSelectedAirlines] = useState<string[]>([]);
+  const [fromAirport, setFromAirport] = useState("");
+  const [toAirport, setToAirport] = useState("");
 
-  const [adult, setAdult] = useState(1);
-  const [child, setChild] = useState(0);
-  const [infant, setInfant] = useState(0);
+  const [fromOpen, setFromOpen] = useState(false);
+  const [toOpen, setToOpen] = useState(false);
 
-  const airlines = [
-    "Pegasus",
-    "THY",
-    "Lufthansa",
-    "Emirates",
-  ];
+  const [passengers, setPassengers] = useState(1);
 
-  const toggleAirline = (airline: string) => {
+  const [cabin, setCabin] = useState("Economy");
 
-    if (selectedAirlines.includes(airline)) {
+  const filteredFrom = airports.filter((airport) =>
+    airport.code.toLowerCase().includes(fromAirport.toLowerCase()) ||
+    airport.name.toLowerCase().includes(fromAirport.toLowerCase()) ||
+    airport.city.toLowerCase().includes(fromAirport.toLowerCase())
+  );
 
-      setSelectedAirlines(
-        selectedAirlines.filter((a) => a !== airline)
-      );
+  const filteredTo = airports.filter((airport) =>
+    airport.code.toLowerCase().includes(toAirport.toLowerCase()) ||
+    airport.name.toLowerCase().includes(toAirport.toLowerCase()) ||
+    airport.city.toLowerCase().includes(toAirport.toLowerCase())
+  );
 
-    } else {
-
-      setSelectedAirlines([
-        ...selectedAirlines,
-        airline,
-      ]);
-
-    }
-
+  const swapAirports = () => {
+    const temp = fromAirport;
+    setFromAirport(toAirport);
+    setToAirport(temp);
   };
 
-  const filteredFlights = flights.filter((flight) => {
-
-    const matchesPrice = flight.price <= maxPrice;
-
-    const matchesDirect = directOnly
-      ? flight.stops === 0
-      : true;
-
-    const matchesBag = bagOnly
-      ? flight.baggage
-      : true;
-
-    const matchesAirline =
-      selectedAirlines.length === 0
-        ? true
-        : selectedAirlines.includes(flight.airline);
-
-    return (
-      matchesPrice &&
-      matchesDirect &&
-      matchesBag &&
-      matchesAirline
-    );
-
-  });
-
   return (
-    <main className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-800 text-white">
+    <main className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-800 text-white overflow-hidden">
 
-      {/* NAVBAR */}
-      <nav className="flex items-center justify-between px-8 py-8 max-w-[1700px] mx-auto">
+      <div className="absolute top-[-250px] left-1/2 -translate-x-1/2 w-[1200px] h-[1200px] bg-blue-500/20 blur-[220px] rounded-full"></div>
 
-        <a
-          href="/"
-          className="text-5xl font-black"
-        >
+      {/* Navbar */}
+      <nav className="relative z-10 flex items-center justify-between px-8 py-8 max-w-[1600px] mx-auto">
+
+        <h1 className="text-5xl font-black tracking-tight">
           ✈️ UçGit
-        </a>
+        </h1>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-5">
 
           <button className="text-lg hover:text-blue-400 transition">
             Giriş Yap
           </button>
 
-          <button className="bg-blue-500 hover:bg-blue-600 transition px-7 py-3 rounded-2xl font-bold">
+          <button className="bg-blue-500 hover:bg-blue-600 transition px-7 py-3 rounded-2xl font-bold shadow-lg shadow-blue-500/30 text-lg">
             Kayıt Ol
           </button>
 
@@ -142,395 +136,324 @@ export default function FlightsPage() {
 
       </nav>
 
-      {/* SEARCH TOP */}
-      <section className="max-w-[1700px] mx-auto px-8 pt-10">
+      {/* Hero */}
+      <section className="relative z-10 max-w-[1600px] mx-auto px-8 pt-24 pb-32">
 
-        <div className="bg-white/10 border border-white/10 rounded-[36px] p-8 backdrop-blur-xl">
+        <div className="text-center">
 
-          <div className="grid lg:grid-cols-5 gap-5">
+          <p className="text-blue-400 font-bold mb-6 text-2xl">
+            En uygun uçuşları saniyeler içinde bul
+          </p>
 
-            <input
-              defaultValue="SAW - Sabiha Gokcen"
-              className="bg-slate-700 border border-white/10 rounded-3xl p-6 text-xl outline-none"
-            />
+          <h2 className="text-7xl lg:text-8xl font-black leading-tight max-w-6xl mx-auto">
+            Ucuza uçmanın
+            <span className="text-blue-400"> en kolay yolu</span>
+          </h2>
 
-            <input
-              defaultValue="AMS - Amsterdam"
-              className="bg-slate-700 border border-white/10 rounded-3xl p-6 text-xl outline-none"
-            />
+          <p className="text-slate-300 mt-10 text-3xl max-w-4xl mx-auto leading-relaxed">
+            Tüm uçuşları karşılaştır, en iyi fiyatı bul ve direkt havayoluna git.
+          </p>
 
-            <input
-              type="date"
-              className="bg-slate-700 border border-white/10 rounded-3xl p-6 text-xl outline-none"
-            />
+        </div>
 
-            <div className="bg-slate-700 border border-white/10 rounded-3xl p-6 text-xl">
+        {/* Search */}
+        <div className="bg-white/10 backdrop-blur-2xl border border-white/10 rounded-[40px] p-10 mt-20 shadow-2xl max-w-7xl mx-auto">
 
-              <div className="space-y-4">
+          {/* Controls */}
+          <div className="flex flex-wrap gap-5 mb-8">
 
-                <div className="flex items-center justify-between">
+            <select
+              value={tripType}
+              onChange={(e) => setTripType(e.target.value)}
+              className="bg-slate-700 border border-white/10 rounded-2xl px-6 py-4 outline-none text-white text-xl"
+            >
+              <option value="roundtrip">Gidiş - Dönüş</option>
+              <option value="oneway">Tek Yön</option>
+            </select>
 
-                  <span>Yetişkin</span>
+            <select
+              value={passengers}
+              onChange={(e) => setPassengers(Number(e.target.value))}
+              className="bg-slate-700 border border-white/10 rounded-2xl px-6 py-4 outline-none text-white text-xl"
+            >
+              <option value={1}>1 Yolcu</option>
+              <option value={2}>2 Yolcu</option>
+              <option value={3}>3 Yolcu</option>
+              <option value={4}>4 Yolcu</option>
+            </select>
 
-                  <div className="flex items-center gap-3">
+            <select
+              value={cabin}
+              onChange={(e) => setCabin(e.target.value)}
+              className="bg-slate-700 border border-white/10 rounded-2xl px-6 py-4 outline-none text-white text-xl"
+            >
+              <option>Economy</option>
+              <option>Premium Economy</option>
+              <option>Business</option>
+              <option>First Class</option>
+            </select>
 
-                    <button
-                      onClick={() =>
-                        setAdult(Math.max(1, adult - 1))
-                      }
-                      className="bg-slate-600 w-8 h-8 rounded-full"
+          </div>
+
+          {/* Main Search */}
+          <div className="grid lg:grid-cols-5 gap-5 items-center">
+
+            {/* From */}
+            <div className="relative">
+
+              <input
+                type="text"
+                value={fromAirport}
+                placeholder="Nereden?"
+                onFocus={() => setFromOpen(true)}
+                onChange={(e) => {
+                  setFromAirport(e.target.value);
+                  setFromOpen(true);
+                }}
+                className="bg-slate-700 border border-white/10 rounded-3xl p-6 text-2xl outline-none w-full text-white"
+              />
+
+              {fromOpen && fromAirport.length > 0 && (
+                <div className="absolute top-28 left-0 w-full bg-slate-800 border border-white/10 rounded-3xl overflow-hidden z-50 shadow-2xl">
+
+                  {filteredFrom.map((airport) => (
+                    <div
+                      key={airport.code}
+                      onClick={() => {
+                        setFromAirport(
+                          `${airport.code} - ${airport.name}`
+                        );
+                        setFromOpen(false);
+                      }}
+                      className="p-6 hover:bg-slate-700 cursor-pointer border-b border-white/5"
                     >
-                      -
-                    </button>
 
-                    <span>{adult}</span>
+                      <div className="font-bold text-xl">
+                        {airport.code} - {airport.name}
+                      </div>
 
-                    <button
-                      onClick={() =>
-                        setAdult(adult + 1)
-                      }
-                      className="bg-slate-600 w-8 h-8 rounded-full"
-                    >
-                      +
-                    </button>
+                      <div className="text-base text-slate-400 mt-1">
+                        {airport.city}, {airport.country}
+                      </div>
 
-                  </div>
+                    </div>
+                  ))}
 
                 </div>
-
-                <div className="flex items-center justify-between">
-
-                  <span>Çocuk</span>
-
-                  <div className="flex items-center gap-3">
-
-                    <button
-                      onClick={() =>
-                        setChild(Math.max(0, child - 1))
-                      }
-                      className="bg-slate-600 w-8 h-8 rounded-full"
-                    >
-                      -
-                    </button>
-
-                    <span>{child}</span>
-
-                    <button
-                      onClick={() =>
-                        setChild(child + 1)
-                      }
-                      className="bg-slate-600 w-8 h-8 rounded-full"
-                    >
-                      +
-                    </button>
-
-                  </div>
-
-                </div>
-
-                <div className="flex items-center justify-between">
-
-                  <span>Bebek</span>
-
-                  <div className="flex items-center gap-3">
-
-                    <button
-                      onClick={() =>
-                        setInfant(Math.max(0, infant - 1))
-                      }
-                      className="bg-slate-600 w-8 h-8 rounded-full"
-                    >
-                      -
-                    </button>
-
-                    <span>{infant}</span>
-
-                    <button
-                      onClick={() =>
-                        setInfant(infant + 1)
-                      }
-                      className="bg-slate-600 w-8 h-8 rounded-full"
-                    >
-                      +
-                    </button>
-
-                  </div>
-
-                </div>
-
-              </div>
+              )}
 
             </div>
 
-            <button className="bg-blue-500 hover:bg-blue-600 transition rounded-3xl text-xl font-black">
-              Güncelle
+            {/* Swap */}
+            <button
+              onClick={swapAirports}
+              className="hidden lg:flex items-center justify-center bg-slate-700 hover:bg-slate-600 border border-white/10 rounded-3xl h-[88px] text-4xl transition"
+            >
+              ↔
+            </button>
+
+            {/* To */}
+            <div className="relative">
+
+              <input
+                type="text"
+                value={toAirport}
+                placeholder="Nereye?"
+                onFocus={() => setToOpen(true)}
+                onChange={(e) => {
+                  setToAirport(e.target.value);
+                  setToOpen(true);
+                }}
+                className="bg-slate-700 border border-white/10 rounded-3xl p-6 text-2xl outline-none w-full text-white"
+              />
+
+              {toOpen && toAirport.length > 0 && (
+                <div className="absolute top-28 left-0 w-full bg-slate-800 border border-white/10 rounded-3xl overflow-hidden z-50 shadow-2xl">
+
+                  {filteredTo.map((airport) => (
+                    <div
+                      key={airport.code}
+                      onClick={() => {
+                        setToAirport(
+                          `${airport.code} - ${airport.name}`
+                        );
+                        setToOpen(false);
+                      }}
+                      className="p-6 hover:bg-slate-700 cursor-pointer border-b border-white/5"
+                    >
+
+                      <div className="font-bold text-xl">
+                        {airport.code} - {airport.name}
+                      </div>
+
+                      <div className="text-base text-slate-400 mt-1">
+                        {airport.city}, {airport.country}
+                      </div>
+
+                    </div>
+                  ))}
+
+                </div>
+              )}
+
+            </div>
+
+            {/* Departure */}
+            <input
+              type="date"
+              className="bg-slate-700 border border-white/10 rounded-3xl p-6 text-2xl outline-none text-white"
+            />
+
+            {/* Return */}
+            {tripType === "roundtrip" ? (
+              <input
+                type="date"
+                className="bg-slate-700 border border-white/10 rounded-3xl p-6 text-2xl outline-none text-white"
+              />
+            ) : (
+              <div className="bg-slate-700 border border-white/10 rounded-3xl p-6 flex items-center text-slate-400 text-2xl">
+                Dönüş yok
+              </div>
+            )}
+
+          </div>
+
+          {/* SEARCH BUTTON */}
+          <a
+            href="/flights"
+            className="w-full mt-8 bg-blue-500 hover:bg-blue-600 transition rounded-3xl p-7 text-2xl font-black shadow-lg shadow-blue-500/30 flex items-center justify-center"
+          >
+            Uçuş Ara
+          </a>
+
+        </div>
+
+        {/* Airlines */}
+        <div className="mt-24">
+
+          <p className="text-slate-400 text-xl mb-8 text-center">
+            En Çok Kullanılan Havayolları
+          </p>
+
+          <div className="flex flex-wrap items-center justify-center gap-6">
+
+            {airlines.map((airline) => (
+              <div
+                key={airline}
+                className="bg-white/5 border border-white/10 rounded-3xl px-8 py-5 text-2xl font-bold text-slate-300 hover:bg-white/10 transition"
+              >
+                {airline}
+              </div>
+            ))}
+
+          </div>
+
+        </div>
+
+        {/* Popular Routes */}
+        <div className="mt-32">
+
+          <div className="flex items-center justify-between mb-10">
+
+            <h3 className="text-5xl font-black">
+              En Popüler Rotalar
+            </h3>
+
+            <button className="text-blue-400 hover:text-blue-300 text-2xl">
+              Tümünü Gör
+            </button>
+
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+            {destinations.map((destination) => (
+
+              <div
+                key={destination.to}
+                className="bg-white/10 border border-white/10 rounded-[36px] p-7 hover:bg-white/15 transition cursor-pointer"
+              >
+
+                <div className="h-64 rounded-3xl bg-gradient-to-br from-blue-500/30 to-slate-700 mb-6"></div>
+
+                <div className="flex items-center justify-between">
+
+                  <div>
+
+                    <h4 className="text-3xl font-black">
+                      {destination.to}
+                    </h4>
+
+                    <p className="text-slate-400 text-lg mt-1">
+                      {destination.from} → {destination.to}
+                    </p>
+
+                  </div>
+
+                  <div className="text-right">
+
+                    <p className="text-base text-slate-400">
+                      {destination.airline}
+                    </p>
+
+                    <p className="text-3xl font-black">
+                      {destination.price}
+                    </p>
+
+                  </div>
+
+                </div>
+
+                <button className="w-full mt-7 bg-blue-500 hover:bg-blue-600 transition py-5 rounded-2xl font-bold text-xl">
+                  Uçuşları Gör
+                </button>
+
+              </div>
+
+            ))}
+
+          </div>
+
+        </div>
+
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t border-white/10 mt-32">
+
+        <div className="max-w-[1600px] mx-auto px-8 py-12 flex flex-col lg:flex-row items-center justify-between gap-8">
+
+          <div>
+
+            <h3 className="text-4xl font-black">
+              ✈️ UçGit
+            </h3>
+
+            <p className="text-slate-400 mt-3 text-xl">
+              Uygun uçuşları saniyeler içinde bul.
+            </p>
+
+          </div>
+
+          <div className="flex items-center gap-8 text-slate-400 text-xl">
+
+            <button className="hover:text-white transition">
+              Hakkımızda
+            </button>
+
+            <button className="hover:text-white transition">
+              İletişim
+            </button>
+
+            <button className="hover:text-white transition">
+              Gizlilik
             </button>
 
           </div>
 
         </div>
 
-      </section>
-
-      {/* CONTENT */}
-      <section className="max-w-[1700px] mx-auto px-8 py-20">
-
-        <div className="grid lg:grid-cols-[350px_1fr] gap-10">
-
-          {/* FILTERS */}
-          <div className="bg-white/10 border border-white/10 rounded-[36px] p-8 h-fit sticky top-10">
-
-            <h2 className="text-4xl font-black mb-10">
-              Filtreler
-            </h2>
-
-            {/* Price */}
-            <div className="mb-10">
-
-              <div className="flex items-center justify-between mb-4">
-
-                <p className="text-2xl font-bold">
-                  Fiyat
-                </p>
-
-                <p className="text-blue-400 font-bold">
-                  {maxPrice}₺
-                </p>
-
-              </div>
-
-              <input
-                type="range"
-                min="1000"
-                max="7000"
-                value={maxPrice}
-                onChange={(e) =>
-                  setMaxPrice(Number(e.target.value))
-                }
-                className="w-full"
-              />
-
-            </div>
-
-            {/* Checkboxes */}
-            <div className="space-y-5 mb-10">
-
-              <label className="flex items-center gap-4 text-xl">
-
-                <input
-                  type="checkbox"
-                  checked={directOnly}
-                  onChange={() =>
-                    setDirectOnly(!directOnly)
-                  }
-                />
-
-                Direkt Uçuş
-
-              </label>
-
-              <label className="flex items-center gap-4 text-xl">
-
-                <input
-                  type="checkbox"
-                  checked={bagOnly}
-                  onChange={() =>
-                    setBagOnly(!bagOnly)
-                  }
-                />
-
-                Bagaj Dahil
-
-              </label>
-
-            </div>
-
-            {/* Airlines */}
-            <div>
-
-              <p className="text-2xl font-bold mb-6">
-                Havayolları
-              </p>
-
-              <div className="space-y-4">
-
-                {airlines.map((airline) => (
-
-                  <label
-                    key={airline}
-                    className="flex items-center gap-4 text-xl"
-                  >
-
-                    <input
-                      type="checkbox"
-                      checked={selectedAirlines.includes(
-                        airline
-                      )}
-                      onChange={() =>
-                        toggleAirline(airline)
-                      }
-                    />
-
-                    {airline}
-
-                  </label>
-
-                ))}
-
-              </div>
-
-            </div>
-
-          </div>
-
-          {/* RESULTS */}
-          <div>
-
-            {/* Top */}
-            <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 mb-14">
-
-              <div>
-
-                <p className="text-slate-400 text-xl">
-                  SAW → AMS
-                </p>
-
-                <h1 className="text-6xl font-black mt-2">
-                  Uçuş Sonuçları
-                </h1>
-
-              </div>
-
-              <div className="flex flex-wrap gap-4">
-
-                <button className="bg-blue-500 px-6 py-4 rounded-2xl font-bold text-lg">
-                  En Ucuz
-                </button>
-
-                <button className="bg-white/10 border border-white/10 px-6 py-4 rounded-2xl font-bold text-lg">
-                  En Hızlı
-                </button>
-
-                <button className="bg-white/10 border border-white/10 px-6 py-4 rounded-2xl font-bold text-lg">
-                  Direkt Uçuş
-                </button>
-
-              </div>
-
-            </div>
-
-            {/* FLIGHTS */}
-            <div className="space-y-8">
-
-              {filteredFlights.map((flight, index) => (
-
-                <div
-                  key={index}
-                  className="bg-white/10 border border-white/10 rounded-[40px] p-10 hover:bg-white/15 transition"
-                >
-
-                  <div className="flex flex-col xl:flex-row xl:items-center xl:justify-between gap-10">
-
-                    {/* Airline */}
-                    <div className="min-w-[220px]">
-
-                      <p className="text-slate-400 text-lg">
-                        Havayolu
-                      </p>
-
-                      <h2 className="text-4xl font-black mt-3">
-                        {flight.airline}
-                      </h2>
-
-                      <p className="text-slate-400 mt-3">
-                        {flight.baggage
-                          ? "Cabin Bag Dahil"
-                          : "Bagaj Yok"}
-                      </p>
-
-                    </div>
-
-                    {/* Times */}
-                    <div className="flex items-center gap-10">
-
-                      <div>
-
-                        <p className="text-6xl font-black">
-                          {flight.departure}
-                        </p>
-
-                        <p className="text-slate-400 mt-2 text-xl">
-                          {flight.from}
-                        </p>
-
-                      </div>
-
-                      <div className="text-center min-w-[180px]">
-
-                        <p className="text-slate-400 text-lg">
-                          {flight.duration}
-                        </p>
-
-                        <div className="w-full h-[2px] bg-white/20 my-5 relative">
-
-                          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-blue-400"></div>
-
-                        </div>
-
-                        <p className="text-blue-400 font-bold">
-
-                          {flight.stops === 0
-                            ? "Direkt Uçuş"
-                            : "1 Aktarma"}
-
-                        </p>
-
-                      </div>
-
-                      <div>
-
-                        <p className="text-6xl font-black">
-                          {flight.arrival}
-                        </p>
-
-                        <p className="text-slate-400 mt-2 text-xl">
-                          {flight.to}
-                        </p>
-
-                      </div>
-
-                    </div>
-
-                    {/* Price */}
-                    <div className="text-right min-w-[220px]">
-
-                      <p className="text-slate-400 text-lg">
-                        Kişi başı
-                      </p>
-
-                      <h3 className="text-6xl font-black mt-3">
-                        {flight.price}₺
-                      </h3>
-
-                      <button className="bg-blue-500 hover:bg-blue-600 transition px-10 py-5 rounded-3xl mt-6 font-black text-xl w-full">
-                        Siteye Git
-                      </button>
-
-                    </div>
-
-                  </div>
-
-                </div>
-
-              ))}
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
+      </footer>
 
     </main>
   );
