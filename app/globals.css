@@ -61,3 +61,145 @@ img{
   }
 
 }
+/* ===== MAIN LAYOUT ===== */
+
+body {
+  background: #020617;
+  color: white;
+  font-family: Inter, sans-serif;
+  overflow-x: hidden;
+}
+
+/* PAGE CONTAINER */
+main {
+  width: 100%;
+}
+
+/* HEADER */
+header {
+  width: 100%;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+/* NAVBAR */
+nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+/* HERO */
+.hero-section {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 80px 24px 40px;
+  text-align: center;
+}
+
+.hero-section h1 {
+  font-size: 72px;
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 24px;
+}
+
+.hero-section p {
+  color: #94a3b8;
+}
+
+/* TP WRAPPER */
+.tp-wrapper {
+  max-width: 1280px;
+  margin: 40px auto;
+  padding: 24px;
+  border-radius: 28px;
+  background: linear-gradient(135deg,#172554,#1e293b);
+  overflow: hidden;
+}
+
+/* TP SEARCH */
+#tpwl-search {
+  width: 100%;
+}
+
+/* BLUE TEXT FIX */
+.tp-widget-origin-switch,
+.tp-widget-multi-city,
+.tp-widget-hotels-checkbox label {
+  color: white !important;
+  font-weight: 500 !important;
+}
+
+/* AIRLINES */
+.airlines-section {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+
+.airlines-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+  gap: 24px;
+  margin-top: 30px;
+}
+
+.airline-card {
+  background: #0f172a;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 22px;
+  padding: 36px 20px;
+  text-align: center;
+  transition: 0.25s ease;
+}
+
+.airline-card:hover {
+  transform: translateY(-5px);
+  border-color: #3b82f6;
+}
+
+/* FOOTER */
+footer {
+  max-width: 1280px;
+  margin: 80px auto 0;
+  padding: 40px 24px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px;
+}
+
+.footer-grid a {
+  display: block;
+  margin-bottom: 12px;
+  color: #94a3b8;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+  header{
+    flex-direction:column;
+    gap:20px;
+  }
+
+  nav{
+    justify-content:center;
+  }
+
+  .hero-section h1{
+    font-size:48px;
+  }
+
+  .footer-grid{
+    grid-template-columns:1fr;
+  }
+
+}
