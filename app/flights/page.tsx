@@ -7,7 +7,6 @@ export default function FlightsPage() {
   const searchParams = useSearchParams();
 
   const from = searchParams.get("from") || "SAW";
-
   const to = searchParams.get("to") || "AMS";
 
   const flights = [
@@ -60,10 +59,20 @@ export default function FlightsPage() {
     },
   ];
 
+  // FILTER SYSTEM
+  const filteredFlights = flights.filter((flight) => {
+
+    return (
+      flight.fromCode.toLowerCase().includes(from.toLowerCase()) &&
+      flight.toCode.toLowerCase().includes(to.toLowerCase())
+    );
+
+  });
+
   return (
     <main className="min-h-screen bg-gradient-to-b from-[#020617] via-[#071132] to-[#0f172a] text-white overflow-hidden">
 
-      {/* BACKGROUND GLOW */}
+      {/* BG GLOW */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1200px] h-[1200px] bg-blue-500/10 blur-[180px] rounded-full"></div>
 
       {/* NAVBAR */}
@@ -188,7 +197,7 @@ export default function FlightsPage() {
 
             </div>
 
-            {/* CHECKBOXES */}
+            {/* CHECKBOX */}
             <div className="space-y-5">
 
               <label className="flex items-center gap-3 text-lg">
@@ -280,10 +289,27 @@ export default function FlightsPage() {
 
             </div>
 
+            {/* NO RESULT */}
+            {filteredFlights.length === 0 && (
+
+              <div className="bg-white/10 border border-white/10 rounded-[40px] p-16 text-center">
+
+                <h2 className="text-4xl font-black mb-4">
+                  Uçuş Bulunamadı
+                </h2>
+
+                <p className="text-slate-400 text-xl">
+                  Farklı bir rota deneyin.
+                </p>
+
+              </div>
+
+            )}
+
             {/* FLIGHT LIST */}
             <div className="space-y-8">
 
-              {flights.map((flight, index) => (
+              {filteredFlights.map((flight, index) => (
 
                 <div
                   key={index}
