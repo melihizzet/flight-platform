@@ -23,11 +23,12 @@ export default function FlightsPage() {
       stops: 0,
       baggage: true,
       price: 2490,
+      badge: "En Ucuz",
     },
     {
       airline: "THY",
-      from: "IST",
-      to: "LHR",
+      from: "SAW",
+      to: "AMS",
       departure: "10:15",
       arrival: "13:50",
       duration: "4s 35dk",
@@ -35,11 +36,12 @@ export default function FlightsPage() {
       stops: 0,
       baggage: true,
       price: 3890,
+      badge: "Önerilen",
     },
     {
       airline: "Lufthansa",
-      from: "IST",
-      to: "CDG",
+      from: "SAW",
+      to: "AMS",
       departure: "07:10",
       arrival: "11:40",
       duration: "5s 30dk",
@@ -47,6 +49,7 @@ export default function FlightsPage() {
       stops: 1,
       baggage: false,
       price: 2990,
+      badge: "En Hızlı",
     },
     {
       airline: "Emirates",
@@ -59,6 +62,7 @@ export default function FlightsPage() {
       stops: 0,
       baggage: true,
       price: 6490,
+      badge: "Premium",
     },
   ];
 
@@ -73,7 +77,9 @@ export default function FlightsPage() {
   const [sortType, setSortType] = useState("cheap");
 
   const [adult, setAdult] = useState(1);
+
   const [child, setChild] = useState(0);
+
   const [infant, setInfant] = useState(0);
 
   const airlines = [
@@ -177,56 +183,63 @@ export default function FlightsPage() {
   }
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-800 text-white">
+    <main className="min-h-screen bg-gradient-to-b from-[#020617] via-[#071132] to-[#0f172a] text-white overflow-hidden">
+
+      {/* BACKGROUND EFFECT */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[900px] bg-blue-500/10 blur-[180px] rounded-full"></div>
 
       {/* NAVBAR */}
-      <nav className="flex items-center justify-between px-8 py-8 max-w-[1700px] mx-auto">
+      <nav className="sticky top-0 z-50 backdrop-blur-xl bg-slate-950/70 border-b border-white/5">
 
-        <a
-          href="/"
-          className="text-4xl font-black"
-        >
-          ✈️ UçGit
-        </a>
+        <div className="max-w-[1700px] mx-auto px-8 py-6 flex items-center justify-between">
 
-        <div className="flex items-center gap-4">
+          <a
+            href="/"
+            className="text-5xl font-black tracking-tight hover:scale-105 transition"
+          >
+            ✈️ UçGit
+          </a>
 
-          <button className="text-lg hover:text-blue-400 transition">
-            Giriş Yap
-          </button>
+          <div className="flex items-center gap-4">
 
-          <button className="bg-blue-500 hover:bg-blue-600 transition px-7 py-3 rounded-2xl font-bold">
-            Kayıt Ol
-          </button>
+            <button className="text-lg hover:text-blue-400 transition">
+              Giriş Yap
+            </button>
+
+            <button className="bg-gradient-to-r from-blue-500 to-blue-400 hover:scale-105 transition px-7 py-3 rounded-2xl font-bold shadow-lg shadow-blue-500/20">
+              Kayıt Ol
+            </button>
+
+          </div>
 
         </div>
 
       </nav>
 
       {/* SEARCH */}
-      <section className="max-w-[1700px] mx-auto px-8 pt-10">
+      <section className="relative max-w-[1700px] mx-auto px-8 pt-16">
 
-        <div className="bg-white/10 border border-white/10 rounded-[36px] p-8 backdrop-blur-xl">
+        <div className="bg-white/10 border border-white/10 rounded-[40px] p-8 backdrop-blur-2xl shadow-2xl shadow-black/30">
 
           <div className="grid lg:grid-cols-5 gap-5">
 
             <input
               defaultValue={from}
-              className="bg-slate-700 border border-white/10 rounded-3xl p-6 text-xl outline-none"
+              className="bg-slate-700/80 border border-white/10 rounded-3xl p-6 text-xl outline-none focus:border-blue-400 transition"
             />
 
             <input
               defaultValue={to}
-              className="bg-slate-700 border border-white/10 rounded-3xl p-6 text-xl outline-none"
+              className="bg-slate-700/80 border border-white/10 rounded-3xl p-6 text-xl outline-none focus:border-blue-400 transition"
             />
 
             <input
               type="date"
-              className="bg-slate-700 border border-white/10 rounded-3xl p-6 text-xl outline-none"
+              className="bg-slate-700/80 border border-white/10 rounded-3xl p-6 text-xl outline-none focus:border-blue-400 transition"
             />
 
             {/* PASSENGERS */}
-            <div className="bg-slate-700 border border-white/10 rounded-3xl p-6 text-lg">
+            <div className="bg-slate-700/80 border border-white/10 rounded-3xl p-6">
 
               <div className="space-y-4">
 
@@ -240,7 +253,7 @@ export default function FlightsPage() {
                       onClick={() =>
                         setAdult(Math.max(1, adult - 1))
                       }
-                      className="bg-slate-600 w-8 h-8 rounded-full"
+                      className="bg-slate-600 hover:bg-slate-500 w-8 h-8 rounded-full transition"
                     >
                       -
                     </button>
@@ -251,7 +264,7 @@ export default function FlightsPage() {
                       onClick={() =>
                         setAdult(adult + 1)
                       }
-                      className="bg-slate-600 w-8 h-8 rounded-full"
+                      className="bg-slate-600 hover:bg-slate-500 w-8 h-8 rounded-full transition"
                     >
                       +
                     </button>
@@ -270,7 +283,7 @@ export default function FlightsPage() {
                       onClick={() =>
                         setChild(Math.max(0, child - 1))
                       }
-                      className="bg-slate-600 w-8 h-8 rounded-full"
+                      className="bg-slate-600 hover:bg-slate-500 w-8 h-8 rounded-full transition"
                     >
                       -
                     </button>
@@ -281,7 +294,7 @@ export default function FlightsPage() {
                       onClick={() =>
                         setChild(child + 1)
                       }
-                      className="bg-slate-600 w-8 h-8 rounded-full"
+                      className="bg-slate-600 hover:bg-slate-500 w-8 h-8 rounded-full transition"
                     >
                       +
                     </button>
@@ -300,7 +313,7 @@ export default function FlightsPage() {
                       onClick={() =>
                         setInfant(Math.max(0, infant - 1))
                       }
-                      className="bg-slate-600 w-8 h-8 rounded-full"
+                      className="bg-slate-600 hover:bg-slate-500 w-8 h-8 rounded-full transition"
                     >
                       -
                     </button>
@@ -311,7 +324,7 @@ export default function FlightsPage() {
                       onClick={() =>
                         setInfant(infant + 1)
                       }
-                      className="bg-slate-600 w-8 h-8 rounded-full"
+                      className="bg-slate-600 hover:bg-slate-500 w-8 h-8 rounded-full transition"
                     >
                       +
                     </button>
@@ -324,7 +337,7 @@ export default function FlightsPage() {
 
             </div>
 
-            <button className="bg-blue-500 hover:bg-blue-600 transition rounded-3xl text-xl font-black">
+            <button className="bg-gradient-to-r from-blue-500 to-blue-400 hover:scale-[1.02] transition rounded-3xl text-xl font-black shadow-xl shadow-blue-500/20">
               Güncelle
             </button>
 
@@ -335,12 +348,12 @@ export default function FlightsPage() {
       </section>
 
       {/* CONTENT */}
-      <section className="max-w-[1700px] mx-auto px-8 py-20">
+      <section className="relative max-w-[1700px] mx-auto px-8 py-20">
 
         <div className="grid lg:grid-cols-[320px_1fr] gap-10">
 
           {/* FILTERS */}
-          <div className="bg-white/10 border border-white/10 rounded-[36px] p-8 h-fit sticky top-10">
+          <div className="bg-white/10 border border-white/10 rounded-[40px] p-8 h-fit sticky top-32 backdrop-blur-2xl shadow-2xl shadow-black/20">
 
             <div className="flex items-center justify-between mb-10">
 
@@ -350,7 +363,7 @@ export default function FlightsPage() {
 
               <button
                 onClick={clearFilters}
-                className="text-blue-400 text-sm hover:text-blue-300"
+                className="text-blue-400 hover:text-blue-300 transition"
               >
                 Temizle
               </button>
@@ -380,7 +393,7 @@ export default function FlightsPage() {
                 onChange={(e) =>
                   setMaxPrice(Number(e.target.value))
                 }
-                className="w-full"
+                className="w-full accent-blue-500"
               />
 
             </div>
@@ -468,11 +481,11 @@ export default function FlightsPage() {
                   {from} → {to}
                 </p>
 
-                <h1 className="text-6xl font-black mt-2">
+                <h1 className="text-7xl font-black tracking-tight mt-2">
                   Uçuş Sonuçları
                 </h1>
 
-                <p className="text-slate-400 mt-3">
+                <p className="text-slate-400 mt-4 text-xl">
                   {filteredFlights.length} uçuş bulundu
                 </p>
 
@@ -484,9 +497,9 @@ export default function FlightsPage() {
                   onClick={() =>
                     setSortType("cheap")
                   }
-                  className={`px-6 py-4 rounded-2xl font-bold text-lg ${
+                  className={`px-7 py-4 rounded-2xl font-bold text-lg transition ${
                     sortType === "cheap"
-                      ? "bg-blue-500"
+                      ? "bg-blue-500 shadow-lg shadow-blue-500/20"
                       : "bg-white/10 border border-white/10"
                   }`}
                 >
@@ -497,9 +510,9 @@ export default function FlightsPage() {
                   onClick={() =>
                     setSortType("fast")
                   }
-                  className={`px-6 py-4 rounded-2xl font-bold text-lg ${
+                  className={`px-7 py-4 rounded-2xl font-bold text-lg transition ${
                     sortType === "fast"
-                      ? "bg-blue-500"
+                      ? "bg-blue-500 shadow-lg shadow-blue-500/20"
                       : "bg-white/10 border border-white/10"
                   }`}
                 >
@@ -510,9 +523,9 @@ export default function FlightsPage() {
                   onClick={() =>
                     setSortType("direct")
                   }
-                  className={`px-6 py-4 rounded-2xl font-bold text-lg ${
+                  className={`px-7 py-4 rounded-2xl font-bold text-lg transition ${
                     sortType === "direct"
-                      ? "bg-blue-500"
+                      ? "bg-blue-500 shadow-lg shadow-blue-500/20"
                       : "bg-white/10 border border-white/10"
                   }`}
                 >
@@ -546,8 +559,17 @@ export default function FlightsPage() {
 
                 <div
                   key={index}
-                  className="bg-white/10 border border-white/10 rounded-[40px] p-10 hover:bg-white/15 transition"
+                  className="bg-gradient-to-br from-slate-700/40 to-slate-800/40 border border-white/10 rounded-[40px] p-10 hover:scale-[1.01] hover:border-blue-400/30 hover:shadow-2xl hover:shadow-blue-500/10 transition duration-300 backdrop-blur-xl"
                 >
+
+                  {/* BADGE */}
+                  <div className="mb-6">
+
+                    <span className="bg-blue-500/20 border border-blue-400/20 text-blue-300 px-5 py-2 rounded-full text-sm font-bold">
+                      {flight.badge}
+                    </span>
+
+                  </div>
 
                   <div className="flex flex-col xl:flex-row xl:items-center xl:justify-between gap-10">
 
@@ -558,7 +580,7 @@ export default function FlightsPage() {
                         Havayolu
                       </p>
 
-                      <h2 className="text-3xl font-black mt-3">
+                      <h2 className="text-4xl font-black mt-3 tracking-tight">
                         {flight.airline}
                       </h2>
 
@@ -575,23 +597,23 @@ export default function FlightsPage() {
 
                       <div>
 
-                        <p className="text-5xl font-black">
+                        <p className="text-6xl font-black tracking-tight">
                           {flight.departure}
                         </p>
 
-                        <p className="text-slate-400 mt-2 text-lg">
+                        <p className="text-slate-400 mt-2 text-xl">
                           {flight.from}
                         </p>
 
                       </div>
 
-                      <div className="text-center min-w-[140px]">
+                      <div className="text-center min-w-[160px]">
 
                         <p className="text-slate-400 text-sm">
                           {flight.duration}
                         </p>
 
-                        <div className="w-full h-[2px] bg-white/20 my-4 relative">
+                        <div className="w-full h-[2px] bg-white/20 my-5 relative">
 
                           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-blue-400"></div>
 
@@ -609,11 +631,11 @@ export default function FlightsPage() {
 
                       <div>
 
-                        <p className="text-5xl font-black">
+                        <p className="text-6xl font-black tracking-tight">
                           {flight.arrival}
                         </p>
 
-                        <p className="text-slate-400 mt-2 text-lg">
+                        <p className="text-slate-400 mt-2 text-xl">
                           {flight.to}
                         </p>
 
@@ -622,17 +644,17 @@ export default function FlightsPage() {
                     </div>
 
                     {/* PRICE */}
-                    <div className="text-right min-w-[200px]">
+                    <div className="text-right min-w-[220px]">
 
                       <p className="text-slate-400">
                         Kişi başı
                       </p>
 
-                      <h3 className="text-5xl font-black mt-3">
+                      <h3 className="text-6xl font-black mt-3 tracking-tight">
                         {flight.price}₺
                       </h3>
 
-                      <button className="bg-blue-500 hover:bg-blue-600 transition px-10 py-4 rounded-3xl mt-6 font-black text-lg w-full">
+                      <button className="bg-gradient-to-r from-blue-500 to-blue-400 hover:scale-105 transition duration-300 px-10 py-4 rounded-3xl mt-6 font-black text-lg w-full shadow-lg shadow-blue-500/20">
                         Siteye Git
                       </button>
 
@@ -654,4 +676,4 @@ export default function FlightsPage() {
 
     </main>
   );
-}
+}git add .
