@@ -221,7 +221,7 @@ export default function Home() {
                       key={airport.code}
                       onClick={() => {
                         setFromAirport(
-                          `${airport.code} - ${airport.name}`
+                          airport.code
                         );
                         setFromOpen(false);
                       }}
@@ -275,7 +275,7 @@ export default function Home() {
                       key={airport.code}
                       onClick={() => {
                         setToAirport(
-                          `${airport.code} - ${airport.name}`
+                          airport.code
                         );
                         setToOpen(false);
                       }}
@@ -320,7 +320,7 @@ export default function Home() {
 
           {/* SEARCH BUTTON */}
           <a
-            href="/flights"
+            href={`/flights?from=${fromAirport}&to=${toAirport}`}
             className="w-full mt-8 bg-blue-500 hover:bg-blue-600 transition rounded-3xl p-7 text-2xl font-black shadow-lg shadow-blue-500/30 flex items-center justify-center"
           >
             Uçuş Ara
