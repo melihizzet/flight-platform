@@ -13,6 +13,7 @@ export default function FlightsPage() {
   const flights = [
     {
       airline: "Pegasus",
+      logo: "/airlines/pegasus.png",
       departure: "08:30",
       arrival: "11:20",
       duration: "3s 50dk",
@@ -24,6 +25,7 @@ export default function FlightsPage() {
 
     {
       airline: "THY",
+      logo: "/airlines/thy.png",
       departure: "10:15",
       arrival: "13:50",
       duration: "4s 35dk",
@@ -35,6 +37,7 @@ export default function FlightsPage() {
 
     {
       airline: "Lufthansa",
+      logo: "/airlines/lufthansa.png",
       departure: "07:10",
       arrival: "11:40",
       duration: "5s 30dk",
@@ -42,6 +45,18 @@ export default function FlightsPage() {
       toCode: "AMS",
       price: "2990₺",
       badge: "En Hızlı",
+    },
+
+    {
+      airline: "Qatar",
+      logo: "/airlines/qatar.png",
+      departure: "13:40",
+      arrival: "19:10",
+      duration: "4s 30dk",
+      fromCode: "IST",
+      toCode: "DOH",
+      price: "6490₺",
+      badge: "Premium",
     },
   ];
 
@@ -236,13 +251,27 @@ export default function FlightsPage() {
                         Havayolu
                       </p>
 
-                      <h2 className="text-5xl font-black mt-3 tracking-tight">
-                        {flight.airline}
-                      </h2>
+                      <div className="flex items-center gap-5 mt-4">
 
-                      <p className="text-slate-400 mt-4">
-                        Cabin Bag Dahil
-                      </p>
+                        <img
+                          src={flight.logo}
+                          alt={flight.airline}
+                          className="w-16 h-16 object-contain bg-white rounded-2xl p-2"
+                        />
+
+                        <div>
+
+                          <h2 className="text-4xl font-black tracking-tight">
+                            {flight.airline}
+                          </h2>
+
+                          <p className="text-slate-400 text-sm mt-1">
+                            Cabin Bag Dahil
+                          </p>
+
+                        </div>
+
+                      </div>
 
                     </div>
 
@@ -251,7 +280,7 @@ export default function FlightsPage() {
 
                       <div>
 
-                        <p className="text-7xl font-black tracking-tight">
+                        <p className="text-5xl font-black tracking-tight">
                           {flight.departure}
                         </p>
 
@@ -281,7 +310,7 @@ export default function FlightsPage() {
 
                       <div>
 
-                        <p className="text-7xl font-black tracking-tight">
+                        <p className="text-5xl font-black tracking-tight">
                           {flight.arrival}
                         </p>
 
@@ -300,7 +329,7 @@ export default function FlightsPage() {
                         Kişi başı
                       </p>
 
-                      <h3 className="text-7xl font-black mt-3 tracking-tight">
+                      <h3 className="text-6xl font-black mt-3 tracking-tight">
                         {flight.price}
                       </h3>
 
