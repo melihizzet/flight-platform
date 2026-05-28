@@ -3,13 +3,12 @@
 import { useState } from "react";
 
 export default function Home() {
-
   const [tripType, setTripType] = useState("Tek Yön");
 
   return (
     <main className="min-h-screen bg-[#020617] text-white overflow-hidden">
 
-      {/* BG GLOW */}
+      {/* BG */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1400px] h-[1400px] bg-blue-500/10 blur-[180px] rounded-full"></div>
 
       {/* NAVBAR */}
@@ -82,10 +81,10 @@ export default function Home() {
 
         </div>
 
-        {/* SEARCH BOX */}
+        {/* SEARCH */}
         <div className="mt-20 bg-white/10 border border-white/10 rounded-[40px] p-8 backdrop-blur-2xl shadow-2xl shadow-black/30 max-w-[1500px] mx-auto">
 
-          {/* TOP OPTIONS */}
+          {/* TOP */}
           <div className="flex flex-wrap gap-4 mb-8">
 
             <button
@@ -156,7 +155,7 @@ export default function Home() {
 
       </section>
 
-      {/* POPULAR AIRLINES */}
+      {/* AIRLINES */}
       <section className="relative max-w-[1700px] mx-auto px-8 pb-24">
 
         <div className="flex items-center justify-between mb-10">
@@ -184,7 +183,7 @@ export default function Home() {
 
             <div
               key={index}
-              className="bg-white/10 border border-white/10 rounded-3xl p-8 text-center hover:border-blue-400/30 hover:bg-white/15 transition cursor-pointer"
+              className="bg-white/10 border border-white/10 rounded-3xl p-8 text-center hover:border-blue-400/30 hover:bg-white/15 transition"
             >
 
               <div className="w-16 h-16 bg-white rounded-2xl mx-auto mb-5"></div>
@@ -201,7 +200,7 @@ export default function Home() {
 
       </section>
 
-      {/* POPULAR ROUTES */}
+      {/* ROUTES */}
       <section className="relative max-w-[1700px] mx-auto px-8 pb-32">
 
         <div className="flex items-center justify-between mb-10">
