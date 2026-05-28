@@ -11,7 +11,7 @@ export default function FlightsPage() {
 
   const to = searchParams.get("to") || "AMS";
 
-  const flights = [
+  const allFlights = [
     {
       airline: "Pegasus",
       from: "SAW",
@@ -19,6 +19,7 @@ export default function FlightsPage() {
       departure: "08:30",
       arrival: "11:20",
       duration: "3s 50dk",
+      durationNumber: 230,
       stops: 0,
       baggage: true,
       price: 2490,
@@ -30,6 +31,7 @@ export default function FlightsPage() {
       departure: "10:15",
       arrival: "13:50",
       duration: "4s 35dk",
+      durationNumber: 275,
       stops: 0,
       baggage: true,
       price: 3890,
@@ -41,6 +43,7 @@ export default function FlightsPage() {
       departure: "07:10",
       arrival: "11:40",
       duration: "5s 30dk",
+      durationNumber: 330,
       stops: 1,
       baggage: false,
       price: 2990,
@@ -52,6 +55,7 @@ export default function FlightsPage() {
       departure: "13:40",
       arrival: "19:10",
       duration: "4s 30dk",
+      durationNumber: 270,
       stops: 0,
       baggage: true,
       price: 6490,
@@ -65,6 +69,8 @@ export default function FlightsPage() {
   const [bagOnly, setBagOnly] = useState(false);
 
   const [selectedAirlines, setSelectedAirlines] = useState<string[]>([]);
+
+  const [sortType, setSortType] = useState("cheap");
 
   const [adult, setAdult] = useState(1);
   const [child, setChild] = useState(0);
@@ -96,24 +102,46 @@ export default function FlightsPage() {
 
   };
 
-  const filteredFlights = flights.filter((flight) => {
+  const clearFilters = () => {
 
-    const matchesPrice = flight.price <= maxPrice;
+    setMaxPrice(7000);
 
-    const matchesDirect = directOnly
-      ? flight.stops === 0
-      : true;
+    setDirectOnly(false);
 
-    const matchesBag = bagOnly
-      ? flight.baggage
-      : true;
+    setBagOnly(false);
+
+    setSelectedAirlines([]);
+
+  };
+
+  let filteredFlights = allFlights.filter((flight) => {
+
+    const matchesRoute =
+      flight.from === from &&
+      flight.to === to;
+
+    const matchesPrice =
+      flight.price <= maxPrice;
+
+    const matchesDirect =
+      directOnly
+        ? flight.stops === 0
+        : true;
+
+    const matchesBag =
+      bagOnly
+        ? flight.baggage
+        : true;
 
     const matchesAirline =
       selectedAirlines.length === 0
         ? true
-        : selectedAirlines.includes(flight.airline);
+        : selectedAirlines.includes(
+            flight.airline
+          );
 
     return (
+      matchesRoute &&
       matchesPrice &&
       matchesDirect &&
       matchesBag &&
@@ -121,6 +149,32 @@ export default function FlightsPage() {
     );
 
   });
+
+  if (sortType === "cheap") {
+
+    filteredFlights.sort(
+      (a, b) => a.price - b.price
+    );
+
+  }
+
+  if (sortType === "fast") {
+
+    filteredFlights.sort(
+      (a, b) =>
+        a.durationNumber -
+        b.durationNumber
+    );
+
+  }
+
+  if (sortType === "direct") {
+
+    filteredFlights = filteredFlights.filter(
+      (flight) => flight.stops === 0
+    );
+
+  }
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-800 text-white">
@@ -130,7 +184,7 @@ export default function FlightsPage() {
 
         <a
           href="/"
-          className="text-5xl font-black"
+          className="text-4xl font-black"
         >
           ✈️ UçGit
         </a>
@@ -149,7 +203,7 @@ export default function FlightsPage() {
 
       </nav>
 
-      {/* SEARCH TOP */}
+      {/* SEARCH */}
       <section className="max-w-[1700px] mx-auto px-8 pt-10">
 
         <div className="bg-white/10 border border-white/10 rounded-[36px] p-8 backdrop-blur-xl">
@@ -171,7 +225,8 @@ export default function FlightsPage() {
               className="bg-slate-700 border border-white/10 rounded-3xl p-6 text-xl outline-none"
             />
 
-            <div className="bg-slate-700 border border-white/10 rounded-3xl p-6 text-xl">
+            {/* PASSENGERS */}
+            <div className="bg-slate-700 border border-white/10 rounded-3xl p-6 text-lg">
 
               <div className="space-y-4">
 
@@ -282,16 +337,27 @@ export default function FlightsPage() {
       {/* CONTENT */}
       <section className="max-w-[1700px] mx-auto px-8 py-20">
 
-        <div className="grid lg:grid-cols-[350px_1fr] gap-10">
+        <div className="grid lg:grid-cols-[320px_1fr] gap-10">
 
           {/* FILTERS */}
           <div className="bg-white/10 border border-white/10 rounded-[36px] p-8 h-fit sticky top-10">
 
-            <h2 className="text-4xl font-black mb-10">
-              Filtreler
-            </h2>
+            <div className="flex items-center justify-between mb-10">
 
-            {/* Price */}
+              <h2 className="text-4xl font-black">
+                Filtreler
+              </h2>
+
+              <button
+                onClick={clearFilters}
+                className="text-blue-400 text-sm hover:text-blue-300"
+              >
+                Temizle
+              </button>
+
+            </div>
+
+            {/* PRICE */}
             <div className="mb-10">
 
               <div className="flex items-center justify-between mb-4">
@@ -319,7 +385,7 @@ export default function FlightsPage() {
 
             </div>
 
-            {/* Checkboxes */}
+            {/* CHECKBOX */}
             <div className="space-y-5 mb-10">
 
               <label className="flex items-center gap-4 text-xl">
@@ -352,7 +418,7 @@ export default function FlightsPage() {
 
             </div>
 
-            {/* Airlines */}
+            {/* AIRLINES */}
             <div>
 
               <p className="text-2xl font-bold mb-6">
@@ -393,7 +459,7 @@ export default function FlightsPage() {
           {/* RESULTS */}
           <div>
 
-            {/* Top */}
+            {/* TOP */}
             <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 mb-14">
 
               <div>
@@ -406,19 +472,50 @@ export default function FlightsPage() {
                   Uçuş Sonuçları
                 </h1>
 
+                <p className="text-slate-400 mt-3">
+                  {filteredFlights.length} uçuş bulundu
+                </p>
+
               </div>
 
               <div className="flex flex-wrap gap-4">
 
-                <button className="bg-blue-500 px-6 py-4 rounded-2xl font-bold text-lg">
+                <button
+                  onClick={() =>
+                    setSortType("cheap")
+                  }
+                  className={`px-6 py-4 rounded-2xl font-bold text-lg ${
+                    sortType === "cheap"
+                      ? "bg-blue-500"
+                      : "bg-white/10 border border-white/10"
+                  }`}
+                >
                   En Ucuz
                 </button>
 
-                <button className="bg-white/10 border border-white/10 px-6 py-4 rounded-2xl font-bold text-lg">
+                <button
+                  onClick={() =>
+                    setSortType("fast")
+                  }
+                  className={`px-6 py-4 rounded-2xl font-bold text-lg ${
+                    sortType === "fast"
+                      ? "bg-blue-500"
+                      : "bg-white/10 border border-white/10"
+                  }`}
+                >
                   En Hızlı
                 </button>
 
-                <button className="bg-white/10 border border-white/10 px-6 py-4 rounded-2xl font-bold text-lg">
+                <button
+                  onClick={() =>
+                    setSortType("direct")
+                  }
+                  className={`px-6 py-4 rounded-2xl font-bold text-lg ${
+                    sortType === "direct"
+                      ? "bg-blue-500"
+                      : "bg-white/10 border border-white/10"
+                  }`}
+                >
                   Direkt Uçuş
                 </button>
 
@@ -429,6 +526,22 @@ export default function FlightsPage() {
             {/* FLIGHTS */}
             <div className="space-y-8">
 
+              {filteredFlights.length === 0 && (
+
+                <div className="bg-white/10 border border-white/10 rounded-[40px] p-20 text-center">
+
+                  <h2 className="text-5xl font-black">
+                    Uçuş bulunamadı
+                  </h2>
+
+                  <p className="text-slate-400 mt-6 text-2xl">
+                    Filtreleri değiştirmeyi deneyin.
+                  </p>
+
+                </div>
+
+              )}
+
               {filteredFlights.map((flight, index) => (
 
                 <div
@@ -438,18 +551,18 @@ export default function FlightsPage() {
 
                   <div className="flex flex-col xl:flex-row xl:items-center xl:justify-between gap-10">
 
-                    {/* Airline */}
-                    <div className="min-w-[220px]">
+                    {/* AIRLINE */}
+                    <div className="min-w-[180px]">
 
-                      <p className="text-slate-400 text-lg">
+                      <p className="text-slate-400">
                         Havayolu
                       </p>
 
-                      <h2 className="text-4xl font-black mt-3">
+                      <h2 className="text-3xl font-black mt-3">
                         {flight.airline}
                       </h2>
 
-                      <p className="text-slate-400 mt-3">
+                      <p className="text-slate-400 mt-3 text-sm">
                         {flight.baggage
                           ? "Cabin Bag Dahil"
                           : "Bagaj Yok"}
@@ -457,34 +570,34 @@ export default function FlightsPage() {
 
                     </div>
 
-                    {/* Times */}
-                    <div className="flex items-center gap-10">
+                    {/* TIMES */}
+                    <div className="flex items-center gap-8">
 
                       <div>
 
-                        <p className="text-6xl font-black">
+                        <p className="text-5xl font-black">
                           {flight.departure}
                         </p>
 
-                        <p className="text-slate-400 mt-2 text-xl">
+                        <p className="text-slate-400 mt-2 text-lg">
                           {flight.from}
                         </p>
 
                       </div>
 
-                      <div className="text-center min-w-[180px]">
+                      <div className="text-center min-w-[140px]">
 
-                        <p className="text-slate-400 text-lg">
+                        <p className="text-slate-400 text-sm">
                           {flight.duration}
                         </p>
 
-                        <div className="w-full h-[2px] bg-white/20 my-5 relative">
+                        <div className="w-full h-[2px] bg-white/20 my-4 relative">
 
                           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-blue-400"></div>
 
                         </div>
 
-                        <p className="text-blue-400 font-bold">
+                        <p className="text-blue-400 font-bold text-sm">
 
                           {flight.stops === 0
                             ? "Direkt Uçuş"
@@ -496,11 +609,11 @@ export default function FlightsPage() {
 
                       <div>
 
-                        <p className="text-6xl font-black">
+                        <p className="text-5xl font-black">
                           {flight.arrival}
                         </p>
 
-                        <p className="text-slate-400 mt-2 text-xl">
+                        <p className="text-slate-400 mt-2 text-lg">
                           {flight.to}
                         </p>
 
@@ -508,18 +621,18 @@ export default function FlightsPage() {
 
                     </div>
 
-                    {/* Price */}
-                    <div className="text-right min-w-[220px]">
+                    {/* PRICE */}
+                    <div className="text-right min-w-[200px]">
 
-                      <p className="text-slate-400 text-lg">
+                      <p className="text-slate-400">
                         Kişi başı
                       </p>
 
-                      <h3 className="text-6xl font-black mt-3">
+                      <h3 className="text-5xl font-black mt-3">
                         {flight.price}₺
                       </h3>
 
-                      <button className="bg-blue-500 hover:bg-blue-600 transition px-10 py-5 rounded-3xl mt-6 font-black text-xl w-full">
+                      <button className="bg-blue-500 hover:bg-blue-600 transition px-10 py-4 rounded-3xl mt-6 font-black text-lg w-full">
                         Siteye Git
                       </button>
 
