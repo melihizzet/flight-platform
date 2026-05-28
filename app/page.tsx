@@ -1,219 +1,209 @@
 "use client";
 
-import { useEffect } from "react";
+import Script from "next/script";
 
-export default function Home() {
-  useEffect(() => {
-    const script = document.createElement("script");
-
-    script.src =
-      "https://tpwdg.com/content?currency=try&trs=18030&shmarker=567496&locale=tr&powered_by=true";
-
-    script.async = true;
-
-    document.body.appendChild(script);
-
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
-
+export default function HomePage() {
   return (
-    <main
-      style={{
-        minHeight: "100vh",
-        background:
-          "linear-gradient(to bottom, #020817 0%, #071226 100%)",
-        color: "white",
-        fontFamily: "Arial, sans-serif",
-      }}
-    >
-      {/* HEADER */}
-      <header
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          padding: "24px 48px",
-          borderBottom: "1px solid rgba(255,255,255,0.08)",
-        }}
-      >
-        <h1
-          style={{
-            fontSize: "34px",
-            fontWeight: "bold",
-            margin: 0,
-          }}
-        >
-          ✈️ UçGit
-        </h1>
+    <>
+      <Script id="travelpayouts-widget" strategy="afterInteractive">
+        {`
+          (function () {
+            var script = document.createElement("script");
+            script.async = true;
+            script.type = "module";
+            script.src = "https://tpwdg.com/wl_web/main.js?wl_id=18030";
+            document.head.appendChild(script);
+          })();
+        `}
+      </Script>
 
-        <nav
-          style={{
-            display: "flex",
-            gap: "28px",
-            alignItems: "center",
-            fontSize: "17px",
-          }}
-        >
-          <a href="#" style={{ color: "white", textDecoration: "none" }}>
-            Kampanyalar
-          </a>
+      <main className="min-h-screen bg-[#020817] text-white overflow-x-hidden">
 
-          <a href="#" style={{ color: "white", textDecoration: "none" }}>
-            Blog
-          </a>
+        {/* HEADER */}
+        <header className="border-b border-white/10 backdrop-blur-xl sticky top-0 z-50 bg-[#020817]/90">
+          <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
 
-          <a href="#" style={{ color: "white", textDecoration: "none" }}>
-            İletişim
-          </a>
-
-          <a href="#" style={{ color: "white", textDecoration: "none" }}>
-            Hakkımızda
-          </a>
-        </nav>
-      </header>
-
-      {/* HERO */}
-      <section
-        style={{
-          maxWidth: "1280px",
-          margin: "0 auto",
-          padding: "100px 20px 40px",
-          textAlign: "center",
-        }}
-      >
-        <p
-          style={{
-            color: "#3b82f6",
-            marginBottom: "18px",
-            fontSize: "18px",
-          }}
-        >
-          En uygun uçuşları saniyeler içinde bul
-        </p>
-
-        <h2
-          style={{
-            fontSize: "76px",
-            fontWeight: "bold",
-            lineHeight: 1.1,
-            marginBottom: "26px",
-          }}
-        >
-          Ucuza uçmanın{" "}
-          <span style={{ color: "#3b82f6" }}>
-            en kolay yolu
-          </span>
-        </h2>
-
-        <p
-          style={{
-            fontSize: "22px",
-            opacity: 0.8,
-            maxWidth: "900px",
-            margin: "0 auto 50px",
-            lineHeight: 1.6,
-          }}
-        >
-          Tüm havayollarını karşılaştır, gerçek zamanlı fiyatları gör
-          ve en uygun bileti hemen bul.
-        </p>
-
-        {/* TRAVELPAYOUTS */}
-        <div
-          style={{
-            background: "rgba(17,24,39,0.92)",
-            borderRadius: "28px",
-            padding: "30px",
-            overflow: "hidden",
-            border: "1px solid rgba(255,255,255,0.06)",
-            boxShadow: "0 10px 40px rgba(0,0,0,0.35)",
-          }}
-        >
-          <div
-            data-tpw-widget="search"
-            data-tpw-currency="TRY"
-            data-tpw-language="tr"
-            data-tpw-origin="IST"
-            style={{
-              minHeight: "120px",
-            }}
-          ></div>
-        </div>
-      </section>
-
-      {/* AIRLINES */}
-      <section
-        style={{
-          maxWidth: "1280px",
-          margin: "0 auto",
-          padding: "40px 20px 100px",
-        }}
-      >
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            marginBottom: "28px",
-          }}
-        >
-          <h3
-            style={{
-              fontSize: "42px",
-              fontWeight: "bold",
-              margin: 0,
-            }}
-          >
-            Popüler Havayolları
-          </h3>
-
-          <a
-            href="#"
-            style={{
-              color: "#3b82f6",
-              textDecoration: "none",
-              fontSize: "18px",
-            }}
-          >
-            Tümünü Gör
-          </a>
-        </div>
-
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns:
-              "repeat(auto-fit,minmax(180px,1fr))",
-            gap: "22px",
-          }}
-        >
-          {[
-            "THY",
-            "Pegasus",
-            "Lufthansa",
-            "Qatar",
-            "Emirates",
-            "British Airways",
-          ].map((airline) => (
-            <div
-              key={airline}
-              style={{
-                background: "#111827",
-                borderRadius: "22px",
-                padding: "42px 20px",
-                textAlign: "center",
-                fontWeight: "bold",
-                fontSize: "24px",
-                border: "1px solid rgba(255,255,255,0.05)",
-              }}
-            >
-              {airline}
+            <div className="flex items-center gap-3">
+              <span className="text-3xl">✈️</span>
+              <h1 className="text-3xl font-black">UçGit</h1>
             </div>
-          ))}
-        </div>
-      </section>
-    </main>
+
+            <nav className="hidden md:flex items-center gap-8 text-sm text-white/70">
+              <a href="#">Kampanyalar</a>
+              <a href="#">Blog</a>
+              <a href="#">İletişim</a>
+              <a href="#">Hakkımızda</a>
+            </nav>
+
+            <div className="flex items-center gap-3">
+              <button className="text-sm text-white/80">
+                Giriş Yap
+              </button>
+
+              <button className="bg-blue-500 hover:bg-blue-400 transition px-5 py-2 rounded-xl text-sm font-semibold">
+                Kayıt Ol
+              </button>
+            </div>
+
+          </div>
+        </header>
+
+        {/* HERO */}
+        <section className="relative py-24 px-6">
+
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.20),transparent_50%)]"></div>
+
+          <div className="max-w-7xl mx-auto relative z-10 text-center">
+
+            <p className="text-blue-400 mb-6 text-sm">
+              En uygun uçuşları saniyeler içinde bul
+            </p>
+
+            <h1 className="text-6xl md:text-8xl font-black leading-tight mb-8">
+              Ucuza uçmanın{" "}
+              <span className="text-blue-500">en kolay yolu</span>
+            </h1>
+
+            <p className="text-xl text-white/60 max-w-3xl mx-auto mb-16">
+              Tüm havayollarını karşılaştır, gerçek zamanlı fiyatları gör ve
+              en uygun bileti hemen bul.
+            </p>
+
+            {/* SEARCH BOX */}
+            <div className="max-w-6xl mx-auto">
+
+              <div className="bg-white/10 backdrop-blur-2xl border border-white/10 rounded-[32px] p-6 shadow-2xl">
+
+                <div id="tpwl-search"></div>
+
+              </div>
+
+              {/* RESULTS */}
+              <div className="mt-10">
+                <div id="tpwl-tickets"></div>
+              </div>
+
+            </div>
+
+          </div>
+        </section>
+
+        {/* AIRLINES */}
+        <section className="max-w-7xl mx-auto px-6 pb-20">
+
+          <div className="flex items-center justify-between mb-8">
+            <h2 className="text-4xl font-black">
+              Popüler Havayolları
+            </h2>
+
+            <button className="text-blue-400 text-sm">
+              Tümünü Gör
+            </button>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5">
+
+            {[
+              {
+                name: "THY",
+                logo: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Turkish_Airlines_logo_2019_compact.svg"
+              },
+              {
+                name: "Pegasus",
+                logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Pegasus_Airlines_logo.svg/2560px-Pegasus_Airlines_logo.svg.png"
+              },
+              {
+                name: "Lufthansa",
+                logo: "https://upload.wikimedia.org/wikipedia/commons/d/d8/Lufthansa_Logo_2018.svg"
+              },
+              {
+                name: "Qatar",
+                logo: "https://upload.wikimedia.org/wikipedia/commons/0/04/Qatar_Airways_Logo.svg"
+              },
+              {
+                name: "Emirates",
+                logo: "https://upload.wikimedia.org/wikipedia/commons/d/d0/Emirates_logo.svg"
+              },
+              {
+                name: "British Airways",
+                logo: "https://upload.wikimedia.org/wikipedia/en/thumb/7/7b/British_Airways_Logo.svg/2560px-British_Airways_Logo.svg.png"
+              }
+            ].map((airline, index) => (
+              <div
+                key={index}
+                className="bg-white/5 border border-white/10 rounded-3xl p-6"
+              >
+                <div className="h-14 flex items-center justify-center mb-4">
+                  <img
+                    src={airline.logo}
+                    alt={airline.name}
+                    className="max-h-10 object-contain"
+                  />
+                </div>
+
+                <p className="text-center text-sm font-semibold">
+                  {airline.name}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* FOOTER */}
+        <footer className="border-t border-white/10 py-16">
+
+          <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-12">
+
+            <div>
+              <div className="flex items-center gap-3 mb-5">
+                <span className="text-3xl">✈️</span>
+                <h3 className="text-3xl font-black">UçGit</h3>
+              </div>
+
+              <p className="text-white/50 leading-relaxed">
+                UçGit ile tüm havayollarını karşılaştırın ve en uygun uçuşları saniyeler içinde bulun.
+              </p>
+            </div>
+
+            <div>
+              <h4 className="font-bold mb-5 text-lg">Menü</h4>
+
+              <div className="flex flex-col gap-3 text-white/50">
+                <a href="#">Kampanyalar</a>
+                <a href="#">Blog</a>
+                <a href="#">İletişim</a>
+                <a href="#">Hakkımızda</a>
+              </div>
+            </div>
+
+            <div>
+              <h4 className="font-bold mb-5 text-lg">Destek</h4>
+
+              <div className="flex flex-col gap-3 text-white/50">
+                <a href="#">Sık Sorulan Sorular</a>
+                <a href="#">Gizlilik Politikası</a>
+                <a href="#">Kullanım Şartları</a>
+              </div>
+            </div>
+
+            <div>
+              <h4 className="font-bold mb-5 text-lg">İletişim</h4>
+
+              <div className="flex flex-col gap-3 text-white/50">
+                <p>support@ucgit.com</p>
+                <p>info@ucgit.com</p>
+              </div>
+            </div>
+
+          </div>
+
+          <div className="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-white/10 text-center text-white/40">
+            © 2026 UçGit. Tüm hakları saklıdır.
+          </div>
+
+        </footer>
+
+      </main>
+    </>
   );
 }
