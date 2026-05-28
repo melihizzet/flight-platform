@@ -45,10 +45,10 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen bg-[#020617] text-white overflow-hidden">
+    <main className="min-h-screen bg-[#020617] text-white overflow-hidden relative">
 
-      {/* BG */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1400px] h-[1400px] bg-blue-500/10 blur-[180px] rounded-full"></div>
+      {/* BACKGROUND */}
+      <div className="absolute top-[-300px] left-1/2 -translate-x-1/2 w-[1400px] h-[1400px] bg-blue-500/10 blur-[180px] rounded-full"></div>
 
       {/* NAVBAR */}
       <nav className="relative z-50 border-b border-white/5 backdrop-blur-xl">
@@ -58,13 +58,13 @@ export default function Home() {
           {/* LOGO */}
           <a
             href="/"
-            className="text-3xl md:text-4xl lg:text-5xl font-black tracking-tight flex items-center gap-3"
+            className="text-4xl lg:text-5xl font-black flex items-center gap-3"
           >
             ✈️ UçGit
           </a>
 
           {/* MENU */}
-          <div className="hidden md:flex items-center gap-8 lg:gap-10 text-sm lg:text-base font-medium text-slate-300">
+          <div className="hidden md:flex items-center gap-10 text-slate-300 font-medium">
 
             <a href="/campaigns" className="hover:text-blue-400 transition">
               Kampanyalar
@@ -85,18 +85,18 @@ export default function Home() {
           </div>
 
           {/* AUTH */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-4">
 
             <a
               href="/login"
-              className="hover:text-blue-400 transition text-sm md:text-base"
+              className="hover:text-blue-400 transition"
             >
               Giriş Yap
             </a>
 
             <a
               href="/register"
-              className="bg-blue-500 hover:bg-blue-600 transition px-4 lg:px-5 py-2 lg:py-3 rounded-2xl font-bold text-sm lg:text-base"
+              className="bg-blue-500 hover:bg-blue-600 transition px-5 py-3 rounded-2xl font-bold"
             >
               Kayıt Ol
             </a>
@@ -108,13 +108,13 @@ export default function Home() {
       </nav>
 
       {/* HERO */}
-      <section className="relative max-w-[1700px] mx-auto px-6 lg:px-8 pt-24 lg:pt-28 pb-20 text-center">
+      <section className="relative max-w-[1700px] mx-auto px-6 lg:px-8 pt-20 lg:pt-28 text-center">
 
-        <p className="text-blue-400 font-medium text-base md:text-lg">
+        <p className="text-blue-400 text-lg font-medium">
           En uygun uçuşları saniyeler içinde bul
         </p>
 
-        <h1 className="text-[55px] leading-[60px] md:text-[80px] md:leading-[85px] lg:text-[110px] lg:leading-[115px] font-black mt-8 tracking-tight">
+        <h1 className="text-[60px] leading-[65px] md:text-[90px] md:leading-[95px] lg:text-[120px] lg:leading-[120px] font-black mt-8 tracking-tight">
 
           Ucuza uçmanın{" "}
 
@@ -124,23 +124,23 @@ export default function Home() {
 
         </h1>
 
-        <p className="text-slate-400 text-lg md:text-2xl mt-10 max-w-[900px] mx-auto leading-relaxed">
+        <p className="text-slate-400 text-xl lg:text-2xl mt-8 max-w-[900px] mx-auto leading-relaxed">
           Tüm havayollarını karşılaştır, en iyi fiyatları bul ve direkt havayoluna git.
         </p>
 
       </section>
 
       {/* SEARCH */}
-      <section className="relative max-w-[1700px] mx-auto px-6 lg:px-8">
+      <section className="relative max-w-[1700px] mx-auto px-6 lg:px-8 mt-16">
 
-        <div className="bg-white/10 border border-white/10 rounded-[45px] p-7 lg:p-8 backdrop-blur-2xl shadow-2xl shadow-black/30">
+        <div className="bg-white/10 border border-white/10 rounded-[45px] p-7 lg:p-8 backdrop-blur-2xl shadow-2xl shadow-black/40">
 
-          {/* TOP FILTERS */}
+          {/* TOP */}
           <div className="flex flex-wrap gap-4 mb-8">
 
             <button
               onClick={() => setTripType("Tek Yön")}
-              className={`px-5 py-3 rounded-2xl font-bold transition ${
+              className={`px-6 py-3 rounded-2xl font-bold transition ${
                 tripType === "Tek Yön"
                   ? "bg-blue-500"
                   : "bg-white/10 border border-white/10"
@@ -151,7 +151,7 @@ export default function Home() {
 
             <button
               onClick={() => setTripType("Gidiş - Dönüş")}
-              className={`px-5 py-3 rounded-2xl font-bold transition ${
+              className={`px-6 py-3 rounded-2xl font-bold transition ${
                 tripType === "Gidiş - Dönüş"
                   ? "bg-blue-500"
                   : "bg-white/10 border border-white/10"
@@ -275,7 +275,7 @@ export default function Home() {
                   Yolcu
                 </p>
 
-                <p className="text-xl font-bold mt-1">
+                <p className="text-lg font-bold mt-1">
                   {adult} Yetişkin
                   {child > 0 && `, ${child} Çocuk`}
                   {baby > 0 && `, ${baby} Bebek`}
@@ -290,13 +290,9 @@ export default function Home() {
                   {/* ADULT */}
                   <div className="flex items-center justify-between mb-5">
 
-                    <div>
-
-                      <p className="font-bold">
-                        Yetişkin
-                      </p>
-
-                    </div>
+                    <p className="font-bold">
+                      Yetişkin
+                    </p>
 
                     <div className="flex items-center gap-3">
 
@@ -329,13 +325,9 @@ export default function Home() {
                   {/* CHILD */}
                   <div className="flex items-center justify-between mb-5">
 
-                    <div>
-
-                      <p className="font-bold">
-                        Çocuk
-                      </p>
-
-                    </div>
+                    <p className="font-bold">
+                      Çocuk
+                    </p>
 
                     <div className="flex items-center gap-3">
 
@@ -368,13 +360,9 @@ export default function Home() {
                   {/* BABY */}
                   <div className="flex items-center justify-between">
 
-                    <div>
-
-                      <p className="font-bold">
-                        Bebek
-                      </p>
-
-                    </div>
+                    <p className="font-bold">
+                      Bebek
+                    </p>
 
                     <div className="flex items-center gap-3">
 
@@ -419,6 +407,156 @@ export default function Home() {
             </button>
 
           </div>
+
+        </div>
+
+      </section>
+
+      {/* AIRLINES */}
+      <section className="relative max-w-[1700px] mx-auto px-6 lg:px-8 mt-24">
+
+        <div className="flex items-center justify-between mb-10">
+
+          <h2 className="text-4xl lg:text-5xl font-black">
+            Popüler Havayolları
+          </h2>
+
+          <a
+            href="#"
+            className="text-blue-400"
+          >
+            Tümünü Gör
+          </a>
+
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+
+          {[
+            "THY",
+            "Pegasus",
+            "Lufthansa",
+            "Qatar",
+            "Emirates",
+            "British Airways",
+          ].map((airline, index) => (
+
+            <div
+              key={index}
+              className="bg-white/10 border border-white/10 rounded-3xl p-8 hover:border-blue-500/40 transition cursor-pointer"
+            >
+
+              <div className="w-16 h-16 rounded-2xl bg-white mx-auto mb-5"></div>
+
+              <p className="text-center font-bold">
+                {airline}
+              </p>
+
+            </div>
+
+          ))}
+
+        </div>
+
+      </section>
+
+      {/* ROUTES */}
+      <section className="relative max-w-[1700px] mx-auto px-6 lg:px-8 mt-24 pb-32">
+
+        <div className="flex items-center justify-between mb-10">
+
+          <h2 className="text-4xl lg:text-5xl font-black">
+            En Popüler Rotalar
+          </h2>
+
+          <a
+            href="#"
+            className="text-blue-400"
+          >
+            Tümünü Gör
+          </a>
+
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-7">
+
+          {[
+            {
+              city: "Amsterdam",
+              price: "2490₺",
+              airline: "Pegasus",
+            },
+
+            {
+              city: "Dubai",
+              price: "6490₺",
+              airline: "Emirates",
+            },
+
+            {
+              city: "Paris",
+              price: "3190₺",
+              airline: "Air France",
+            },
+
+            {
+              city: "Londra",
+              price: "3890₺",
+              airline: "THY",
+            },
+
+          ].map((route, index) => (
+
+            <div
+              key={index}
+              className="bg-white/10 border border-white/10 rounded-[35px] overflow-hidden hover:border-blue-500/40 transition"
+            >
+
+              <div className="h-[220px] bg-gradient-to-br from-slate-600 to-slate-800"></div>
+
+              <div className="p-7">
+
+                <div className="flex items-center justify-between">
+
+                  <h3 className="text-4xl font-black">
+                    {route.city}
+                  </h3>
+
+                  <span className="text-blue-400 text-sm">
+                    {route.airline}
+                  </span>
+
+                </div>
+
+                <p className="text-slate-400 mt-3">
+                  İstanbul → {route.city}
+                </p>
+
+                <div className="mt-7 flex items-end justify-between">
+
+                  <div>
+
+                    <p className="text-slate-500 text-sm">
+                      Başlayan fiyat
+                    </p>
+
+                    <p className="text-5xl font-black mt-2">
+                      {route.price}
+                    </p>
+
+                  </div>
+
+                  <button className="bg-blue-500 hover:bg-blue-600 transition px-5 py-3 rounded-2xl font-bold">
+                    Uçuşları Gör
+                  </button>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          ))}
 
         </div>
 
