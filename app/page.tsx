@@ -1,9 +1,16 @@
-"use client";
-
-import Script from "next/script";
-
 export default function Home() {
   return (
-    <>
-      <Script
-        src="https://tpwdg.com/content?currency=
+    <main
+      style={{
+        minHeight: "100vh",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        fontSize: "32px",
+        fontWeight: "bold",
+      }}
+    >
+      Uçgit Ana Sayfa
+    </main>
+  );
+}
