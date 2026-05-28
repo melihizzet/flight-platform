@@ -1,10 +1,33 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function Home() {
 
+  const router = useRouter();
+
   const [tripType, setTripType] = useState("Tek Yön");
+
+  const [fromAirport, setFromAirport] = useState("SAW");
+  const [toAirport, setToAirport] = useState("AMS");
+
+  const [departureDate, setDepartureDate] = useState("");
+  const [returnDate, setReturnDate] = useState("");
+
+  const [passengers, setPassengers] = useState(1);
+
+  const handleSearch = () => {
+
+    if (!fromAirport || !toAirport) {
+      alert("Lütfen kalkış ve varış noktası seç.");
+      return;
+    }
+
+    router.push(
+      `/flights?from=${fromAirport}&to=${toAirport}&departure=${departureDate}&return=${returnDate}&passengers=${passengers}`
+    );
+  };
 
   return (
     <main className="min-h-screen bg-[#020617] text-white overflow-hidden">
@@ -28,31 +51,19 @@ export default function Home() {
           {/* MENU */}
           <div className="hidden md:flex items-center gap-6 lg:gap-10 text-sm lg:text-base font-medium text-slate-300">
 
-            <a
-              href="/campaigns"
-              className="hover:text-blue-400 transition"
-            >
+            <a href="/campaigns" className="hover:text-blue-400 transition">
               Kampanyalar
             </a>
 
-            <a
-              href="/blog"
-              className="hover:text-blue-400 transition"
-            >
+            <a href="/blog" className="hover:text-blue-400 transition">
               Blog
             </a>
 
-            <a
-              href="/contact"
-              className="hover:text-blue-400 transition"
-            >
+            <a href="/contact" className="hover:text-blue-400 transition">
               İletişim
             </a>
 
-            <a
-              href="/about"
-              className="hover:text-blue-400 transition"
-            >
+            <a href="/about" className="hover:text-blue-400 transition">
               Hakkımızda
             </a>
 
@@ -134,45 +145,88 @@ export default function Home() {
               Gidiş - Dönüş
             </button>
 
-            <button className="bg-white/10 border border-white/10 px-5 py-3 rounded-2xl font-bold">
-              1 Yolcu
-            </button>
-
-            <button className="bg-white/10 border border-white/10 px-5 py-3 rounded-2xl font-bold">
-              Economy
-            </button>
-
           </div>
 
           {/* SEARCH FORM */}
           <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-5">
 
+            {/* FROM */}
             <input
-              defaultValue="SAW - Sabiha Gökçen"
+              value={fromAirport}
+              onChange={(e) => setFromAirport(e.target.value)}
+              placeholder="Nereden?"
               className="bg-slate-700/80 border border-white/10 rounded-3xl px-6 py-5 lg:py-6 text-base lg:text-lg outline-none"
             />
 
+            {/* TO */}
             <input
-              defaultValue="AMS - Amsterdam"
+              value={toAirport}
+              onChange={(e) => setToAirport(e.target.value)}
+              placeholder="Nereye?"
               className="bg-slate-700/80 border border-white/10 rounded-3xl px-6 py-5 lg:py-6 text-base lg:text-lg outline-none"
             />
 
+            {/* DEPARTURE */}
             <input
               type="date"
+              value={departureDate}
+              onChange={(e) => setDepartureDate(e.target.value)}
               className="bg-slate-700/80 border border-white/10 rounded-3xl px-6 py-5 lg:py-6 text-base lg:text-lg outline-none"
             />
 
+            {/* RETURN */}
             <input
               type="date"
-              className="bg-slate-700/80 border border-white/10 rounded-3xl px-6 py-5 lg:py-6 text-base lg:text-lg outline-none"
+              value={returnDate}
+              onChange={(e) => setReturnDate(e.target.value)}
+              disabled={tripType === "Tek Yön"}
+              className={`bg-slate-700/80 border border-white/10 rounded-3xl px-6 py-5 lg:py-6 text-base lg:text-lg outline-none ${
+                tripType === "Tek Yön"
+                  ? "opacity-50 cursor-not-allowed"
+                  : ""
+              }`}
             />
 
-            <a
-              href="/flights"
+            {/* SEARCH BUTTON */}
+            <button
+              onClick={handleSearch}
               className="bg-blue-500 hover:bg-blue-600 transition rounded-3xl text-lg lg:text-xl font-black flex items-center justify-center min-h-[64px]"
             >
               Uçuş Ara
-            </a>
+            </button>
+
+          </div>
+
+          {/* PASSENGERS */}
+          <div className="flex items-center gap-5 mt-8">
+
+            <p className="text-slate-400">
+              Yolcu:
+            </p>
+
+            <div className="flex items-center gap-4">
+
+              <button
+                onClick={() =>
+                  setPassengers((prev) => Math.max(1, prev - 1))
+                }
+                className="w-10 h-10 rounded-full bg-white/10"
+              >
+                -
+              </button>
+
+              <span className="text-xl font-bold">
+                {passengers}
+              </span>
+
+              <button
+                onClick={() => setPassengers((prev) => prev + 1)}
+                className="w-10 h-10 rounded-full bg-white/10"
+              >
+                +
+              </button>
+
+            </div>
 
           </div>
 
@@ -189,10 +243,7 @@ export default function Home() {
             Popüler Havayolları
           </h2>
 
-          <a
-            href="/flights"
-            className="text-blue-400"
-          >
+          <a href="/flights" className="text-blue-400">
             Tümünü Gör
           </a>
 
@@ -227,151 +278,6 @@ export default function Home() {
         </div>
 
       </section>
-
-      {/* ROUTES */}
-      <section className="relative max-w-[1700px] mx-auto px-6 lg:px-8 pt-24 pb-24">
-
-        <div className="flex items-center justify-between mb-10">
-
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black">
-            En Popüler Rotalar
-          </h2>
-
-          <a
-            href="/flights"
-            className="text-blue-400"
-          >
-            Tümünü Gör
-          </a>
-
-        </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-
-          {[
-            {
-              city: "Amsterdam",
-              airline: "Pegasus",
-              price: "2490₺",
-            },
-
-            {
-              city: "Dubai",
-              airline: "Emirates",
-              price: "6490₺",
-            },
-
-            {
-              city: "Paris",
-              airline: "Air France",
-              price: "3190₺",
-            },
-
-            {
-              city: "Londra",
-              airline: "THY",
-              price: "3890₺",
-            },
-          ].map((route, index) => (
-
-            <div
-              key={index}
-              className="bg-white/10 border border-white/10 rounded-[35px] overflow-hidden hover:border-blue-400/30 transition"
-            >
-
-              <div className="h-[220px] bg-gradient-to-br from-slate-600 to-slate-800"></div>
-
-              <div className="p-6 lg:p-8">
-
-                <div className="flex items-center justify-between mb-5">
-
-                  <div>
-
-                    <h3 className="text-3xl lg:text-4xl font-black">
-                      {route.city}
-                    </h3>
-
-                    <p className="text-slate-400 mt-2">
-                      İstanbul → {route.city}
-                    </p>
-
-                  </div>
-
-                  <p className="text-blue-400 text-sm">
-                    {route.airline}
-                  </p>
-
-                </div>
-
-                <div className="flex items-end justify-between">
-
-                  <div>
-
-                    <p className="text-slate-400 text-sm">
-                      Başlayan fiyat
-                    </p>
-
-                    <h4 className="text-4xl lg:text-5xl font-black mt-2">
-                      {route.price}
-                    </h4>
-
-                  </div>
-
-                  <a
-                    href="/flights"
-                    className="bg-blue-500 hover:bg-blue-600 transition px-5 py-3 rounded-2xl font-bold"
-                  >
-                    Gör
-                  </a>
-
-                </div>
-
-              </div>
-
-            </div>
-
-          ))}
-
-        </div>
-
-      </section>
-
-      {/* FOOTER */}
-      <footer className="border-t border-white/5 py-12">
-
-        <div className="max-w-[1700px] mx-auto px-6 lg:px-8 flex flex-col lg:flex-row items-center justify-between gap-8">
-
-          <div>
-
-            <h3 className="text-3xl font-black">
-              ✈️ UçGit
-            </h3>
-
-            <p className="text-slate-400 mt-3">
-              Uygun uçuşları saniyeler içinde bul.
-            </p>
-
-          </div>
-
-          <div className="flex flex-wrap items-center justify-center gap-8 text-slate-400">
-
-            <a href="/about">
-              Hakkımızda
-            </a>
-
-            <a href="/contact">
-              İletişim
-            </a>
-
-            <a href="/login">
-              Giriş
-            </a>
-
-          </div>
-
-        </div>
-
-      </footer>
 
     </main>
   );
