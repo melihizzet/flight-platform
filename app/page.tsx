@@ -47,8 +47,8 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-[#020617] text-white overflow-hidden relative">
 
-      {/* BACKGROUND */}
-      <div className="absolute top-[-300px] left-1/2 -translate-x-1/2 w-[1400px] h-[1400px] bg-blue-500/10 blur-[180px] rounded-full"></div>
+      {/* BG */}
+      <div className="absolute top-[-300px] left-1/2 -translate-x-1/2 w-[1600px] h-[1600px] bg-blue-500/10 blur-[180px] rounded-full"></div>
 
       {/* NAVBAR */}
       <nav className="relative z-50 border-b border-white/5 backdrop-blur-xl">
@@ -163,7 +163,7 @@ export default function Home() {
           </div>
 
           {/* FORM */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-5">
+          <div className="grid md:grid-cols-2 lg:grid-cols-6 gap-5">
 
             {/* FROM */}
             <div className="relative">
@@ -255,13 +255,25 @@ export default function Home() {
 
             </div>
 
-            {/* DATE */}
+            {/* DEPARTURE */}
             <input
               type="date"
               value={departureDate}
               onChange={(e) => setDepartureDate(e.target.value)}
               className="bg-slate-700/80 border border-white/10 rounded-3xl px-6 py-6 text-lg outline-none"
             />
+
+            {/* RETURN */}
+            {tripType === "Gidiş - Dönüş" && (
+
+              <input
+                type="date"
+                value={returnDate}
+                onChange={(e) => setReturnDate(e.target.value)}
+                className="bg-slate-700/80 border border-white/10 rounded-3xl px-6 py-6 text-lg outline-none"
+              />
+
+            )}
 
             {/* PASSENGERS */}
             <div className="relative">
@@ -285,16 +297,24 @@ export default function Home() {
 
               {showPassengerBox && (
 
-                <div className="absolute top-full left-0 mt-3 w-full bg-[#111827] border border-white/10 rounded-3xl p-5 z-50">
+                <div className="absolute top-full left-0 mt-3 w-[320px] bg-[#111827] border border-white/10 rounded-3xl p-6 z-50 shadow-2xl">
 
                   {/* ADULT */}
-                  <div className="flex items-center justify-between mb-5">
+                  <div className="flex items-center justify-between mb-6">
 
-                    <p className="font-bold">
-                      Yetişkin
-                    </p>
+                    <div>
 
-                    <div className="flex items-center gap-3">
+                      <p className="font-bold text-lg">
+                        Yetişkin
+                      </p>
+
+                      <p className="text-slate-400 text-sm">
+                        12+ yaş
+                      </p>
+
+                    </div>
+
+                    <div className="flex items-center gap-4">
 
                       <button
                         onClick={() =>
@@ -302,18 +322,20 @@ export default function Home() {
                             Math.max(1, prev - 1)
                           )
                         }
-                        className="w-9 h-9 rounded-full bg-white/10"
+                        className="w-10 h-10 rounded-full bg-white/10 text-xl"
                       >
                         -
                       </button>
 
-                      <span>{adult}</span>
+                      <span className="text-xl">
+                        {adult}
+                      </span>
 
                       <button
                         onClick={() =>
                           setAdult((prev) => prev + 1)
                         }
-                        className="w-9 h-9 rounded-full bg-white/10"
+                        className="w-10 h-10 rounded-full bg-white/10 text-xl"
                       >
                         +
                       </button>
@@ -323,13 +345,21 @@ export default function Home() {
                   </div>
 
                   {/* CHILD */}
-                  <div className="flex items-center justify-between mb-5">
+                  <div className="flex items-center justify-between mb-6">
 
-                    <p className="font-bold">
-                      Çocuk
-                    </p>
+                    <div>
 
-                    <div className="flex items-center gap-3">
+                      <p className="font-bold text-lg">
+                        Çocuk
+                      </p>
+
+                      <p className="text-slate-400 text-sm">
+                        2-11 yaş
+                      </p>
+
+                    </div>
+
+                    <div className="flex items-center gap-4">
 
                       <button
                         onClick={() =>
@@ -337,18 +367,20 @@ export default function Home() {
                             Math.max(0, prev - 1)
                           )
                         }
-                        className="w-9 h-9 rounded-full bg-white/10"
+                        className="w-10 h-10 rounded-full bg-white/10 text-xl"
                       >
                         -
                       </button>
 
-                      <span>{child}</span>
+                      <span className="text-xl">
+                        {child}
+                      </span>
 
                       <button
                         onClick={() =>
                           setChild((prev) => prev + 1)
                         }
-                        className="w-9 h-9 rounded-full bg-white/10"
+                        className="w-10 h-10 rounded-full bg-white/10 text-xl"
                       >
                         +
                       </button>
@@ -360,11 +392,19 @@ export default function Home() {
                   {/* BABY */}
                   <div className="flex items-center justify-between">
 
-                    <p className="font-bold">
-                      Bebek
-                    </p>
+                    <div>
 
-                    <div className="flex items-center gap-3">
+                      <p className="font-bold text-lg">
+                        Bebek
+                      </p>
+
+                      <p className="text-slate-400 text-sm">
+                        0-2 yaş
+                      </p>
+
+                    </div>
+
+                    <div className="flex items-center gap-4">
 
                       <button
                         onClick={() =>
@@ -372,18 +412,20 @@ export default function Home() {
                             Math.max(0, prev - 1)
                           )
                         }
-                        className="w-9 h-9 rounded-full bg-white/10"
+                        className="w-10 h-10 rounded-full bg-white/10 text-xl"
                       >
                         -
                       </button>
 
-                      <span>{baby}</span>
+                      <span className="text-xl">
+                        {baby}
+                      </span>
 
                       <button
                         onClick={() =>
                           setBaby((prev) => prev + 1)
                         }
-                        className="w-9 h-9 rounded-full bg-white/10"
+                        className="w-10 h-10 rounded-full bg-white/10 text-xl"
                       >
                         +
                       </button>
@@ -421,10 +463,7 @@ export default function Home() {
             Popüler Havayolları
           </h2>
 
-          <a
-            href="#"
-            className="text-blue-400"
-          >
+          <a href="#" className="text-blue-400">
             Tümünü Gör
           </a>
 
@@ -433,12 +472,36 @@ export default function Home() {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
 
           {[
-            "THY",
-            "Pegasus",
-            "Lufthansa",
-            "Qatar",
-            "Emirates",
-            "British Airways",
+            {
+              name: "THY",
+              logo: "/airlines/thy.png",
+            },
+
+            {
+              name: "Pegasus",
+              logo: "/airlines/pegasus.png",
+            },
+
+            {
+              name: "Lufthansa",
+              logo: "/airlines/lufthansa.png",
+            },
+
+            {
+              name: "Qatar",
+              logo: "/airlines/qatar.png",
+            },
+
+            {
+              name: "Emirates",
+              logo: "/airlines/emirates.png",
+            },
+
+            {
+              name: "British Airways",
+              logo: "/airlines/british.png",
+            },
+
           ].map((airline, index) => (
 
             <div
@@ -446,10 +509,13 @@ export default function Home() {
               className="bg-white/10 border border-white/10 rounded-3xl p-8 hover:border-blue-500/40 transition cursor-pointer"
             >
 
-              <div className="w-16 h-16 rounded-2xl bg-white mx-auto mb-5"></div>
+              <img
+                src={airline.logo}
+                className="w-20 h-20 object-contain mx-auto mb-5"
+              />
 
               <p className="text-center font-bold">
-                {airline}
+                {airline.name}
               </p>
 
             </div>
@@ -461,7 +527,7 @@ export default function Home() {
       </section>
 
       {/* ROUTES */}
-      <section className="relative max-w-[1700px] mx-auto px-6 lg:px-8 mt-24 pb-32">
+      <section className="relative max-w-[1700px] mx-auto px-6 lg:px-8 mt-24">
 
         <div className="flex items-center justify-between mb-10">
 
@@ -469,10 +535,7 @@ export default function Home() {
             En Popüler Rotalar
           </h2>
 
-          <a
-            href="#"
-            className="text-blue-400"
-          >
+          <a href="#" className="text-blue-400">
             Tümünü Gör
           </a>
 
@@ -483,24 +546,28 @@ export default function Home() {
           {[
             {
               city: "Amsterdam",
+              image: "https://images.unsplash.com/photo-1512470876302-972faa2aa9a4",
               price: "2490₺",
               airline: "Pegasus",
             },
 
             {
               city: "Dubai",
+              image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c",
               price: "6490₺",
               airline: "Emirates",
             },
 
             {
               city: "Paris",
+              image: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34",
               price: "3190₺",
               airline: "Air France",
             },
 
             {
               city: "Londra",
+              image: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad",
               price: "3890₺",
               airline: "THY",
             },
@@ -512,7 +579,10 @@ export default function Home() {
               className="bg-white/10 border border-white/10 rounded-[35px] overflow-hidden hover:border-blue-500/40 transition"
             >
 
-              <div className="h-[220px] bg-gradient-to-br from-slate-600 to-slate-800"></div>
+              <img
+                src={route.image}
+                className="h-[220px] w-full object-cover"
+              />
 
               <div className="p-7">
 
@@ -561,6 +631,90 @@ export default function Home() {
         </div>
 
       </section>
+
+      {/* FOOTER */}
+      <footer className="relative mt-32 border-t border-white/10">
+
+        <div className="max-w-[1700px] mx-auto px-6 lg:px-8 py-16">
+
+          <div className="grid md:grid-cols-4 gap-10">
+
+            {/* BRAND */}
+            <div>
+
+              <h3 className="text-4xl font-black mb-5">
+                ✈️ UçGit
+              </h3>
+
+              <p className="text-slate-400 leading-relaxed">
+                UçGit tüm havayollarını karşılaştıran modern uçuş platformudur.
+              </p>
+
+            </div>
+
+            {/* MENU */}
+            <div>
+
+              <h4 className="font-black text-xl mb-5">
+                Menü
+              </h4>
+
+              <div className="flex flex-col gap-3 text-slate-400">
+
+                <a href="/campaigns">Kampanyalar</a>
+                <a href="/blog">Blog</a>
+                <a href="/contact">İletişim</a>
+                <a href="/about">Hakkımızda</a>
+
+              </div>
+
+            </div>
+
+            {/* SUPPORT */}
+            <div>
+
+              <h4 className="font-black text-xl mb-5">
+                Destek
+              </h4>
+
+              <div className="flex flex-col gap-3 text-slate-400">
+
+                <a href="#">Sık Sorulan Sorular</a>
+                <a href="#">Gizlilik Politikası</a>
+                <a href="#">Kullanım Şartları</a>
+
+              </div>
+
+            </div>
+
+            {/* SOCIAL */}
+            <div>
+
+              <h4 className="font-black text-xl mb-5">
+                Sosyal Medya
+              </h4>
+
+              <div className="flex gap-4">
+
+                <div className="w-12 h-12 rounded-2xl bg-white/10"></div>
+                <div className="w-12 h-12 rounded-2xl bg-white/10"></div>
+                <div className="w-12 h-12 rounded-2xl bg-white/10"></div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <div className="border-t border-white/10 mt-12 pt-8 text-slate-500 text-sm">
+
+            © 2026 UçGit. Tüm hakları saklıdır.
+
+          </div>
+
+        </div>
+
+      </footer>
 
     </main>
   );
