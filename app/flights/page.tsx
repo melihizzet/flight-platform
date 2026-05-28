@@ -1,3 +1,6 @@
+# `app/flights/page.tsx`
+
+```tsx
 "use client";
 
 import { useState } from "react";
@@ -185,13 +188,11 @@ export default function FlightsPage() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-[#020617] via-[#071132] to-[#0f172a] text-white overflow-hidden">
 
-      {/* BACKGROUND EFFECT */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[900px] bg-blue-500/10 blur-[180px] rounded-full"></div>
 
-      {/* NAVBAR */}
       <nav className="sticky top-0 z-50 backdrop-blur-xl bg-slate-950/70 border-b border-white/5">
 
-        <div className="max-w-[1700px] mx-auto px-8 py-6 flex items-center justify-between">
+        <div className="max-w-[1920px] mx-auto px-8 py-6 flex items-center justify-between">
 
           <a
             href="/"
@@ -216,8 +217,7 @@ export default function FlightsPage() {
 
       </nav>
 
-      {/* SEARCH */}
-      <section className="relative max-w-[1700px] mx-auto px-8 pt-16">
+      <section className="relative max-w-[1920px] mx-auto px-8 pt-16">
 
         <div className="bg-white/10 border border-white/10 rounded-[40px] p-8 backdrop-blur-2xl shadow-2xl shadow-black/30">
 
@@ -238,7 +238,6 @@ export default function FlightsPage() {
               className="bg-slate-700/80 border border-white/10 rounded-3xl p-6 text-xl outline-none focus:border-blue-400 transition"
             />
 
-            {/* PASSENGERS */}
             <div className="bg-slate-700/80 border border-white/10 rounded-3xl p-6">
 
               <div className="space-y-4">
@@ -347,12 +346,10 @@ export default function FlightsPage() {
 
       </section>
 
-      {/* CONTENT */}
-      <section className="relative max-w-[1700px] mx-auto px-8 py-20">
+      <section className="relative max-w-[1920px] mx-auto px-8 py-20">
 
-        <div className="grid lg:grid-cols-[320px_1fr] gap-10">
+        <div className="grid lg:grid-cols-[380px_1fr] gap-10">
 
-          {/* FILTERS */}
           <div className="bg-white/10 border border-white/10 rounded-[40px] p-8 h-fit sticky top-32 backdrop-blur-2xl shadow-2xl shadow-black/20">
 
             <div className="flex items-center justify-between mb-10">
@@ -370,7 +367,6 @@ export default function FlightsPage() {
 
             </div>
 
-            {/* PRICE */}
             <div className="mb-10">
 
               <div className="flex items-center justify-between mb-4">
@@ -398,81 +394,10 @@ export default function FlightsPage() {
 
             </div>
 
-            {/* CHECKBOX */}
-            <div className="space-y-5 mb-10">
-
-              <label className="flex items-center gap-4 text-xl">
-
-                <input
-                  type="checkbox"
-                  checked={directOnly}
-                  onChange={() =>
-                    setDirectOnly(!directOnly)
-                  }
-                />
-
-                Direkt Uçuş
-
-              </label>
-
-              <label className="flex items-center gap-4 text-xl">
-
-                <input
-                  type="checkbox"
-                  checked={bagOnly}
-                  onChange={() =>
-                    setBagOnly(!bagOnly)
-                  }
-                />
-
-                Bagaj Dahil
-
-              </label>
-
-            </div>
-
-            {/* AIRLINES */}
-            <div>
-
-              <p className="text-2xl font-bold mb-6">
-                Havayolları
-              </p>
-
-              <div className="space-y-4">
-
-                {airlines.map((airline) => (
-
-                  <label
-                    key={airline}
-                    className="flex items-center gap-4 text-xl"
-                  >
-
-                    <input
-                      type="checkbox"
-                      checked={selectedAirlines.includes(
-                        airline
-                      )}
-                      onChange={() =>
-                        toggleAirline(airline)
-                      }
-                    />
-
-                    {airline}
-
-                  </label>
-
-                ))}
-
-              </div>
-
-            </div>
-
           </div>
 
-          {/* RESULTS */}
           <div>
 
-            {/* TOP */}
             <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 mb-14">
 
               <div>
@@ -481,79 +406,15 @@ export default function FlightsPage() {
                   {from} → {to}
                 </p>
 
-                <h1 className="text-7xl font-black tracking-tight mt-2">
+                <h1 className="text-8xl font-black tracking-tight mt-2">
                   Uçuş Sonuçları
                 </h1>
-
-                <p className="text-slate-400 mt-4 text-xl">
-                  {filteredFlights.length} uçuş bulundu
-                </p>
-
-              </div>
-
-              <div className="flex flex-wrap gap-4">
-
-                <button
-                  onClick={() =>
-                    setSortType("cheap")
-                  }
-                  className={`px-7 py-4 rounded-2xl font-bold text-lg transition ${
-                    sortType === "cheap"
-                      ? "bg-blue-500 shadow-lg shadow-blue-500/20"
-                      : "bg-white/10 border border-white/10"
-                  }`}
-                >
-                  En Ucuz
-                </button>
-
-                <button
-                  onClick={() =>
-                    setSortType("fast")
-                  }
-                  className={`px-7 py-4 rounded-2xl font-bold text-lg transition ${
-                    sortType === "fast"
-                      ? "bg-blue-500 shadow-lg shadow-blue-500/20"
-                      : "bg-white/10 border border-white/10"
-                  }`}
-                >
-                  En Hızlı
-                </button>
-
-                <button
-                  onClick={() =>
-                    setSortType("direct")
-                  }
-                  className={`px-7 py-4 rounded-2xl font-bold text-lg transition ${
-                    sortType === "direct"
-                      ? "bg-blue-500 shadow-lg shadow-blue-500/20"
-                      : "bg-white/10 border border-white/10"
-                  }`}
-                >
-                  Direkt Uçuş
-                </button>
 
               </div>
 
             </div>
 
-            {/* FLIGHTS */}
             <div className="space-y-8">
-
-              {filteredFlights.length === 0 && (
-
-                <div className="bg-white/10 border border-white/10 rounded-[40px] p-20 text-center">
-
-                  <h2 className="text-5xl font-black">
-                    Uçuş bulunamadı
-                  </h2>
-
-                  <p className="text-slate-400 mt-6 text-2xl">
-                    Filtreleri değiştirmeyi deneyin.
-                  </p>
-
-                </div>
-
-              )}
 
               {filteredFlights.map((flight, index) => (
 
@@ -562,7 +423,6 @@ export default function FlightsPage() {
                   className="bg-gradient-to-br from-slate-700/40 to-slate-800/40 border border-white/10 rounded-[40px] p-10 hover:scale-[1.01] hover:border-blue-400/30 hover:shadow-2xl hover:shadow-blue-500/10 transition duration-300 backdrop-blur-xl"
                 >
 
-                  {/* BADGE */}
                   <div className="mb-6">
 
                     <span className="bg-blue-500/20 border border-blue-400/20 text-blue-300 px-5 py-2 rounded-full text-sm font-bold">
@@ -573,7 +433,6 @@ export default function FlightsPage() {
 
                   <div className="flex flex-col xl:flex-row xl:items-center xl:justify-between gap-10">
 
-                    {/* AIRLINE */}
                     <div className="min-w-[180px]">
 
                       <p className="text-slate-400">
@@ -584,20 +443,13 @@ export default function FlightsPage() {
                         {flight.airline}
                       </h2>
 
-                      <p className="text-slate-400 mt-3 text-sm">
-                        {flight.baggage
-                          ? "Cabin Bag Dahil"
-                          : "Bagaj Yok"}
-                      </p>
-
                     </div>
 
-                    {/* TIMES */}
                     <div className="flex items-center gap-8">
 
                       <div>
 
-                        <p className="text-6xl font-black tracking-tight">
+                        <p className="text-7xl font-black tracking-tight">
                           {flight.departure}
                         </p>
 
@@ -619,19 +471,11 @@ export default function FlightsPage() {
 
                         </div>
 
-                        <p className="text-blue-400 font-bold text-sm">
-
-                          {flight.stops === 0
-                            ? "Direkt Uçuş"
-                            : "1 Aktarma"}
-
-                        </p>
-
                       </div>
 
                       <div>
 
-                        <p className="text-6xl font-black tracking-tight">
+                        <p className="text-7xl font-black tracking-tight">
                           {flight.arrival}
                         </p>
 
@@ -643,7 +487,6 @@ export default function FlightsPage() {
 
                     </div>
 
-                    {/* PRICE */}
                     <div className="text-right min-w-[220px]">
 
                       <p className="text-slate-400">
@@ -676,4 +519,5 @@ export default function FlightsPage() {
 
     </main>
   );
-}git add .
+}
+```
