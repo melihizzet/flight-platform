@@ -111,19 +111,21 @@ export default function Home() {
           {/* Top Controls */}
           <div className="flex flex-wrap gap-4 mb-6">
 
+            {/* Trip Type */}
             <select
               value={tripType}
               onChange={(e) => setTripType(e.target.value)}
-              className="bg-white/10 border border-white/10 rounded-xl px-4 py-3 outline-none"
+              className="bg-slate-700 border border-white/10 rounded-xl px-4 py-3 outline-none text-white"
             >
               <option value="roundtrip">Gidiş - Dönüş</option>
               <option value="oneway">Tek Yön</option>
             </select>
 
+            {/* Passenger */}
             <select
               value={passengers}
               onChange={(e) => setPassengers(Number(e.target.value))}
-              className="bg-white/10 border border-white/10 rounded-xl px-4 py-3 outline-none"
+              className="bg-slate-700 border border-white/10 rounded-xl px-4 py-3 outline-none text-white"
             >
               <option value={1}>1 Yolcu</option>
               <option value={2}>2 Yolcu</option>
@@ -131,10 +133,11 @@ export default function Home() {
               <option value={4}>4 Yolcu</option>
             </select>
 
+            {/* Cabin */}
             <select
               value={cabin}
               onChange={(e) => setCabin(e.target.value)}
-              className="bg-white/10 border border-white/10 rounded-xl px-4 py-3 outline-none"
+              className="bg-slate-700 border border-white/10 rounded-xl px-4 py-3 outline-none text-white"
             >
               <option>Economy</option>
               <option>Premium Economy</option>
@@ -159,7 +162,7 @@ export default function Home() {
                   setFromAirport(e.target.value);
                   setFromOpen(true);
                 }}
-                className="bg-white/10 border border-white/10 rounded-2xl p-4 text-lg outline-none w-full"
+                className="bg-slate-700 border border-white/10 rounded-2xl p-4 text-lg outline-none w-full text-white"
               />
 
               {fromOpen && fromAirport.length > 0 && (
@@ -172,6 +175,7 @@ export default function Home() {
                         setFromAirport(
                           `${airport.code} - ${airport.name}`
                         );
+
                         setFromOpen(false);
                       }}
                       className="p-4 hover:bg-slate-700 cursor-pointer border-b border-white/5"
@@ -205,7 +209,7 @@ export default function Home() {
                   setToAirport(e.target.value);
                   setToOpen(true);
                 }}
-                className="bg-white/10 border border-white/10 rounded-2xl p-4 text-lg outline-none w-full"
+                className="bg-slate-700 border border-white/10 rounded-2xl p-4 text-lg outline-none w-full text-white"
               />
 
               {toOpen && toAirport.length > 0 && (
@@ -218,6 +222,7 @@ export default function Home() {
                         setToAirport(
                           `${airport.code} - ${airport.name}`
                         );
+
                         setToOpen(false);
                       }}
                       className="p-4 hover:bg-slate-700 cursor-pointer border-b border-white/5"
@@ -242,17 +247,17 @@ export default function Home() {
             {/* Departure */}
             <input
               type="date"
-              className="bg-white/10 border border-white/10 rounded-2xl p-4 text-lg outline-none"
+              className="bg-slate-700 border border-white/10 rounded-2xl p-4 text-lg outline-none text-white"
             />
 
             {/* Return */}
             {tripType === "roundtrip" ? (
               <input
                 type="date"
-                className="bg-white/10 border border-white/10 rounded-2xl p-4 text-lg outline-none"
+                className="bg-slate-700 border border-white/10 rounded-2xl p-4 text-lg outline-none text-white"
               />
             ) : (
-              <div className="bg-white/5 border border-white/5 rounded-2xl p-4 flex items-center text-slate-500">
+              <div className="bg-slate-700 border border-white/10 rounded-2xl p-4 flex items-center text-slate-400">
                 Dönüş yok
               </div>
             )}
@@ -266,7 +271,7 @@ export default function Home() {
 
         </div>
 
-        {/* Popular */}
+        {/* Popular Flights */}
         <div className="mt-16">
 
           <div className="flex items-center justify-between mb-6">
@@ -283,6 +288,7 @@ export default function Home() {
 
           <div className="space-y-4">
 
+            {/* Card */}
             <div className="bg-white/10 border border-white/10 rounded-3xl p-6 flex items-center justify-between hover:bg-white/15 transition">
 
               <div>
