@@ -320,7 +320,7 @@ export default function Home() {
 
           {/* SEARCH BUTTON */}
           <a
-            href={`/flights?from=${fromAirport}&to=${toAirport}`}
+            href="/flights?from=SAW&to=AMS"
             className="w-full mt-8 bg-blue-500 hover:bg-blue-600 transition rounded-3xl p-7 text-2xl font-black shadow-lg shadow-blue-500/30 flex items-center justify-center"
           >
             Uçuş Ara
