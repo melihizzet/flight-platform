@@ -15,18 +15,18 @@ export default function Home() {
       {/* NAVBAR */}
       <nav className="relative z-50 border-b border-white/5 backdrop-blur-xl">
 
-        <div className="max-w-[1700px] mx-auto px-8 py-6 flex items-center justify-between">
+        <div className="max-w-[1700px] mx-auto px-6 lg:px-8 py-5 flex items-center justify-between">
 
           {/* LOGO */}
           <a
             href="/"
-            className="text-5xl font-black tracking-tight flex items-center gap-3"
+            className="text-3xl md:text-4xl lg:text-5xl font-black tracking-tight flex items-center gap-3"
           >
             ✈️ UçGit
           </a>
 
           {/* MENU */}
-          <div className="hidden lg:flex items-center gap-10 text-sm font-medium text-slate-300">
+          <div className="hidden md:flex items-center gap-6 lg:gap-10 text-sm lg:text-base font-medium text-slate-300">
 
             <a
               href="/campaigns"
@@ -59,18 +59,18 @@ export default function Home() {
           </div>
 
           {/* AUTH */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3">
 
             <a
               href="/login"
-              className="hover:text-blue-400 transition"
+              className="hover:text-blue-400 transition text-sm md:text-base"
             >
               Giriş Yap
             </a>
 
             <a
               href="/register"
-              className="bg-blue-500 hover:bg-blue-600 transition px-5 py-3 rounded-2xl font-bold"
+              className="bg-blue-500 hover:bg-blue-600 transition px-4 lg:px-5 py-2 lg:py-3 rounded-2xl font-bold text-sm lg:text-base"
             >
               Kayıt Ol
             </a>
@@ -82,13 +82,13 @@ export default function Home() {
       </nav>
 
       {/* HERO */}
-      <section className="relative max-w-[1700px] mx-auto px-8 pt-24 pb-16 text-center">
+      <section className="relative max-w-[1700px] mx-auto px-6 lg:px-8 pt-20 lg:pt-24 pb-16 text-center">
 
-        <p className="text-blue-400 font-medium text-lg">
+        <p className="text-blue-400 font-medium text-base md:text-lg">
           En uygun uçuşları saniyeler içinde bul
         </p>
 
-        <h1 className="text-[80px] leading-[90px] font-black mt-8 tracking-tight">
+        <h1 className="text-[52px] leading-[58px] md:text-[70px] md:leading-[76px] lg:text-[80px] lg:leading-[90px] font-black mt-8 tracking-tight">
 
           Ucuza uçmanın{" "}
 
@@ -98,19 +98,19 @@ export default function Home() {
 
         </h1>
 
-        <p className="text-slate-400 text-xl mt-8 max-w-[900px] mx-auto leading-relaxed">
+        <p className="text-slate-400 text-lg md:text-xl mt-8 max-w-[900px] mx-auto leading-relaxed">
           Tüm havayollarını karşılaştır, en iyi fiyatları bul ve direkt havayoluna git.
         </p>
 
       </section>
 
       {/* SEARCH BOX */}
-      <section className="relative max-w-[1700px] mx-auto px-8">
+      <section className="relative max-w-[1700px] mx-auto px-6 lg:px-8">
 
-        <div className="bg-white/10 border border-white/10 rounded-[40px] p-8 backdrop-blur-2xl shadow-2xl shadow-black/30">
+        <div className="bg-white/10 border border-white/10 rounded-[40px] p-6 lg:p-8 backdrop-blur-2xl shadow-2xl shadow-black/30">
 
           {/* TOP FILTERS */}
-          <div className="flex flex-wrap gap-4 mb-8">
+          <div className="flex flex-wrap gap-4 mb-8 justify-center lg:justify-start">
 
             <button
               onClick={() => setTripType("Tek Yön")}
@@ -145,31 +145,31 @@ export default function Home() {
           </div>
 
           {/* SEARCH FORM */}
-          <div className="grid lg:grid-cols-5 gap-5">
+          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-5">
 
             <input
               defaultValue="SAW - Sabiha Gökçen"
-              className="bg-slate-700/80 border border-white/10 rounded-3xl px-6 py-6 text-lg outline-none"
+              className="bg-slate-700/80 border border-white/10 rounded-3xl px-6 py-5 lg:py-6 text-base lg:text-lg outline-none"
             />
 
             <input
               defaultValue="AMS - Amsterdam"
-              className="bg-slate-700/80 border border-white/10 rounded-3xl px-6 py-6 text-lg outline-none"
+              className="bg-slate-700/80 border border-white/10 rounded-3xl px-6 py-5 lg:py-6 text-base lg:text-lg outline-none"
             />
 
             <input
               type="date"
-              className="bg-slate-700/80 border border-white/10 rounded-3xl px-6 py-6 text-lg outline-none"
+              className="bg-slate-700/80 border border-white/10 rounded-3xl px-6 py-5 lg:py-6 text-base lg:text-lg outline-none"
             />
 
             <input
               type="date"
-              className="bg-slate-700/80 border border-white/10 rounded-3xl px-6 py-6 text-lg outline-none"
+              className="bg-slate-700/80 border border-white/10 rounded-3xl px-6 py-5 lg:py-6 text-base lg:text-lg outline-none"
             />
 
             <a
               href="/flights"
-              className="bg-blue-500 hover:bg-blue-600 transition rounded-3xl text-xl font-black flex items-center justify-center"
+              className="bg-blue-500 hover:bg-blue-600 transition rounded-3xl text-lg lg:text-xl font-black flex items-center justify-center min-h-[64px]"
             >
               Uçuş Ara
             </a>
@@ -181,11 +181,11 @@ export default function Home() {
       </section>
 
       {/* AIRLINES */}
-      <section className="relative max-w-[1700px] mx-auto px-8 pt-20">
+      <section className="relative max-w-[1700px] mx-auto px-6 lg:px-8 pt-20">
 
         <div className="flex items-center justify-between mb-10">
 
-          <h2 className="text-5xl font-black">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black">
             Popüler Havayolları
           </h2>
 
@@ -211,12 +211,12 @@ export default function Home() {
 
             <div
               key={index}
-              className="bg-white/10 border border-white/10 rounded-[30px] p-8 hover:border-blue-400/30 hover:scale-[1.02] transition text-center"
+              className="bg-white/10 border border-white/10 rounded-[30px] p-6 lg:p-8 hover:border-blue-400/30 hover:scale-[1.02] transition text-center"
             >
 
-              <div className="w-16 h-16 bg-white rounded-2xl mx-auto mb-5"></div>
+              <div className="w-14 h-14 lg:w-16 lg:h-16 bg-white rounded-2xl mx-auto mb-5"></div>
 
-              <h3 className="font-bold text-lg">
+              <h3 className="font-bold text-base lg:text-lg">
                 {airline}
               </h3>
 
@@ -229,11 +229,11 @@ export default function Home() {
       </section>
 
       {/* ROUTES */}
-      <section className="relative max-w-[1700px] mx-auto px-8 pt-24 pb-24">
+      <section className="relative max-w-[1700px] mx-auto px-6 lg:px-8 pt-24 pb-24">
 
         <div className="flex items-center justify-between mb-10">
 
-          <h2 className="text-5xl font-black">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black">
             En Popüler Rotalar
           </h2>
 
@@ -281,13 +281,13 @@ export default function Home() {
 
               <div className="h-[220px] bg-gradient-to-br from-slate-600 to-slate-800"></div>
 
-              <div className="p-8">
+              <div className="p-6 lg:p-8">
 
                 <div className="flex items-center justify-between mb-5">
 
                   <div>
 
-                    <h3 className="text-4xl font-black">
+                    <h3 className="text-3xl lg:text-4xl font-black">
                       {route.city}
                     </h3>
 
@@ -311,7 +311,7 @@ export default function Home() {
                       Başlayan fiyat
                     </p>
 
-                    <h4 className="text-5xl font-black mt-2">
+                    <h4 className="text-4xl lg:text-5xl font-black mt-2">
                       {route.price}
                     </h4>
 
@@ -321,7 +321,7 @@ export default function Home() {
                     href="/flights"
                     className="bg-blue-500 hover:bg-blue-600 transition px-5 py-3 rounded-2xl font-bold"
                   >
-                    Uçuşları Gör
+                    Gör
                   </a>
 
                 </div>
@@ -339,7 +339,7 @@ export default function Home() {
       {/* FOOTER */}
       <footer className="border-t border-white/5 py-12">
 
-        <div className="max-w-[1700px] mx-auto px-8 flex flex-col lg:flex-row items-center justify-between gap-8">
+        <div className="max-w-[1700px] mx-auto px-6 lg:px-8 flex flex-col lg:flex-row items-center justify-between gap-8">
 
           <div>
 
@@ -353,7 +353,7 @@ export default function Home() {
 
           </div>
 
-          <div className="flex items-center gap-8 text-slate-400">
+          <div className="flex flex-wrap items-center justify-center gap-8 text-slate-400">
 
             <a href="/about">
               Hakkımızda
