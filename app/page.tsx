@@ -27,20 +27,42 @@ const airports = [
     city: "Paris",
     country: "France",
   },
+  {
+    code: "LHR",
+    name: "Heathrow",
+    city: "London",
+    country: "United Kingdom",
+  },
 ];
 
 export default function Home() {
-  const [fromAirport, setFromAirport] = useState("");
-  const [showDropdown, setShowDropdown] = useState(false);
 
-  const filteredAirports = airports.filter((airport) =>
+  const [tripType, setTripType] = useState("roundtrip");
+
+  const [fromAirport, setFromAirport] = useState("");
+  const [toAirport, setToAirport] = useState("");
+
+  const [fromOpen, setFromOpen] = useState(false);
+  const [toOpen, setToOpen] = useState(false);
+
+  const [passengers, setPassengers] = useState(1);
+
+  const [cabin, setCabin] = useState("Economy");
+
+  const filteredFrom = airports.filter((airport) =>
     airport.code.toLowerCase().includes(fromAirport.toLowerCase()) ||
     airport.name.toLowerCase().includes(fromAirport.toLowerCase()) ||
     airport.city.toLowerCase().includes(fromAirport.toLowerCase())
   );
 
+  const filteredTo = airports.filter((airport) =>
+    airport.code.toLowerCase().includes(toAirport.toLowerCase()) ||
+    airport.name.toLowerCase().includes(toAirport.toLowerCase()) ||
+    airport.city.toLowerCase().includes(toAirport.toLowerCase())
+  );
+
   return (
-    <main className="min-h-screen bg-gradient-to-b from-slate-900 to-slate-800 text-white">
+    <main className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-800 text-white">
 
       {/* Navbar */}
       <nav className="flex items-center justify-between px-8 py-6 max-w-7xl mx-auto">
@@ -72,7 +94,7 @@ export default function Home() {
             En uygun uçuşları saniyeler içinde bul
           </p>
 
-          <h2 className="text-6xl font-bold leading-tight max-w-4xl mx-auto">
+          <h2 className="text-6xl font-bold leading-tight max-w-5xl mx-auto">
             Ucuza uçmanın
             <span className="text-blue-400"> en kolay yolu</span>
           </h2>
@@ -83,38 +105,74 @@ export default function Home() {
 
         </div>
 
-        {/* Search Box */}
-        <div className="bg-white/10 backdrop-blur-xl border border-white/10 rounded-3xl p-6 mt-14 shadow-2xl overflow-visible">
+        {/* Search */}
+        <div className="bg-white/10 backdrop-blur-xl border border-white/10 rounded-3xl p-6 mt-14 shadow-2xl">
 
-          <div className="grid md:grid-cols-4 gap-4 relative">
+          {/* Top Controls */}
+          <div className="flex flex-wrap gap-4 mb-6">
 
-            {/* Nereden */}
+            <select
+              value={tripType}
+              onChange={(e) => setTripType(e.target.value)}
+              className="bg-white/10 border border-white/10 rounded-xl px-4 py-3 outline-none"
+            >
+              <option value="roundtrip">Gidiş - Dönüş</option>
+              <option value="oneway">Tek Yön</option>
+            </select>
+
+            <select
+              value={passengers}
+              onChange={(e) => setPassengers(Number(e.target.value))}
+              className="bg-white/10 border border-white/10 rounded-xl px-4 py-3 outline-none"
+            >
+              <option value={1}>1 Yolcu</option>
+              <option value={2}>2 Yolcu</option>
+              <option value={3}>3 Yolcu</option>
+              <option value={4}>4 Yolcu</option>
+            </select>
+
+            <select
+              value={cabin}
+              onChange={(e) => setCabin(e.target.value)}
+              className="bg-white/10 border border-white/10 rounded-xl px-4 py-3 outline-none"
+            >
+              <option>Economy</option>
+              <option>Premium Economy</option>
+              <option>Business</option>
+              <option>First Class</option>
+            </select>
+
+          </div>
+
+          {/* Main Search */}
+          <div className="grid lg:grid-cols-5 gap-4">
+
+            {/* From */}
             <div className="relative">
 
               <input
                 type="text"
                 value={fromAirport}
                 placeholder="Nereden?"
-                onFocus={() => setShowDropdown(true)}
+                onFocus={() => setFromOpen(true)}
                 onChange={(e) => {
                   setFromAirport(e.target.value);
-                  setShowDropdown(true);
+                  setFromOpen(true);
                 }}
                 className="bg-white/10 border border-white/10 rounded-2xl p-4 text-lg outline-none w-full"
               />
 
-              {showDropdown && fromAirport.length > 0 && (
+              {fromOpen && fromAirport.length > 0 && (
                 <div className="absolute top-20 left-0 w-full bg-slate-800 border border-white/10 rounded-2xl overflow-hidden z-50">
 
-                  {filteredAirports.map((airport) => (
+                  {filteredFrom.map((airport) => (
                     <div
                       key={airport.code}
                       onClick={() => {
                         setFromAirport(
                           `${airport.code} - ${airport.name}`
                         );
-
-                        setShowDropdown(false);
+                        setFromOpen(false);
                       }}
                       className="p-4 hover:bg-slate-700 cursor-pointer border-b border-white/5"
                     >
@@ -135,20 +193,71 @@ export default function Home() {
 
             </div>
 
-            {/* Nereye */}
-            <input
-              type="text"
-              placeholder="Nereye?"
-              className="bg-white/10 border border-white/10 rounded-2xl p-4 text-lg outline-none"
-            />
+            {/* To */}
+            <div className="relative">
 
-            {/* Tarih */}
+              <input
+                type="text"
+                value={toAirport}
+                placeholder="Nereye?"
+                onFocus={() => setToOpen(true)}
+                onChange={(e) => {
+                  setToAirport(e.target.value);
+                  setToOpen(true);
+                }}
+                className="bg-white/10 border border-white/10 rounded-2xl p-4 text-lg outline-none w-full"
+              />
+
+              {toOpen && toAirport.length > 0 && (
+                <div className="absolute top-20 left-0 w-full bg-slate-800 border border-white/10 rounded-2xl overflow-hidden z-50">
+
+                  {filteredTo.map((airport) => (
+                    <div
+                      key={airport.code}
+                      onClick={() => {
+                        setToAirport(
+                          `${airport.code} - ${airport.name}`
+                        );
+                        setToOpen(false);
+                      }}
+                      className="p-4 hover:bg-slate-700 cursor-pointer border-b border-white/5"
+                    >
+
+                      <div className="font-semibold">
+                        {airport.code} - {airport.name}
+                      </div>
+
+                      <div className="text-sm text-slate-400">
+                        {airport.city}, {airport.country}
+                      </div>
+
+                    </div>
+                  ))}
+
+                </div>
+              )}
+
+            </div>
+
+            {/* Departure */}
             <input
               type="date"
               className="bg-white/10 border border-white/10 rounded-2xl p-4 text-lg outline-none"
             />
 
-            {/* Buton */}
+            {/* Return */}
+            {tripType === "roundtrip" ? (
+              <input
+                type="date"
+                className="bg-white/10 border border-white/10 rounded-2xl p-4 text-lg outline-none"
+              />
+            ) : (
+              <div className="bg-white/5 border border-white/5 rounded-2xl p-4 flex items-center text-slate-500">
+                Dönüş yok
+              </div>
+            )}
+
+            {/* Button */}
             <button className="bg-blue-500 hover:bg-blue-600 transition rounded-2xl p-4 text-lg font-bold">
               Uçuş Ara
             </button>
@@ -157,7 +266,7 @@ export default function Home() {
 
         </div>
 
-        {/* Popular Flights */}
+        {/* Popular */}
         <div className="mt-16">
 
           <div className="flex items-center justify-between mb-6">
