@@ -21,7 +21,7 @@ export default function HomePage() {
   }, []);
 
   return (
-    <main className="bg-[#020817] min-h-screen text-white overflow-x-hidden">
+    <main className="bg-[#020817] text-white min-h-screen overflow-x-hidden">
 
       {/* NAVBAR */}
       <header className="border-b border-white/10">
@@ -51,7 +51,7 @@ export default function HomePage() {
               Giriş Yap
             </button>
 
-            <button className="bg-blue-500 px-6 py-3 rounded-2xl font-semibold">
+            <button className="bg-blue-500 hover:bg-blue-600 transition px-6 py-3 rounded-2xl font-semibold">
               Kayıt Ol
             </button>
 
@@ -62,42 +62,41 @@ export default function HomePage() {
       </header>
 
       {/* HERO */}
-      <section className="relative py-24">
+      <section className="py-24">
 
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/20 via-transparent to-blue-900/20" />
+        <div className="max-w-6xl mx-auto px-6 text-center">
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6">
+          <p className="text-blue-400 mb-6 text-lg">
+            En uygun uçuşları saniyeler içinde bul
+          </p>
 
-          <div className="text-center max-w-5xl mx-auto">
+          <h1 className="text-6xl md:text-8xl font-black leading-none">
 
-            <p className="text-blue-400 mb-6">
-              En uygun uçuşları saniyeler içinde bul
-            </p>
+            Ucuza uçmanın{" "}
 
-            <h1 className="text-6xl md:text-8xl font-black leading-none">
+            <span className="text-blue-500">
+              en kolay yolu
+            </span>
 
-              Ucuza uçmanın{" "}
+          </h1>
 
-              <span className="text-blue-500">
-                en kolay yolu
-              </span>
+          <p className="mt-8 text-xl text-white/70">
+            Tüm havayollarını karşılaştır, gerçek zamanlı fiyatları gör ve
+            en uygun bileti hemen bul.
+          </p>
 
-            </h1>
+        </div>
 
-            <p className="mt-8 text-2xl text-white/70">
-              Tüm havayollarını karşılaştır, gerçek zamanlı fiyatları gör ve
-              en uygun bileti hemen bul.
-            </p>
+      </section>
 
-          </div>
+      {/* SEARCH WIDGET */}
+      <section className="w-full px-6 mb-20">
 
-          {/* TP SEARCH */}
-          <div className="mt-20">
+        <div className="max-w-7xl mx-auto">
 
-            <div
-              id="tpwl-search"
-              className="w-full"
-            ></div>
+          <div className="rounded-3xl overflow-hidden">
+
+            <div id="tpwl-search"></div>
 
           </div>
 
@@ -106,7 +105,7 @@ export default function HomePage() {
       </section>
 
       {/* AIRLINES */}
-      <section className="max-w-7xl mx-auto px-6 py-14">
+      <section className="max-w-7xl mx-auto px-6 mb-24">
 
         <div className="flex items-center justify-between mb-10">
 
@@ -133,7 +132,7 @@ export default function HomePage() {
 
             <div
               key={airline}
-              className="h-36 rounded-3xl border border-white/10 bg-white/5 flex items-center justify-center text-2xl font-bold"
+              className="h-32 rounded-3xl bg-white/5 border border-white/10 flex items-center justify-center text-xl font-bold"
             >
 
               {airline}
@@ -146,30 +145,35 @@ export default function HomePage() {
 
       </section>
 
-      {/* TP RESULTS */}
-      <section className="max-w-7xl mx-auto px-6 py-14">
+      {/* RESULTS */}
+      <section className="w-full px-6 mb-24">
 
-        <div className="flex items-center justify-between mb-10">
+        <div className="max-w-7xl mx-auto">
 
-          <h2 className="text-5xl font-black">
-            En Popüler Rotalar
-          </h2>
+          <div className="flex items-center justify-between mb-10">
 
-          <a href="#" className="text-blue-400">
-            Tümünü Gör
-          </a>
+            <h2 className="text-5xl font-black">
+              En Popüler Rotalar
+            </h2>
+
+            <a href="#" className="text-blue-400">
+              Tümünü Gör
+            </a>
+
+          </div>
+
+          <div className="rounded-3xl overflow-hidden">
+
+            <div id="tpwl-tickets"></div>
+
+          </div>
 
         </div>
-
-        <div
-          id="tpwl-tickets"
-          className="w-full"
-        ></div>
 
       </section>
 
       {/* FOOTER */}
-      <footer className="border-t border-white/10 mt-24">
+      <footer className="border-t border-white/10">
 
         <div className="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-4 gap-10">
 
@@ -185,7 +189,7 @@ export default function HomePage() {
 
             </div>
 
-            <p className="text-white/60">
+            <p className="text-white/60 leading-relaxed">
               UçGit ile tüm havayollarını karşılaştırın ve en uygun uçuşu saniyeler içinde bulun.
             </p>
 
