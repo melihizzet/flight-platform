@@ -1,8 +1,15 @@
 "use client";
 
 import { useState } from "react";
+import { useSearchParams } from "next/navigation";
 
 export default function FlightsPage() {
+
+  const searchParams = useSearchParams();
+
+  const from = searchParams.get("from") || "SAW";
+
+  const to = searchParams.get("to") || "AMS";
 
   const flights = [
     {
@@ -150,12 +157,12 @@ export default function FlightsPage() {
           <div className="grid lg:grid-cols-5 gap-5">
 
             <input
-              defaultValue="SAW - Sabiha Gokcen"
+              defaultValue={from}
               className="bg-slate-700 border border-white/10 rounded-3xl p-6 text-xl outline-none"
             />
 
             <input
-              defaultValue="AMS - Amsterdam"
+              defaultValue={to}
               className="bg-slate-700 border border-white/10 rounded-3xl p-6 text-xl outline-none"
             />
 
@@ -392,7 +399,7 @@ export default function FlightsPage() {
               <div>
 
                 <p className="text-slate-400 text-xl">
-                  SAW → AMS
+                  {from} → {to}
                 </p>
 
                 <h1 className="text-6xl font-black mt-2">
