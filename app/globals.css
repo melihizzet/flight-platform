@@ -1,54 +1,8 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-html {
-  scroll-behavior: smooth;
-}
-
+html,
 body {
+  margin: 0;
+  padding: 0;
   background: #020817;
-  color: white;
   overflow-x: hidden;
-}
-
-/* TP SEARCH */
-#tpwl-search {
-  width: 100%;
-  overflow: hidden;
-}
-
-/* TP RESULTS */
-#tpwl-tickets {
-  width: 100%;
-  margin-top: 40px;
-  overflow-x: auto;
-}
-
-/* FIX TP INTERNAL */
-#tpwl-search *,
-#tpwl-tickets * {
-  max-width: 100%;
-  box-sizing: border-box;
-}
-
-/* AIRLINE LOGOS */
-img {
-  max-width: 100%;
-  height: auto;
-  object-fit: contain;
-}
-
-/* REMOVE WEIRD LINES */
-table,
-tr,
-td {
-  border: none !important;
-}
-
-/* TP TEXT */
-.tp-widget-origin-switch,
-.tp-widget-multi-city,
-.tp-widget-hotels-checkbox label {
-  color: white !important;
+  font-family: Arial, sans-serif;
 }
