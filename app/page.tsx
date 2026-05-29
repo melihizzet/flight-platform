@@ -25,7 +25,7 @@ export default function HomePage() {
 
             <div className="flex items-center gap-3">
               <span className="text-3xl">✈️</span>
-              <h1 className="text-3xl font-black">UçGit.com</h1>
+              <h1 className="text-3xl font-black">UçGit</h1>
             </div>
 
             <nav className="hidden md:flex items-center gap-8 text-sm text-white/70">
@@ -157,11 +157,11 @@ export default function HomePage() {
             <div>
               <div className="flex items-center gap-3 mb-5">
                 <span className="text-3xl">✈️</span>
-                <h3 className="text-3xl font-black">UçGit.com</h3>
+                <h3 className="text-3xl font-black">UçGit</h3>
               </div>
 
               <p className="text-white/50 leading-relaxed">
-                UçGit.com ile tüm havayollarını karşılaştırın ve en uygun uçuşları saniyeler içinde bulun.
+                UçGit ile tüm havayollarını karşılaştırın ve en uygun uçuşları saniyeler içinde bulun.
               </p>
             </div>
 
@@ -198,7 +198,7 @@ export default function HomePage() {
           </div>
 
           <div className="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-white/10 text-center text-white/40">
-            © 2026 UçGit.com Tüm hakları saklıdır.
+            © 2026 UçGit. Tüm hakları saklıdır.
           </div>
 
         </footer>
