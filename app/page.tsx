@@ -6,20 +6,28 @@ export default function HomePage() {
   return (
     <>
       {/* TRAVELPAYOUTS */}
-      <Script
-        src="https://tpwdg.com/content?currency=try&trs=575014&shmarker=575014&locale=tr&powered_by=true&border_radius=16&plain=false&color_background=%23020817&color_button=%233b82f6&color_button_text=%23ffffff&promo_id=3414&campaign_id=100"
-        strategy="afterInteractive"
-      />
+      <Script id="travelpayouts-widget" strategy="afterInteractive">
+        {`
+          (function () {
+            var script = document.createElement("script");
+            script.async = true;
+            script.src =
+              "https://tp.media/content?currency=try&trs=575014&shmarker=575014&locale=tr&powered_by=true&border_radius=20&plain=false&color_background=%23020817&color_button=%233b82f6&color_button_text=%23ffffff&promo_id=3414&campaign_id=100";
+            document.body.appendChild(script);
+          })();
+        `}
+      </Script>
 
       <main className="min-h-screen bg-[#020817] text-white">
 
         {/* HEADER */}
-        <header className="border-b border-white/10 bg-[#020817] sticky top-0 z-50">
+        <header className="border-b border-white/10 bg-[#020817]">
 
           <div className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
 
             {/* LOGO */}
             <div>
+
               <h1 className="text-3xl font-black text-white">
                 ✈️ UçGit.com
               </h1>
@@ -27,6 +35,7 @@ export default function HomePage() {
               <p className="text-white/50 text-sm mt-2">
                 En uygun uçuşları saniyeler içinde bul.
               </p>
+
             </div>
 
             {/* MENU */}
@@ -42,7 +51,7 @@ export default function HomePage() {
                 Giriş Yap
               </button>
 
-              <button className="bg-blue-500 px-5 py-2 rounded-xl">
+              <button className="bg-blue-500 px-5 py-2 rounded-xl text-white">
                 Kayıt Ol
               </button>
 
@@ -63,18 +72,10 @@ export default function HomePage() {
             Gerçek zamanlı fiyatları karşılaştır ve en uygun bileti hemen al.
           </p>
 
-          {/* TRAVELPAYOUTS WIDGET */}
-          <div className="bg-white rounded-[24px] overflow-hidden p-5">
+          {/* WIDGET */}
+          <div className="bg-white/5 border border-white/10 rounded-[24px] p-6 overflow-hidden">
 
-            <div
-              className="travelpayouts-widget"
-              data-widget-type="flight"
-              data-width="100%"
-              data-marker="575014"
-              data-language="tr"
-              data-currency="try"
-              data-host="search.aviasales.com"
-            ></div>
+            <div className="tp-widget-search"></div>
 
           </div>
 
