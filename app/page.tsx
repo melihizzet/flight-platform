@@ -193,7 +193,7 @@ export default function HomePage() {
               <span className="text-2xl">✈️</span>
 
               <h3 className="text-1xl font-black">
-                ucgit.com
+                UçGit
               </h3>
             </div>
 
