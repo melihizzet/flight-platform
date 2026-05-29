@@ -186,10 +186,10 @@ export default function HomePage() {
 
       {/* FOOTER */}
       <footer className="border-t border-white/10 py-6">
-        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-4">
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-2">
           {/* BRAND */}
           <div>
-            <div className="flex items-center gap-3 mb-5">
+            <div className="flex items-center gap-2 mb-1">
               <span className="text-2xl">✈️</span>
 
               <h3 className="text-1xl font-black">
@@ -197,7 +197,7 @@ export default function HomePage() {
               </h3>
             </div>
 
-            <p className="text-white/50 leading-relaxed">
+            <p className="text-white/50 leading-normal text-sm">
               UçGit ile tüm havayollarını karşılaştırın ve en uygun uçuşları
               saniyeler içinde bulun.
             </p>
@@ -285,7 +285,7 @@ export default function HomePage() {
         </div>
 
         {/* COPYRIGHT */}
-        <div className="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-white/10 text-center text-white/40">
+        <div className="max-w-5xl mx-auto px-6 mt-16 pt-8 border-t border-white/10 text-center text-white/40">
           © 2026 UçGit. Tüm hakları saklıdır.
         </div>
       </footer>
