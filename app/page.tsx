@@ -120,7 +120,7 @@ export default function HomePage() {
       </section>
 
       {/* AIRLINES */}
-      <section className="max-w-4xl mx-auto px-6 pb-8">
+      <section className="max-w-4xl mx-auto px-6 pb-14">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-4xl font-black tracking-tight">
             Popüler Havayolları
@@ -190,7 +190,7 @@ export default function HomePage() {
           {/* BRAND */}
           <div>
             <div className="flex items-center gap-3 mb-5">
-              <span className="text-3xl">✈️</span>
+              <span className="text-2xl">✈️</span>
 
               <h3 className="text-1xl font-black">
                 UçGit
@@ -205,11 +205,11 @@ export default function HomePage() {
 
           {/* MENU */}
           <div>
-            <h4 className="font-bold mb-5 text-lg">
+            <h4 className="font-bold mb-5 text-base">
               Menü
             </h4>
 
-            <div className="flex flex-col gap-3 text-white/50">
+            <div className="flex flex-col gap-2 text-white/50">
               <a
                 href="#"
                 className="hover:text-white transition"
