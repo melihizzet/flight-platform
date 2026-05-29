@@ -92,7 +92,7 @@ export default function HomePage() {
               En uygun uçuşları saniyeler içinde bul
             </p>
 
-            <h1 className="text-6xl md:text-8xl font-black leading-tight mb-8 tracking-tight">
+            <h1 className="text-4xl md:text-6xl font-black leading-tight mb-8 tracking-tight">
               Ucuza uçmanın{" "}
               <span className="text-blue-500">
                 en kolay yolu
