@@ -82,7 +82,7 @@ export default function HomePage() {
       </header>
 
       {/* HERO */}
-      <section className="relative py-24 px-6">
+      <section className="relative py-16 px-6">
         {/* BACKGROUND EFFECT */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.20),transparent_50%)]"></div>
 
