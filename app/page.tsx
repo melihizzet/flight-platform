@@ -82,7 +82,7 @@ export default function HomePage() {
       </header>
 
       {/* HERO */}
-      <section className="relative py-8 px-6">
+      <section className="relative py-4 px-6">
         {/* BACKGROUND EFFECT */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.20),transparent_50%)]"></div>
 
@@ -92,7 +92,7 @@ export default function HomePage() {
               En uygun uçuşları saniyeler içinde bul
             </p>
 
-            <h1 className="text-4xl md:text-5xl font-black leading-tight mb-8 tracking-tight">
+            <h1 className="text-2xl md:text-4xl font-black leading-tight mb-8 tracking-tight">
               Ucuza uçmanın{" "}
               <span className="text-blue-500">
                 en kolay yolu
@@ -112,7 +112,7 @@ export default function HomePage() {
             </div>
 
             {/* RESULTS */}
-            <div className="mt-10">
+            <div className="mt-6">
               <div id="tpwl-tickets"></div>
             </div>
           </div>
