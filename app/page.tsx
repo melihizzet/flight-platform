@@ -120,8 +120,8 @@ export default function HomePage() {
       </section>
 
       {/* AIRLINES */}
-      <section className="max-w-7xl mx-auto px-6 pb-24">
-        <div className="flex items-center justify-between mb-8">
+      <section className="max-w-4xl mx-auto px-6 pb-8">
+        <div className="flex items-center justify-between mb-4">
           <h2 className="text-4xl font-black tracking-tight">
             Popüler Havayolları
           </h2>
