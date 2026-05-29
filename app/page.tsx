@@ -82,7 +82,7 @@ export default function HomePage() {
       </header>
 
       {/* HERO */}
-      <section className="relative py-12 px-6">
+      <section className="relative py-8 px-6">
         {/* BACKGROUND EFFECT */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.20),transparent_50%)]"></div>
 
@@ -185,14 +185,14 @@ export default function HomePage() {
       </section>
 
       {/* FOOTER */}
-      <footer className="border-t border-white/10 py-16">
-        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-12">
+      <footer className="border-t border-white/10 py-6">
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-4">
           {/* BRAND */}
           <div>
             <div className="flex items-center gap-3 mb-5">
               <span className="text-3xl">✈️</span>
 
-              <h3 className="text-3xl font-black">
+              <h3 className="text-1xl font-black">
                 UçGit
               </h3>
             </div>
