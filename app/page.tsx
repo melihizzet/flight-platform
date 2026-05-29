@@ -33,7 +33,7 @@ export default function HomePage() {
             <span className="text-3xl">✈️</span>
 
             <h1 className="text-3xl font-black tracking-tight">
-              UçGit.com
+              UçGit
             </h1>
           </div>
 
@@ -193,12 +193,12 @@ export default function HomePage() {
               <span className="text-2xl">✈️</span>
 
               <h3 className="text-1xl font-black">
-                UçGit.com
+                ucgit.com
               </h3>
             </div>
 
             <p className="text-white/50 leading-normal text-sm">
-              UçGit.com ile tüm havayollarını karşılaştırın ve en uygun uçuşları
+              ucgit.com ile tüm havayollarını karşılaştırın ve en uygun uçuşları
               saniyeler içinde bulun.
             </p>
           </div>
@@ -286,7 +286,7 @@ export default function HomePage() {
 
         {/* COPYRIGHT */}
         <div className="max-w-5xl mx-auto px-6 mt-16 pt-8 border-t border-white/10 text-center text-white/40">
-          © 2026 UçGit.com Tüm hakları saklıdır.
+          © 2026 ucgit.com Tüm hakları saklıdır.
         </div>
       </footer>
     </main>
