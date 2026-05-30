@@ -1,8 +1,38 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "UçGit",
-  description: "Ucuz uçak bileti bul",
+  title: "En Uygun Uçak Bileti - UçGit",
+
+  description:
+    "En uygun uçak biletlerini saniyeler içinde karşılaştır. UçGit ile ucuz uçuşları keşfet.",
+
+  keywords: [
+    "uçak bileti",
+    "ucuz uçak bileti",
+    "en uygun uçak bileti",
+    "uçuş ara",
+    "uçuş karşılaştır",
+    "ucuz uçuş",
+    "bilet karşılaştırma",
+    "UçGit",
+  ],
+
+  metadataBase: new URL("https://www.ucgit.com"),
+
+  openGraph: {
+    title: "En Uygun Uçak Bileti - UçGit",
+
+    description:
+      "En uygun uçak biletlerini saniyeler içinde karşılaştır.",
+
+    url: "https://www.ucgit.com",
+
+    siteName: "UçGit",
+
+    locale: "tr_TR",
+
+    type: "website",
+  },
 };
 
 export default function RootLayout({
