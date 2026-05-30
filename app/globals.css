@@ -136,3 +136,12 @@ iframe {
   transform: scale(0.85);
   transform-origin: top center;
 }
+.tp-calendar {
+  zoom: 0.75 !important;
+  max-width: 700px !important;
+}
+
+.tp-calendar-layout {
+  transform: scale(0.82) !important;
+  transform-origin: top center !important;
+}

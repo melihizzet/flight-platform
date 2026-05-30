@@ -30,14 +30,14 @@ export default function CampaignsPage() {
           Kampanyalar
         </p>
 
-        <h1 className="text-[90px] leading-[95px] font-black mt-8">
+        <h1 className="ttext-3xl md:text-5xl leading-tight font-black mt-8">
 
           En iyi uçuş
           <span className="text-blue-500"> fırsatları</span>
 
         </h1>
 
-        <p className="text-slate-400 text-2xl mt-10 max-w-[900px] mx-auto">
+        <p className="text-slate-400 text-lg md:text-xl mt-10 max-w-[900px] mx-auto">
           Havayollarının güncel kampanyalarını keşfet.
         </p>
 

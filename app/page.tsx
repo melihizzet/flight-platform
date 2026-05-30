@@ -123,7 +123,7 @@ export default function HomePage() {
       
 
       {/* FOOTER */}
-      <footer className="border-t border-white/10 py-3">
+      <footer className="border-t border-white/10 py-10 mt-16">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-1">
           {/* BRAND */}
           <div>

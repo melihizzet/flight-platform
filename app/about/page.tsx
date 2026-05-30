@@ -13,7 +13,7 @@ export default function AboutPage() {
           Hakkımızda
         </p>
 
-        <h1 className="text-[110px] leading-[115px] font-black mt-8 tracking-tight">
+        <h1 className="text-3xl md:text-5xl leading-tight font-black mt-8 tracking-tight">
 
           Uçuş aramayı{" "}
 
@@ -23,7 +23,7 @@ export default function AboutPage() {
 
         </h1>
 
-        <p className="text-slate-300 text-[28px] leading-[52px] mt-14 max-w-[1100px] mx-auto font-medium">
+        <p className="text-slate-300 text-lg md:text-xl leading-relaxed mt-14 max-w-[1100px] mx-auto font-medium">
 
           UçGit, tüm havayollarını tek platformda karşılaştırarak
           kullanıcılara en hızlı, en modern ve en uygun uçuş deneyimini sunar.

@@ -1,4 +1,4 @@
-export default function BlogPage() {
+ export default function BlogPage() {
 
   const posts = [
     {
@@ -39,14 +39,14 @@ export default function BlogPage() {
           UçGit Blog
         </p>
 
-        <h1 className="text-[90px] leading-[95px] font-black mt-8">
+        <h1 className="text-3xl md:text-5xl leading-tight font-black mt-8">
 
           Seyahat dünyasını
           <span className="text-blue-500"> keşfet</span>
 
         </h1>
 
-        <p className="text-slate-400 text-2xl mt-10 max-w-[900px] mx-auto">
+        <p className="text-slate-400 text-lg text-xl mt-10 max-w-[900px] mx-auto">
           Uçuş ipuçları, kampanyalar ve seyahat rehberleri.
         </p>
 

@@ -10,11 +10,11 @@ export default function ContactPage() {
           İletişim
         </p>
 
-        <h1 className="text-7xl font-black mt-6">
+        <h1 className="text-3xl md:text-5xl font-black mt-6">
           Bizimle iletişime geç
         </h1>
 
-        <p className="text-slate-400 text-2xl mt-8 max-w-[800px] mx-auto">
+        <p className="text-slate-400 text-lg md:text-xl mt-8 max-w-[800px] mx-auto">
           Sorularınız, önerileriniz veya iş birlikleri için bize ulaşabilirsiniz.
         </p>
 
