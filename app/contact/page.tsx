@@ -1,73 +1,61 @@
 export default function ContactPage() {
 
   return (
-    <main className="min-h-screen bg-[#020617] text-white">
+    <main className="min-h-screen bg-[#020617] text-white overflow-x-hidden relative">
+
+      {/* BG */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[900px] bg-blue-500/10 blur-[160px] rounded-full"></div>
 
       {/* HERO */}
-      <section className="max-w-[1400px] mx-auto px-8 pt-24 pb-20 text-center">
+      <section className="max-w-5xl mx-auto px-6 pt-24 pb-14 text-center">
 
-        <p className="text-blue-400 font-semibold text-lg">
+        <p className="text-blue-400 font-semibold text-base">
           İletişim
         </p>
 
-        <h1 className="text-3xl md:text-5xl font-black mt-6">
+        <h1 className="text-2xl md:text-4xl font-black mt-6">
           Bizimle iletişime geç
         </h1>
 
-        <p className="text-slate-400 text-lg md:text-xl mt-8 max-w-[800px] mx-auto">
+        <p className="text-slate-400 text-base md:text-lg mt-6 max-w-2xl mx-auto">
           Sorularınız, önerileriniz veya iş birlikleri için bize ulaşabilirsiniz.
         </p>
 
       </section>
 
       {/* CONTENT */}
-      <section className="max-w-[1400px] mx-auto px-8 pb-32">
+      <section className="max-w-5xl mx-auto px-6 pb-24">
 
-        <div className="grid lg:grid-cols-2 gap-10">
+        <div className="grid md:grid-cols-2 gap-6">
 
           {/* LEFT */}
-          <div className="bg-white/10 border border-white/10 rounded-[40px] p-10">
+          <div className="bg-white/10 border border-white/10 rounded-3xl p-6 md:p-8 backdrop-blur-xl">
 
-            <h2 className="text-4xl font-black mb-10">
+            <h2 className="text-2xl md:text-3xl font-black mb-8">
               İletişim Bilgileri
             </h2>
 
-            <div className="space-y-8">
+            <div className="space-y-6">
 
               <div>
-
-                <p className="text-slate-400 text-sm">
-                  E-posta
-                </p>
-
-                <h3 className="text-2xl font-bold mt-2">
+                <p className="text-slate-400 text-xs">E-posta</p>
+                <h3 className="text-lg md:text-xl font-bold mt-1">
                   support@ucgit.com
                 </h3>
-
               </div>
 
               <div>
-
-                <p className="text-slate-400 text-sm">
-                  Telefon
-                </p>
-
-                <h3 className="text-2xl font-bold mt-2">
+                <p className="text-slate-400 text-xs">Telefon</p>
+                <h3 className="text-lg md:text-xl font-bold mt-1">
                   +90 850 000 00 00
                 </h3>
-
               </div>
 
               <div>
-
-                <p className="text-slate-400 text-sm">
-                  Adres
-                </p>
-
-                <h3 className="text-2xl font-bold mt-2">
+                <p className="text-slate-400 text-xs">Adres</p>
+                <h3 className="text-lg md:text-xl font-bold mt-1">
                   İstanbul, Türkiye
                 </h3>
-
               </div>
 
             </div>
@@ -75,33 +63,33 @@ export default function ContactPage() {
           </div>
 
           {/* RIGHT */}
-          <div className="bg-white/10 border border-white/10 rounded-[40px] p-10">
+          <div className="bg-white/10 border border-white/10 rounded-3xl p-6 md:p-8 backdrop-blur-xl">
 
-            <h2 className="text-4xl font-black mb-10">
+            <h2 className="text-2xl md:text-3xl font-black mb-8">
               Mesaj Gönder
             </h2>
 
-            <div className="space-y-5">
+            <div className="space-y-4">
 
               <input
                 type="text"
                 placeholder="Ad Soyad"
-                className="w-full bg-slate-800 border border-white/10 rounded-2xl px-5 py-5 outline-none"
+                className="w-full bg-[#0b1736] border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-blue-400 transition"
               />
 
               <input
                 type="email"
                 placeholder="E-posta"
-                className="w-full bg-slate-800 border border-white/10 rounded-2xl px-5 py-5 outline-none"
+                className="w-full bg-[#0b1736] border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-blue-400 transition"
               />
 
               <textarea
                 placeholder="Mesajınız"
-                rows={6}
-                className="w-full bg-slate-800 border border-white/10 rounded-2xl px-5 py-5 outline-none resize-none"
+                rows={5}
+                className="w-full bg-[#0b1736] border border-white/10 rounded-xl px-4 py-3 outline-none resize-none focus:border-blue-400 transition"
               />
 
-              <button className="w-full bg-blue-500 hover:bg-blue-600 transition py-5 rounded-2xl font-black text-xl">
+              <button className="w-full bg-blue-500 hover:bg-blue-600 transition py-3 rounded-xl font-semibold">
                 Gönder
               </button>
 

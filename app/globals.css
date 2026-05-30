@@ -2,11 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+/* =========================
+   GLOBAL RESET
+========================= */
+
 html,
 body {
   margin: 0;
   padding: 0;
-  background: #020817;
+  background: #060816;
   color: white;
   font-family: Arial, sans-serif;
   overflow-x: hidden;
@@ -16,10 +20,17 @@ body {
   box-sizing: border-box;
 }
 
-main {
-  width: 100%;
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
+/* =========================
+   LAYOUT
+========================= */
+
+main,
 section,
 header,
 footer {
@@ -32,52 +43,20 @@ footer {
   width: 100%;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* TP widget alanı */
-
-#tpwl-search,
-#tpwl-tickets {
-  width: 100%;
-}
-
-/* Havayolu logoları */
-
-.airline-logo img {
-  max-height: 40px;
-  object-fit: contain;
-  margin: 0 auto;
-}
-
-/* Footer */
-
+/* Footer spacing */
 footer {
   margin-top: 80px;
 }
 
-/* Mobil */
+/* =========================
+   TP WIDGET (STABLE VERSION)
+========================= */
 
-@media (max-width: 768px) {
-  h1 {
-    font-size: 38px !important;
-    line-height: 1.2;
-  }
-
-  .max-w-7xl {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-}
-body {
-  background: #060816;
-  color: white;
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
+#tpwl-search,
+#tpwl-tickets {
+  width: 100%;
+  position: relative;
+  z-index: 1;
 }
 
 .tp-widget-wrapper {
@@ -89,22 +68,28 @@ body {
 iframe {
   border-radius: 20px !important;
 }
-#tpwl-search,
-#tpwl-tickets {
-  position: relative;
-  z-index: 1;
-}
 
+/* Takvim ve popup üstte kalsın */
 [class*="calendar"],
 [class*="datepicker"],
 [class*="popup"] {
   z-index: 999999 !important;
 }
-.tp-calendar,
-.twidget-origin-destination,
-.twidget-container {
-  zoom: 0.30;
+
+/* =========================
+   AIRLINE LOGO
+========================= */
+
+.airline-logo img {
+  max-height: 40px;
+  object-fit: contain;
+  margin: 0 auto;
 }
+
+/* =========================
+   TP WIDGET TEXT
+========================= */
+
 .tpwl-widget {
   font-size: 14px !important;
 }
@@ -125,23 +110,42 @@ iframe {
 .tpwl-widget .tpwl-currency,
 .tpwl-widget .tpwl-locale {
   font-size: 14px !important;
-  color: rgba(255,255,255,0.75) !important;
+  color: rgba(255, 255, 255, 0.75) !important;
 }
-.tp-calendar,
-.tp-calendar * {
-  font-size: 14px !important;
-}
+
+/* =========================
+   CALENDAR FIX (SAFE SCALING)
+   (zoom yerine transform daha stabil)
+========================= */
 
 .tp-calendar {
   transform: scale(0.85);
   transform-origin: top center;
-}
-.tp-calendar {
-  zoom: 0.75 !important;
-  max-width: 700px !important;
+  max-width: 100%;
 }
 
+/* ekstra iç layout fix */
 .tp-calendar-layout {
-  transform: scale(0.82) !important;
-  transform-origin: top center !important;
+  transform: scale(0.82);
+  transform-origin: top center;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 38px !important;
+    line-height: 1.2;
+  }
+
+  .max-w-7xl {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .tp-calendar {
+    transform: scale(0.78);
+  }
 }

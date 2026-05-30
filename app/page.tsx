@@ -40,28 +40,28 @@ export default function HomePage() {
           {/* NAVIGATION */}
           <nav className="hidden md:flex items-center gap-6 text-sm text-white/70">
             <a
-              href="/about"
+              href="/campaigns"
               className="hover:text-white transition"
             >
               Kampanyalar
             </a>
 
             <a
-              href="/campaigns"
+              href="/blog"
               className="hover:text-white transition"
             >
               Blog
             </a>
 
             <a
-              href="/blog"
+              href="/contact"
               className="hover:text-white transition"
             >
               İletişim
             </a>
 
             <a
-              href="/contact"
+              href="/about"
               className="hover:text-white transition"
             >
               Hakkımızda
