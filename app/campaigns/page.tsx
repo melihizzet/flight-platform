@@ -30,7 +30,7 @@ export default function CampaignsPage() {
 
         {/* Travelpayouts Widget */}
         <Script
-          src="https://tpwdg.com/content?currency=try&trs=533807&shmarker=733574&locale=tr&powered_by=true&limit=4&primary_color=00AE98&results_background_color=020817&form_background_color=0F172A&promo_id=4563&campaign_id=111"
+          src="https://tpwdg.com/content?currency=try&trs=533807&shmarker=733574&locale=tr&powered_by=true&limit=4&primary_color=00AE98&results_background_color=020817&form_background_color=0F172A&promo_id=4563&campaigns_id=111"
           strategy="afterInteractive"
         />
 
