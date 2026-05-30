@@ -100,3 +100,8 @@ iframe {
 [class*="popup"] {
   z-index: 999999 !important;
 }
+.tp-calendar,
+.twidget-origin-destination,
+.twidget-container {
+  zoom: 0.85;
+}

@@ -107,7 +107,7 @@ export default function HomePage() {
 
           {/* SEARCH */}
           <div className="max-w-6xl mx-auto">
-            <div className="bg-white/10 backdrop-blur-2xl border border-white/10 rounded-[32px] p-6 shadow-2xl">
+            <div className="bg-white/10 border border-white/10 rounded-[32px] p-6 shadow-2xl">
               <div id="tpwl-search"></div>
             </div>
 
@@ -120,69 +120,7 @@ export default function HomePage() {
       </section>
 
       {/* AIRLINES */}
-      <section className="max-w-4xl mx-auto px-6 pb-14">
-        <div className="flex items-center justify-between mb-4">
-          <h2 className="text-4xl font-black tracking-tight">
-            Popüler Havayolları
-          </h2>
-
-          <button className="text-blue-400 text-sm hover:text-blue-300 transition">
-            Tümünü Gör
-          </button>
-        </div>
-
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5">
-          {[
-            {
-              name: "THY",
-              logo:
-                "https://upload.wikimedia.org/wikipedia/commons/7/7b/Turkish_Airlines_logo_2019_compact.svg",
-            },
-            {
-              name: "Pegasus",
-              logo:
-                "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Pegasus_Airlines_logo.svg/2560px-Pegasus_Airlines_logo.svg.png",
-            },
-            {
-              name: "Lufthansa",
-              logo:
-                "https://upload.wikimedia.org/wikipedia/commons/d/d8/Lufthansa_Logo_2018.svg",
-            },
-            {
-              name: "Qatar",
-              logo:
-                "https://upload.wikimedia.org/wikipedia/commons/0/04/Qatar_Airways_Logo.svg",
-            },
-            {
-              name: "Emirates",
-              logo:
-                "https://upload.wikimedia.org/wikipedia/commons/d/d0/Emirates_logo.svg",
-            },
-            {
-              name: "British Airways",
-              logo:
-                "https://upload.wikimedia.org/wikipedia/en/thumb/7/7b/British_Airways_Logo.svg/2560px-British_Airways_Logo.svg.png",
-            },
-          ].map((airline, index) => (
-            <div
-              key={index}
-              className="bg-white/5 border border-white/10 rounded-3xl p-6 hover:bg-white/10 hover:-translate-y-1 transition-all duration-300"
-            >
-              <div className="h-14 flex items-center justify-center mb-4">
-                <img
-                  src={airline.logo}
-                  alt={airline.name}
-                  className="max-h-10 object-contain"
-                />
-              </div>
-
-              <p className="text-center text-sm font-semibold">
-                {airline.name}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
+      
 
       {/* FOOTER */}
       <footer className="border-t border-white/10 py-6">
