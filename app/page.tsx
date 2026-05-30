@@ -10,8 +10,11 @@ const inter = Inter({
 export default function HomePage() {
   return (
     <main
-      className={`${inter.className} min-h-screen bg-[#020817] text-white overflow-x-hidden`}
+      className={inter.className + " min-h-screen bg-[#020817] text-white overflow-x-hidden"}
     >
+      {/* SEO */}
+      <title>UçGit | En Uygun Uçak Bileti Bul</title>
+
       {/* TRAVELPAYOUTS */}
       <Script id="travelpayouts-widget" strategy="afterInteractive">
         {`
@@ -27,17 +30,14 @@ export default function HomePage() {
 
       {/* HEADER */}
       <header className="border-b border-white/10 backdrop-blur-xl sticky top-0 z-50 bg-[#020817]/90">
-        <div className="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
 
-          {/* LOGO */}
           <a href="/" className="flex items-center gap-3">
 
-            <div className="w-10 h-10 rounded-2xl bg-blue-500/20 flex items-center justify-center border border-blue-500/30">
-
+            <div className="w-11 h-11 rounded-2xl bg-blue-500/20 flex items-center justify-center border border-blue-500/30">
               <span className="text-blue-400 text-xl rotate-[-25deg]">
                 ✈️
               </span>
-
             </div>
 
             <h1 className="text-3xl font-black tracking-tight">
@@ -46,47 +46,42 @@ export default function HomePage() {
 
           </a>
 
-          {/* ACTIONS */}
           <div className="flex items-center gap-3">
+
             <button className="text-sm text-white/80 hover:text-white transition">
               Giriş Yap
             </button>
 
-            <button className="bg-blue-500 hover:bg-blue-400 transition-all duration-300 shadow-[0_0_40px_rgba(59,130,246,0.35)] px-4 py-1.5 rounded-xl text-sm font-semibold">
+            <button className="bg-blue-500 hover:bg-blue-400 transition px-4 py-2 rounded-xl text-sm font-semibold">
               Kayıt Ol
             </button>
-          </div>
 
+          </div>
         </div>
       </header>
 
       {/* HERO */}
-      <section className="relative py-4 px-6">
+      <section className="relative py-20 px-6">
 
-        {/* BACKGROUND EFFECT */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.20),transparent_50%)]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.25),transparent_50%)]"></div>
 
         <div className="max-w-7xl mx-auto relative z-10 text-center">
 
-          <div className="max-w-5xl mx-auto">
+          <p className="text-blue-400 mb-6 text-sm tracking-wide uppercase">
+            En Uygun Uçak Bileti
+          </p>
 
-            <p className="text-blue-400 mb-6 text-sm tracking-wide uppercase">
-              En uygun uçuşları saniyeler içinde bul
-            </p>
+          <h1 className="text-4xl md:text-7xl font-black leading-tight mb-6 tracking-tight">
+            En uygun uçak biletini{" "}
+            <span className="text-blue-500">
+              saniyeler içinde bul
+            </span>
+          </h1>
 
-            <h1 className="text-xl md:text-5xl font-black leading-tight mb-4 tracking-tight">
-              Ucuza uçmanın{" "}
-              <span className="text-blue-500">
-                en kolay yolu
-              </span>
-            </h1>
-
-            <p className="text-xl text-white/60 max-w-3xl mx-auto mb-8 leading-relaxed">
-              Tüm havayollarını karşılaştır, gerçek zamanlı fiyatları gör ve
-              en uygun bileti saniyeler içinde bul.
-            </p>
-
-          </div>
+          <p className="text-lg md:text-xl text-white/60 max-w-3xl mx-auto mb-12 leading-relaxed">
+            Tüm havayollarını karşılaştır, gerçek zamanlı fiyatları gör
+            ve en ucuz uçuşları hızlıca keşfet.
+          </p>
 
           {/* SEARCH */}
           <div className="max-w-6xl mx-auto">
@@ -95,7 +90,6 @@ export default function HomePage() {
               <div id="tpwl-search"></div>
             </div>
 
-            {/* RESULTS */}
             <div className="mt-6">
               <div id="tpwl-tickets"></div>
             </div>
@@ -103,28 +97,22 @@ export default function HomePage() {
           </div>
 
         </div>
-
       </section>
 
       {/* FOOTER */}
-      <footer className="border-t border-white/10 py-10 mt-16">
+      <footer className="border-t border-white/10 py-12 mt-20">
 
-        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-1">
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-10">
 
           {/* BRAND */}
           <div>
 
-            <a
-              href="/"
-              className="flex items-center gap-3 mb-4"
-            >
+            <a href="/" className="flex items-center gap-3 mb-4">
 
               <div className="w-10 h-10 rounded-2xl bg-blue-500/20 flex items-center justify-center border border-blue-500/30">
-
                 <span className="text-blue-400 text-xl rotate-[-25deg]">
                   ✈️
                 </span>
-
               </div>
 
               <h1 className="text-3xl font-black tracking-tight">
@@ -133,9 +121,8 @@ export default function HomePage() {
 
             </a>
 
-            <p className="text-white/50 leading-normal text-sm">
-              ucgit.com ile tüm havayollarını karşılaştırın ve en uygun uçuşları
-              saniyeler içinde bulun.
+            <p className="text-white/50 text-sm leading-relaxed">
+              UçGit ile tüm havayollarını karşılaştırın ve en uygun uçuşları saniyeler içinde bulun.
             </p>
 
           </div>
@@ -143,37 +130,25 @@ export default function HomePage() {
           {/* MENU */}
           <div>
 
-            <h4 className="font-bold mb-5 text-base">
+            <h4 className="font-bold mb-5">
               Menü
             </h4>
 
-            <div className="flex flex-col gap-2 text-white/50">
+            <div className="flex flex-col gap-3 text-white/50">
 
-              <a
-                href="/campaigns"
-                className="hover:text-white transition"
-              >
+              <a href="/campaigns" className="hover:text-white transition">
                 Kampanyalar
               </a>
 
-              <a
-                href="/blog"
-                className="hover:text-white transition"
-              >
+              <a href="/blog" className="hover:text-white transition">
                 Blog
               </a>
 
-              <a
-                href="/contact"
-                className="hover:text-white transition"
-              >
+              <a href="/contact" className="hover:text-white transition">
                 İletişim
               </a>
 
-              <a
-                href="/about"
-                className="hover:text-white transition"
-              >
+              <a href="/about" className="hover:text-white transition">
                 Hakkımızda
               </a>
 
@@ -184,30 +159,21 @@ export default function HomePage() {
           {/* SUPPORT */}
           <div>
 
-            <h4 className="font-bold mb-5 text-lg">
+            <h4 className="font-bold mb-5">
               Destek
             </h4>
 
             <div className="flex flex-col gap-3 text-white/50">
 
-              <a
-                href="/faq"
-                className="hover:text-white transition"
-              >
+              <a href="/faq" className="hover:text-white transition">
                 Sık Sorulan Sorular
               </a>
 
-              <a
-                href="/privacy-policy"
-                className="hover:text-white transition"
-              >
+              <a href="/privacy-policy" className="hover:text-white transition">
                 Gizlilik Politikası
               </a>
 
-              <a
-                href="/terms"
-                className="hover:text-white transition"
-              >
+              <a href="/terms" className="hover:text-white transition">
                 Kullanım Şartları
               </a>
 
@@ -218,13 +184,15 @@ export default function HomePage() {
           {/* CONTACT */}
           <div>
 
-            <h4 className="font-bold mb-5 text-lg">
+            <h4 className="font-bold mb-5">
               İletişim
             </h4>
 
             <div className="flex flex-col gap-3 text-white/50">
+
               <p>support@ucgit.com</p>
               <p>info@ucgit.com</p>
+
             </div>
 
           </div>
@@ -233,7 +201,7 @@ export default function HomePage() {
 
         {/* COPYRIGHT */}
         <div className="max-w-5xl mx-auto px-6 mt-16 pt-8 border-t border-white/10 text-center text-white/40">
-          ©️ 2026 ucgit.com Tüm hakları saklıdır.
+          © 2026 UçGit.com — Tüm hakları saklıdır.
         </div>
 
       </footer>
