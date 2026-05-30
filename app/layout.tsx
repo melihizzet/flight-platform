@@ -3,10 +3,6 @@ import "./globals.css";
 export const metadata = {
   title: "UçGit",
   description: "Ucuz uçak bileti bul",
-
-  verification: {
-    google: "IXpXj097D9wBObuiiVN30qR4NoamhlRhOtOR1b3fV50",
-  },
 };
 
 export default function RootLayout({
@@ -16,6 +12,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="tr">
+      <head>
+        <meta
+          name="google-site-verification"
+          content="IXpXj097D9wBObuiiVN30qR4NoamhlRhOtOR1b3fV50"
+        />
+      </head>
+
       <body>{children}</body>
     </html>
   );
