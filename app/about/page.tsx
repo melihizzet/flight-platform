@@ -1,8 +1,28 @@
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-[#020817] text-white px-6 py-20">
+    <main className="min-h-screen bg-[#020817] text-white overflow-x-hidden relative">
 
-      <div className="max-w-4xl mx-auto">
+      {/* BG */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[900px] bg-blue-500/10 blur-[160px] rounded-full"></div>
+
+      {/* HEADER */}
+      <header className="relative z-20 border-b border-white/10 backdrop-blur-xl">
+
+        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center">
+
+          <a
+            href="/"
+            className="text-3xl font-black text-white"
+          >
+            Uç<span className="text-blue-500">Git</span>
+          </a>
+
+        </div>
+
+      </header>
+
+      {/* CONTENT */}
+      <section className="relative max-w-4xl mx-auto px-6 py-20">
 
         <p className="text-blue-400 text-sm tracking-wide uppercase mb-4">
           Hakkımızda
@@ -43,7 +63,7 @@ export default function AboutPage() {
           ✈️ UçGit.com
         </div>
 
-      </div>
+      </section>
 
     </main>
   );

@@ -6,6 +6,22 @@ export default function ContactPage() {
       {/* BG */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[900px] bg-blue-500/10 blur-[160px] rounded-full"></div>
 
+      {/* HEADER */}
+      <header className="relative z-20 border-b border-white/10 backdrop-blur-xl">
+
+        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center">
+
+          <a
+            href="/"
+            className="text-3xl font-black text-white"
+          >
+            Uç<span className="text-blue-500">Git</span>
+          </a>
+
+        </div>
+
+      </header>
+
       {/* HERO */}
       <section className="max-w-5xl mx-auto px-6 pt-24 pb-14 text-center">
 
