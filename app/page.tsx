@@ -37,37 +37,6 @@ export default function HomePage() {
             </h1>
           </a>
 
-          {/* NAVIGATION */}
-          <nav className="hidden md:flex items-center gap-6 text-sm text-white/70">
-            <a
-              href="/campaigns"
-              className="hover:text-white transition"
-            >
-              Kampanyalar
-            </a>
-
-            <a
-              href="/blog"
-              className="hover:text-white transition"
-            >
-              Blog
-            </a>
-
-            <a
-              href="/contact"
-              className="hover:text-white transition"
-            >
-              İletişim
-            </a>
-
-            <a
-              href="/about"
-              className="hover:text-white transition"
-            >
-              Hakkımızda
-            </a>
-          </nav>
-
           {/* ACTIONS */}
           <div className="flex items-center gap-3">
             <button className="text-sm text-white/80 hover:text-white transition">
@@ -149,28 +118,28 @@ export default function HomePage() {
 
             <div className="flex flex-col gap-2 text-white/50">
               <a
-                href="#"
+                href="/campaings"
                 className="hover:text-white transition"
               >
                 Kampanyalar
               </a>
 
               <a
-                href="#"
+                href="/blog"
                 className="hover:text-white transition"
               >
                 Blog
               </a>
 
               <a
-                href="#"
+                href="/contact"
                 className="hover:text-white transition"
               >
                 İletişim
               </a>
 
               <a
-                href="#"
+                href="/about"
                 className="hover:text-white transition"
               >
                 Hakkımızda
@@ -186,21 +155,21 @@ export default function HomePage() {
 
             <div className="flex flex-col gap-3 text-white/50">
               <a
-                href="#"
+                href="/faq"
                 className="hover:text-white transition"
               >
                 Sık Sorulan Sorular
               </a>
 
               <a
-                href="#"
+                href="/privacy policy"
                 className="hover:text-white transition"
               >
                 Gizlilik Politikası
               </a>
 
               <a
-                href="#"
+                href="/terms"
                 className="hover:text-white transition"
               >
                 Kullanım Şartları
