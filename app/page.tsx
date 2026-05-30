@@ -29,39 +29,39 @@ export default function HomePage() {
       <header className="border-b border-white/10 backdrop-blur-xl sticky top-0 z-50 bg-[#020817]/90">
         <div className="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
           {/* LOGO */}
-          <div className="flex items-center gap-3">
+          <a href="/" className="flex items-center gap-3">
             <span className="text-3xl">✈️</span>
 
             <h1 className="text-3xl font-black tracking-tight">
               UçGit
             </h1>
-          </div>
+          </a>
 
           {/* NAVIGATION */}
           <nav className="hidden md:flex items-center gap-6 text-sm text-white/70">
             <a
-              href="#"
+              href="/about"
               className="hover:text-white transition"
             >
               Kampanyalar
             </a>
 
             <a
-              href="#"
+              href="/campaigns"
               className="hover:text-white transition"
             >
               Blog
             </a>
 
             <a
-              href="#"
+              href="/blog"
               className="hover:text-white transition"
             >
               İletişim
             </a>
 
             <a
-              href="#"
+              href="/contact"
               className="hover:text-white transition"
             >
               Hakkımızda
