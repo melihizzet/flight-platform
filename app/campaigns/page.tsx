@@ -1,7 +1,9 @@
+import Script from "next/script";
+
 export default function CampaignsPage() {
 
   return (
-    <main className="min-h-screen bg-[#020617] text-white overflow-x-hidden relative">
+    <main className="min-h-screen bg-[#020817] text-white overflow-x-hidden relative">
 
       {/* BG */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[900px] bg-blue-500/10 blur-[160px] rounded-full"></div>
@@ -26,18 +28,11 @@ export default function CampaignsPage() {
       {/* WIDGET */}
       <section className="max-w-6xl mx-auto px-6 pb-24">
 
-        <div className="rounded-3xl overflow-hidden border border-white/10 bg-white/5 p-4">
-
-          <iframe
-            src="<src="https://tpwdg.com/content?currency=try&trs=533807&shmarker=733574&locale=tr&powered_by=true&limit=4&primary_color=00AE98&results_background_color=020817&form_background_color=0F172A&promo_id=4563&campaign_id=111"
-            width="100%"
-            height="700"
-            frameBorder="0"
-            scrolling="no"
-            className="rounded-2xl"
-          ></iframe>
-
-        </div>
+        {/* Travelpayouts Widget */}
+        <Script
+          src="https://tpwdg.com/content?currency=try&trs=533807&shmarker=733574&locale=tr&powered_by=true&limit=4&primary_color=00AE98&results_background_color=020817&form_background_color=0F172A&promo_id=4563&campaign_id=111"
+          strategy="afterInteractive"
+        />
 
       </section>
 
