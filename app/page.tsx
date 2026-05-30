@@ -27,7 +27,7 @@ export default function HomePage() {
 
       {/* HEADER */}
       <header className="border-b border-white/10 backdrop-blur-xl sticky top-0 z-50 bg-[#020817]/90">
-        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
           {/* LOGO */}
           <div className="flex items-center gap-3">
             <span className="text-3xl">✈️</span>
@@ -38,7 +38,7 @@ export default function HomePage() {
           </div>
 
           {/* NAVIGATION */}
-          <nav className="hidden md:flex items-center gap-8 text-sm text-white/70">
+          <nav className="hidden md:flex items-center gap-6 text-sm text-white/70">
             <a
               href="#"
               className="hover:text-white transition"
@@ -74,7 +74,7 @@ export default function HomePage() {
               Giriş Yap
             </button>
 
-            <button className="bg-blue-500 hover:bg-blue-400 transition-all duration-300 shadow-[0_0_40px_rgba(59,130,246,0.35)] px-5 py-2 rounded-xl text-sm font-semibold">
+            <button className="bg-blue-500 hover:bg-blue-400 transition-all duration-300 shadow-[0_0_40px_rgba(59,130,246,0.35)] px-4 py-1.5 rounded-xl text-sm font-semibold">
               Kayıt Ol
             </button>
           </div>
@@ -92,14 +92,14 @@ export default function HomePage() {
               En uygun uçuşları saniyeler içinde bul
             </p>
 
-            <h1 className="text-2xl md:text-4xl font-black leading-tight mb-8 tracking-tight">
+            <h1 className="text-xl md:text-5xl font-black leading-tight mb-4 tracking-tight">
               Ucuza uçmanın{" "}
               <span className="text-blue-500">
                 en kolay yolu
               </span>
             </h1>
 
-            <p className="text-xl text-white/60 max-w-3xl mx-auto mb-16 leading-relaxed">
+            <p className="text-xl text-white/60 max-w-3xl mx-auto mb-8 leading-relaxed">
               Tüm havayollarını karşılaştır, gerçek zamanlı fiyatları gör ve
               en uygun bileti saniyeler içinde bul.
             </p>
@@ -123,16 +123,16 @@ export default function HomePage() {
       
 
       {/* FOOTER */}
-      <footer className="border-t border-white/10 py-6">
-        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-2">
+      <footer className="border-t border-white/10 py-3">
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-1">
           {/* BRAND */}
           <div>
             <div className="flex items-center gap-2 mb-1">
               <span className="text-2xl">✈️</span>
 
-              <h3 className="text-1xl font-black">
+              <a href="/" className="text-2xl font-black">
                 UçGit
-              </h3>
+              </a>
             </div>
 
             <p className="text-white/50 leading-normal text-sm">

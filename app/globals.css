@@ -105,3 +105,25 @@ iframe {
 .twidget-container {
   zoom: 0.30;
 }
+.tpwl-widget {
+  font-size: 14px !important;
+}
+
+.tpwl-widget a,
+.tpwl-widget span,
+.tpwl-widget label {
+  font-size: 14px !important;
+  opacity: 0.9 !important;
+}
+
+.tpwl-widget .tpwl-multi-city,
+.tpwl-widget .tpwl-hotels {
+  font-size: 14px !important;
+  color: #9ec5ff !important;
+}
+
+.tpwl-widget .tpwl-currency,
+.tpwl-widget .tpwl-locale {
+  font-size: 14px !important;
+  color: rgba(255,255,255,0.75) !important;
+}
