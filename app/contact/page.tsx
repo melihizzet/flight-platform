@@ -13,9 +13,21 @@ export default function ContactPage() {
 
           <a
             href="/"
-            className="text-3xl font-black text-white"
+            className="flex items-center gap-3"
           >
-            Uç<span className="text-blue-500">Git</span>
+
+            <div className="w-10 h-10 rounded-2xl bg-blue-500/20 flex items-center justify-center border border-blue-500/30">
+
+              <span className="text-blue-400 text-xl rotate-[-25deg]">
+                ✈️
+              </span>
+
+            </div>
+
+            <h1 className="text-3xl font-black tracking-tight">
+              Uç<span className="text-blue-500">Git</span>
+            </h1>
+
           </a>
 
         </div>
@@ -55,6 +67,7 @@ export default function ContactPage() {
 
               <div>
                 <p className="text-slate-400 text-xs">E-posta</p>
+
                 <h3 className="text-lg md:text-xl font-bold mt-1">
                   support@ucgit.com
                 </h3>
@@ -62,6 +75,7 @@ export default function ContactPage() {
 
               <div>
                 <p className="text-slate-400 text-xs">Telefon</p>
+
                 <h3 className="text-lg md:text-xl font-bold mt-1">
                   +90 850 000 00 00
                 </h3>
@@ -69,6 +83,7 @@ export default function ContactPage() {
 
               <div>
                 <p className="text-slate-400 text-xs">Adres</p>
+
                 <h3 className="text-lg md:text-xl font-bold mt-1">
                   İstanbul, Türkiye
                 </h3>

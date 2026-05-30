@@ -28,13 +28,22 @@ export default function HomePage() {
       {/* HEADER */}
       <header className="border-b border-white/10 backdrop-blur-xl sticky top-0 z-50 bg-[#020817]/90">
         <div className="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
+
           {/* LOGO */}
           <a href="/" className="flex items-center gap-3">
-            <span className="text-3xl">✈️</span>
+
+            <div className="w-10 h-10 rounded-2xl bg-blue-500/20 flex items-center justify-center border border-blue-500/30">
+
+              <span className="text-blue-400 text-xl rotate-[-25deg]">
+                ✈️
+              </span>
+
+            </div>
 
             <h1 className="text-3xl font-black tracking-tight">
-              UçGit
+              Uç<span className="text-blue-500">Git</span>
             </h1>
+
           </a>
 
           {/* ACTIONS */}
@@ -47,16 +56,20 @@ export default function HomePage() {
               Kayıt Ol
             </button>
           </div>
+
         </div>
       </header>
 
       {/* HERO */}
       <section className="relative py-4 px-6">
+
         {/* BACKGROUND EFFECT */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.20),transparent_50%)]"></div>
 
         <div className="max-w-7xl mx-auto relative z-10 text-center">
+
           <div className="max-w-5xl mx-auto">
+
             <p className="text-blue-400 mb-6 text-sm tracking-wide uppercase">
               En uygun uçuşları saniyeler içinde bul
             </p>
@@ -72,10 +85,12 @@ export default function HomePage() {
               Tüm havayollarını karşılaştır, gerçek zamanlı fiyatları gör ve
               en uygun bileti saniyeler içinde bul.
             </p>
+
           </div>
 
           {/* SEARCH */}
           <div className="max-w-6xl mx-auto">
+
             <div className="bg-white/10 border border-white/10 rounded-[32px] p-6 shadow-2xl">
               <div id="tpwl-search"></div>
             </div>
@@ -84,41 +99,58 @@ export default function HomePage() {
             <div className="mt-6">
               <div id="tpwl-tickets"></div>
             </div>
-          </div>
-        </div>
-      </section>
 
-      {/* AIRLINES */}
-      
+          </div>
+
+        </div>
+
+      </section>
 
       {/* FOOTER */}
       <footer className="border-t border-white/10 py-10 mt-16">
+
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-1">
+
           {/* BRAND */}
           <div>
-            <div className="flex items-center gap-2 mb-1">
-              <span className="text-2xl">✈️</span>
 
-              <a href="/" className="text-2xl font-black">
-                UçGit
-              </a>
-            </div>
+            <a
+              href="/"
+              className="flex items-center gap-3 mb-4"
+            >
+
+              <div className="w-10 h-10 rounded-2xl bg-blue-500/20 flex items-center justify-center border border-blue-500/30">
+
+                <span className="text-blue-400 text-xl rotate-[-25deg]">
+                  ✈️
+                </span>
+
+              </div>
+
+              <h1 className="text-3xl font-black tracking-tight">
+                Uç<span className="text-blue-500">Git</span>
+              </h1>
+
+            </a>
 
             <p className="text-white/50 leading-normal text-sm">
               ucgit.com ile tüm havayollarını karşılaştırın ve en uygun uçuşları
               saniyeler içinde bulun.
             </p>
+
           </div>
 
           {/* MENU */}
           <div>
+
             <h4 className="font-bold mb-5 text-base">
               Menü
             </h4>
 
             <div className="flex flex-col gap-2 text-white/50">
+
               <a
-                href="/campaings"
+                href="/campaigns"
                 className="hover:text-white transition"
               >
                 Kampanyalar
@@ -144,16 +176,20 @@ export default function HomePage() {
               >
                 Hakkımızda
               </a>
+
             </div>
+
           </div>
 
           {/* SUPPORT */}
           <div>
+
             <h4 className="font-bold mb-5 text-lg">
               Destek
             </h4>
 
             <div className="flex flex-col gap-3 text-white/50">
+
               <a
                 href="/faq"
                 className="hover:text-white transition"
@@ -162,7 +198,7 @@ export default function HomePage() {
               </a>
 
               <a
-                href="/privacy policy"
+                href="/privacy-policy"
                 className="hover:text-white transition"
               >
                 Gizlilik Politikası
@@ -174,28 +210,34 @@ export default function HomePage() {
               >
                 Kullanım Şartları
               </a>
+
             </div>
+
           </div>
 
           {/* CONTACT */}
           <div>
+
             <h4 className="font-bold mb-5 text-lg">
               İletişim
             </h4>
 
             <div className="flex flex-col gap-3 text-white/50">
               <p>support@ucgit.com</p>
-
               <p>info@ucgit.com</p>
             </div>
+
           </div>
+
         </div>
 
         {/* COPYRIGHT */}
         <div className="max-w-5xl mx-auto px-6 mt-16 pt-8 border-t border-white/10 text-center text-white/40">
-          © 2026 ucgit.com Tüm hakları saklıdır.
+          ©️ 2026 ucgit.com Tüm hakları saklıdır.
         </div>
+
       </footer>
+
     </main>
   );
 }

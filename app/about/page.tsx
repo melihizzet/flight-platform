@@ -12,9 +12,21 @@ export default function AboutPage() {
 
           <a
             href="/"
-            className="text-3xl font-black text-white"
+            className="flex items-center gap-3"
           >
-            Uç<span className="text-blue-500">Git</span>
+
+            <div className="w-10 h-10 rounded-2xl bg-blue-500/20 flex items-center justify-center border border-blue-500/30">
+
+              <span className="text-blue-400 text-xl rotate-[-25deg]">
+                ✈️
+              </span>
+
+            </div>
+
+            <h1 className="text-3xl font-black tracking-tight">
+              Uç<span className="text-blue-500">Git</span>
+            </h1>
+
           </a>
 
         </div>
