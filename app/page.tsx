@@ -61,7 +61,7 @@ export default function HomePage() {
       </header>
 
       {/* HERO */}
-      <section className="relative py-20 px-6">
+      <section className="relative py-11 px-6">
 
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.25),transparent_50%)]"></div>
 
@@ -71,14 +71,14 @@ export default function HomePage() {
             En Uygun Uçak Bileti
           </p>
 
-          <h1 className="text-4xl md:text-7xl font-black leading-tight mb-6 tracking-tight">
+          <h1 className="text-2xl md:text-4xl font-black leading-tight mb-6 tracking-tight">
             En uygun uçak biletini{" "}
             <span className="text-blue-500">
               saniyeler içinde bul
             </span>
           </h1>
 
-          <p className="text-lg md:text-xl text-white/60 max-w-3xl mx-auto mb-12 leading-relaxed">
+          <p className="text-base md:text-lg text-white/60 max-w-3xl mx-auto mb-12 leading-relaxed">
             Tüm havayollarını karşılaştır, gerçek zamanlı fiyatları gör
             ve en ucuz uçuşları hızlıca keşfet.
           </p>
