@@ -2,7 +2,7 @@ import "./globals.css";
 
 export const metadata = {
   title: "UçGit - En Uygun Uçak Bileti ve Ucuz Uçuşlar",
-  
+
   description:
     "UçGit ile en uygun uçak biletlerini karşılaştır, ucuz uçuşları keşfet ve seyahatini kolayca planla.",
 
@@ -14,6 +14,10 @@ export const metadata = {
     "ucuz uçuş",
     "UçGit",
   ],
+
+  icons: {
+    icon: "/airlines/ug.png",
+  },
 
   verification: {
     google: "IXpXj097D9wBObuiiVN30qR4NoamhlRhOtOR1b3fV50",
