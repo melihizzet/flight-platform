@@ -63,7 +63,7 @@ export default function ContactPage() {
               İletişim Bilgileri
             </h2>
 
-            <div className="space-y-5">
+            <div className="space-y-3">
 
               <div>
 
@@ -120,7 +120,7 @@ export default function ContactPage() {
           </div>
 
           {/* RIGHT */}
-          <div className="bg-white/10 border border-white/10 rounded-3xl p-6 md:p-8 backdrop-blur-xl">
+          <div className="bg-white/10 border border-white/10 rounded-3xl p-6 backdrop-blur-xl">
 
             <h2 className="text-2xl md:text-3xl font-black mb-8">
               Mesaj Gönder
@@ -143,7 +143,7 @@ export default function ContactPage() {
               <input
                 type="email"
                 name="email"
-                placeholder="E-posta"
+                placeholder="E-posta adresiniz"
                 required
                 className="w-full bg-[#0b1736] border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-blue-400 transition text-sm"
               />
