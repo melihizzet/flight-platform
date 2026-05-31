@@ -24,52 +24,52 @@ export default function FAQPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-[#020817] text-white px-6 py-14">
+    <main className="min-h-screen bg-[#020817] text-white px-6 py-10">
 
       {/* LOGO */}
       <a
         href="/"
-        className="flex items-center gap-3 mb-12"
+        className="flex items-center gap-3 mb-10"
       >
 
-        <div className="w-9 h-9 rounded-2xl bg-blue-500/20 flex items-center justify-center border border-blue-500/30">
+        <div className="w-8 h-8 rounded-xl bg-blue-500/20 flex items-center justify-center border border-blue-500/30">
 
-          <span className="text-blue-400 text-lg rotate-[-25deg]">
+          <span className="text-blue-400 text-sm rotate-[-25deg]">
             ✈️
           </span>
 
         </div>
 
-        <h1 className="text-2xl font-black tracking-tight">
+        <h1 className="text-xl font-black tracking-tight">
           Uç<span className="text-blue-500">Git</span>
         </h1>
 
       </a>
 
-      <div className="max-w-3xl mx-auto">
+      <div className="max-w-2xl mx-auto">
 
-        <p className="text-blue-400 text-[11px] tracking-[0.25em] uppercase mb-3">
+        <p className="text-blue-400 text-[10px] tracking-[0.25em] uppercase mb-2">
           Destek
         </p>
 
-        <h1 className="text-2xl md:text-4xl font-black leading-tight mb-8">
+        <h1 className="text-xl md:text-3xl font-black leading-tight mb-6">
           Sık Sorulan Sorular
         </h1>
 
-        <div className="space-y-4">
+        <div className="space-y-3">
 
           {faqs.map((faq, index) => (
 
             <div
               key={index}
-              className="bg-white/5 border border-white/10 rounded-2xl p-5 backdrop-blur-xl"
+              className="bg-white/5 border border-white/10 rounded-2xl p-4 backdrop-blur-xl"
             >
 
-              <h2 className="text-base md:text-lg font-black mb-3">
+              <h2 className="text-sm md:text-base font-black mb-2">
                 {faq.question}
               </h2>
 
-              <p className="text-white/60 leading-relaxed text-sm md:text-base">
+              <p className="text-white/60 leading-relaxed text-xs md:text-sm">
                 {faq.answer}
               </p>
 
@@ -80,7 +80,7 @@ export default function FAQPage() {
         </div>
 
         {/* FOOT */}
-        <div className="mt-12 pt-6 border-t border-white/10 text-white/40 text-sm">
+        <div className="mt-10 pt-5 border-t border-white/10 text-white/40 text-xs">
           ✈️ UçGit.com
         </div>
 
