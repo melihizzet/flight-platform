@@ -90,7 +90,7 @@ export default function HomePage() {
           {/* SEARCH WIDGET */}
           <div className="max-w-5xl mx-auto">
 
-            <div className="bg-white/10 border border-white/10 rounded-[30px] p-3 shadow-2xl overflow-hidden backdrop-blur-xl">
+            <div className="bg-white/10 border border-white/10 rounded-[30px] p-3 shadow-2xl overflow-hidden backdrop-blur-xl min-h-[420px] flex items-center justify-center">
 
               <Script
                 strategy="afterInteractive"
@@ -105,7 +105,7 @@ export default function HomePage() {
       </section>
 
       {/* FEATURES */}
-      <section className="py-12 px-4">
+      <section className="py-24 px-4">
         <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-5">
 
           <div className="bg-white/5 border border-white/10 rounded-3xl p-5">
