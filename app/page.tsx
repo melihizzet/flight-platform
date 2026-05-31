@@ -11,6 +11,7 @@ export default function HomePage() {
     <main
       className={${inter.className} min-h-screen bg-[#020817] text-white overflow-x-hidden}
     >
+      {/* GLOBAL */}
       <style jsx global>{`
         body {
           overflow-x: hidden;
@@ -18,9 +19,9 @@ export default function HomePage() {
         }
 
         iframe {
-          width: 100%;
-          border: none;
-          border-radius: 22px;
+          width: 100% !important;
+          border: none !important;
+          border-radius: 22px !important;
         }
       `}</style>
 
@@ -50,18 +51,6 @@ export default function HomePage() {
           </div>
         </div>
       </header>
-      {/* SEARCH */}
-          <div className="max-w-5xl mx-auto">
-            <div className="bg-white/5 border border-white/10 rounded-[30px] p-4 shadow-2xl overflow-hidden">
-
-              <iframe
-                title="UçGit Flight Search"
-                src="https://tpwdg.com/widgets/7879?currency=try&trs=533807&shmarker=733574&show_hotels=true&powered_by=true&locale=tr&searchUrl=https://www.aviasales.com/search&primary_override=%233B82F6&color_button=%2332a8dd&color_icons=%2332a8dd&dark=%23262626&light=%23FFFFFF&secondary=%23FFFFFF&special=%23C4C4C4&color_focused=%2332a8dd&border_radius=15&plain=true&promo_id=7879&campaign_id=100"
-                className="w-full h-[260px] md:h-[220px]"
-              />
-
-            </div>
-          </div>
 
       {/* HERO */}
       <section className="relative py-12 px-4">
@@ -80,11 +69,22 @@ export default function HomePage() {
           </h1>
 
           <p className="text-sm md:text-lg text-white/60 max-w-2xl mx-auto mb-10 leading-relaxed">
-            Tüm havayollarını karşılaştır, gerçek zamanlı fiyatları gör ve en ucuz uçuşları hızlıca keşfet.
+            Tüm havayollarını karşılaştır, gerçek zamanlı fiyatları gör
+            ve en ucuz uçuşları hızlıca keşfet.
           </p>
 
+          {/* SEARCH */}
+          <div className="max-w-5xl mx-auto mb-12">
+            <div className="bg-white/5 border border-white/10 rounded-[30px] p-4 shadow-2xl overflow-hidden">
 
-          
+              <script
+                async
+                src="https://tpwdg.com/content?currency=try&trs=533807&shmarker=733574&show_hotels=true&powered_by=true&locale=tr&searchUrl=www.aviasales.com%2Fsearch&primary_override=%233B82F6&color_button=%2332a8dd&color_icons=%2332a8dd&dark=%23262626&light=%23FFFFFF&secondary=%23FFFFFF&special=%23C4C4C4&color_focused=%2332a8dd&border_radius=15&no_labels=&plain=false&promo_id=7879&campaign_id=100"
+                charSet="utf-8"
+              ></script>
+
+            </div>
+          </div>
         </div>
       </section>
 
@@ -133,13 +133,20 @@ export default function HomePage() {
 
       {/* FOOTER */}
       <footer className="border-t border-white/10 py-10 mt-10">
-
         <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-4 gap-8">
 
           <div>
-            <h1 className="text-2xl font-black tracking-tight mb-4">
-              Uç<span className="text-blue-500">Git</span>
-            </h1>
+            <a href="/" className="flex items-center gap-3 mb-4">
+              <div className="w-9 h-9 rounded-2xl bg-blue-500/20 flex items-center justify-center border border-blue-500/30">
+                <span className="text-blue-400 text-lg rotate-[-25deg]">
+                  ✈️
+                </span>
+              </div>
+
+              <h1 className="text-2xl font-black tracking-tight">
+                Uç<span className="text-blue-500">Git</span>
+              </h1>
+            </a>
 
             <p className="text-white/50 text-sm leading-relaxed">
               UçGit ile tüm havayollarını karşılaştırın ve en uygun uçuşları saniyeler içinde bulun.
@@ -147,27 +154,53 @@ export default function HomePage() {
           </div>
 
           <div>
-            <h4 className="font-bold mb-4 text-sm">Menü</h4>
+            <h4 className="font-bold mb-4 text-sm">
+              Menü
+            </h4>
 
             <div className="flex flex-col gap-2 text-sm text-white/50">
-              <a href="/campaigns">Kampanyalar</a>
-              <a href="/blog">Blog</a>
-              <a href="/contact">İletişim</a>
+              <a href="/campaigns" className="hover:text-white transition">
+                Kampanyalar
+              </a>
+
+              <a href="/blog" className="hover:text-white transition">
+                Blog
+              </a>
+
+              <a href="/contact" className="hover:text-white transition">
+                İletişim
+              </a>
+
+              <a href="/about" className="hover:text-white transition">
+                Hakkımızda
+              </a>
             </div>
           </div>
 
           <div>
-            <h4 className="font-bold mb-4 text-sm">Destek</h4>
+            <h4 className="font-bold mb-4 text-sm">
+              Destek
+            </h4>
 
             <div className="flex flex-col gap-2 text-sm text-white/50">
-              <a href="/faq">SSS</a>
-              <a href="/privacy-policy">Gizlilik</a>
-              <a href="/terms">Şartlar</a>
+              <a href="/faq" className="hover:text-white transition">
+                Sık Sorulan Sorular
+              </a>
+
+              <a href="/privacy-policy" className="hover:text-white transition">
+                Gizlilik Politikası
+              </a>
+
+              <a href="/terms" className="hover:text-white transition">
+                Kullanım Şartları
+              </a>
             </div>
           </div>
 
           <div>
-            <h4 className="font-bold mb-4 text-sm">İletişim</h4>
+            <h4 className="font-bold mb-4 text-sm">
+              İletişim
+            </h4>
 
             <div className="flex flex-col gap-2 text-sm text-white/50">
               <p>support@ucgit.com</p>
@@ -180,9 +213,7 @@ export default function HomePage() {
         <div className="max-w-5xl mx-auto px-6 mt-10 pt-6 border-t border-white/10 text-center text-xs text-white/40">
           © 2026 UçGit.com — Tüm hakları saklıdır.
         </div>
-
       </footer>
     </main>
   );
 }
-``
