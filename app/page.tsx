@@ -50,6 +50,18 @@ export default function HomePage() {
           </div>
         </div>
       </header>
+      {/* SEARCH */}
+          <div className="max-w-5xl mx-auto">
+            <div className="bg-white/5 border border-white/10 rounded-[30px] p-4 shadow-2xl overflow-hidden">
+
+              <iframe
+                title="UçGit Flight Search"
+                src="https://tpwdg.com/widgets/7879?currency=try&trs=533807&shmarker=733574&show_hotels=true&powered_by=true&locale=tr&searchUrl=https://www.aviasales.com/search&primary_override=%233B82F6&color_button=%2332a8dd&color_icons=%2332a8dd&dark=%23262626&light=%23FFFFFF&secondary=%23FFFFFF&special=%23C4C4C4&color_focused=%2332a8dd&border_radius=15&plain=true&promo_id=7879&campaign_id=100"
+                className="w-full h-[260px] md:h-[220px]"
+              />
+
+            </div>
+          </div>
 
       {/* HERO */}
       <section className="relative py-12 px-4">
@@ -71,18 +83,8 @@ export default function HomePage() {
             Tüm havayollarını karşılaştır, gerçek zamanlı fiyatları gör ve en ucuz uçuşları hızlıca keşfet.
           </p>
 
-          {/* SEARCH */}
-          <div className="max-w-5xl mx-auto">
-            <div className="bg-white/5 border border-white/10 rounded-[30px] p-4 shadow-2xl overflow-hidden">
 
-              <iframe
-                title="UçGit Flight Search"
-                src="https://tpwdg.com/widgets/7879?currency=try&trs=533807&shmarker=733574&show_hotels=true&powered_by=true&locale=tr&searchUrl=https://www.aviasales.com/search&primary_override=%233B82F6&color_button=%2332a8dd&color_icons=%2332a8dd&dark=%23262626&light=%23FFFFFF&secondary=%23FFFFFF&special=%23C4C4C4&color_focused=%2332a8dd&border_radius=15&plain=true&promo_id=7879&campaign_id=100"
-                className="w-full h-[260px] md:h-[220px]"
-              />
-
-            </div>
-          </div>
+          
         </div>
       </section>
 
