@@ -31,6 +31,22 @@ export default function HomePage() {
         `}
       </Script>
 
+      {/* BUSINESS TEXT FIX */}
+      <style jsx global>{`
+        .tpwl_passenger-form__content label:last-child span:last-child {
+          font-size: 0 !important;
+        }
+
+        .tpwl_passenger-form__content label:last-child span:last-child::after {
+          content: "Business";
+          font-size: 15px;
+        }
+
+        iframe {
+          border-radius: 24px !important;
+        }
+      `}</style>
+
       {/* HEADER */}
       <header className="border-b border-white/10 backdrop-blur-xl sticky top-0 z-50 bg-[#020817]/90">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
@@ -64,13 +80,13 @@ export default function HomePage() {
       </header>
 
       {/* HERO */}
-      <section className="relative py-10 px-6">
+      <section className="relative py-8 px-4">
 
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.20),transparent_50%)]"></div>
 
-        <div className="max-w-7xl mx-auto relative z-10 text-center">
+        <div className="max-w-6xl mx-auto relative z-10 text-center">
 
-          <p className="text-blue-400 mb-4 text-xs tracking-[0.2em] uppercase">
+          <p className="text-blue-400 mb-3 text-xs tracking-[0.2em] uppercase">
             En Uygun Uçak Bileti
           </p>
 
@@ -81,7 +97,7 @@ export default function HomePage() {
             </span>
           </h1>
 
-          <p className="text-sm md:text-base text-white/60 max-w-2xl mx-auto mb-8 leading-relaxed">
+          <p className="text-sm md:text-base text-white/60 max-w-2xl mx-auto mb-6 leading-relaxed">
             Tüm havayollarını karşılaştır, gerçek zamanlı fiyatları gör
             ve en ucuz uçuşları hızlıca keşfet.
           </p>
@@ -89,17 +105,17 @@ export default function HomePage() {
           {/* SEARCH */}
           <div className="max-w-5xl mx-auto">
 
-            <div className="bg-white/10 border border-white/10 rounded-[28px] p-4 shadow-2xl">
+            <div className="bg-white/10 border border-white/10 rounded-[28px] p-3 shadow-2xl overflow-hidden">
               <div id="tpwl-search"></div>
             </div>
 
             {/* RESULTS */}
-            <div className="mt-6">
+            <div className="mt-5 hidden">
               <div id="tpwl-tickets"></div>
             </div>
 
             {/* POPULAR ROUTES */}
-            <div className="mt-10 bg-white rounded-3xl p-4 overflow-hidden shadow-2xl">
+            <div className="mt-8 bg-white rounded-3xl p-3 overflow-hidden shadow-2xl">
               <script
                 async
                 src="https://tpwdg.com/content?currency=try&trs=533807&shmarker=733574&locale=tr&powered_by=true&limit=6&primary_color=00AE98&results_background_color=FFFFFF&form_background_color=FFFFFF&campaign_id=111&promo_id=3411"
@@ -113,13 +129,13 @@ export default function HomePage() {
       </section>
 
       {/* FEATURES */}
-      <section className="py-14 px-6">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-6">
+      <section className="py-10 px-4">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-5">
 
-          <div className="bg-white/5 border border-white/10 rounded-3xl p-6">
-            <div className="text-3xl mb-3">✈️</div>
+          <div className="bg-white/5 border border-white/10 rounded-3xl p-5">
+            <div className="text-2xl mb-2">✈️</div>
 
-            <h3 className="text-lg font-bold mb-2">
+            <h3 className="text-base font-bold mb-2">
               En Uygun Fiyatlar
             </h3>
 
@@ -128,10 +144,10 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="bg-white/5 border border-white/10 rounded-3xl p-6">
-            <div className="text-3xl mb-3">⚡</div>
+          <div className="bg-white/5 border border-white/10 rounded-3xl p-5">
+            <div className="text-2xl mb-2">⚡</div>
 
-            <h3 className="text-lg font-bold mb-2">
+            <h3 className="text-base font-bold mb-2">
               Hızlı Karşılaştırma
             </h3>
 
@@ -140,10 +156,10 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="bg-white/5 border border-white/10 rounded-3xl p-6">
-            <div className="text-3xl mb-3">🌍</div>
+          <div className="bg-white/5 border border-white/10 rounded-3xl p-5">
+            <div className="text-2xl mb-2">🌍</div>
 
-            <h3 className="text-lg font-bold mb-2">
+            <h3 className="text-base font-bold mb-2">
               Dünya Genelinde
             </h3>
 
@@ -156,11 +172,10 @@ export default function HomePage() {
       </section>
 
       {/* FOOTER */}
-      <footer className="border-t border-white/10 py-10 mt-12">
+      <footer className="border-t border-white/10 py-10 mt-10">
 
-        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+        <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-4 gap-8">
 
-          {/* BRAND */}
           <div>
 
             <a href="/" className="flex items-center gap-3 mb-4">
@@ -183,7 +198,6 @@ export default function HomePage() {
 
           </div>
 
-          {/* MENU */}
           <div>
 
             <h4 className="font-bold mb-4 text-sm">
@@ -212,7 +226,6 @@ export default function HomePage() {
 
           </div>
 
-          {/* SUPPORT */}
           <div>
 
             <h4 className="font-bold mb-4 text-sm">
@@ -237,7 +250,6 @@ export default function HomePage() {
 
           </div>
 
-          {/* CONTACT */}
           <div>
 
             <h4 className="font-bold mb-4 text-sm">
@@ -255,7 +267,6 @@ export default function HomePage() {
 
         </div>
 
-        {/* COPYRIGHT */}
         <div className="max-w-5xl mx-auto px-6 mt-10 pt-6 border-t border-white/10 text-center text-xs text-white/40">
           ©️ 2026 UçGit.com — Tüm hakları saklıdır.
         </div>
