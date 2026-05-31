@@ -1,6 +1,5 @@
 "use client";
 
-import Script from "next/script";
 import { Inter } from "next/font/google";
 
 const inter = Inter({
@@ -10,34 +9,25 @@ const inter = Inter({
 export default function HomePage() {
   return (
     <main
-      className={
-        inter.className +
-        " min-h-screen bg-[#020817] text-white overflow-x-hidden"
-      }
+      className={${inter.className} min-h-screen bg-[#020817] text-white overflow-x-hidden}
     >
-      {/* SEO */}
-      <title>UçGit | En Uygun Uçak Bileti Bul</title>
-
-      {/* GLOBAL FIXES */}
       <style jsx global>{`
-        iframe {
-          width: 100% !important;
-          max-width: 100% !important;
-          border-radius: 22px !important;
-          overflow: hidden !important;
-        }
-
         body {
           overflow-x: hidden;
+          background: #020817;
+        }
+
+        iframe {
+          width: 100%;
+          border: none;
+          border-radius: 22px;
         }
       `}</style>
 
       {/* HEADER */}
       <header className="border-b border-white/10 backdrop-blur-xl sticky top-0 z-50 bg-[#020817]/90">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-
           <a href="/" className="flex items-center gap-3">
-
             <div className="w-10 h-10 rounded-2xl bg-blue-500/20 flex items-center justify-center border border-blue-500/30">
               <span className="text-blue-400 text-lg rotate-[-25deg]">
                 ✈️
@@ -47,11 +37,9 @@ export default function HomePage() {
             <h1 className="text-2xl font-black tracking-tight">
               Uç<span className="text-blue-500">Git</span>
             </h1>
-
           </a>
 
           <div className="flex items-center gap-3">
-
             <button className="text-xs text-white/80 hover:text-white transition">
               Giriş Yap
             </button>
@@ -59,18 +47,15 @@ export default function HomePage() {
             <button className="bg-blue-500 hover:bg-blue-400 transition px-3 py-1.5 rounded-xl text-xs font-semibold">
               Kayıt Ol
             </button>
-
           </div>
         </div>
       </header>
 
       {/* HERO */}
-      <section className="relative py-10 px-4">
-
+      <section className="relative py-12 px-4">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.20),transparent_50%)]"></div>
 
         <div className="max-w-6xl mx-auto relative z-10 text-center">
-
           <p className="text-blue-400 mb-3 text-xs tracking-[0.2em] uppercase">
             En Uygun Uçak Bileti
           </p>
@@ -82,30 +67,27 @@ export default function HomePage() {
             </span>
           </h1>
 
-          <p className="text-sm md:text-lg text-white/60 max-w-2xl mx-auto mb-8 leading-relaxed">
-            Tüm havayollarını karşılaştır, gerçek zamanlı fiyatları gör
-            ve en ucuz uçuşları hızlıca keşfet.
+          <p className="text-sm md:text-lg text-white/60 max-w-2xl mx-auto mb-10 leading-relaxed">
+            Tüm havayollarını karşılaştır, gerçek zamanlı fiyatları gör ve en ucuz uçuşları hızlıca keşfet.
           </p>
 
-          {/* SEARCH WIDGET */}
+          {/* SEARCH */}
           <div className="max-w-5xl mx-auto">
+            <div className="bg-white/5 border border-white/10 rounded-[30px] p-4 shadow-2xl overflow-hidden">
 
-            <div className="bg-white/10 border border-white/10 rounded-[30px] p-3 shadow-2xl overflow-hidden backdrop-blur-xl">
-
-              <Script
-                strategy="afterInteractive"
-                src="https://tpwdg.com/content?currency=try&trs=533807&shmarker=733574&show_hotels=true&powered_by=true&locale=tr&searchUrl=www.aviasales.com%2Fsearch&primary_override=%233B82F6&color_button=%2332a8dd&color_icons=%2332a8dd&dark=%23262626&light=%23FFFFFF&secondary=%23FFFFFF&special=%23C4C4C4&color_focused=%2332a8dd&border_radius=15&no_labels=&plain=true&promo_id=7879&campaign_id=100"
+              <iframe
+                title="UçGit Flight Search"
+                src="https://tpwdg.com/widgets/7879?currency=try&trs=533807&shmarker=733574&show_hotels=true&powered_by=true&locale=tr&searchUrl=https://www.aviasales.com/search&primary_override=%233B82F6&color_button=%2332a8dd&color_icons=%2332a8dd&dark=%23262626&light=%23FFFFFF&secondary=%23FFFFFF&special=%23C4C4C4&color_focused=%2332a8dd&border_radius=15&plain=true&promo_id=7879&campaign_id=100"
+                className="w-full h-[260px] md:h-[220px]"
               />
 
             </div>
-
           </div>
-
         </div>
       </section>
 
       {/* FEATURES */}
-      <section className="py-15 px-4">
+      <section className="py-14 px-4">
         <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-5">
 
           <div className="bg-white/5 border border-white/10 rounded-3xl p-5">
@@ -152,108 +134,53 @@ export default function HomePage() {
 
         <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-4 gap-8">
 
-          {/* BRAND */}
           <div>
-
-            <a href="/" className="flex items-center gap-3 mb-4">
-
-              <div className="w-9 h-9 rounded-2xl bg-blue-500/20 flex items-center justify-center border border-blue-500/30">
-                <span className="text-blue-400 text-lg rotate-[-25deg]">
-                  ✈️
-                </span>
-              </div>
-
-              <h1 className="text-2xl font-black tracking-tight">
-                Uç<span className="text-blue-500">Git</span>
-              </h1>
-
-            </a>
+            <h1 className="text-2xl font-black tracking-tight mb-4">
+              Uç<span className="text-blue-500">Git</span>
+            </h1>
 
             <p className="text-white/50 text-sm leading-relaxed">
               UçGit ile tüm havayollarını karşılaştırın ve en uygun uçuşları saniyeler içinde bulun.
             </p>
-
           </div>
 
-          {/* MENU */}
           <div>
-
-            <h4 className="font-bold mb-4 text-sm">
-              Menü
-            </h4>
+            <h4 className="font-bold mb-4 text-sm">Menü</h4>
 
             <div className="flex flex-col gap-2 text-sm text-white/50">
-
-              <a href="/campaigns" className="hover:text-white transition">
-                Kampanyalar
-              </a>
-
-              <a href="/blog" className="hover:text-white transition">
-                Blog
-              </a>
-
-              <a href="/contact" className="hover:text-white transition">
-                İletişim
-              </a>
-
-              <a href="/about" className="hover:text-white transition">
-                Hakkımızda
-              </a>
-
+              <a href="/campaigns">Kampanyalar</a>
+              <a href="/blog">Blog</a>
+              <a href="/contact">İletişim</a>
             </div>
-
           </div>
 
-          {/* SUPPORT */}
           <div>
-
-            <h4 className="font-bold mb-4 text-sm">
-              Destek
-            </h4>
+            <h4 className="font-bold mb-4 text-sm">Destek</h4>
 
             <div className="flex flex-col gap-2 text-sm text-white/50">
-
-              <a href="/faq" className="hover:text-white transition">
-                Sık Sorulan Sorular
-              </a>
-
-              <a href="/privacy-policy" className="hover:text-white transition">
-                Gizlilik Politikası
-              </a>
-
-              <a href="/terms" className="hover:text-white transition">
-                Kullanım Şartları
-              </a>
-
+              <a href="/faq">SSS</a>
+              <a href="/privacy-policy">Gizlilik</a>
+              <a href="/terms">Şartlar</a>
             </div>
-
           </div>
 
-          {/* CONTACT */}
           <div>
-
-            <h4 className="font-bold mb-4 text-sm">
-              İletişim
-            </h4>
+            <h4 className="font-bold mb-4 text-sm">İletişim</h4>
 
             <div className="flex flex-col gap-2 text-sm text-white/50">
-
               <p>support@ucgit.com</p>
               <p>info@ucgit.com</p>
-
             </div>
-
           </div>
 
         </div>
 
-        {/* COPYRIGHT */}
         <div className="max-w-5xl mx-auto px-6 mt-10 pt-6 border-t border-white/10 text-center text-xs text-white/40">
-          ©️ 2026 UçGit.com — Tüm hakları saklıdır.
+          © 2026 UçGit.com — Tüm hakları saklıdır.
         </div>
 
       </footer>
-
     </main>
   );
 }
+``
