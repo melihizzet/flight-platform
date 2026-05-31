@@ -1,5 +1,6 @@
 "use client";
 
+import Script from "next/script";
 import { Inter } from "next/font/google";
 
 const inter = Inter({
@@ -22,7 +23,8 @@ export default function HomePage() {
         iframe {
           width: 100% !important;
           max-width: 100% !important;
-          border-radius: 24px !important;
+          border-radius: 22px !important;
+          overflow: hidden !important;
         }
 
         body {
@@ -63,7 +65,7 @@ export default function HomePage() {
       </header>
 
       {/* HERO */}
-      <section className="relative py-8 px-4">
+      <section className="relative py-10 px-4">
 
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.20),transparent_50%)]"></div>
 
@@ -73,39 +75,27 @@ export default function HomePage() {
             En Uygun Uçak Bileti
           </p>
 
-          <h1 className="text-xl md:text-4xl font-black leading-tight mb-4 tracking-tight">
+          <h1 className="text-2xl md:text-5xl font-black leading-tight mb-4 tracking-tight">
             En uygun uçak biletini{" "}
             <span className="text-blue-500">
               saniyeler içinde bul
             </span>
           </h1>
 
-          <p className="text-sm md:text-base text-white/60 max-w-2xl mx-auto mb-6 leading-relaxed">
+          <p className="text-sm md:text-lg text-white/60 max-w-2xl mx-auto mb-8 leading-relaxed">
             Tüm havayollarını karşılaştır, gerçek zamanlı fiyatları gör
             ve en ucuz uçuşları hızlıca keşfet.
           </p>
 
-          {/* SEARCH */}
+          {/* SEARCH WIDGET */}
           <div className="max-w-5xl mx-auto">
 
-            <div className="bg-white/10 border border-white/10 rounded-[28px] p-2 shadow-2xl overflow-visible max-w-[820px] mx-auto scale-[0.93] origin-top">
+            <div className="bg-white/10 border border-white/10 rounded-[30px] p-3 shadow-2xl overflow-hidden backdrop-blur-xl">
 
-              <script
-                async
+              <Script
+                strategy="afterInteractive"
                 src="https://tpwdg.com/content?currency=try&trs=533807&shmarker=733574&show_hotels=true&powered_by=true&locale=tr&searchUrl=www.aviasales.com%2Fsearch&primary_override=%233B82F6&color_button=%2332a8dd&color_icons=%2332a8dd&dark=%23262626&light=%23FFFFFF&secondary=%23FFFFFF&special=%23C4C4C4&color_focused=%2332a8dd&border_radius=15&no_labels=&plain=true&promo_id=7879&campaign_id=100"
-                charSet="utf-8"
-              ></script>
-
-            </div>
-
-            {/* POPULAR ROUTES */}
-            <div className="mt-8 bg-white rounded-3xl p-3 overflow-hidden shadow-2xl">
-
-              <script
-                async
-                src="https://tpwdg.com/content?currency=try&trs=533807&shmarker=733574&locale=en&powered_by=true&limit=4&primary_color=3B82F6&results_background_color=0F172A&form_background_color=0F172A&campaign_id=111&promo_id=3411"
-                charSet="utf-8"
-              ></script>
+              />
 
             </div>
 
@@ -115,7 +105,7 @@ export default function HomePage() {
       </section>
 
       {/* FEATURES */}
-      <section className="py-10 px-4">
+      <section className="py-12 px-4">
         <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-5">
 
           <div className="bg-white/5 border border-white/10 rounded-3xl p-5">
@@ -162,6 +152,7 @@ export default function HomePage() {
 
         <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-4 gap-8">
 
+          {/* BRAND */}
           <div>
 
             <a href="/" className="flex items-center gap-3 mb-4">
@@ -184,6 +175,7 @@ export default function HomePage() {
 
           </div>
 
+          {/* MENU */}
           <div>
 
             <h4 className="font-bold mb-4 text-sm">
@@ -212,6 +204,7 @@ export default function HomePage() {
 
           </div>
 
+          {/* SUPPORT */}
           <div>
 
             <h4 className="font-bold mb-4 text-sm">
@@ -236,6 +229,7 @@ export default function HomePage() {
 
           </div>
 
+          {/* CONTACT */}
           <div>
 
             <h4 className="font-bold mb-4 text-sm">
@@ -253,6 +247,7 @@ export default function HomePage() {
 
         </div>
 
+        {/* COPYRIGHT */}
         <div className="max-w-5xl mx-auto px-6 mt-10 pt-6 border-t border-white/10 text-center text-xs text-white/40">
           ©️ 2026 UçGit.com — Tüm hakları saklıdır.
         </div>
