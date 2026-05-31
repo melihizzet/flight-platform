@@ -140,7 +140,7 @@ export default function HomePage() {
             <div className="mt-8 bg-white rounded-3xl p-3 overflow-hidden shadow-2xl">
               <script
                 async
-                src="https://tpwdg.com/content?currency=try&trs=533807&shmarker=733574&locale=tr&powered_by=true&limit=6&primary_color=00AE98&results_background_color=FFFFFF&form_background_color=FFFFFF&campaign_id=111&promo_id=3411"
+                src="https://tpwdg.com/content?currency=try&trs=533807&shmarker=733574&locale=en&powered_by=false&limit=4&primary_color=3B82F6results_background_color=0f172a&form_background_color=FFFFFF&campaign_id=111&promo_id=3411"
                 charSet="utf-8"
               ></script>
             </div>
