@@ -99,6 +99,38 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* POPULAR DESTINATIONS */}
+      <section className="max-w-7xl mx-auto px-6 py-8">
+
+        <div className="text-center mb-8">
+
+          <p className="text-blue-400 text-xs tracking-[0.25em] uppercase mb-3">
+            Popüler Rotalar
+          </p>
+
+          <h2 className="text-2xl md:text-3xl font-black mb-3">
+            En iyi uçuş fırsatları
+          </h2>
+
+          <p className="text-white/50 text-sm">
+            Güncel fiyatlarla popüler destinasyonları keşfet.
+          </p>
+
+        </div>
+
+        <div className="bg-white rounded-[28px] overflow-hidden shadow-2xl p-2">
+
+          <Script
+            async
+            strategy="afterInteractive"
+            src="https://tpwdg.com/content?currency=try&trs=533807&shmarker=733574&locale=tr&powered_by=true&from_name=istanbul_tr&limit=3&primary_color=00AE98&results_background_color=FFFFFF&form_background_color=FFFFFF&promo_id=4563&campaign_id=111"
+            charSet="utf-8"
+          />
+
+        </div>
+
+      </section>
+
       {/* FOOTER */}
       <footer className="border-t border-white/10 py-12 mt-20">
 
