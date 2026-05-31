@@ -1,6 +1,5 @@
 "use client";
 
-import Script from "next/script";
 import { Inter } from "next/font/google";
 
 const inter = Inter({
@@ -18,52 +17,16 @@ export default function HomePage() {
       {/* SEO */}
       <title>UçGit | En Uygun Uçak Bileti Bul</title>
 
-      {/* TRAVELPAYOUTS */}
-      <Script id="travelpayouts-widget" strategy="afterInteractive">
-        {`
-          (function () {
-            var script = document.createElement("script");
-            script.async = true;
-            script.type = "module";
-            script.src = "https://tpwdg.com/wl_web/main.js?wl_id=18030";
-            document.head.appendChild(script);
-          })();
-        `}
-      </Script>
-
       {/* GLOBAL FIXES */}
       <style jsx global>{`
-        .tpwl_passenger-form__content label:last-child span:last-child {
-          font-size: 0 !important;
-        }
-
-        .tpwl_passenger-form__content label:last-child span:last-child::after {
-          content: "Business";
-          font-size: 15px;
-        }
-
         iframe {
           width: 100% !important;
           max-width: 100% !important;
           border-radius: 24px !important;
         }
 
-        #tpwl-search,
-        .tpwl-widget {
-          overflow: visible !important;
-        }
-
-        /* widget yazıları */
-        .tpwl-widget a,
-        .tpwl-widget span,
-        .tpwl-widget label,
-        .tpwl-widget div {
-          color: rgba(255,255,255,0.88) !important;
-        }
-
-        /* hover */
-        .tpwl-widget a:hover {
-          color: #ffffff !important;
+        body {
+          overflow-x: hidden;
         }
       `}</style>
 
@@ -127,23 +90,23 @@ export default function HomePage() {
 
             <div className="bg-white/10 border border-white/10 rounded-[28px] p-2 shadow-2xl overflow-visible max-w-[820px] mx-auto scale-[0.93] origin-top">
 
-              <div id="tpwl-search"></div>
+              <script
+                async
+                src="https://tpwdg.com/content?currency=try&trs=533807&shmarker=733574&show_hotels=true&powered_by=true&locale=tr&searchUrl=www.aviasales.com%2Fsearch&primary_override=%233B82F6&color_button=%2332a8dd&color_icons=%2332a8dd&dark=%23262626&light=%23FFFFFF&secondary=%23FFFFFF&special=%23C4C4C4&color_focused=%2332a8dd&border_radius=15&no_labels=&plain=true&promo_id=7879&campaign_id=100"
+                charSet="utf-8"
+              ></script>
 
-            </div>
-
-            {/* RESULTS */}
-            <div className="mt-5 hidden">
-              <div id="tpwl-tickets"></div>
             </div>
 
             {/* POPULAR ROUTES */}
             <div className="mt-8 bg-white rounded-3xl p-3 overflow-hidden shadow-2xl">
+
               <script
                 async
-                src="https://tpwdg.com/content?currency=try&trs=533807&shmarker=733574&show_hotels=true&powered_by=true&locale=tr&searchUrl=www.aviasales.com%2Fsearch&primary_override=%233B82F6&color_button=%2332a8dd&color_icons=%2332a8dd&dark=%23262626&light=%23FFFFFF&secondary=%23FFFFFF&special=%23C4C4C4&color_focused=%2332a8dd&border_radius=15&no_labels=&plain=true&promo_id=7879&campaign_id=100" 
-                charset="utf-8"
-              
+                src="https://tpwdg.com/content?currency=try&trs=533807&shmarker=733574&locale=en&powered_by=true&limit=4&primary_color=3B82F6&results_background_color=0F172A&form_background_color=0F172A&campaign_id=111&promo_id=3411"
+                charSet="utf-8"
               ></script>
+
             </div>
 
           </div>
