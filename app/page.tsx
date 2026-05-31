@@ -31,7 +31,7 @@ export default function HomePage() {
         `}
       </Script>
 
-      {/* BUSINESS TEXT FIX */}
+      {/* GLOBAL FIXES */}
       <style jsx global>{`
         .tpwl_passenger-form__content label:last-child span:last-child {
           font-size: 0 !important;
@@ -43,7 +43,27 @@ export default function HomePage() {
         }
 
         iframe {
+          width: 100% !important;
+          max-width: 100% !important;
           border-radius: 24px !important;
+        }
+
+        #tpwl-search,
+        .tpwl-widget {
+          overflow: visible !important;
+        }
+
+        /* widget yazıları */
+        .tpwl-widget a,
+        .tpwl-widget span,
+        .tpwl-widget label,
+        .tpwl-widget div {
+          color: rgba(255,255,255,0.88) !important;
+        }
+
+        /* hover */
+        .tpwl-widget a:hover {
+          color: #ffffff !important;
         }
       `}</style>
 
@@ -105,8 +125,10 @@ export default function HomePage() {
           {/* SEARCH */}
           <div className="max-w-5xl mx-auto">
 
-            <div className="bg-white/10 border border-white/10 rounded-[28px] p-3 shadow-2xl overflow-hidden">
+            <div className="bg-white/10 border border-white/10 rounded-[28px] p-2 md:p-4 shadow-2xl overflow-visible max-w-[950px] mx-auto">
+
               <div id="tpwl-search"></div>
+
             </div>
 
             {/* RESULTS */}
