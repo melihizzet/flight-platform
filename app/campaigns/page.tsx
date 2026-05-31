@@ -24,15 +24,15 @@ export default function CampaignsPage() {
       </section>
 
       {/* POPULAR DESTINATIONS */}
-      <section className="pb-20 px-4">
+      <section className="pb-6 px-4">
 
         <div className="max-w-7xl mx-auto">
 
-          <div className="bg-white/5 border border-white/10 rounded-[28px] p-4 md:p-6 overflow-hidden">
+          <div className="rounded-[28px] overflow-hidden">
 
             <Script
               strategy="afterInteractive"
-              src="https://tpwdg.com/content?currency=try&trs=533807&shmarker=733574&locale=tr&powered_by=true&from_name=istanbul_tr&limit=15&primary_color=00AE98&results_background_color=FFFFFF&form_background_color=FFFFFF&promo_id=4563&campaign_id=111"
+              src="https://tpwdg.com/content?currency=try&trs=533807&shmarker=733574&locale=tr&powered_by=true&from_name=istanbul_tr&limit=6&primary_color=00AE98&results_background_color=FFFFFF&form_background_color=FFFFFF&promo_id=4563&campaign_id=111"
             />
 
           </div>
