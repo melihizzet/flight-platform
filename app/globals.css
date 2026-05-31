@@ -190,3 +190,19 @@ iframe {
     margin: 0 !important;
   }
 }
+/* TRAVELPAYOUTS DESKTOP FIX */
+
+.tpwl_passenger-form__content {
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  right: auto !important;
+  z-index: 99999 !important;
+}
+
+#tpwl-search {
+  overflow: visible !important;
+}
+
+.tpwl-widget {
+  overflow: visible !important;
+}
