@@ -71,7 +71,7 @@ export default function ContactPage() {
                   E-posta
                 </p>
 
-                <div className="flex flex-col gap-2 mt-2 text-sm">
+                <div className="flex flex-col gap-3 mt-3 text-base">
 
                   <a
                     href="mailto:support@ucgit.com"
@@ -97,7 +97,7 @@ export default function ContactPage() {
                   Telefon
                 </p>
 
-                <h3 className="text-sm font-bold mt-2">
+                <h3 className="text-base font-semibold mt-2">
                   +90 850 000 00 00
                 </h3>
 
@@ -109,7 +109,7 @@ export default function ContactPage() {
                   Adres
                 </p>
 
-                <h3 className="text-sm font-bold mt-2">
+                <h3 className="text-base font-semibold mt-2">
                   İstanbul, Türkiye
                 </h3>
 
@@ -127,7 +127,7 @@ export default function ContactPage() {
             </h2>
 
             <form
-              action="https://formsubmit.co/support@ucgit.com"
+              action="https://formsubmit.co/melihizzetzorluoglu.com"
               method="POST"
               className="space-y-4"
             >
