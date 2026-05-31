@@ -3,27 +3,27 @@ export default function AboutPage() {
     <main className="min-h-screen bg-[#020817] text-white overflow-x-hidden relative">
 
       {/* BG */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[900px] bg-blue-500/10 blur-[160px] rounded-full"></div>
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-blue-500/10 blur-[140px] rounded-full"></div>
 
       {/* HEADER */}
       <header className="relative z-20 border-b border-white/10 backdrop-blur-xl">
 
-        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center">
+        <div className="max-w-7xl mx-auto px-6 h-16 flex items-center">
 
           <a
             href="/"
             className="flex items-center gap-3"
           >
 
-            <div className="w-10 h-10 rounded-2xl bg-blue-500/20 flex items-center justify-center border border-blue-500/30">
+            <div className="w-9 h-9 rounded-2xl bg-blue-500/20 flex items-center justify-center border border-blue-500/30">
 
-              <span className="text-blue-400 text-xl rotate-[-25deg]">
+              <span className="text-blue-400 text-lg rotate-[-25deg]">
                 ✈️
               </span>
 
             </div>
 
-            <h1 className="text-3xl font-black tracking-tight">
+            <h1 className="text-xl font-black tracking-tight">
               Uç<span className="text-blue-500">Git</span>
             </h1>
 
@@ -34,17 +34,17 @@ export default function AboutPage() {
       </header>
 
       {/* CONTENT */}
-      <section className="relative max-w-4xl mx-auto px-6 py-20">
+      <section className="relative max-w-3xl mx-auto px-6 py-16">
 
-        <p className="text-blue-400 text-sm tracking-wide uppercase mb-4">
+        <p className="text-blue-400 text-[11px] tracking-[0.2em] uppercase mb-3">
           Hakkımızda
         </p>
 
-        <h1 className="text-3xl md:text-5xl font-black leading-tight mb-8">
+        <h1 className="text-3xl md:text-5xl font-black leading-tight mb-6">
           UçGit ile en uygun uçuşları kolayca bulun
         </h1>
 
-        <div className="space-y-6 text-white/70 text-lg leading-relaxed">
+        <div className="space-y-5 text-white/70 text-sm md:text-base leading-relaxed">
 
           <p>
             UçGit, kullanıcıların en uygun uçuşları hızlı ve kolay şekilde
@@ -71,7 +71,7 @@ export default function AboutPage() {
 
         </div>
 
-        <div className="mt-12 border-t border-white/10 pt-8 text-white/40">
+        <div className="mt-10 border-t border-white/10 pt-6 text-xs text-white/40">
           ✈️ UçGit.com
         </div>
 
@@ -80,3 +80,4 @@ export default function AboutPage() {
     </main>
   );
 }
+``

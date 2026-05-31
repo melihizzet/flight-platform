@@ -24,7 +24,7 @@ export default function ContactPage() {
 
             </div>
 
-            <h1 className="text-3xl font-black tracking-tight">
+            <h1 className="text-2xl font-black tracking-tight">
               Uç<span className="text-blue-500">Git</span>
             </h1>
 
@@ -37,7 +37,7 @@ export default function ContactPage() {
       {/* HERO */}
       <section className="max-w-5xl mx-auto px-6 pt-24 pb-14 text-center">
 
-        <p className="text-blue-400 font-semibold text-base">
+        <p className="text-blue-400 font-semibold text-sm">
           İletişim
         </p>
 
@@ -45,7 +45,7 @@ export default function ContactPage() {
           Bizimle iletişime geç
         </h1>
 
-        <p className="text-slate-400 text-base md:text-lg mt-6 max-w-2xl mx-auto">
+        <p className="text-slate-400 text-sm md:text-sm mt-6 max-w-2xl mx-auto">
           Sorularınız, önerileriniz veya iş birlikleri için bize ulaşabilirsiniz.
         </p>
 
@@ -68,7 +68,7 @@ export default function ContactPage() {
               <div>
                 <p className="text-slate-400 text-xs">E-posta</p>
 
-                <h3 className="text-lg md:text-xl font-bold mt-1">
+                <h3 className="text-sm md:text-xl font-bold mt-1">
                   support@ucgit.com
                 </h3>
               </div>
@@ -76,7 +76,7 @@ export default function ContactPage() {
               <div>
                 <p className="text-slate-400 text-xs">Telefon</p>
 
-                <h3 className="text-lg md:text-xl font-bold mt-1">
+                <h3 className="text-sm md:text-xl font-bold mt-1">
                   +90 850 000 00 00
                 </h3>
               </div>
@@ -84,7 +84,7 @@ export default function ContactPage() {
               <div>
                 <p className="text-slate-400 text-xs">Adres</p>
 
-                <h3 className="text-lg md:text-xl font-bold mt-1">
+                <h3 className="text-sm md:text-xl font-bold mt-1">
                   İstanbul, Türkiye
                 </h3>
               </div>
