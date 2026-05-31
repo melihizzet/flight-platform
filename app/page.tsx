@@ -140,8 +140,9 @@ export default function HomePage() {
             <div className="mt-8 bg-white rounded-3xl p-3 overflow-hidden shadow-2xl">
               <script
                 async
-                src="https://tpwdg.com/content?currency=try&trs=533807&shmarker=733574&show_hotels=true&powered_by=true&locale=tr&searchUrl=www.aviasales.com%2Fsearch&primary_override=%233B82F6&color_button=%2332a8dd&color_icons=%2332a8dd&dark=%23262626&light=%23FFFFFF&secondary=%23FFFFFF&special=%23C4C4C4&color_focused=%2332a8dd&border_radius=15&no_labels=&plain=true&promo_id=7879&campaign_id=100"
-                charSet="utf-8"
+                src="https://tpwdg.com/content?currency=try&trs=533807&shmarker=733574&show_hotels=true&powered_by=true&locale=tr&searchUrl=www.aviasales.com%2Fsearch&primary_override=%233B82F6&color_button=%2332a8dd&color_icons=%2332a8dd&dark=%23262626&light=%23FFFFFF&secondary=%23FFFFFF&special=%23C4C4C4&color_focused=%2332a8dd&border_radius=15&no_labels=&plain=true&promo_id=7879&campaign_id=100" 
+                charset="utf-8"
+              
               ></script>
             </div>
 
