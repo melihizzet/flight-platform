@@ -2,12 +2,29 @@
 
 import Script from "next/script";
 import { Inter } from "next/font/google";
+import { useEffect } from "react";
 
 const inter = Inter({
   subsets: ["latin"],
 });
 
 export default function HomePage() {
+
+  useEffect(() => {
+    const script = document.createElement("script");
+
+    script.src =
+      "https://tpwdg.com/content?currency=try&trs=533807&shmarker=733574&locale=tr&powered_by=true&from_name=istanbul_tr&limit=3&primary_color=00AE98&results_background_color=FFFFFF&form_background_color=FFFFFF&promo_id=4563&campaign_id=111";
+
+    script.async = true;
+
+    document
+      .getElementById("popular-flights")
+      ?.appendChild(script);
+
+    return () => script.remove();
+  }, []);
+
   return (
     <main
       className={
@@ -112,14 +129,10 @@ export default function HomePage() {
 
               </div>
 
-              <div className="rounded-[28px] overflow-hidden">
-
-                <Script
-                  strategy="afterInteractive"
-                  src="https://tpwdg.com/content?currency=try&trs=533807&shmarker=733574&locale=tr&powered_by=true&from_name=istanbul_tr&limit=3&primary_color=00AE98&results_background_color=FFFFFF&form_background_color=FFFFFF&promo_id=4563&campaign_id=111"
-                />
-
-              </div>
+         <div
+  id="popular-flights"
+  className="rounded-[28px] overflow-hidden min-h-[300px]"
+></div>
 
             </section>
 
