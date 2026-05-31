@@ -110,36 +110,38 @@ export default function HomePage() {
               <div id="tpwl-search"></div>
             </div>
 
-            {/* POPULAR DESTINATIONS */}
-            <section className="mt-8">
+{/* POPULAR DESTINATIONS */}
+<section className="max-w-7xl mx-auto px-6 py-12">
 
-              <div className="text-center mb-6">
+  <div className="text-center mb-8">
 
-                <p className="text-blue-400 uppercase tracking-[0.2em] text-[10px] mb-2">
-                  Popüler Rotalar
-                </p>
+    <p className="text-blue-400 text-xs tracking-[0.25em] uppercase mb-3">
+      Popüler Rotalar
+    </p>
 
-                <h2 className="text-2xl md:text-3xl font-black mb-2">
-                  En iyi uçuş fırsatları
-                </h2>
+    <h2 className="text-2xl md:text-3xl font-black mb-3">
+      En iyi uçuş fırsatları
+    </h2>
 
-                <p className="text-sm text-white/60">
-                  Güncel düşük fiyatlı uçuşları keşfet.
-                </p>
+    <p className="text-white/50 text-sm">
+      Güncel fiyatlarla popüler destinasyonları keşfet.
+    </p>
 
-              </div>
+  </div>
 
-         <div
-  id="popular-flights"
-  className="rounded-[28px] overflow-hidden min-h-[300px]"
-></div>
+  <div className="bg-white rounded-[28px] overflow-hidden shadow-2xl p-4 min-h-[520px]">
 
-            </section>
+    <div
+      dangerouslySetInnerHTML={{
+        __html: `
+        <script async src="https://tpwdg.com/content?currency=try&trs=533807&shmarker=733574&destination=IST&target_host=www.aviasales.com%2Fsearch&locale=tr&limit=10&powered_by=true&primary=%230085FF&promo_id=4044&campaign_id=100" charset="utf-8"></script>
+        `,
+      }}
+    />
 
-          </div>
+  </div>
 
-        </div>
-      </section>
+</section>
 
       {/* FOOTER */}
       <footer className="border-t border-white/10 py-12 mt-20">
