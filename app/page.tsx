@@ -190,8 +190,19 @@ export default function HomePage() {
 
             <div className="flex flex-col gap-3 text-white/50">
 
-              <p>support@ucgit.com</p>
-              <p>info@ucgit.com</p>
+              <a
+  href="mailto:support@ucgit.com"
+  className="hover:text-blue-400 transition"
+>
+  support@ucgit.com
+</a>
+
+<a
+  href="mailto:info@ucgit.com"
+  className="hover:text-blue-400 transition"
+>
+  info@ucgit.com
+</a>
 
             </div>
 
