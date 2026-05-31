@@ -2,35 +2,15 @@
 
 import Script from "next/script";
 import { Inter } from "next/font/google";
-import { useEffect } from "react";
 
 const inter = Inter({
   subsets: ["latin"],
 });
 
 export default function HomePage() {
-
-  useEffect(() => {
-    const script = document.createElement("script");
-
-    script.src =
-      "https://tpwdg.com/content?currency=try&trs=533807&shmarker=733574&locale=tr&powered_by=true&from_name=istanbul_tr&limit=3&primary_color=00AE98&results_background_color=FFFFFF&form_background_color=FFFFFF&promo_id=4563&campaign_id=111";
-
-    script.async = true;
-
-    document
-      .getElementById("popular-flights")
-      ?.appendChild(script);
-
-    return () => script.remove();
-  }, []);
-
   return (
     <main
-      className={
-        inter.className +
-        " min-h-screen bg-[#020817] text-white overflow-x-hidden"
-      }
+      className={inter.className + " min-h-screen bg-[#020817] text-white overflow-x-hidden"}
     >
       {/* SEO */}
       <title>UçGit | En Uygun Uçak Bileti Bul</title>
@@ -110,38 +90,14 @@ export default function HomePage() {
               <div id="tpwl-search"></div>
             </div>
 
-{/* POPULAR DESTINATIONS */}
-<section className="max-w-7xl mx-auto px-6 py-12">
+            <div className="mt-6">
+              <div id="tpwl-tickets"></div>
+            </div>
 
-  <div className="text-center mb-8">
+          </div>
 
-    <p className="text-blue-400 text-xs tracking-[0.25em] uppercase mb-3">
-      Popüler Rotalar
-    </p>
-
-    <h2 className="text-2xl md:text-3xl font-black mb-3">
-      En iyi uçuş fırsatları
-    </h2>
-
-    <p className="text-white/50 text-sm">
-      Güncel fiyatlarla popüler destinasyonları keşfet.
-    </p>
-
-  </div>
-
-  <div className="bg-white rounded-[28px] overflow-hidden shadow-2xl p-4 min-h-[520px]">
-
-    <div
-      dangerouslySetInnerHTML={{
-        __html: `
-        <script async src="https://tpwdg.com/content?currency=try&trs=533807&shmarker=733574&destination=IST&target_host=www.aviasales.com%2Fsearch&locale=tr&limit=10&powered_by=true&primary=%230085FF&promo_id=4044&campaign_id=100" charset="utf-8"></script>
-        `,
-      }}
-    />
-
-  </div>
-
-</section>
+        </div>
+      </section>
 
       {/* FOOTER */}
       <footer className="border-t border-white/10 py-12 mt-20">
@@ -245,7 +201,7 @@ export default function HomePage() {
 
         {/* COPYRIGHT */}
         <div className="max-w-5xl mx-auto px-6 mt-16 pt-8 border-t border-white/10 text-center text-white/40">
-          ©️ 2026 UçGit.com — Tüm hakları saklıdır.
+          © 2026 UçGit.com — Tüm hakları saklıdır.
         </div>
 
       </footer>
@@ -253,4 +209,3 @@ export default function HomePage() {
     </main>
   );
 }
-`
