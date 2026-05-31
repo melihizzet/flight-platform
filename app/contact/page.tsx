@@ -1,38 +1,176 @@
-<form
-  action="https://formsubmit.co/support@ucgit.com"
-  method="POST"
-  className="space-y-5"
->
+export default function ContactPage() {
 
-  <input
-    type="text"
-    name="name"
-    placeholder="Ad Soyad"
-    required
-    className="w-full bg-[#081225] border border-white/10 rounded-2xl px-5 py-4 outline-none"
-  />
+  return (
+    <main className="min-h-screen bg-[#020617] text-white overflow-x-hidden relative">
 
-  <input
-    type="email"
-    name="email"
-    placeholder="E-posta"
-    required
-    className="w-full bg-[#081225] border border-white/10 rounded-2xl px-5 py-4 outline-none"
-  />
+      {/* BG */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[900px] bg-blue-500/10 blur-[160px] rounded-full"></div>
 
-  <textarea
-    name="message"
-    placeholder="Mesajınız"
-    rows={6}
-    required
-    className="w-full bg-[#081225] border border-white/10 rounded-2xl px-5 py-4 outline-none resize-none"
-  />
+      {/* HEADER */}
+      <header className="relative z-20 border-b border-white/10 backdrop-blur-xl">
 
-  <button
-    type="submit"
-    className="w-full bg-blue-500 hover:bg-blue-600 transition rounded-2xl py-4 font-semibold"
-  >
-    Gönder
-  </button>
+        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center">
 
-</form>
+          <a
+            href="/"
+            className="flex items-center gap-3"
+          >
+
+            <div className="w-10 h-10 rounded-2xl bg-blue-500/20 flex items-center justify-center border border-blue-500/30">
+
+              <span className="text-blue-400 text-xl rotate-[-25deg]">
+                ✈️
+              </span>
+
+            </div>
+
+            <h1 className="text-2xl font-black tracking-tight">
+              Uç<span className="text-blue-500">Git</span>
+            </h1>
+
+          </a>
+
+        </div>
+
+      </header>
+
+      {/* HERO */}
+      <section className="max-w-5xl mx-auto px-6 pt-16 pb-10 text-center">
+
+        <p className="text-blue-400 font-semibold text-[11px] tracking-[0.25em] uppercase">
+          İletişim
+        </p>
+
+        <h1 className="text-2xl md:text-4xl font-black mt-4">
+          Bizimle iletişime geç
+        </h1>
+
+        <p className="text-slate-400 text-sm mt-4 max-w-xl mx-auto">
+          Sorularınız, önerileriniz veya iş birlikleri için bize ulaşabilirsiniz.
+        </p>
+
+      </section>
+
+      {/* CONTENT */}
+      <section className="max-w-5xl mx-auto px-6 pb-20">
+
+        <div className="grid md:grid-cols-2 gap-6">
+
+          {/* LEFT */}
+          <div className="bg-white/10 border border-white/10 rounded-3xl p-6 md:p-8 backdrop-blur-xl">
+
+            <h2 className="text-xl md:text-2xl font-black mb-6">
+              İletişim Bilgileri
+            </h2>
+
+            <div className="space-y-5">
+
+              <div>
+
+                <p className="text-slate-400 text-xs">
+                  E-posta
+                </p>
+
+                <div className="flex flex-col gap-2 mt-2 text-sm">
+
+                  <a
+                    href="mailto:support@ucgit.com"
+                    className="hover:text-blue-400 transition"
+                  >
+                    support@ucgit.com
+                  </a>
+
+                  <a
+                    href="mailto:info@ucgit.com"
+                    className="hover:text-blue-400 transition"
+                  >
+                    info@ucgit.com
+                  </a>
+
+                </div>
+
+              </div>
+
+              <div>
+
+                <p className="text-slate-400 text-xs">
+                  Telefon
+                </p>
+
+                <h3 className="text-sm font-bold mt-2">
+                  +90 850 000 00 00
+                </h3>
+
+              </div>
+
+              <div>
+
+                <p className="text-slate-400 text-xs">
+                  Adres
+                </p>
+
+                <h3 className="text-sm font-bold mt-2">
+                  İstanbul, Türkiye
+                </h3>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          {/* RIGHT */}
+          <div className="bg-white/10 border border-white/10 rounded-3xl p-6 md:p-8 backdrop-blur-xl">
+
+            <h2 className="text-2xl md:text-3xl font-black mb-8">
+              Mesaj Gönder
+            </h2>
+
+            <form
+              action="https://formsubmit.co/support@ucgit.com"
+              method="POST"
+              className="space-y-4"
+            >
+
+              <input
+                type="text"
+                name="name"
+                placeholder="Ad Soyad"
+                required
+                className="w-full bg-[#0b1736] border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-blue-400 transition text-sm"
+              />
+
+              <input
+                type="email"
+                name="email"
+                placeholder="E-posta"
+                required
+                className="w-full bg-[#0b1736] border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-blue-400 transition text-sm"
+              />
+
+              <textarea
+                name="message"
+                placeholder="Mesajınız"
+                rows={5}
+                required
+                className="w-full bg-[#0b1736] border border-white/10 rounded-xl px-4 py-3 outline-none resize-none focus:border-blue-400 transition text-sm"
+              />
+
+              <button
+                type="submit"
+                className="w-full bg-blue-500 hover:bg-blue-600 transition py-3 rounded-xl font-semibold text-sm"
+              >
+                Gönder
+              </button>
+
+            </form>
+
+          </div>
+
+        </div>
+
+      </section>
+
+    </main>
+  );
+}
