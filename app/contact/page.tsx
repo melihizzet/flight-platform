@@ -2,25 +2,17 @@ export default function ContactPage() {
   return (
     <main className="min-h-screen bg-[#020617] text-white overflow-x-hidden relative">
 
-      {/* BG */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[900px] bg-blue-500/10 blur-[160px] rounded-full"></div>
 
-      {/* HEADER */}
       <header className="relative z-20 border-b border-white/10 backdrop-blur-xl">
-
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center">
 
-          <a
-            href="/"
-            className="flex items-center gap-3"
-          >
+          <a href="/" className="flex items-center gap-3">
 
             <div className="w-10 h-10 rounded-2xl bg-blue-500/20 flex items-center justify-center border border-blue-500/30">
-
               <span className="text-blue-400 text-xl rotate-[-25deg]">
                 ✈️
               </span>
-
             </div>
 
             <h1 className="text-2xl font-black tracking-tight">
@@ -30,10 +22,8 @@ export default function ContactPage() {
           </a>
 
         </div>
-
       </header>
 
-      {/* HERO */}
       <section className="max-w-5xl mx-auto px-6 pt-16 pb-10 text-center relative z-10">
 
         <p className="text-blue-400 font-semibold text-[11px] tracking-[0.25em] uppercase">
@@ -50,12 +40,10 @@ export default function ContactPage() {
 
       </section>
 
-      {/* CONTENT */}
       <section className="max-w-5xl mx-auto px-6 pb-24 relative z-10">
 
         <div className="grid md:grid-cols-2 gap-6 items-start">
 
-          {/* LEFT */}
           <div className="bg-white/10 border border-white/10 rounded-3xl p-6 md:p-8 backdrop-blur-xl h-fit">
 
             <h2 className="text-2xl font-black mb-8">
@@ -64,7 +52,6 @@ export default function ContactPage() {
 
             <div className="space-y-6">
 
-              {/* MAIL */}
               <div>
 
                 <p className="text-slate-400 text-xs uppercase tracking-wider mb-3">
@@ -91,7 +78,6 @@ export default function ContactPage() {
 
               </div>
 
-              {/* PHONE */}
               <div>
 
                 <p className="text-slate-400 text-xs uppercase tracking-wider mb-3">
@@ -104,7 +90,6 @@ export default function ContactPage() {
 
               </div>
 
-              {/* ADDRESS */}
               <div>
 
                 <p className="text-slate-400 text-xs uppercase tracking-wider mb-3">
@@ -121,7 +106,6 @@ export default function ContactPage() {
 
           </div>
 
-          {/* RIGHT */}
           <div className="bg-white/10 border border-white/10 rounded-3xl p-6 md:p-8 backdrop-blur-xl h-fit">
 
             <h2 className="text-2xl md:text-3xl font-black mb-8">
@@ -134,7 +118,6 @@ export default function ContactPage() {
               className="space-y-5"
             >
 
-              {/* HIDDEN */}
               <input
                 type="hidden"
                 name="_captcha"
@@ -153,7 +136,6 @@ export default function ContactPage() {
                 value="table"
               />
 
-              {/* NAME */}
               <input
                 type="text"
                 name="name"
@@ -162,7 +144,6 @@ export default function ContactPage() {
                 className="w-full bg-[#0b1736] border border-white/10 rounded-2xl px-5 py-4 outline-none focus:border-blue-400 transition text-sm"
               />
 
-              {/* EMAIL */}
               <input
                 type="email"
                 name="email"
@@ -171,7 +152,6 @@ export default function ContactPage() {
                 className="w-full bg-[#0b1736] border border-white/10 rounded-2xl px-5 py-4 outline-none focus:border-blue-400 transition text-sm"
               />
 
-              {/* MESSAGE */}
               <textarea
                 name="message"
                 placeholder="Mesajınız"
@@ -180,7 +160,6 @@ export default function ContactPage() {
                 className="w-full bg-[#0b1736] border border-white/10 rounded-2xl px-5 py-4 outline-none resize-none focus:border-blue-400 transition text-sm"
               />
 
-              {/* BUTTON */}
               <button
                 type="submit"
                 className="w-full bg-blue-500 hover:bg-blue-600 transition-all duration-300 py-4 rounded-2xl font-bold text-sm shadow-lg shadow-blue-500/20"
