@@ -125,7 +125,7 @@ export default function HomePage() {
           {/* SEARCH */}
           <div className="max-w-5xl mx-auto">
 
-            <div className="bg-white/10 border border-white/10 rounded-[28px] p-2 md:p-4 shadow-2xl overflow-visible max-w-[950px] mx-auto">
+            <div className="bg-white/10 border border-white/10 rounded-[28px] p-2 shadow-1xl overflow-visible max-w-[620px] mx-auto scale-[0.72] origin-top">
 
               <div id="tpwl-search"></div>
 
