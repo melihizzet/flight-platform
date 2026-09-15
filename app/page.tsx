@@ -9,7 +9,101 @@ const inter = Inter({
 });
 
 export default function HomePage() {
+  const [language, setLanguage] = useState<"tr" | "en">("tr");
   const [languageOpen, setLanguageOpen] = useState(false);
+
+  const isEnglish = language === "en";
+
+  const text = {
+    tr: {
+      flights: "Uçuşlar",
+      hotel: "Otel",
+      cars: "Araç Kiralama",
+      discover: "Keşfet",
+      support: "Destek",
+      travelWith: "UçGit ile seyahat et",
+      title1: "Uçuşunu karşılaştır,",
+      title2: "en uygun fiyatı uçur!",
+      description:
+        "Yüzlerce havayolu ve seyahat sitesini anında karşılaştır, en uygun uçak bileti fiyatını bul.",
+      free: "Ücretsiz karşılaştırma",
+      secure: "Güvenli ödeme",
+      support247: "7/24 destek",
+      bestPrices: "En Uygun Fiyatlar",
+      bestPricesText:
+        "Yüzlerce siteyi karşılaştır, en iyi fiyatı bul.",
+      secureShopping: "Güvenli Alışveriş",
+      secureShoppingText:
+        "SSL sertifikalı altyapımız ile güvenli ödeme.",
+      fastEasy: "Hızlı ve Kolay",
+      fastEasyText:
+        "Saniyeler içinde yüzlerce seçeneği karşılaştır.",
+      supportTitle: "7/24 Destek",
+      supportText:
+        "Her zaman yanınızdayız, desteğimiz 7/24 sizinle.",
+      company: "Şirket",
+      about: "Hakkımızda",
+      career: "Kariyer",
+      contact: "İletişim",
+      supportMenu: "Destek",
+      faq: "SSS",
+      contactUs: "Bize Ulaşın",
+      privacy: "Gizlilik Politikası",
+      explore: "Keşfet",
+      popularRoutes: "Popüler Rotalar",
+      blog: "Blog",
+      travelGuide: "Seyahat Rehberi",
+      slogan: "Seyahatinizin en kolay yolu.",
+      rights: "Tüm hakları saklıdır.",
+      built: "Built by Melih İzzet Zorluoğlu",
+      turkish: "Türkçe",
+      english: "English",
+    },
+    en: {
+      flights: "Flights",
+      hotel: "Hotels",
+      cars: "Car Rental",
+      discover: "Discover",
+      support: "Support",
+      travelWith: "Travel with UçGit",
+      title1: "Compare your flight,",
+      title2: "fly at the best price!",
+      description:
+        "Compare hundreds of airlines and travel websites instantly and find the best flight price.",
+      free: "Free comparison",
+      secure: "Secure payment",
+      support247: "24/7 support",
+      bestPrices: "Best Prices",
+      bestPricesText:
+        "Compare hundreds of websites and find the best price.",
+      secureShopping: "Secure Shopping",
+      secureShoppingText:
+        "Secure payment with our SSL-certified infrastructure.",
+      fastEasy: "Fast & Easy",
+      fastEasyText:
+        "Compare hundreds of options in seconds.",
+      supportTitle: "24/7 Support",
+      supportText:
+        "We are always here for you with 24/7 support.",
+      company: "Company",
+      about: "About Us",
+      career: "Careers",
+      contact: "Contact",
+      supportMenu: "Support",
+      faq: "FAQ",
+      contactUs: "Contact Us",
+      privacy: "Privacy Policy",
+      explore: "Explore",
+      popularRoutes: "Popular Routes",
+      blog: "Blog",
+      travelGuide: "Travel Guide",
+      slogan: "The easiest way to travel.",
+      rights: "All rights reserved.",
+      built: "Built by Melih İzzet Zorluoğlu",
+      turkish: "Türkçe",
+      english: "English",
+    },
+  }[language];
 
   return (
     <main
@@ -18,8 +112,15 @@ export default function HomePage() {
         " min-h-screen bg-white text-slate-900 overflow-x-hidden"
       }
     >
+      {/* ===================================================== */}
       {/* SEO */}
-      <title>UçGit | En Uygun Uçak Bileti Bul</title>
+      {/* ===================================================== */}
+
+      <title>
+        {isEnglish
+          ? "UçGit | Find the Best Flight Prices"
+          : "UçGit | En Uygun Uçak Bileti Bul"}
+      </title>
 
       {/* ===================================================== */}
       {/* TRAVELPAYOUTS - ÇALIŞAN KODUNA DOKUNMADIK             */}
@@ -38,7 +139,94 @@ export default function HomePage() {
       </Script>
 
       {/* ===================================================== */}
-      {/* HEADER                                                */}
+      {/* ANIMATIONS                                             */}
+      {/* ===================================================== */}
+
+      <style jsx global>{`
+        @keyframes planeFly {
+          0% {
+            transform: translate(0px, 0px) rotate(0deg);
+          }
+
+          20% {
+            transform: translate(4px, -3px) rotate(-3deg);
+          }
+
+          40% {
+            transform: translate(9px, -7px) rotate(-5deg);
+          }
+
+          60% {
+            transform: translate(14px, -5px) rotate(-3deg);
+          }
+
+          80% {
+            transform: translate(8px, -2px) rotate(-1deg);
+          }
+
+          100% {
+            transform: translate(0px, 0px) rotate(0deg);
+          }
+        }
+
+        @keyframes hotelFly {
+          0% {
+            transform: translateY(0px) rotate(0deg);
+          }
+
+          30% {
+            transform: translateY(-3px) rotate(-2deg);
+          }
+
+          60% {
+            transform: translateY(-6px) rotate(1deg);
+          }
+
+          100% {
+            transform: translateY(0px) rotate(0deg);
+          }
+        }
+
+        @keyframes carDrive {
+          0% {
+            transform: translateX(0px);
+          }
+
+          25% {
+            transform: translateX(3px) translateY(-1px);
+          }
+
+          50% {
+            transform: translateX(7px) translateY(0px);
+          }
+
+          75% {
+            transform: translateX(3px) translateY(-1px);
+          }
+
+          100% {
+            transform: translateX(0px);
+          }
+        }
+
+        .animate-plane-fly {
+          display: inline-block;
+          animation: planeFly 2.2s ease-in-out infinite;
+        }
+
+        .animate-hotel-fly {
+          display: inline-block;
+          animation: hotelFly 2.4s ease-in-out infinite;
+        }
+
+        .animate-car-drive {
+          display: inline-block;
+          animation: carDrive 1.4s ease-in-out infinite;
+        }
+      `}</style>
+
+      {/* ===================================================== */}
+      {/* HEADER                                                 */}
       {/* ===================================================== */}
 
       <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur-xl">
@@ -61,10 +249,10 @@ export default function HomePage() {
               href="/"
               className="border-b-2 border-blue-600 py-7 font-semibold text-blue-600"
             >
-              <span className="mr-1 inline-block animate-pulse">
+              <span className="mr-1 inline-block animate-plane-fly">
                 ✈️
               </span>
-              Uçuşlar
+              {text.flights}
             </a>
 
             {/* OTEL */}
@@ -72,10 +260,10 @@ export default function HomePage() {
               href="/hotels"
               className="font-medium text-slate-700 transition hover:text-blue-600"
             >
-              <span className="mr-1 inline-block animate-bounce">
+              <span className="mr-1 inline-block animate-hotel-fly">
                 🏨
               </span>
-              Otel
+              {text.hotel}
             </a>
 
             {/* ARAÇ KİRALAMA */}
@@ -83,10 +271,10 @@ export default function HomePage() {
               href="/cars"
               className="font-medium text-slate-700 transition hover:text-blue-600"
             >
-              <span className="mr-1 inline-block animate-bounce">
+              <span className="mr-1 inline-block animate-car-drive">
                 🚗
               </span>
-              Araç Kiralama
+              {text.cars}
             </a>
 
             {/* KEŞFET */}
@@ -94,11 +282,11 @@ export default function HomePage() {
               href="/discover"
               className="font-medium text-slate-700 transition hover:text-blue-600"
             >
-              ⚙ Keşfet
+              ⚙ {text.discover}
             </a>
           </nav>
 
-          {/* RIGHT MENU */}
+          {/* SAĞ MENÜ */}
           <div className="flex items-center gap-4">
 
             {/* DESTEK */}
@@ -106,10 +294,10 @@ export default function HomePage() {
               href="/contact"
               className="hidden font-medium text-slate-700 transition hover:text-blue-600 md:block"
             >
-              ♧ Destek
+              ♧ {text.support}
             </a>
 
-            {/* LANGUAGE MENU */}
+            {/* DİL SEÇİMİ */}
             <div className="relative">
 
               <button
@@ -117,26 +305,42 @@ export default function HomePage() {
                 onClick={() => setLanguageOpen(!languageOpen)}
                 className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium shadow-sm transition hover:border-blue-300 hover:bg-blue-50"
               >
-                🇹🇷 TR⌄
+                {isEnglish ? "🇬🇧 EN" : "🇹🇷 TR"}⌄
               </button>
 
               {languageOpen && (
                 <div className="absolute right-0 top-12 z-[100] w-40 rounded-2xl border border-slate-200 bg-white p-2 shadow-xl">
 
+                  {/* TÜRKÇE */}
                   <button
                     type="button"
-                    onClick={() => setLanguageOpen(false)}
-                    className="flex w-full items-center gap-2 rounded-xl px-3 py-2.5 text-sm font-medium text-slate-800 transition hover:bg-blue-50"
+                    onClick={() => {
+                      setLanguage("tr");
+                      setLanguageOpen(false);
+                    }}
+                    className={`flex w-full items-center gap-2 rounded-xl px-3 py-2.5 text-sm font-medium transition hover:bg-blue-50 ${
+                      language === "tr"
+                        ? "bg-blue-50 text-blue-600"
+                        : "text-slate-700"
+                    }`}
                   >
-                    🇹🇷 Türkçe
+                    🇹🇷 {text.turkish}
                   </button>
 
+                  {/* ENGLISH */}
                   <button
                     type="button"
-                    onClick={() => setLanguageOpen(false)}
-                    className="flex w-full items-center gap-2 rounded-xl px-3 py-2.5 text-sm font-medium text-slate-700 transition hover:bg-blue-50"
+                    onClick={() => {
+                      setLanguage("en");
+                      setLanguageOpen(false);
+                    }}
+                    className={`flex w-full items-center gap-2 rounded-xl px-3 py-2.5 text-sm font-medium transition hover:bg-blue-50 ${
+                      language === "en"
+                        ? "bg-blue-50 text-blue-600"
+                        : "text-slate-700"
+                    }`}
                   >
-                    🇬🇧 English
+                    🇬🇧 {text.english}
                   </button>
 
                 </div>
@@ -179,29 +383,28 @@ export default function HomePage() {
           <div className="max-w-3xl">
 
             <p className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-blue-600">
-              UçGit ile seyahat et
+              {text.travelWith}
             </p>
 
             <h1 className="text-4xl font-black leading-tight tracking-tight text-slate-900 md:text-6xl">
-              Uçuşunu karşılaştır,
+              {text.title1}
               <br />
               <span className="text-blue-600">
-                en uygun fiyatı uçur!
+                {text.title2}
               </span>
             </h1>
 
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600 md:text-xl">
-              Yüzlerce havayolu ve seyahat sitesini anında karşılaştır,
-              en uygun uçak bileti fiyatını bul.
+              {text.description}
             </p>
 
             <div className="mt-7 flex flex-wrap gap-x-8 gap-y-3 text-sm font-medium text-slate-700">
 
-              <span>◉ Ücretsiz karşılaştırma</span>
+              <span>◉ {text.free}</span>
 
-              <span>▣ Güvenli ödeme</span>
+              <span>▣ {text.secure}</span>
 
-              <span>◷ 7/24 destek</span>
+              <span>◷ {text.support247}</span>
 
             </div>
           </div>
@@ -247,26 +450,26 @@ export default function HomePage() {
 
           <Feature
             icon="◇"
-            title="En Uygun Fiyatlar"
-            text="Yüzlerce siteyi karşılaştır, en iyi fiyatı bul."
+            title={text.bestPrices}
+            text={text.bestPricesText}
           />
 
           <Feature
             icon="♢"
-            title="Güvenli Alışveriş"
-            text="SSL sertifikalı altyapımız ile güvenli ödeme."
+            title={text.secureShopping}
+            text={text.secureShoppingText}
           />
 
           <Feature
             icon="◷"
-            title="Hızlı ve Kolay"
-            text="Saniyeler içinde yüzlerce seçeneği karşılaştır."
+            title={text.fastEasy}
+            text={text.fastEasyText}
           />
 
           <Feature
             icon="♧"
-            title="7/24 Destek"
-            text="Her zaman yanınızdayız, desteğimiz 7/24 sizinle."
+            title={text.supportTitle}
+            text={text.supportText}
           />
 
         </div>
@@ -290,7 +493,7 @@ export default function HomePage() {
             />
 
             <p className="mt-4 max-w-xs text-sm leading-6 text-slate-500">
-              Seyahatinizin en kolay yolu.
+              {text.slogan}
             </p>
 
           </div>
@@ -299,7 +502,7 @@ export default function HomePage() {
           <div>
 
             <h3 className="mb-5 font-bold text-slate-900">
-              Şirket
+              {text.company}
             </h3>
 
             <div className="space-y-3 text-sm text-slate-500">
@@ -308,21 +511,21 @@ export default function HomePage() {
                 href="/about"
                 className="block transition hover:text-blue-600"
               >
-                Hakkımızda
+                {text.about}
               </a>
 
               <a
                 href="/career"
                 className="block transition hover:text-blue-600"
               >
-                Kariyer
+                {text.career}
               </a>
 
               <a
                 href="/contact"
                 className="block transition hover:text-blue-600"
               >
-                İletişim
+                {text.contact}
               </a>
 
             </div>
@@ -333,7 +536,7 @@ export default function HomePage() {
           <div>
 
             <h3 className="mb-5 font-bold text-slate-900">
-              Destek
+              {text.supportMenu}
             </h3>
 
             <div className="space-y-3 text-sm text-slate-500">
@@ -342,21 +545,21 @@ export default function HomePage() {
                 href="/faq"
                 className="block transition hover:text-blue-600"
               >
-                SSS
+                {text.faq}
               </a>
 
               <a
                 href="/contact"
                 className="block transition hover:text-blue-600"
               >
-                Bize Ulaşın
+                {text.contactUs}
               </a>
 
               <a
                 href="/privacy-policy"
                 className="block transition hover:text-blue-600"
               >
-                Gizlilik Politikası
+                {text.privacy}
               </a>
 
             </div>
@@ -367,7 +570,7 @@ export default function HomePage() {
           <div>
 
             <h3 className="mb-5 font-bold text-slate-900">
-              Keşfet
+              {text.explore}
             </h3>
 
             <div className="space-y-3 text-sm text-slate-500">
@@ -376,21 +579,21 @@ export default function HomePage() {
                 href="/flights"
                 className="block transition hover:text-blue-600"
               >
-                Popüler Rotalar
+                {text.popularRoutes}
               </a>
 
               <a
                 href="/blog"
                 className="block transition hover:text-blue-600"
               >
-                Blog
+                {text.blog}
               </a>
 
               <a
                 href="/travel-guide"
                 className="block transition hover:text-blue-600"
               >
-                Seyahat Rehberi
+                {text.travelGuide}
               </a>
 
             </div>
@@ -405,7 +608,7 @@ export default function HomePage() {
           <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 py-6 text-sm text-slate-400 md:flex-row">
 
             <span>
-              © 2026 UçGit. Tüm hakları saklıdır.
+              © 2026 UçGit. {text.rights}
             </span>
 
             <div className="flex gap-5">
@@ -415,7 +618,7 @@ export default function HomePage() {
             </div>
 
             <span>
-              Built by Melih İzzet Zorluoğlu
+              {text.built}
             </span>
 
           </div>
