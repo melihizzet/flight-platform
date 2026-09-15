@@ -1,135 +1,186 @@
 export default function ContactPage() {
-
   return (
-    <main className="min-h-screen bg-[#020617] text-white overflow-x-hidden relative">
-
-      {/* BG */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[900px] bg-blue-500/10 blur-[160px] rounded-full"></div>
+    <main className="min-h-screen bg-white text-slate-900 overflow-x-hidden">
 
       {/* HEADER */}
-      <header className="relative z-20 border-b border-white/10 backdrop-blur-xl">
+      <header className="sticky top-0 z-30 border-b border-slate-200 bg-white/95 backdrop-blur-xl">
+        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
 
-        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center">
-
-          <a
-            href="/"
-            className="flex items-center gap-3"
-          >
-
-            <div className="w-10 h-10 rounded-2xl bg-blue-500/20 flex items-center justify-center border border-blue-500/30">
-
-              <span className="text-blue-400 text-xl rotate-[-25deg]">
-                ✈️
-              </span>
-
-            </div>
-
-            <h1 className="text-2xl font-black tracking-tight">
-              Uç<span className="text-blue-500">Git</span>
-            </h1>
-
+          {/* LOGO */}
+          <a href="/" className="flex items-center">
+            <img
+              src="/logo.jpg"
+              alt="UçGit"
+              className="h-14 w-auto rounded-xl"
+            />
           </a>
 
-        </div>
+          {/* MENU */}
+          <nav className="hidden items-center gap-8 md:flex">
 
+            <a
+              href="/"
+              className="text-sm font-semibold text-slate-700 transition hover:text-blue-600"
+            >
+              ✈️ Uçuşlar
+            </a>
+
+            <a
+              href="/hotels"
+              className="text-sm font-semibold text-slate-700 transition hover:text-blue-600"
+            >
+              🏨 Otel
+            </a>
+
+            <a
+              href="/cars"
+              className="flex items-center gap-1.5 text-sm font-semibold text-slate-700 transition hover:text-blue-600"
+            >
+              <span className="inline-block animate-bounce">
+                🚗
+              </span>
+              Araç Kiralama
+            </a>
+
+            <a
+              href="/discover"
+              className="text-sm font-semibold text-slate-700 transition hover:text-blue-600"
+            >
+              ⚙️ Keşfet
+            </a>
+
+            <a
+              href="/contact"
+              className="text-sm font-semibold text-blue-600"
+            >
+              ♧ Destek
+            </a>
+
+          </nav>
+
+          {/* SAĞ TARAF */}
+          <div className="hidden items-center gap-3 md:flex">
+
+            <button className="rounded-full border border-slate-200 bg-white px-4 py-2 text-xs font-semibold text-slate-700 shadow-sm">
+              TR 🇹🇷
+            </button>
+
+            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-100 text-sm text-slate-600">
+              ♟
+            </div>
+
+          </div>
+
+        </div>
       </header>
 
       {/* HERO */}
-      <section className="max-w-5xl mx-auto px-6 pt-16 pb-10 text-center">
+      <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-purple-50">
 
-        <p className="text-blue-400 font-semibold text-[11px] tracking-[0.25em] uppercase">
-          İletişim
-        </p>
+        <div className="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-blue-400/10 blur-3xl" />
 
-        <h1 className="text-2xl md:text-4xl font-black mt-4">
-          Bizimle iletişime geç
-        </h1>
+        <div className="absolute -left-32 bottom-0 h-96 w-96 rounded-full bg-purple-400/10 blur-3xl" />
 
-        <p className="text-slate-400 text-sm mt-4 max-w-xl mx-auto">
-          Sorularınız, önerileriniz veya iş birlikleri için bize ulaşabilirsiniz.
-        </p>
+        <div className="relative mx-auto max-w-5xl px-6 py-20 text-center">
+
+          <p className="mb-3 text-xs font-bold uppercase tracking-[0.25em] text-blue-600">
+            DESTEK
+          </p>
+
+          <h1 className="text-3xl font-black leading-tight text-slate-900 md:text-5xl">
+            Bizimle iletişime geç
+          </h1>
+
+          <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-slate-600">
+            Sorularınız, önerileriniz veya iş birlikleri için
+            bizimle iletişime geçebilirsiniz.
+          </p>
+
+        </div>
 
       </section>
 
       {/* CONTENT */}
-      <section className="max-w-5xl mx-auto px-6 pb-20">
+      <section className="mx-auto max-w-5xl px-6 py-16">
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid gap-6 md:grid-cols-2">
 
-          {/* LEFT */}
-          <div className="bg-white/10 border border-white/10 rounded-3xl p-6 md:p-8 backdrop-blur-xl h-fit">
+          {/* İLETİŞİM BİLGİLERİ */}
+          <div className="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm">
 
-            <h2 className="text-xl md:text-2xl font-black mb-6">
+            <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-2xl bg-blue-100 text-xl">
+              💬
+            </div>
+
+            <h2 className="text-xl font-black text-slate-900">
               İletişim Bilgileri
             </h2>
 
-            <div className="space-y-3">
+            <div className="mt-6 space-y-6">
 
               <div>
-
-                <p className="text-slate-400 text-xs">
+                <p className="text-xs font-semibold uppercase tracking-wide text-slate-400">
                   E-posta
                 </p>
 
-                <div className="flex flex-col gap-3 mt-3 text-base">
+                <div className="mt-2 space-y-2 text-sm">
 
                   <a
                     href="mailto:support@ucgit.com"
-                    className="hover:text-blue-400 transition"
+                    className="block font-medium text-slate-700 transition hover:text-blue-600"
                   >
                     support@ucgit.com
                   </a>
 
                   <a
                     href="mailto:info@ucgit.com"
-                    className="hover:text-blue-400 transition"
+                    className="block font-medium text-slate-700 transition hover:text-blue-600"
                   >
                     info@ucgit.com
                   </a>
 
                 </div>
-
               </div>
 
               <div>
-
-                <p className="text-slate-400 text-xs">
+                <p className="text-xs font-semibold uppercase tracking-wide text-slate-400">
                   Telefon
                 </p>
 
-                <h3 className="text-base font-semibold mt-2">
+                <p className="mt-2 text-sm font-semibold text-slate-700">
                   +90 850 000 00 00
-                </h3>
-
+                </p>
               </div>
 
               <div>
-
-                <p className="text-slate-400 text-xs">
+                <p className="text-xs font-semibold uppercase tracking-wide text-slate-400">
                   Adres
                 </p>
 
-                <h3 className="text-base font-semibold mt-2">
+                <p className="mt-2 text-sm font-semibold text-slate-700">
                   İstanbul, Türkiye
-                </h3>
-
+                </p>
               </div>
 
             </div>
 
           </div>
 
-          {/* RIGHT */}
-          <div className="bg-white/10 border border-white/10 rounded-3xl p-6 backdrop-blur-xl">
+          {/* MESAJ FORMU */}
+          <div className="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm">
 
-            <h2 className="text-2xl md:text-3xl font-black mb-8">
+            <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-2xl bg-purple-100 text-xl">
+              ✉️
+            </div>
+
+            <h2 className="text-xl font-black text-slate-900">
               Mesaj Gönder
             </h2>
 
             <form
               action="https://formsubmit.co/melihizzetzorluoglu.com"
               method="POST"
-              className="space-y-4"
+              className="mt-6 space-y-4"
             >
 
               <input
@@ -137,7 +188,7 @@ export default function ContactPage() {
                 name="name"
                 placeholder="Ad Soyad"
                 required
-                className="w-full bg-[#0b1736] border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-blue-400 transition text-sm"
+                className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-blue-400 focus:bg-white"
               />
 
               <input
@@ -145,7 +196,7 @@ export default function ContactPage() {
                 name="email"
                 placeholder="E-posta adresiniz"
                 required
-                className="w-full bg-[#0b1736] border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-blue-400 transition text-sm"
+                className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-blue-400 focus:bg-white"
               />
 
               <textarea
@@ -153,14 +204,14 @@ export default function ContactPage() {
                 placeholder="Mesajınız"
                 rows={5}
                 required
-                className="w-full bg-[#0b1736] border border-white/10 rounded-xl px-4 py-3 outline-none resize-none focus:border-blue-400 transition text-sm"
+                className="w-full resize-none rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-blue-400 focus:bg-white"
               />
 
               <button
                 type="submit"
-                className="w-full bg-blue-500 hover:bg-blue-600 transition py-3 rounded-xl font-semibold text-sm"
+                className="w-full rounded-xl bg-[#020817] py-3 text-sm font-semibold text-white transition hover:bg-blue-600"
               >
-                Gönder
+                Mesajı Gönder →
               </button>
 
             </form>
@@ -170,6 +221,91 @@ export default function ContactPage() {
         </div>
 
       </section>
+
+      {/* QUICK LINKS */}
+      <section className="bg-slate-50 py-14">
+
+        <div className="mx-auto max-w-5xl px-6 text-center">
+
+          <h2 className="text-2xl font-black text-slate-900">
+            Yardıma mı ihtiyacın var?
+          </h2>
+
+          <p className="mt-3 text-sm text-slate-500">
+            UçGit hakkında daha fazla bilgiye ulaşabilirsin.
+          </p>
+
+          <div className="mt-7 flex flex-wrap justify-center gap-3">
+
+            <a
+              href="/about"
+              className="rounded-xl border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-700 shadow-sm transition hover:border-blue-300 hover:text-blue-600"
+            >
+              Hakkımızda
+            </a>
+
+            <a
+              href="/faq"
+              className="rounded-xl border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-700 shadow-sm transition hover:border-blue-300 hover:text-blue-600"
+            >
+              SSS
+            </a>
+
+            <a
+              href="/blog"
+              className="rounded-xl border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-700 shadow-sm transition hover:border-blue-300 hover:text-blue-600"
+            >
+              Blog
+            </a>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      {/* FOOTER */}
+      <footer className="border-t border-slate-200 bg-white py-8">
+
+        <div className="mx-auto max-w-7xl px-6 text-center">
+
+          <img
+            src="/logo.jpg"
+            alt="UçGit"
+            className="mx-auto h-11 w-auto rounded-lg"
+          />
+
+          <p className="mt-3 text-xs text-slate-500">
+            © 2026 UçGit. Tüm hakları saklıdır.
+          </p>
+
+          <div className="mt-4 flex flex-wrap justify-center gap-5 text-xs text-slate-500">
+
+            <a href="/about" className="hover:text-blue-600">
+              Hakkımızda
+            </a>
+
+            <a href="/blog" className="hover:text-blue-600">
+              Blog
+            </a>
+
+            <a href="/faq" className="hover:text-blue-600">
+              SSS
+            </a>
+
+            <a href="/privacy-policy" className="hover:text-blue-600">
+              Gizlilik
+            </a>
+
+            <a href="/terms" className="hover:text-blue-600">
+              Kullanım Şartları
+            </a>
+
+          </div>
+
+        </div>
+
+      </footer>
 
     </main>
   );
