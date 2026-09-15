@@ -2,12 +2,15 @@
 
 import Script from "next/script";
 import { Inter } from "next/font/google";
+import { useState } from "react";
 
 const inter = Inter({
   subsets: ["latin"],
 });
 
 export default function HomePage() {
+  const [languageOpen, setLanguageOpen] = useState(false);
+
   return (
     <main
       className={
@@ -53,27 +56,40 @@ export default function HomePage() {
           {/* MENU */}
           <nav className="hidden items-center gap-9 md:flex">
 
+            {/* UÇUŞLAR */}
             <a
               href="/"
               className="border-b-2 border-blue-600 py-7 font-semibold text-blue-600"
             >
-              ✈ Uçuşlar
+              <span className="mr-1 inline-block animate-pulse">
+                ✈️
+              </span>
+              Uçuşlar
             </a>
 
+            {/* OTEL */}
             <a
               href="/hotels"
               className="font-medium text-slate-700 transition hover:text-blue-600"
             >
-              ▣ Otel
+              <span className="mr-1 inline-block animate-bounce">
+                🏨
+              </span>
+              Otel
             </a>
 
+            {/* ARAÇ KİRALAMA */}
             <a
               href="/cars"
               className="font-medium text-slate-700 transition hover:text-blue-600"
             >
-              🚗 Araç Kiralama
+              <span className="mr-1 inline-block animate-bounce">
+                🚗
+              </span>
+              Araç Kiralama
             </a>
 
+            {/* KEŞFET */}
             <a
               href="/discover"
               className="font-medium text-slate-700 transition hover:text-blue-600"
@@ -85,6 +101,7 @@ export default function HomePage() {
           {/* RIGHT MENU */}
           <div className="flex items-center gap-4">
 
+            {/* DESTEK */}
             <a
               href="/contact"
               className="hidden font-medium text-slate-700 transition hover:text-blue-600 md:block"
@@ -92,19 +109,48 @@ export default function HomePage() {
               ♧ Destek
             </a>
 
-            <button
-              type="button"
-              className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium shadow-sm"
-            >
-              🇹🇷 TR⌄
-            </button>
+            {/* LANGUAGE MENU */}
+            <div className="relative">
 
+              <button
+                type="button"
+                onClick={() => setLanguageOpen(!languageOpen)}
+                className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium shadow-sm transition hover:border-blue-300 hover:bg-blue-50"
+              >
+                🇹🇷 TR⌄
+              </button>
+
+              {languageOpen && (
+                <div className="absolute right-0 top-12 z-[100] w-40 rounded-2xl border border-slate-200 bg-white p-2 shadow-xl">
+
+                  <button
+                    type="button"
+                    onClick={() => setLanguageOpen(false)}
+                    className="flex w-full items-center gap-2 rounded-xl px-3 py-2.5 text-sm font-medium text-slate-800 transition hover:bg-blue-50"
+                  >
+                    🇹🇷 Türkçe
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => setLanguageOpen(false)}
+                    className="flex w-full items-center gap-2 rounded-xl px-3 py-2.5 text-sm font-medium text-slate-700 transition hover:bg-blue-50"
+                  >
+                    🇬🇧 English
+                  </button>
+
+                </div>
+              )}
+            </div>
+
+            {/* LOGIN */}
             <a
               href="/login"
               className="flex h-11 w-11 items-center justify-center rounded-full bg-slate-100 text-xl transition hover:bg-blue-50"
             >
               ♙
             </a>
+
           </div>
         </div>
       </header>
@@ -166,7 +212,6 @@ export default function HomePage() {
 
           <div className="mt-12 rounded-[30px] bg-white p-5 shadow-2xl ring-1 ring-slate-200 md:p-7">
 
-            {/* BU ID'YE DOKUNMADIK */}
             <div
               id="tpwl-search"
               className="w-full min-h-[180px]"
@@ -184,7 +229,6 @@ export default function HomePage() {
 
         <div className="mx-auto max-w-7xl px-6 py-10">
 
-          {/* BU ID'YE DE DOKUNMADIK */}
           <div
             id="tpwl-tickets"
             className="w-full min-h-[100px]"
@@ -352,6 +396,7 @@ export default function HomePage() {
             </div>
 
           </div>
+
         </div>
 
         {/* COPYRIGHT */}
@@ -412,6 +457,7 @@ function Feature({
         </p>
 
       </div>
+
     </div>
   );
 }
