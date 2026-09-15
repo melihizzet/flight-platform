@@ -1,9 +1,24 @@
-import type { Metadata } from "next";
+import "./globals.css";
+import Script from "next/script";
 
-export const metadata: Metadata = {
-  title: "UçGit - En Uygun Uçak Bileti",
+export const metadata = {
+  title: "UçGit - En Uygun Uçak Bileti ve Ucuz Uçuşlar",
   description:
-    "UçGit ile yüzlerce havayolu ve seyahat sitesini karşılaştır, en uygun uçak bileti fiyatını bul.",
+    "UçGit ile en uygun uçak biletlerini karşılaştır, ucuz uçuşları keşfet ve seyahatini kolayca planla.",
+  keywords: [
+    "uçak bileti",
+    "ucuz uçak bileti",
+    "en uygun uçak bileti",
+    "uçuş ara",
+    "ucuz uçuş",
+    "UçGit",
+  ],
+  icons: {
+    icon: "/airlines/ug.png",
+  },
+  verification: {
+    google: "IXpXj097D9wBObuiiVN30qR4NoamhlRhOtOR1b3fV50",
+  },
 };
 
 export default function RootLayout({
@@ -14,32 +29,21 @@ export default function RootLayout({
   return (
     <html lang="tr">
       <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function () {
-                var script = document.createElement("script");
-                script.async = 1;
-                script.setAttribute("data-cmp-ab", "2");
-                script.src = "https://tpembars.com/NTMzODA3.js?t=533807";
-                document.head.appendChild(script);
-              })();
-            `,
-          }}
+        {/* Travelpayouts Drive */}
+        <Script
+          id="travelpayouts-drive"
+          strategy="beforeInteractive"
+          src="https://tpembars.com/NTMzODA3.js?t=533807"
+          async
+          data-cmp-ab="2"
         />
 
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function () {
-                var script = document.createElement("script");
-                script.async = 1;
-                script.type = "module";
-                script.src = "https://tpwdg.com/wl_web/main.js?wl_id=18030";
-                document.head.appendChild(script);
-              })();
-            `,
-          }}
+        {/* Travelpayouts White Label */}
+        <Script
+          id="travelpayouts-white-label"
+          strategy="beforeInteractive"
+          type="module"
+          src="https://tpwdg.com/wl_web/main.js?wl_id=18030"
         />
       </head>
 
