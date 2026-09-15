@@ -1,83 +1,214 @@
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-[#020817] text-white overflow-x-hidden relative">
-
-      {/* BG */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-blue-500/10 blur-[140px] rounded-full"></div>
+    <main className="min-h-screen bg-white text-slate-900 overflow-x-hidden">
 
       {/* HEADER */}
-      <header className="relative z-20 border-b border-white/10 backdrop-blur-xl">
+      <header className="sticky top-0 z-30 border-b border-slate-200 bg-white/95 backdrop-blur-xl">
+        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
 
-        <div className="max-w-7xl mx-auto px-6 h-16 flex items-center">
-
-          <a
-            href="/"
-            className="flex items-center gap-3"
-          >
-
-            <div className="w-9 h-9 rounded-2xl bg-blue-500/20 flex items-center justify-center border border-blue-500/30">
-
-              <span className="text-blue-400 text-lg rotate-[-25deg]">
-                ✈️
-              </span>
-
-            </div>
-
-            <h1 className="text-xl font-black tracking-tight">
-              Uç<span className="text-blue-500">Git</span>
-            </h1>
-
+          {/* LOGO */}
+          <a href="/" className="flex items-center">
+            <img
+              src="/logo.jpg"
+              alt="UçGit"
+              className="h-14 w-auto rounded-xl"
+            />
           </a>
 
-        </div>
+          {/* MENU */}
+          <nav className="hidden items-center gap-8 md:flex">
 
+            <a
+              href="/"
+              className="text-sm font-semibold text-slate-700 transition hover:text-blue-600"
+            >
+              ✈️ Uçuşlar
+            </a>
+
+            <a
+              href="/hotels"
+              className="text-sm font-semibold text-slate-700 transition hover:text-blue-600"
+            >
+              🏨 Otel
+            </a>
+
+            <a
+              href="/cars"
+              className="flex items-center gap-1.5 text-sm font-semibold text-slate-700 transition hover:text-blue-600"
+            >
+              <span className="inline-block animate-bounce text-base">
+                🚗
+              </span>
+              Araç Kiralama
+            </a>
+
+            <a
+              href="/discover"
+              className="text-sm font-semibold text-slate-700 transition hover:text-blue-600"
+            >
+              ⚙️ Keşfet
+            </a>
+
+            <a
+              href="/contact"
+              className="text-sm font-semibold text-slate-700 transition hover:text-blue-600"
+            >
+              ♧ Destek
+            </a>
+
+          </nav>
+
+          {/* SAĞ TARAF */}
+          <div className="hidden items-center gap-3 md:flex">
+
+            <button className="rounded-full border border-slate-200 bg-white px-4 py-2 text-xs font-semibold text-slate-700 shadow-sm">
+              TR 🇹🇷
+            </button>
+
+            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-100 text-sm text-slate-600">
+              ♟
+            </div>
+
+          </div>
+
+        </div>
       </header>
 
-      {/* CONTENT */}
-      <section className="relative max-w-3xl mx-auto px-6 py-16">
+      {/* HERO */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-purple-50">
 
-        <p className="text-blue-400 text-[11px] tracking-[0.2em] uppercase mb-3">
-          Hakkımızda
-        </p>
+        <div className="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-blue-400/10 blur-3xl" />
 
-        <h1 className="text-3xl md:text-5xl font-black leading-tight mb-6">
-          UçGit ile en uygun uçuşları kolayca bulun
-        </h1>
+        <div className="absolute -left-32 bottom-0 h-96 w-96 rounded-full bg-purple-400/10 blur-3xl" />
 
-        <div className="space-y-5 text-white/70 text-sm md:text-base leading-relaxed">
+        <div className="relative mx-auto max-w-5xl px-6 py-20 text-center">
 
-          <p>
-            UçGit, kullanıcıların en uygun uçuşları hızlı ve kolay şekilde
-            karşılaştırabilmesi için oluşturulmuş modern bir uçuş arama
+          <p className="mb-3 text-xs font-bold uppercase tracking-[0.25em] text-blue-600">
+            HAKKIMIZDA
+          </p>
+
+          <h1 className="text-3xl font-black leading-tight text-slate-900 md:text-5xl">
+            Seyahati daha
+            <span className="text-blue-600"> kolay </span>
+            hale getiriyoruz.
+          </h1>
+
+          <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-slate-600">
+            UçGit, uçuş, otel ve araç kiralama seçeneklerini
+            tek bir yerde keşfetmenizi sağlayan modern bir seyahat
             platformudur.
           </p>
 
-          <p>
-            Amacımız, karmaşık ve eski görünümlü seyahat siteleri yerine daha
-            sade, hızlı ve kullanıcı dostu bir deneyim sunmaktır.
-          </p>
-
-          <p>
-            UçGit üzerinden farklı havayollarının ve seyahat sağlayıcılarının
-            fiyatlarını karşılaştırabilir, size en uygun uçuşu saniyeler içinde
-            bulabilirsiniz.
-          </p>
-
-          <p>
-            Platformumuz sürekli gelişmekte olup; daha hızlı arama, daha iyi
-            kullanıcı deneyimi ve daha akıllı seyahat araçları sunmak için
-            çalışıyoruz.
-          </p>
-
-        </div>
-
-        <div className="mt-10 border-t border-white/10 pt-6 text-xs text-white/40">
-          ✈️ UçGit.com
         </div>
 
       </section>
 
+      {/* CONTENT */}
+      <section className="mx-auto max-w-5xl px-6 py-16">
+
+        <div className="grid gap-6 md:grid-cols-2">
+
+          {/* KART 1 */}
+          <div className="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm">
+
+            <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-2xl bg-blue-100 text-xl">
+              ✈️
+            </div>
+
+            <h2 className="text-xl font-black text-slate-900">
+              UçGit nedir?
+            </h2>
+
+            <p className="mt-3 text-sm leading-6 text-slate-600">
+              UçGit, seyahat planlamasını daha hızlı ve kolay
+              hale getirmek amacıyla geliştirilen bir platformdur.
+              Kullanıcıların ihtiyaç duyduğu seyahat seçeneklerine
+              sade ve anlaşılır bir şekilde ulaşmasını hedefliyoruz.
+            </p>
+
+          </div>
+
+          {/* KART 2 */}
+          <div className="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm">
+
+            <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-2xl bg-purple-100 text-xl">
+              🌍
+            </div>
+
+            <h2 className="text-xl font-black text-slate-900">
+              Amacımız
+            </h2>
+
+            <p className="mt-3 text-sm leading-6 text-slate-600">
+              Amacımız, seyahat araştırmasını karmaşık olmaktan
+              çıkararak kullanıcılar için daha sade, hızlı ve
+              anlaşılır bir deneyim sunmaktır.
+            </p>
+
+          </div>
+
+        </div>
+
+        {/* MİSYON */}
+        <div className="mt-6 rounded-3xl bg-[#020817] p-8 text-white shadow-xl">
+
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-blue-400">
+            UÇGİT
+          </p>
+
+          <h2 className="mt-2 text-2xl font-black">
+            Daha kolay keşfet. Daha özgür seyahat et.
+          </h2>
+
+          <p className="mt-4 max-w-3xl text-sm leading-6 text-slate-300">
+            Platformumuzu sürekli geliştirerek seyahat deneyimini
+            daha anlaşılır, hızlı ve kullanıcı dostu hale getirmek
+            için çalışıyoruz.
+          </p>
+
+        </div>
+
+      </section>
+
+      {/* FOOTER */}
+      <footer className="border-t border-slate-200 bg-white py-8">
+
+        <div className="mx-auto max-w-7xl px-6 text-center">
+
+          <img
+            src="/logo.jpg"
+            alt="UçGit"
+            className="mx-auto h-11 w-auto rounded-lg"
+          />
+
+          <p className="mt-3 text-xs text-slate-500">
+            © 2026 UçGit. Tüm hakları saklıdır.
+          </p>
+
+          <div className="mt-4 flex flex-wrap justify-center gap-5 text-xs text-slate-500">
+
+            <a href="/contact" className="hover:text-blue-600">
+              İletişim
+            </a>
+
+            <a href="/faq" className="hover:text-blue-600">
+              SSS
+            </a>
+
+            <a href="/privacy-policy" className="hover:text-blue-600">
+              Gizlilik
+            </a>
+
+            <a href="/terms" className="hover:text-blue-600">
+              Kullanım Şartları
+            </a>
+
+          </div>
+
+        </div>
+
+      </footer>
+
     </main>
   );
 }
-``
