@@ -2,127 +2,173 @@
 
 export default function HotelsPage() {
   return (
-    <main className="min-h-screen bg-[#020817] text-white">
+    <main className="min-h-screen overflow-x-hidden bg-white text-slate-900">
 
       {/* HEADER */}
-      <header className="absolute top-0 left-0 right-0 z-20">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
+      <header className="sticky top-0 z-30 border-b border-slate-200 bg-white/95 backdrop-blur-xl">
+        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5">
 
+          {/* LOGO */}
           <a href="/" className="flex items-center">
             <img
               src="/logo.jpg"
               alt="UçGit"
-              className="h-14 w-auto rounded-xl"
+              className="h-11 w-auto rounded-lg"
             />
           </a>
 
-          <nav className="hidden items-center gap-8 md:flex">
-            <a href="/" className="text-white hover:text-blue-300">
-              Uçuşlar
+          {/* MENU */}
+          <nav className="hidden items-center gap-6 md:flex">
+
+            <a
+              href="/"
+              className="text-xs font-semibold text-slate-700 transition hover:text-blue-600"
+            >
+              ✈️ Uçuşlar
             </a>
 
             <a
               href="/hotels"
-              className="font-semibold text-blue-300"
+              className="text-xs font-semibold text-blue-600"
             >
-              Oteller
+              🏨 Otel
             </a>
 
             <a
               href="/cars"
-              className="text-white hover:text-blue-300"
+              className="flex items-center gap-1 text-xs font-semibold text-slate-700 transition hover:text-blue-600"
             >
+              <span className="inline-block text-sm">
+                🚗
+              </span>
               Araç Kiralama
             </a>
 
             <a
               href="/discover"
-              className="text-white hover:text-blue-300"
+              className="text-xs font-semibold text-slate-700 transition hover:text-blue-600"
             >
-              Keşfet
+              ⚙️ Keşfet
             </a>
+
+            <a
+              href="/contact"
+              className="text-xs font-semibold text-slate-700 transition hover:text-blue-600"
+            >
+              ♧ Destek
+            </a>
+
           </nav>
+
+          {/* SAĞ TARAF */}
+          <div className="hidden items-center gap-2 md:flex">
+
+            <button className="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-[11px] font-semibold text-slate-700 shadow-sm">
+              TR 🇹🇷
+            </button>
+
+            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-slate-100 text-xs text-slate-600">
+              ♟
+            </div>
+
+          </div>
 
         </div>
       </header>
 
       {/* HERO */}
-      <section
-        className="relative min-h-[620px] bg-cover bg-center"
-        style={{
-          backgroundImage:
-            "url('https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=2000&q=85')",
-        }}
-      >
+      <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-purple-50">
 
-        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-white/20" />
+        <div className="absolute -right-32 -top-32 h-80 w-80 rounded-full bg-blue-400/10 blur-3xl" />
 
-        <div className="relative mx-auto flex min-h-[620px] max-w-7xl items-center px-6 pt-20">
+        <div className="absolute -left-32 bottom-0 h-80 w-80 rounded-full bg-purple-400/10 blur-3xl" />
 
-          <div className="max-w-2xl text-slate-900">
+        <div className="relative mx-auto max-w-6xl px-5 py-14">
 
-            <div className="mb-5 inline-flex rounded-full bg-blue-100 px-4 py-2 text-sm font-semibold text-blue-700">
-              🏨 Otel fiyatlarını karşılaştır
+          <div className="grid items-center gap-8 md:grid-cols-2">
+
+            {/* SOL */}
+            <div>
+
+              <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-blue-100 px-3 py-1.5 text-[11px] font-semibold text-blue-700">
+                <span className="inline-block">
+                  🏨
+                </span>
+                Otel fiyatlarını karşılaştır
+              </div>
+
+              <h1 className="text-3xl font-black leading-tight text-slate-900 md:text-4xl">
+                Hayalindeki
+                <span className="text-blue-600"> oteli </span>
+                UçGit ile bul.
+              </h1>
+
+              <p className="mt-4 max-w-xl text-sm leading-6 text-slate-600">
+                Dünyanın dört bir yanındaki otelleri keşfet,
+                fiyatları karşılaştır ve seyahatin için en uygun
+                konaklamayı bul.
+              </p>
+
             </div>
 
-            <h1 className="text-5xl font-black leading-tight md:text-6xl">
-              Hayalindeki
-              <span className="text-blue-600"> oteli </span>
-              UçGit ile bul.
-            </h1>
+            {/* OTEL ARAMA */}
+            <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-lg">
 
-            <p className="mt-6 max-w-xl text-lg leading-8 text-slate-600">
-              Dünyanın dört bir yanındaki otelleri keşfet,
-              fiyatları karşılaştır ve seyahatin için en uygun
-              konaklamayı bul.
-            </p>
-
-            {/* OTEL ARAMA ALANI */}
-            <div className="mt-10 rounded-3xl bg-white p-5 shadow-2xl ring-1 ring-slate-200">
-
-              <div className="mb-4 text-lg font-bold text-slate-900">
+              <div className="mb-4 flex items-center gap-2 text-base font-bold text-slate-900">
+                <span className="inline-block">
+                  🏨
+                </span>
                 Otel Ara
               </div>
 
               <div className="grid gap-3 md:grid-cols-3">
 
-                <div className="rounded-xl border border-slate-200 p-4">
-                  <div className="text-xs text-slate-500">
+                <div className="rounded-xl border border-slate-200 p-3.5">
+
+                  <div className="text-[11px] text-slate-500">
                     Nereye?
                   </div>
-                  <div className="mt-1 font-semibold text-slate-800">
+
+                  <div className="mt-1 text-sm font-semibold text-slate-800">
                     Şehir veya otel
                   </div>
+
                 </div>
 
-                <div className="rounded-xl border border-slate-200 p-4">
-                  <div className="text-xs text-slate-500">
+                <div className="rounded-xl border border-slate-200 p-3.5">
+
+                  <div className="text-[11px] text-slate-500">
                     Giriş
                   </div>
-                  <div className="mt-1 font-semibold text-slate-800">
+
+                  <div className="mt-1 text-sm font-semibold text-slate-800">
                     Tarih seç
                   </div>
+
                 </div>
 
-                <div className="rounded-xl border border-slate-200 p-4">
-                  <div className="text-xs text-slate-500">
+                <div className="rounded-xl border border-slate-200 p-3.5">
+
+                  <div className="text-[11px] text-slate-500">
                     Çıkış
                   </div>
-                  <div className="mt-1 font-semibold text-slate-800">
+
+                  <div className="mt-1 text-sm font-semibold text-slate-800">
                     Tarih seç
                   </div>
+
                 </div>
 
               </div>
 
               <button
                 disabled
-                className="mt-4 w-full rounded-xl bg-blue-600 px-6 py-4 font-bold text-white opacity-70"
+                className="mt-3 w-full rounded-xl bg-blue-600 px-5 py-3 text-sm font-bold text-white opacity-70"
               >
                 Otel Ara
               </button>
 
-              <p className="mt-3 text-center text-xs text-slate-400">
+              <p className="mt-2 text-center text-[11px] text-slate-400">
                 Otel arama sistemi yakında aktif olacak.
               </p>
 
@@ -135,61 +181,76 @@ export default function HotelsPage() {
       </section>
 
       {/* FEATURES */}
-      <section className="bg-white py-20 text-slate-900">
+      <section className="bg-white py-12 text-slate-900">
 
-        <div className="mx-auto max-w-7xl px-6">
+        <div className="mx-auto max-w-6xl px-5">
 
           <div className="text-center">
 
-            <h2 className="text-3xl font-black">
+            <h2 className="text-2xl font-black">
               UçGit ile konaklamanı kolaylaştır
             </h2>
 
-            <p className="mt-3 text-slate-500">
+            <p className="mt-2 text-sm text-slate-500">
               Seyahatin için ihtiyacın olan oteli kolayca bul.
             </p>
 
           </div>
 
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
+          <div className="mt-8 grid gap-5 md:grid-cols-3">
 
-            <div className="rounded-3xl border border-slate-200 p-8 shadow-sm">
-              <div className="text-4xl">🔎</div>
+            {/* KART 1 */}
+            <div className="rounded-2xl border border-slate-200 p-6 shadow-sm">
 
-              <h3 className="mt-5 text-xl font-bold">
+              <div className="text-3xl">
+                🔎
+              </div>
+
+              <h3 className="mt-4 text-base font-bold">
                 Fiyatları karşılaştır
               </h3>
 
-              <p className="mt-3 text-slate-500">
+              <p className="mt-2 text-xs leading-6 text-slate-500">
                 Farklı seçenekleri karşılaştırarak sana uygun
                 konaklamayı bul.
               </p>
+
             </div>
 
-            <div className="rounded-3xl border border-slate-200 p-8 shadow-sm">
-              <div className="text-4xl">🌍</div>
+            {/* KART 2 */}
+            <div className="rounded-2xl border border-slate-200 p-6 shadow-sm">
 
-              <h3 className="mt-5 text-xl font-bold">
+              <div className="text-3xl">
+                🌍
+              </div>
+
+              <h3 className="mt-4 text-base font-bold">
                 Dünyayı keşfet
               </h3>
 
-              <p className="mt-3 text-slate-500">
+              <p className="mt-2 text-xs leading-6 text-slate-500">
                 Dünyanın farklı şehirlerindeki konaklama
                 seçeneklerini keşfet.
               </p>
+
             </div>
 
-            <div className="rounded-3xl border border-slate-200 p-8 shadow-sm">
-              <div className="text-4xl">✈️</div>
+            {/* KART 3 */}
+            <div className="rounded-2xl border border-slate-200 p-6 shadow-sm">
 
-              <h3 className="mt-5 text-xl font-bold">
+              <div className="text-3xl">
+                ✈️
+              </div>
+
+              <h3 className="mt-4 text-base font-bold">
                 Seyahatini tamamla
               </h3>
 
-              <p className="mt-3 text-slate-500">
+              <p className="mt-2 text-xs leading-6 text-slate-500">
                 Uçuş, otel ve araç kiralama seçeneklerini
                 tek yerde bul.
               </p>
+
             </div>
 
           </div>
@@ -199,8 +260,68 @@ export default function HotelsPage() {
       </section>
 
       {/* FOOTER */}
-      <footer className="bg-[#020817] py-10 text-center text-sm text-slate-400">
-        © 2026 UçGit. Tüm hakları saklıdır.
+      <footer className="border-t border-slate-200 bg-white py-6">
+
+        <div className="mx-auto max-w-7xl px-5 text-center">
+
+          <img
+            src="/logo.jpg"
+            alt="UçGit"
+            className="mx-auto h-9 w-auto rounded-lg"
+          />
+
+          <p className="mt-2 text-[11px] text-slate-500">
+            © 2026 UçGit. Tüm hakları saklıdır.
+          </p>
+
+          <div className="mt-3 flex flex-wrap justify-center gap-4 text-[11px] text-slate-500">
+
+            <a
+              href="/about"
+              className="transition hover:text-blue-600"
+            >
+              Hakkımızda
+            </a>
+
+            <a
+              href="/blog"
+              className="transition hover:text-blue-600"
+            >
+              Blog
+            </a>
+
+            <a
+              href="/contact"
+              className="transition hover:text-blue-600"
+            >
+              İletişim
+            </a>
+
+            <a
+              href="/faq"
+              className="transition hover:text-blue-600"
+            >
+              SSS
+            </a>
+
+            <a
+              href="/privacy-policy"
+              className="transition hover:text-blue-600"
+            >
+              Gizlilik
+            </a>
+
+            <a
+              href="/terms"
+              className="transition hover:text-blue-600"
+            >
+              Kullanım Şartları
+            </a>
+
+          </div>
+
+        </div>
+
       </footer>
 
     </main>
