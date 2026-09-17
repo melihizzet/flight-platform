@@ -21,41 +21,54 @@ export default function HomePage() {
       cars: "Araç Kiralama",
       discover: "Keşfet",
       support: "Destek",
+
       travelWith: "UÇGİT İLE SEYAHAT ET",
+
       title1: "Uçuşunu karşılaştır,",
       title2: "en uygun fiyatı uçur!",
+
       description:
         "Yüzlerce havayolu ve seyahat sitesini anında karşılaştır, en uygun uçak bileti fiyatını bul.",
+
       free: "Ücretsiz karşılaştırma",
       secure: "Güvenli ödeme",
       support247: "7/24 destek",
+
       bestPrices: "En Uygun Fiyatlar",
       bestPricesText:
         "Yüzlerce siteyi karşılaştır, en iyi fiyatı bul.",
+
       secureShopping: "Güvenli Alışveriş",
       secureShoppingText:
         "SSL sertifikalı altyapımız ile güvenli ödeme.",
+
       fastEasy: "Hızlı ve Kolay",
       fastEasyText:
         "Saniyeler içinde yüzlerce seçeneği karşılaştır.",
+
       supportTitle: "7/24 Destek",
       supportText:
         "Her zaman yanınızdayız, desteğimiz 7/24 sizinle.",
+
       company: "Şirket",
       about: "Hakkımızda",
       career: "Kariyer",
       contact: "İletişim",
+
       supportMenu: "Destek",
       faq: "SSS",
       contactUs: "Bize Ulaşın",
       privacy: "Gizlilik Politikası",
+
       explore: "Keşfet",
       popularRoutes: "Popüler Rotalar",
       blog: "Blog",
       travelGuide: "Seyahat Rehberi",
+
       slogan: "Seyahatinizin en kolay yolu.",
       rights: "Tüm hakları saklıdır.",
       built: "Built by Melih İzzet Zorluoğlu",
+
       turkish: "Türkçe",
       english: "English",
     },
@@ -66,41 +79,54 @@ export default function HomePage() {
       cars: "Car Rental",
       discover: "Discover",
       support: "Support",
+
       travelWith: "TRAVEL WITH UÇGİT",
+
       title1: "Compare your flight,",
       title2: "fly at the best price!",
+
       description:
         "Compare hundreds of airlines and travel websites instantly and find the best flight price.",
+
       free: "Free comparison",
       secure: "Secure payment",
       support247: "24/7 support",
+
       bestPrices: "Best Prices",
       bestPricesText:
         "Compare hundreds of websites and find the best price.",
+
       secureShopping: "Secure Shopping",
       secureShoppingText:
         "Secure payment with our SSL-certified infrastructure.",
+
       fastEasy: "Fast & Easy",
       fastEasyText:
         "Compare hundreds of options in seconds.",
+
       supportTitle: "24/7 Support",
       supportText:
         "We are always here for you with 24/7 support.",
+
       company: "Company",
       about: "About Us",
       career: "Careers",
       contact: "Contact",
+
       supportMenu: "Support",
       faq: "FAQ",
       contactUs: "Contact Us",
       privacy: "Privacy Policy",
+
       explore: "Explore",
       popularRoutes: "Popular Routes",
       blog: "Blog",
       travelGuide: "Travel Guide",
+
       slogan: "The easiest way to travel.",
       rights: "All rights reserved.",
       built: "Built by Melih İzzet Zorluoğlu",
+
       turkish: "Türkçe",
       english: "English",
     },
@@ -113,7 +139,6 @@ export default function HomePage() {
         " min-h-screen bg-white text-slate-900 overflow-x-hidden"
       }
     >
-
       {/* ===================================================== */}
       {/* SEO */}
       {/* ===================================================== */}
@@ -141,10 +166,96 @@ export default function HomePage() {
       </Script>
 
       {/* ===================================================== */}
-      {/* ANIMATIONS                                             */}
+      {/* TRAVELPAYOUTS YAZI DÜZENLEMELERİ                       */}
+      {/* ===================================================== */}
+
+      <Script id="travelpayouts-text-fixes" strategy="afterInteractive">
+        {`
+          (function () {
+
+            function fixTravelpayoutsTexts() {
+
+              /* 2 yaş altı çocuk -> Bebek */
+              var walker = document.createTreeWalker(
+                document.body,
+                NodeFilter.SHOW_TEXT
+              );
+
+              var nodes = [];
+
+              while (walker.nextNode()) {
+                nodes.push(walker.currentNode);
+              }
+
+              nodes.forEach(function (node) {
+
+                var currentText = node.textContent
+                  ? node.textContent.trim()
+                  : "";
+
+                var parent = node.parentElement;
+
+                if (
+                  currentText === "Çocuk" &&
+                  parent &&
+                  parent.parentElement &&
+                  parent.parentElement.innerText &&
+                  parent.parentElement.innerText.includes(
+                    "2 yaş altı, kucakta"
+                  )
+                ) {
+                  node.textContent = "Bebek";
+                }
+              });
+
+
+              /* Seçme bilet -> Bileti seç */
+              var buttons = document.querySelectorAll(
+                "button, a"
+              );
+
+              buttons.forEach(function (button) {
+
+                var buttonText = button.textContent
+                  ? button.textContent.trim()
+                  : "";
+
+                if (
+                  buttonText === "Seçme bilet" ||
+                  buttonText.includes("Seçme bilet")
+                ) {
+                  button.textContent = "Bileti seç";
+                  button.classList.add("ucgit-ticket-button");
+                }
+
+              });
+            }
+
+            fixTravelpayoutsTexts();
+
+            var observer = new MutationObserver(function () {
+              fixTravelpayoutsTexts();
+            });
+
+            observer.observe(document.body, {
+              childList: true,
+              subtree: true
+            });
+
+          })();
+        `}
+      </Script>
+
+      {/* ===================================================== */}
+      {/* ANIMATIONS + BİLET BUTONU STİLİ                       */}
       {/* ===================================================== */}
 
       <style jsx global>{`
+
+        /* ----------------------------------------------------- */
+        /* UÇAK                                                  */
+        /* ----------------------------------------------------- */
+
         @keyframes planeFly {
           0% {
             transform: translate(0px, 0px) rotate(0deg);
@@ -171,6 +282,11 @@ export default function HomePage() {
           }
         }
 
+
+        /* ----------------------------------------------------- */
+        /* OTEL                                                  */
+        /* ----------------------------------------------------- */
+
         @keyframes hotelFly {
           0% {
             transform: translateY(0px) rotate(0deg);
@@ -188,6 +304,11 @@ export default function HomePage() {
             transform: translateY(0px) rotate(0deg);
           }
         }
+
+
+        /* ----------------------------------------------------- */
+        /* ARABA                                                 */
+        /* ----------------------------------------------------- */
 
         @keyframes carDrive {
           0% {
@@ -215,37 +336,90 @@ export default function HomePage() {
           }
         }
 
+
         .animate-plane-fly {
           display: inline-block;
           animation: planeFly 2.2s ease-in-out infinite;
         }
+
 
         .animate-hotel-fly {
           display: inline-block;
           animation: hotelFly 2.5s ease-in-out infinite;
         }
 
+
         .animate-car-drive {
           display: inline-block;
           animation: carDrive 1.5s ease-in-out infinite;
         }
+
+
+        /* ----------------------------------------------------- */
+        /* BİLET SEÇ BUTONU                                      */
+        /* ----------------------------------------------------- */
+
+        .ucgit-ticket-button {
+          background: linear-gradient(
+            135deg,
+            #5b2cff 0%,
+            #7428ff 100%
+          ) !important;
+
+          color: white !important;
+
+          border: none !important;
+
+          border-radius: 12px !important;
+
+          min-height: 48px !important;
+
+          padding: 0 28px !important;
+
+          font-size: 15px !important;
+
+          font-weight: 700 !important;
+
+          cursor: pointer !important;
+
+          box-shadow:
+            0 8px 20px rgba(91, 44, 255, 0.18) !important;
+
+          transition:
+            transform 0.2s ease,
+            box-shadow 0.2s ease !important;
+        }
+
+
+        .ucgit-ticket-button:hover {
+          transform: translateY(-1px) !important;
+
+          box-shadow:
+            0 10px 24px rgba(91, 44, 255, 0.25) !important;
+        }
+
       `}</style>
+
 
       {/* ===================================================== */}
       {/* HEADER                                                 */}
       {/* ===================================================== */}
 
       <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur-xl">
+
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
 
           {/* LOGO */}
           <a href="/" className="flex items-center">
+
             <img
               src="/logo.jpg"
               alt="UçGit"
               className="h-10 w-auto object-contain"
             />
+
           </a>
+
 
           {/* MENU */}
           <nav className="hidden items-center gap-8 md:flex">
@@ -258,8 +432,10 @@ export default function HomePage() {
               <span className="mr-1 inline-block animate-plane-fly">
                 ✈️
               </span>
+
               {text.flights}
             </a>
+
 
             {/* OTEL */}
             <a
@@ -269,10 +445,12 @@ export default function HomePage() {
               <span className="mr-1 inline-block animate-hotel-fly">
                 🏨
               </span>
+
               {text.hotel}
             </a>
 
-            {/* ARAÇ KİRALAMA */}
+
+            {/* ARAÇ */}
             <a
               href="/cars"
               className="text-sm font-medium text-slate-700 transition hover:text-blue-600"
@@ -280,8 +458,10 @@ export default function HomePage() {
               <span className="mr-1 inline-block animate-car-drive">
                 🚗
               </span>
+
               {text.cars}
             </a>
+
 
             {/* KEŞFET */}
             <a
@@ -292,6 +472,7 @@ export default function HomePage() {
             </a>
 
           </nav>
+
 
           {/* SAĞ MENÜ */}
           <div className="flex items-center gap-3">
@@ -304,20 +485,26 @@ export default function HomePage() {
               ♧ {text.support}
             </a>
 
-            {/* DİL SEÇİMİ */}
+
+            {/* DİL */}
             <div className="relative">
 
               <button
                 type="button"
-                onClick={() => setLanguageOpen(!languageOpen)}
+                onClick={() =>
+                  setLanguageOpen(!languageOpen)
+                }
                 className="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium shadow-sm transition hover:border-blue-300 hover:bg-blue-50"
               >
                 {isEnglish ? "🇬🇧 EN" : "🇹🇷 TR"}⌄
               </button>
 
+
               {languageOpen && (
+
                 <div className="absolute right-0 top-10 z-[100] w-36 rounded-xl border border-slate-200 bg-white p-1.5 shadow-xl">
 
+                  {/* TÜRKÇE */}
                   <button
                     type="button"
                     onClick={() => {
@@ -333,6 +520,8 @@ export default function HomePage() {
                     🇹🇷 {text.turkish}
                   </button>
 
+
+                  {/* ENGLISH */}
                   <button
                     type="button"
                     onClick={() => {
@@ -349,9 +538,11 @@ export default function HomePage() {
                   </button>
 
                 </div>
+
               )}
 
             </div>
+
 
             {/* LOGIN */}
             <a
@@ -362,8 +553,11 @@ export default function HomePage() {
             </a>
 
           </div>
+
         </div>
+
       </header>
+
 
       {/* ===================================================== */}
       {/* HERO                                                   */}
@@ -380,8 +574,10 @@ export default function HomePage() {
           }}
         />
 
+
         {/* OVERLAY */}
         <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-white/20" />
+
 
         <div className="relative mx-auto max-w-7xl px-6 pb-8 pt-8 md:pb-10 md:pt-9">
 
@@ -392,29 +588,43 @@ export default function HomePage() {
               {text.travelWith}
             </p>
 
+
             <h1 className="text-3xl font-black leading-[1.08] tracking-tight text-slate-900 md:text-5xl">
+
               {text.title1}
+
               <br />
+
               <span className="text-blue-600">
                 {text.title2}
               </span>
+
             </h1>
+
 
             <p className="mt-3 max-w-xl text-sm leading-6 text-slate-600 md:text-base">
               {text.description}
             </p>
 
+
             <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-xs font-medium text-slate-700">
 
-              <span>◉ {text.free}</span>
+              <span>
+                ◉ {text.free}
+              </span>
 
-              <span>▣ {text.secure}</span>
+              <span>
+                ▣ {text.secure}
+              </span>
 
-              <span>◷ {text.support247}</span>
+              <span>
+                ◷ {text.support247}
+              </span>
 
             </div>
 
           </div>
+
 
           {/* ================================================= */}
           {/* TRAVELPAYOUTS SEARCH                              */}
@@ -430,7 +640,9 @@ export default function HomePage() {
           </div>
 
         </div>
+
       </section>
+
 
       {/* ===================================================== */}
       {/* SEARCH RESULTS                                        */}
@@ -449,6 +661,7 @@ export default function HomePage() {
 
       </section>
 
+
       {/* ===================================================== */}
       {/* FEATURES                                               */}
       {/* ===================================================== */}
@@ -463,17 +676,20 @@ export default function HomePage() {
             text={text.bestPricesText}
           />
 
+
           <Feature
             icon="♢"
             title={text.secureShopping}
             text={text.secureShoppingText}
           />
 
+
           <Feature
             icon="◷"
             title={text.fastEasy}
             text={text.fastEasyText}
           />
+
 
           <Feature
             icon="♧"
@@ -484,6 +700,7 @@ export default function HomePage() {
         </div>
 
       </section>
+
 
       {/* ===================================================== */}
       {/* FOOTER                                                 */}
@@ -507,6 +724,7 @@ export default function HomePage() {
             </p>
 
           </div>
+
 
           {/* COMPANY */}
           <div>
@@ -542,6 +760,7 @@ export default function HomePage() {
 
           </div>
 
+
           {/* SUPPORT */}
           <div>
 
@@ -575,6 +794,7 @@ export default function HomePage() {
             </div>
 
           </div>
+
 
           {/* EXPLORE */}
           <div>
@@ -612,6 +832,7 @@ export default function HomePage() {
 
         </div>
 
+
         {/* COPYRIGHT */}
         <div className="border-t border-slate-100">
 
@@ -622,9 +843,19 @@ export default function HomePage() {
             </span>
 
             <div className="flex gap-4">
-              <span>Instagram</span>
-              <span>X</span>
-              <span>LinkedIn</span>
+
+              <span>
+                Instagram
+              </span>
+
+              <span>
+                X
+              </span>
+
+              <span>
+                LinkedIn
+              </span>
+
             </div>
 
             <span>
@@ -640,6 +871,7 @@ export default function HomePage() {
     </main>
   );
 }
+
 
 /* ========================================================= */
 /* FEATURE COMPONENT                                         */
@@ -675,4 +907,4 @@ function Feature({
 
     </div>
   );
-}
+  }
