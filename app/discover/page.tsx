@@ -45,7 +45,7 @@ export default function DiscoverPage() {
               href="/discover"
               className="text-xs font-semibold text-blue-600"
             >
-              ⚙️ Keşfet
+              🌍 Keşfet
             </a>
 
             <a
@@ -108,7 +108,7 @@ export default function DiscoverPage() {
 
       </section>
 
-      {/* DESTINATIONS */}
+      {/* POPÜLER DESTİNASYONLAR */}
       <section className="bg-white py-12">
 
         <div className="mx-auto max-w-6xl px-5">
@@ -118,7 +118,7 @@ export default function DiscoverPage() {
               POPÜLER DESTİNASYONLAR
             </p>
 
-            <h2 className="mt-1 text-2xl font-black text-slate-900">
+            <h2 className="mt-1 text-2xl font-black">
               Dünyayı keşfet
             </h2>
 
@@ -130,10 +130,7 @@ export default function DiscoverPage() {
           <div className="mt-7 grid gap-4 sm:grid-cols-2 md:grid-cols-3">
 
             {/* PARİS */}
-            <a
-              href="/"
-              className="group rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:border-blue-200 hover:shadow-md"
-            >
+            <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
 
               <div className="flex items-center justify-between">
 
@@ -141,8 +138,8 @@ export default function DiscoverPage() {
                   🗼
                 </div>
 
-                <span className="text-xs text-slate-400 transition group-hover:text-blue-600">
-                  →
+                <span className="text-xs text-slate-400">
+                  Avrupa
                 </span>
 
               </div>
@@ -155,13 +152,22 @@ export default function DiscoverPage() {
                 Fransa
               </p>
 
-            </a>
+              <p className="mt-3 text-xs leading-5 text-slate-500">
+                Sanat, kültür, mimari ve şehir gezileri için
+                popüler Avrupa rotalarından biri.
+              </p>
+
+              <a
+                href="/"
+                className="mt-4 inline-block text-xs font-bold text-blue-600 hover:text-blue-700"
+              >
+                Uçuş ara →
+              </a>
+
+            </div>
 
             {/* LONDRA */}
-            <a
-              href="/"
-              className="group rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:border-blue-200 hover:shadow-md"
-            >
+            <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
 
               <div className="flex items-center justify-between">
 
@@ -169,8 +175,8 @@ export default function DiscoverPage() {
                   🇬🇧
                 </div>
 
-                <span className="text-xs text-slate-400 transition group-hover:text-blue-600">
-                  →
+                <span className="text-xs text-slate-400">
+                  Avrupa
                 </span>
 
               </div>
@@ -183,13 +189,22 @@ export default function DiscoverPage() {
                 Birleşik Krallık
               </p>
 
-            </a>
+              <p className="mt-3 text-xs leading-5 text-slate-500">
+                Tarihi yapıları, müzeleri ve hareketli şehir yaşamıyla
+                keşfedilecek birçok noktaya sahip.
+              </p>
+
+              <a
+                href="/"
+                className="mt-4 inline-block text-xs font-bold text-blue-600 hover:text-blue-700"
+              >
+                Uçuş ara →
+              </a>
+
+            </div>
 
             {/* ROMA */}
-            <a
-              href="/"
-              className="group rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:border-blue-200 hover:shadow-md"
-            >
+            <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
 
               <div className="flex items-center justify-between">
 
@@ -197,8 +212,8 @@ export default function DiscoverPage() {
                   🏛️
                 </div>
 
-                <span className="text-xs text-slate-400 transition group-hover:text-blue-600">
-                  →
+                <span className="text-xs text-slate-400">
+                  Avrupa
                 </span>
 
               </div>
@@ -211,13 +226,22 @@ export default function DiscoverPage() {
                 İtalya
               </p>
 
-            </a>
+              <p className="mt-3 text-xs leading-5 text-slate-500">
+                Antik tarih, İtalyan mutfağı ve eşsiz şehir atmosferi
+                için tercih edilen rotalardan biri.
+              </p>
+
+              <a
+                href="/"
+                className="mt-4 inline-block text-xs font-bold text-blue-600 hover:text-blue-700"
+              >
+                Uçuş ara →
+              </a>
+
+            </div>
 
             {/* AMSTERDAM */}
-            <a
-              href="/"
-              className="group rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:border-blue-200 hover:shadow-md"
-            >
+            <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
 
               <div className="flex items-center justify-between">
 
@@ -225,8 +249,8 @@ export default function DiscoverPage() {
                   🚲
                 </div>
 
-                <span className="text-xs text-slate-400 transition group-hover:text-blue-600">
-                  →
+                <span className="text-xs text-slate-400">
+                  Avrupa
                 </span>
 
               </div>
@@ -239,13 +263,22 @@ export default function DiscoverPage() {
                 Hollanda
               </p>
 
-            </a>
+              <p className="mt-3 text-xs leading-5 text-slate-500">
+                Kanalları, bisiklet kültürü ve tarihi şehir merkeziyle
+                keyifli bir şehir kaçamağı sunar.
+              </p>
+
+              <a
+                href="/"
+                className="mt-4 inline-block text-xs font-bold text-blue-600 hover:text-blue-700"
+              >
+                Uçuş ara →
+              </a>
+
+            </div>
 
             {/* DUBAİ */}
-            <a
-              href="/"
-              className="group rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:border-blue-200 hover:shadow-md"
-            >
+            <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
 
               <div className="flex items-center justify-between">
 
@@ -253,8 +286,8 @@ export default function DiscoverPage() {
                   🌆
                 </div>
 
-                <span className="text-xs text-slate-400 transition group-hover:text-blue-600">
-                  →
+                <span className="text-xs text-slate-400">
+                  Orta Doğu
                 </span>
 
               </div>
@@ -267,13 +300,22 @@ export default function DiscoverPage() {
                 Birleşik Arap Emirlikleri
               </p>
 
-            </a>
+              <p className="mt-3 text-xs leading-5 text-slate-500">
+                Modern mimarisi, alışveriş merkezleri ve farklı
+                seyahat deneyimleriyle öne çıkan bir destinasyon.
+              </p>
+
+              <a
+                href="/"
+                className="mt-4 inline-block text-xs font-bold text-blue-600 hover:text-blue-700"
+              >
+                Uçuş ara →
+              </a>
+
+            </div>
 
             {/* İSTANBUL */}
-            <a
-              href="/"
-              className="group rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:border-blue-200 hover:shadow-md"
-            >
+            <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
 
               <div className="flex items-center justify-between">
 
@@ -281,8 +323,8 @@ export default function DiscoverPage() {
                   🕌
                 </div>
 
-                <span className="text-xs text-slate-400 transition group-hover:text-blue-600">
-                  →
+                <span className="text-xs text-slate-400">
+                  Türkiye
                 </span>
 
               </div>
@@ -295,7 +337,19 @@ export default function DiscoverPage() {
                 Türkiye
               </p>
 
-            </a>
+              <p className="mt-3 text-xs leading-5 text-slate-500">
+                Tarihi yapıları, Boğaz manzarası ve iki kıtayı
+                birleştiren eşsiz konumuyla keşfedilmeyi bekliyor.
+              </p>
+
+              <a
+                href="/"
+                className="mt-4 inline-block text-xs font-bold text-blue-600 hover:text-blue-700"
+              >
+                Uçuş ara →
+              </a>
+
+            </div>
 
           </div>
 
@@ -303,7 +357,7 @@ export default function DiscoverPage() {
 
       </section>
 
-      {/* TRAVEL IDEAS */}
+      {/* SEYAHAT FİKİRLERİ */}
       <section className="bg-slate-50 py-12">
 
         <div className="mx-auto max-w-6xl px-5">
@@ -339,8 +393,8 @@ export default function DiscoverPage() {
               </h3>
 
               <p className="mt-2 text-xs leading-6 text-slate-500">
-                Avrupa şehirlerini keşfetmek isteyenler için yeni
-                seyahat fikirleri ve rota önerileri.
+                Paris, Roma, Amsterdam ve Londra gibi şehirleri
+                keşfetmek isteyenler için seyahat fikirleri.
               </p>
 
               <a
@@ -365,7 +419,7 @@ export default function DiscoverPage() {
 
               <p className="mt-2 text-xs leading-6 text-slate-500">
                 Yakın coğrafyalarda yeni şehirler keşfetmek ve farklı
-                kültürleri deneyimlemek için seyahat fikirleri.
+                kültürleri deneyimlemek için rota fikirleri.
               </p>
 
               <a
@@ -377,7 +431,7 @@ export default function DiscoverPage() {
 
             </div>
 
-            {/* ŞEHİR KAÇAMAĞI */}
+            {/* ŞEHİR KAÇAMAKLARI */}
             <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
 
               <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-50 text-2xl">
@@ -389,8 +443,8 @@ export default function DiscoverPage() {
               </h3>
 
               <p className="mt-2 text-xs leading-6 text-slate-500">
-                Kısa süreli seyahatler için şehir merkezli rota ve
-                gezi fikirlerini keşfet.
+                2–4 günlük kısa seyahatler için şehir merkezli
+                rota ve gezi fikirlerini keşfet.
               </p>
 
               <a
@@ -408,7 +462,7 @@ export default function DiscoverPage() {
 
       </section>
 
-      {/* TRAVEL GUIDES */}
+      {/* SEYAHAT REHBERİ */}
       <section className="bg-white py-12">
 
         <div className="mx-auto max-w-6xl px-5">
@@ -425,6 +479,10 @@ export default function DiscoverPage() {
                 Seyahat hakkında daha fazlasını keşfet
               </h2>
 
+              <p className="mt-2 text-sm text-slate-500">
+                Seyahat planını kolaylaştıracak pratik bilgiler.
+              </p>
+
             </div>
 
             <a
@@ -438,6 +496,7 @@ export default function DiscoverPage() {
 
           <div className="mt-7 grid gap-4 md:grid-cols-3">
 
+            {/* REHBER 1 */}
             <a
               href="/blog"
               className="rounded-2xl border border-slate-200 p-5 transition hover:border-blue-200 hover:shadow-sm"
@@ -452,12 +511,17 @@ export default function DiscoverPage() {
               </h3>
 
               <p className="mt-2 text-xs leading-5 text-slate-500">
-                Uçuş seçimi ve seyahat planlaması hakkında temel
-                bilgileri keşfet.
+                Bilet koşulları, bagaj hakkı, aktarma süresi ve
+                uçuş detaylarını kontrol etmek için pratik öneriler.
               </p>
+
+              <span className="mt-3 inline-block text-xs font-bold text-blue-600">
+                Yazıyı incele →
+              </span>
 
             </a>
 
+            {/* REHBER 2 */}
             <a
               href="/blog"
               className="rounded-2xl border border-slate-200 p-5 transition hover:border-blue-200 hover:shadow-sm"
@@ -472,12 +536,17 @@ export default function DiscoverPage() {
               </h3>
 
               <p className="mt-2 text-xs leading-5 text-slate-500">
-                Seyahat öncesinde planlamanı kolaylaştıracak
-                önerileri incele.
+                Seyahat öncesinde ulaşım, konaklama ve rota planlamasını
+                kolaylaştıracak temel bilgiler.
               </p>
+
+              <span className="mt-3 inline-block text-xs font-bold text-blue-600">
+                Yazıyı incele →
+              </span>
 
             </a>
 
+            {/* REHBER 3 */}
             <a
               href="/blog"
               className="rounded-2xl border border-slate-200 p-5 transition hover:border-blue-200 hover:shadow-sm"
@@ -492,9 +561,118 @@ export default function DiscoverPage() {
               </h3>
 
               <p className="mt-2 text-xs leading-5 text-slate-500">
-                Yolculuk öncesinde hazırlaman gerekenleri
-                adım adım gözden geçir.
+                Bilet, pasaport, bagaj, konaklama ve diğer hazırlıkları
+                seyahat öncesinde kontrol et.
               </p>
+
+              <span className="mt-3 inline-block text-xs font-bold text-blue-600">
+                Yazıyı incele →
+              </span>
+
+            </a>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      {/* UÇGİT HİZMETLERİ */}
+      <section className="bg-slate-50 py-12">
+
+        <div className="mx-auto max-w-6xl px-5">
+
+          <div className="text-center">
+
+            <p className="text-[11px] font-bold uppercase tracking-wider text-blue-600">
+              UÇGİT
+            </p>
+
+            <h2 className="mt-1 text-2xl font-black">
+              Seyahatini tek yerden planla
+            </h2>
+
+            <p className="mx-auto mt-2 max-w-xl text-sm text-slate-500">
+              Seyahatin için ihtiyaç duyabileceğin farklı hizmetleri
+              UçGit üzerinden keşfet.
+            </p>
+
+          </div>
+
+          <div className="mt-8 grid gap-5 md:grid-cols-3">
+
+            {/* UÇUŞ */}
+            <a
+              href="/"
+              className="rounded-2xl border border-slate-200 bg-white p-6 text-center shadow-sm transition hover:-translate-y-1 hover:shadow-md"
+            >
+
+              <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-2xl">
+                ✈️
+              </div>
+
+              <h3 className="mt-4 text-base font-black">
+                Uçuşları karşılaştır
+              </h3>
+
+              <p className="mt-2 text-xs leading-5 text-slate-500">
+                Farklı uçuş seçeneklerini karşılaştır ve seyahat
+                planına uygun uçuşu keşfet.
+              </p>
+
+              <span className="mt-4 inline-block text-xs font-bold text-blue-600">
+                Uçuş ara →
+              </span>
+
+            </a>
+
+            {/* OTEL */}
+            <a
+              href="/hotels"
+              className="rounded-2xl border border-slate-200 bg-white p-6 text-center shadow-sm transition hover:-translate-y-1 hover:shadow-md"
+            >
+
+              <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-purple-50 text-2xl">
+                🏨
+              </div>
+
+              <h3 className="mt-4 text-base font-black">
+                Konaklamanı planla
+              </h3>
+
+              <p className="mt-2 text-xs leading-5 text-slate-500">
+                Seyahatin için uygun konaklama seçeneklerini
+                UçGit üzerinden keşfet.
+              </p>
+
+              <span className="mt-4 inline-block text-xs font-bold text-blue-600">
+                Otellere göz at →
+              </span>
+
+            </a>
+
+            {/* ARAÇ */}
+            <a
+              href="/cars"
+              className="rounded-2xl border border-slate-200 bg-white p-6 text-center shadow-sm transition hover:-translate-y-1 hover:shadow-md"
+            >
+
+              <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-2xl">
+                🚗
+              </div>
+
+              <h3 className="mt-4 text-base font-black">
+                Araç kiralama
+              </h3>
+
+              <p className="mt-2 text-xs leading-5 text-slate-500">
+                Seyahatinde kullanabileceğin araç kiralama
+                seçeneklerini keşfet.
+              </p>
+
+              <span className="mt-4 inline-block text-xs font-bold text-blue-600">
+                Araçlara göz at →
+              </span>
 
             </a>
 
