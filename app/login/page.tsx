@@ -1,24 +1,24 @@
 export default function LoginPage() {
   return (
-    <main className="min-h-screen bg-white text-slate-900 overflow-hidden">
+    <main className="min-h-screen overflow-x-hidden bg-white text-slate-900">
 
       {/* BACKGROUND */}
       <div className="fixed inset-0 -z-10 bg-gradient-to-br from-blue-50 via-white to-purple-50" />
 
-      <div className="fixed -right-32 -top-32 -z-10 h-96 w-96 rounded-full bg-blue-400/10 blur-3xl" />
+      <div className="fixed -right-32 -top-32 -z-10 h-80 w-80 rounded-full bg-blue-400/10 blur-3xl" />
 
-      <div className="fixed -bottom-32 -left-32 -z-10 h-96 w-96 rounded-full bg-purple-400/10 blur-3xl" />
+      <div className="fixed -bottom-32 -left-32 -z-10 h-80 w-80 rounded-full bg-purple-400/10 blur-3xl" />
 
       {/* HEADER */}
       <header className="absolute left-0 right-0 top-0 z-20">
 
-        <div className="mx-auto flex max-w-7xl items-center px-6 py-5">
+        <div className="mx-auto flex max-w-7xl items-center px-5 py-4">
 
           <a href="/" className="flex items-center">
             <img
               src="/logo.jpg"
               alt="UçGit"
-              className="h-14 w-auto rounded-xl"
+              className="h-11 w-auto rounded-lg"
             />
           </a>
 
@@ -27,57 +27,59 @@ export default function LoginPage() {
       </header>
 
       {/* LOGIN */}
-      <section className="flex min-h-screen items-center justify-center px-6 pt-20">
+      <section className="flex min-h-screen items-center justify-center px-5 py-20">
 
-        <div className="w-full max-w-md">
+        <div className="w-full max-w-sm">
 
           {/* TITLE */}
-          <div className="mb-7 text-center">
+          <div className="mb-5 text-center">
 
-            <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-100 text-xl">
+            <div className="mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-blue-100 text-lg">
               👋
             </div>
 
-            <h1 className="text-3xl font-black text-slate-900">
+            <h1 className="text-2xl font-black text-slate-900">
               Giriş Yap
             </h1>
 
-            <p className="mt-3 text-sm text-slate-500">
+            <p className="mt-2 text-xs text-slate-500">
               UçGit hesabına giriş yap.
             </p>
 
           </div>
 
-          {/* FORM */}
-          <div className="rounded-3xl border border-slate-200 bg-white p-7 shadow-xl">
+          {/* FORM CARD */}
+          <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-lg">
 
-            <form className="space-y-4">
+            <form className="space-y-3.5">
 
+              {/* EMAIL */}
               <div>
 
-                <label className="mb-2 block text-xs font-semibold text-slate-600">
+                <label className="mb-1.5 block text-[11px] font-semibold text-slate-600">
                   E-posta
                 </label>
 
                 <input
                   type="email"
                   placeholder="E-posta adresiniz"
-                  className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-blue-400 focus:bg-white"
+                  className="w-full rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2.5 text-xs text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-blue-400 focus:bg-white"
                 />
 
               </div>
 
+              {/* PASSWORD */}
               <div>
 
-                <div className="mb-2 flex items-center justify-between">
+                <div className="mb-1.5 flex items-center justify-between">
 
-                  <label className="text-xs font-semibold text-slate-600">
+                  <label className="text-[11px] font-semibold text-slate-600">
                     Şifre
                   </label>
 
                   <a
                     href="#"
-                    className="text-xs font-semibold text-blue-600 hover:text-blue-700"
+                    className="text-[11px] font-semibold text-blue-600 transition hover:text-blue-700"
                   >
                     Şifremi unuttum
                   </a>
@@ -87,14 +89,15 @@ export default function LoginPage() {
                 <input
                   type="password"
                   placeholder="Şifreniz"
-                  className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-blue-400 focus:bg-white"
+                  className="w-full rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2.5 text-xs text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-blue-400 focus:bg-white"
                 />
 
               </div>
 
+              {/* LOGIN BUTTON */}
               <button
                 type="submit"
-                className="w-full rounded-xl bg-[#020817] py-3.5 text-sm font-bold text-white transition hover:bg-blue-600"
+                className="w-full rounded-xl bg-[#020817] py-2.5 text-xs font-bold text-white transition hover:bg-blue-600"
               >
                 Giriş Yap →
               </button>
@@ -102,14 +105,14 @@ export default function LoginPage() {
             </form>
 
             {/* REGISTER */}
-            <div className="mt-6 border-t border-slate-100 pt-5 text-center">
+            <div className="mt-5 border-t border-slate-100 pt-4 text-center">
 
-              <p className="text-sm text-slate-500">
+              <p className="text-xs text-slate-500">
                 Hesabın yok mu?{" "}
 
                 <a
                   href="/register"
-                  className="font-bold text-blue-600 hover:text-blue-700"
+                  className="font-bold text-blue-600 transition hover:text-blue-700"
                 >
                   Kayıt Ol
                 </a>
@@ -120,11 +123,11 @@ export default function LoginPage() {
           </div>
 
           {/* BACK */}
-          <div className="mt-6 text-center">
+          <div className="mt-4 text-center">
 
             <a
               href="/"
-              className="text-xs font-semibold text-slate-500 transition hover:text-blue-600"
+              className="text-[11px] font-semibold text-slate-500 transition hover:text-blue-600"
             >
               ← Ana sayfaya dön
             </a>
@@ -136,9 +139,9 @@ export default function LoginPage() {
       </section>
 
       {/* FOOTER */}
-      <footer className="absolute bottom-0 left-0 right-0 py-5 text-center">
+      <footer className="absolute bottom-0 left-0 right-0 py-4 text-center">
 
-        <p className="text-xs text-slate-400">
+        <p className="text-[11px] text-slate-400">
           © 2026 UçGit. Tüm hakları saklıdır.
         </p>
 
