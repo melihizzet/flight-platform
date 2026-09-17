@@ -21,7 +21,7 @@ export default function HomePage() {
       cars: "Araç Kiralama",
       discover: "Keşfet",
       support: "Destek",
-      travelWith: "UçGit ile seyahat et",
+      travelWith: "UÇGİT İLE SEYAHAT ET",
       title1: "Uçuşunu karşılaştır,",
       title2: "en uygun fiyatı uçur!",
       description:
@@ -59,13 +59,14 @@ export default function HomePage() {
       turkish: "Türkçe",
       english: "English",
     },
+
     en: {
       flights: "Flights",
       hotel: "Hotels",
       cars: "Car Rental",
       discover: "Discover",
       support: "Support",
-      travelWith: "Travel with UçGit",
+      travelWith: "TRAVEL WITH UÇGİT",
       title1: "Compare your flight,",
       title2: "fly at the best price!",
       description:
@@ -112,6 +113,7 @@ export default function HomePage() {
         " min-h-screen bg-white text-slate-900 overflow-x-hidden"
       }
     >
+
       {/* ===================================================== */}
       {/* SEO */}
       {/* ===================================================== */}
@@ -149,19 +151,19 @@ export default function HomePage() {
           }
 
           20% {
-            transform: translate(4px, -3px) rotate(-3deg);
+            transform: translate(4px, -2px) rotate(-2deg);
           }
 
           40% {
-            transform: translate(9px, -7px) rotate(-5deg);
+            transform: translate(9px, -6px) rotate(-4deg);
           }
 
           60% {
-            transform: translate(14px, -5px) rotate(-3deg);
+            transform: translate(14px, -4px) rotate(-2deg);
           }
 
           80% {
-            transform: translate(8px, -2px) rotate(-1deg);
+            transform: translate(7px, -2px) rotate(-1deg);
           }
 
           100% {
@@ -174,12 +176,12 @@ export default function HomePage() {
             transform: translateY(0px) rotate(0deg);
           }
 
-          30% {
-            transform: translateY(-3px) rotate(-2deg);
+          35% {
+            transform: translateY(-2px) rotate(-1deg);
           }
 
-          60% {
-            transform: translateY(-6px) rotate(1deg);
+          65% {
+            transform: translateY(-5px) rotate(1deg);
           }
 
           100% {
@@ -192,16 +194,20 @@ export default function HomePage() {
             transform: translateX(0px);
           }
 
-          25% {
+          20% {
             transform: translateX(3px) translateY(-1px);
           }
 
-          50% {
-            transform: translateX(7px) translateY(0px);
+          40% {
+            transform: translateX(7px);
           }
 
-          75% {
-            transform: translateX(3px) translateY(-1px);
+          60% {
+            transform: translateX(11px) translateY(-1px);
+          }
+
+          80% {
+            transform: translateX(5px);
           }
 
           100% {
@@ -216,12 +222,12 @@ export default function HomePage() {
 
         .animate-hotel-fly {
           display: inline-block;
-          animation: hotelFly 2.4s ease-in-out infinite;
+          animation: hotelFly 2.5s ease-in-out infinite;
         }
 
         .animate-car-drive {
           display: inline-block;
-          animation: carDrive 1.4s ease-in-out infinite;
+          animation: carDrive 1.5s ease-in-out infinite;
         }
       `}</style>
 
@@ -230,24 +236,24 @@ export default function HomePage() {
       {/* ===================================================== */}
 
       <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur-xl">
-        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
+        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
 
           {/* LOGO */}
           <a href="/" className="flex items-center">
             <img
               src="/logo.jpg"
               alt="UçGit"
-              className="h-14 w-auto object-contain"
+              className="h-10 w-auto object-contain"
             />
           </a>
 
           {/* MENU */}
-          <nav className="hidden items-center gap-9 md:flex">
+          <nav className="hidden items-center gap-8 md:flex">
 
             {/* UÇUŞLAR */}
             <a
               href="/"
-              className="border-b-2 border-blue-600 py-7 font-semibold text-blue-600"
+              className="border-b-2 border-blue-600 py-5 text-sm font-semibold text-blue-600"
             >
               <span className="mr-1 inline-block animate-plane-fly">
                 ✈️
@@ -258,7 +264,7 @@ export default function HomePage() {
             {/* OTEL */}
             <a
               href="/hotels"
-              className="font-medium text-slate-700 transition hover:text-blue-600"
+              className="text-sm font-medium text-slate-700 transition hover:text-blue-600"
             >
               <span className="mr-1 inline-block animate-hotel-fly">
                 🏨
@@ -269,7 +275,7 @@ export default function HomePage() {
             {/* ARAÇ KİRALAMA */}
             <a
               href="/cars"
-              className="font-medium text-slate-700 transition hover:text-blue-600"
+              className="text-sm font-medium text-slate-700 transition hover:text-blue-600"
             >
               <span className="mr-1 inline-block animate-car-drive">
                 🚗
@@ -280,19 +286,20 @@ export default function HomePage() {
             {/* KEŞFET */}
             <a
               href="/discover"
-              className="font-medium text-slate-700 transition hover:text-blue-600"
+              className="text-sm font-medium text-slate-700 transition hover:text-blue-600"
             >
               ⚙ {text.discover}
             </a>
+
           </nav>
 
           {/* SAĞ MENÜ */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3">
 
             {/* DESTEK */}
             <a
               href="/contact"
-              className="hidden font-medium text-slate-700 transition hover:text-blue-600 md:block"
+              className="hidden text-sm font-medium text-slate-700 transition hover:text-blue-600 md:block"
             >
               ♧ {text.support}
             </a>
@@ -303,22 +310,21 @@ export default function HomePage() {
               <button
                 type="button"
                 onClick={() => setLanguageOpen(!languageOpen)}
-                className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium shadow-sm transition hover:border-blue-300 hover:bg-blue-50"
+                className="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium shadow-sm transition hover:border-blue-300 hover:bg-blue-50"
               >
                 {isEnglish ? "🇬🇧 EN" : "🇹🇷 TR"}⌄
               </button>
 
               {languageOpen && (
-                <div className="absolute right-0 top-12 z-[100] w-40 rounded-2xl border border-slate-200 bg-white p-2 shadow-xl">
+                <div className="absolute right-0 top-10 z-[100] w-36 rounded-xl border border-slate-200 bg-white p-1.5 shadow-xl">
 
-                  {/* TÜRKÇE */}
                   <button
                     type="button"
                     onClick={() => {
                       setLanguage("tr");
                       setLanguageOpen(false);
                     }}
-                    className={`flex w-full items-center gap-2 rounded-xl px-3 py-2.5 text-sm font-medium transition hover:bg-blue-50 ${
+                    className={`flex w-full items-center gap-2 rounded-lg px-3 py-2 text-xs font-medium transition hover:bg-blue-50 ${
                       language === "tr"
                         ? "bg-blue-50 text-blue-600"
                         : "text-slate-700"
@@ -327,14 +333,13 @@ export default function HomePage() {
                     🇹🇷 {text.turkish}
                   </button>
 
-                  {/* ENGLISH */}
                   <button
                     type="button"
                     onClick={() => {
                       setLanguage("en");
                       setLanguageOpen(false);
                     }}
-                    className={`flex w-full items-center gap-2 rounded-xl px-3 py-2.5 text-sm font-medium transition hover:bg-blue-50 ${
+                    className={`flex w-full items-center gap-2 rounded-lg px-3 py-2 text-xs font-medium transition hover:bg-blue-50 ${
                       language === "en"
                         ? "bg-blue-50 text-blue-600"
                         : "text-slate-700"
@@ -345,12 +350,13 @@ export default function HomePage() {
 
                 </div>
               )}
+
             </div>
 
             {/* LOGIN */}
             <a
               href="/login"
-              className="flex h-11 w-11 items-center justify-center rounded-full bg-slate-100 text-xl transition hover:bg-blue-50"
+              className="flex h-9 w-9 items-center justify-center rounded-full bg-slate-100 text-base transition hover:bg-blue-50"
             >
               ♙
             </a>
@@ -365,7 +371,7 @@ export default function HomePage() {
 
       <section className="relative overflow-hidden">
 
-        {/* BACKGROUND IMAGE */}
+        {/* BACKGROUND */}
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
@@ -374,19 +380,19 @@ export default function HomePage() {
           }}
         />
 
-        {/* WHITE OVERLAY */}
+        {/* OVERLAY */}
         <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-white/20" />
 
-        <div className="relative mx-auto max-w-7xl px-6 pb-20 pt-16 md:pb-24 md:pt-20">
+        <div className="relative mx-auto max-w-7xl px-6 pb-8 pt-8 md:pb-10 md:pt-9">
 
           {/* HERO TEXT */}
-          <div className="max-w-3xl">
+          <div className="max-w-2xl">
 
-            <p className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-blue-600">
+            <p className="mb-2 text-[11px] font-bold uppercase tracking-[0.2em] text-blue-600">
               {text.travelWith}
             </p>
 
-            <h1 className="text-4xl font-black leading-tight tracking-tight text-slate-900 md:text-6xl">
+            <h1 className="text-3xl font-black leading-[1.08] tracking-tight text-slate-900 md:text-5xl">
               {text.title1}
               <br />
               <span className="text-blue-600">
@@ -394,11 +400,11 @@ export default function HomePage() {
               </span>
             </h1>
 
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600 md:text-xl">
+            <p className="mt-3 max-w-xl text-sm leading-6 text-slate-600 md:text-base">
               {text.description}
             </p>
 
-            <div className="mt-7 flex flex-wrap gap-x-8 gap-y-3 text-sm font-medium text-slate-700">
+            <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-xs font-medium text-slate-700">
 
               <span>◉ {text.free}</span>
 
@@ -407,20 +413,22 @@ export default function HomePage() {
               <span>◷ {text.support247}</span>
 
             </div>
+
           </div>
 
           {/* ================================================= */}
           {/* TRAVELPAYOUTS SEARCH                              */}
           {/* ================================================= */}
 
-          <div className="mt-12 rounded-[30px] bg-white p-5 shadow-2xl ring-1 ring-slate-200 md:p-7">
+          <div className="mt-6 rounded-[22px] bg-white p-3 shadow-2xl ring-1 ring-slate-200 md:p-4">
 
             <div
               id="tpwl-search"
-              className="w-full min-h-[180px]"
+              className="w-full min-h-[130px]"
             />
 
           </div>
+
         </div>
       </section>
 
@@ -430,14 +438,15 @@ export default function HomePage() {
 
       <section className="bg-white">
 
-        <div className="mx-auto max-w-7xl px-6 py-10">
+        <div className="mx-auto max-w-7xl px-6 py-4">
 
           <div
             id="tpwl-tickets"
-            className="w-full min-h-[100px]"
+            className="w-full min-h-[40px]"
           />
 
         </div>
+
       </section>
 
       {/* ===================================================== */}
@@ -446,7 +455,7 @@ export default function HomePage() {
 
       <section className="border-y border-slate-100 bg-white">
 
-        <div className="mx-auto grid max-w-7xl gap-8 px-6 py-12 md:grid-cols-4">
+        <div className="mx-auto grid max-w-7xl gap-5 px-6 py-5 md:grid-cols-4">
 
           <Feature
             icon="◇"
@@ -473,6 +482,7 @@ export default function HomePage() {
           />
 
         </div>
+
       </section>
 
       {/* ===================================================== */}
@@ -481,7 +491,7 @@ export default function HomePage() {
 
       <footer className="bg-white">
 
-        <div className="mx-auto grid max-w-7xl gap-12 px-6 py-14 md:grid-cols-4">
+        <div className="mx-auto grid max-w-7xl gap-6 px-6 py-6 md:grid-cols-4">
 
           {/* BRAND */}
           <div>
@@ -489,10 +499,10 @@ export default function HomePage() {
             <img
               src="/logo.jpg"
               alt="UçGit"
-              className="h-20 w-auto object-contain"
+              className="h-12 w-auto object-contain"
             />
 
-            <p className="mt-4 max-w-xs text-sm leading-6 text-slate-500">
+            <p className="mt-2 max-w-xs text-xs leading-5 text-slate-500">
               {text.slogan}
             </p>
 
@@ -501,11 +511,11 @@ export default function HomePage() {
           {/* COMPANY */}
           <div>
 
-            <h3 className="mb-5 font-bold text-slate-900">
+            <h3 className="mb-2 text-sm font-bold text-slate-900">
               {text.company}
             </h3>
 
-            <div className="space-y-3 text-sm text-slate-500">
+            <div className="space-y-1.5 text-xs text-slate-500">
 
               <a
                 href="/about"
@@ -535,11 +545,11 @@ export default function HomePage() {
           {/* SUPPORT */}
           <div>
 
-            <h3 className="mb-5 font-bold text-slate-900">
+            <h3 className="mb-2 text-sm font-bold text-slate-900">
               {text.supportMenu}
             </h3>
 
-            <div className="space-y-3 text-sm text-slate-500">
+            <div className="space-y-1.5 text-xs text-slate-500">
 
               <a
                 href="/faq"
@@ -569,11 +579,11 @@ export default function HomePage() {
           {/* EXPLORE */}
           <div>
 
-            <h3 className="mb-5 font-bold text-slate-900">
+            <h3 className="mb-2 text-sm font-bold text-slate-900">
               {text.explore}
             </h3>
 
-            <div className="space-y-3 text-sm text-slate-500">
+            <div className="space-y-1.5 text-xs text-slate-500">
 
               <a
                 href="/flights"
@@ -605,13 +615,13 @@ export default function HomePage() {
         {/* COPYRIGHT */}
         <div className="border-t border-slate-100">
 
-          <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 py-6 text-sm text-slate-400 md:flex-row">
+          <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-6 py-3 text-[11px] text-slate-400 md:flex-row">
 
             <span>
               © 2026 UçGit. {text.rights}
             </span>
 
-            <div className="flex gap-5">
+            <div className="flex gap-4">
               <span>Instagram</span>
               <span>X</span>
               <span>LinkedIn</span>
@@ -622,9 +632,11 @@ export default function HomePage() {
             </span>
 
           </div>
+
         </div>
 
       </footer>
+
     </main>
   );
 }
@@ -643,19 +655,19 @@ function Feature({
   text: string;
 }) {
   return (
-    <div className="flex gap-4">
+    <div className="flex gap-3">
 
-      <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-blue-50 text-2xl text-blue-600">
+      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-blue-50 text-lg text-blue-600">
         {icon}
       </div>
 
       <div>
 
-        <h3 className="font-bold text-slate-900">
+        <h3 className="text-sm font-bold text-slate-900">
           {title}
         </h3>
 
-        <p className="mt-1 text-sm leading-6 text-slate-500">
+        <p className="mt-0.5 text-xs leading-5 text-slate-500">
           {text}
         </p>
 
