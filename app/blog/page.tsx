@@ -1,77 +1,78 @@
 "use client";
 
-import { useSearchParams } from "next/navigation";
+import { Suspense, useSearchParams } from "react";
+import Link from "next/link";
 
 const posts = [
   {
     slug: "2026da-en-uygun-avrupa-rotalari",
-    title: "2026’da En Uygun Avrupa Rotaları",
+    title: "2026'da En Uygun Avrupa Rotaları",
     category: "avrupa",
     categoryName: "Avrupa",
     read: "5 dk",
     image:
-      "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1200&q=80",
     description:
-      "Avrupa'da seyahat planlayanlar için popüler şehirleri ve rota fikirlerini keşfet.",
+      "Avrupa'da uygun fiyatlı bir seyahat planlamak isteyenler için popüler rotalar, şehirler ve bütçe önerileri.",
   },
   {
     slug: "paris-gezi-rehberi",
     title: "Paris Gezi Rehberi",
     category: "avrupa",
     categoryName: "Avrupa",
-    read: "7 dk",
+    read: "6 dk",
     image:
-      "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1200&q=80",
     description:
-      "Eyfel Kulesi'nden Louvre'a Paris'te görülmesi gereken önemli noktaları keşfet.",
+      "Paris'te görülmesi gereken yerler, ulaşım, konaklama ve seyahat planı hakkında pratik bilgiler.",
   },
   {
     slug: "roma-gezi-rehberi",
     title: "Roma Gezi Rehberi",
     category: "avrupa",
     categoryName: "Avrupa",
-    read: "7 dk",
+    read: "6 dk",
     image:
-      "https://images.unsplash.com/photo-1529260830199-42c24126f198?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1529260830199-42c24126f198?auto=format&fit=crop&w=1200&q=80",
     description:
-      "Kolezyum, Trevi Çeşmesi ve Vatikan ile Roma seyahatini planla.",
+      "Roma seyahatinizi planlarken tarihi noktalar, şehir içi ulaşım ve bütçe konusunda bilmeniz gerekenler.",
   },
   {
     slug: "balkanlar-seyahat-rehberi",
     title: "Balkanlar Seyahat Rehberi",
     category: "balkanlar",
     categoryName: "Balkanlar",
-    read: "6 dk",
+    read: "7 dk",
     image:
-      "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=1200&q=80",
     description:
-      "Yakın coğrafyada farklı şehirleri ve kültürleri keşfetmek için Balkan rotalarına göz at.",
+      "Balkan şehirlerini keşfetmek isteyenler için rota önerileri ve seyahat planlama ipuçları.",
   },
   {
     slug: "sehir-kacamaklari",
-    title: "2–4 Günlük Şehir Kaçamakları",
+    title: "Kısa Şehir Kaçamakları İçin Öneriler",
     category: "sehir",
-    categoryName: "Şehir Kaçamağı",
+    categoryName: "Şehir Kaçamakları",
     read: "5 dk",
     image:
-      "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=1200&q=80",
     description:
-      "Kısa süreli seyahatler için şehir merkezli gezi fikirlerini keşfet.",
+      "Hafta sonu veya birkaç günlük kısa tatiller için şehir seçimi ve planlama önerileri.",
   },
   {
     slug: "ucak-bileti-alirken-dikkat-edilecekler",
-    title: "Uçak Bileti Alırken Nelere Dikkat Edilmeli?",
+    title: "Uçak Bileti Alırken Dikkat Edilecekler",
     category: "ipuclari",
-    categoryName: "İpuçları",
+    categoryName: "Seyahat İpuçları",
     read: "4 dk",
     image:
-      "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1200&q=80",
     description:
-      "Bagaj, aktarma, havalimanı ve bilet koşullarını kontrol etmek için pratik öneriler.",
+      "Uçak bileti ararken fiyatları karşılaştırmak ve seyahat planınızı daha doğru yapmak için önemli noktalar.",
   },
 ];
 
-export default function BlogPage() {
+function BlogPageContent() {
   const searchParams = useSearchParams();
   const category = searchParams.get("category");
 
@@ -79,329 +80,314 @@ export default function BlogPage() {
     ? posts.filter((post) => post.category === category)
     : posts;
 
-  const categoryTitle =
+  const activeCategoryName =
     category === "avrupa"
-      ? "Avrupa Rotaları"
+      ? "Avrupa"
       : category === "balkanlar"
-        ? "Balkanlar"
-        : category === "sehir"
-          ? "Şehir Kaçamakları"
-          : "Seyahat Dünyasını Keşfet";
+      ? "Balkanlar"
+      : category === "sehir"
+      ? "Şehir Kaçamakları"
+      : category === "ipuclari"
+      ? "Seyahat İpuçları"
+      : "Tüm Yazılar";
 
   return (
     <main className="min-h-screen overflow-x-hidden bg-white text-slate-900">
-
       {/* HEADER */}
-      <header className="sticky top-0 z-30 border-b border-slate-200 bg-white/95 backdrop-blur-xl">
-        <div className="mx-auto flex h-14 max-w-7xl items-center justify-between px-5">
-
-          <a href="/" className="flex items-center">
+      <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
+        <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4">
+          <Link href="/" className="flex items-center">
             <img
               src="/logo.jpg"
               alt="UçGit"
-              className="h-9 w-auto rounded-lg"
+              className="h-9 w-auto object-contain"
             />
-          </a>
+          </Link>
 
           <nav className="hidden items-center gap-5 md:flex">
-
-            <a
+            <Link
               href="/"
-              className="text-[11px] font-semibold text-slate-700 hover:text-blue-600"
+              className="text-xs font-medium text-slate-600 transition hover:text-blue-600"
             >
               ✈️ Uçuşlar
-            </a>
+            </Link>
 
-            <a
+            <Link
               href="/hotels"
-              className="text-[11px] font-semibold text-slate-700 hover:text-blue-600"
+              className="text-xs font-medium text-slate-600 transition hover:text-blue-600"
             >
               🏨 Otel
-            </a>
+            </Link>
 
-            <a
+            <Link
               href="/cars"
-              className="text-[11px] font-semibold text-slate-700 hover:text-blue-600"
+              className="text-xs font-medium text-slate-600 transition hover:text-blue-600"
             >
               🚗 Araç Kiralama
-            </a>
+            </Link>
 
-            <a
+            <Link
               href="/discover"
-              className="text-[11px] font-semibold text-slate-700 hover:text-blue-600"
+              className="text-xs font-medium text-slate-600 transition hover:text-blue-600"
             >
               🌍 Keşfet
-            </a>
+            </Link>
 
-            <a
+            <Link
               href="/blog"
-              className="text-[11px] font-bold text-blue-600"
+              className="text-xs font-semibold text-blue-600"
             >
-              📝 Blog
-            </a>
-
+              Blog
+            </Link>
           </nav>
 
-          <div className="hidden items-center gap-2 md:flex">
+          <div className="flex items-center gap-3">
+            <span className="text-xs font-medium text-slate-500">TR</span>
 
-            <button className="rounded-full border border-slate-200 px-2.5 py-1 text-[10px] font-semibold">
-              TR 🇹🇷
-            </button>
-
-            <a
+            <Link
               href="/login"
-              className="flex h-7 w-7 items-center justify-center rounded-full bg-slate-100 text-[10px]"
+              className="rounded-full border border-slate-200 px-3 py-1.5 text-xs font-medium text-slate-700 transition hover:border-blue-300 hover:text-blue-600"
             >
-              ♟
-            </a>
-
+              Giriş
+            </Link>
           </div>
-
         </div>
       </header>
 
       {/* HERO */}
-      <section className="bg-gradient-to-br from-blue-50 via-white to-purple-50">
+      <section className="bg-gradient-to-br from-blue-50 via-white to-purple-50 px-4 py-11">
+        <div className="mx-auto max-w-6xl text-center">
+          <div className="mb-3 inline-flex rounded-full border border-blue-100 bg-white px-3 py-1 text-[11px] font-semibold text-blue-600 shadow-sm">
+            UçGit Seyahat Rehberi
+          </div>
 
-        <div className="mx-auto max-w-6xl px-5 py-11">
-
-          <p className="text-[9px] font-bold uppercase tracking-[0.22em] text-blue-600">
-            UÇGİT BLOG
-          </p>
-
-          <h1 className="mt-2 text-3xl font-black md:text-4xl">
-            {category ? categoryTitle : "Seyahat dünyasını keşfet"}
+          <h1 className="text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
+            Seyahat ve Uçuş Rehberi
           </h1>
 
-          <p className="mt-3 max-w-2xl text-xs leading-6 text-slate-600">
-            {category
-              ? `${categoryTitle} hakkında seyahat rehberleri ve pratik bilgiler.`
-              : "Uçuş ipuçları, şehir rehberleri, seyahat fikirleri ve pratik bilgiler."}
+          <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-slate-600">
+            Uçuş fırsatları, şehir rehberleri ve seyahat planlama önerileriyle
+            yolculuğunuzu daha kolay planlayın.
           </p>
-
         </div>
-
       </section>
 
-      {/* CATEGORY BAR */}
-      <section className="border-b border-slate-200 bg-white">
-
-        <div className="mx-auto flex max-w-6xl flex-wrap gap-2 px-5 py-4">
-
-          <a
+      {/* CATEGORY FILTER */}
+      <section className="border-b border-slate-100 bg-white px-4 py-5">
+        <div className="mx-auto flex max-w-6xl flex-wrap justify-center gap-2">
+          <Link
             href="/blog"
-            className={`rounded-full px-3 py-1.5 text-[10px] font-bold ${
+            className={`rounded-full px-4 py-2 text-xs font-semibold transition ${
               !category
                 ? "bg-blue-600 text-white"
-                : "bg-slate-100 text-slate-600"
+                : "border border-slate-200 bg-white text-slate-600 hover:border-blue-300 hover:text-blue-600"
             }`}
           >
-            Tümü
-          </a>
+            Tüm Yazılar
+          </Link>
 
-          <a
+          <Link
             href="/blog?category=avrupa"
-            className={`rounded-full px-3 py-1.5 text-[10px] font-bold ${
+            className={`rounded-full px-4 py-2 text-xs font-semibold transition ${
               category === "avrupa"
                 ? "bg-blue-600 text-white"
-                : "bg-slate-100 text-slate-600"
+                : "border border-slate-200 bg-white text-slate-600 hover:border-blue-300 hover:text-blue-600"
             }`}
           >
             Avrupa
-          </a>
+          </Link>
 
-          <a
+          <Link
             href="/blog?category=balkanlar"
-            className={`rounded-full px-3 py-1.5 text-[10px] font-bold ${
+            className={`rounded-full px-4 py-2 text-xs font-semibold transition ${
               category === "balkanlar"
                 ? "bg-blue-600 text-white"
-                : "bg-slate-100 text-slate-600"
+                : "border border-slate-200 bg-white text-slate-600 hover:border-blue-300 hover:text-blue-600"
             }`}
           >
             Balkanlar
-          </a>
+          </Link>
 
-          <a
+          <Link
             href="/blog?category=sehir"
-            className={`rounded-full px-3 py-1.5 text-[10px] font-bold ${
+            className={`rounded-full px-4 py-2 text-xs font-semibold transition ${
               category === "sehir"
                 ? "bg-blue-600 text-white"
-                : "bg-slate-100 text-slate-600"
+                : "border border-slate-200 bg-white text-slate-600 hover:border-blue-300 hover:text-blue-600"
             }`}
           >
             Şehir Kaçamakları
-          </a>
+          </Link>
 
-          <a
+          <Link
             href="/blog?category=ipuclari"
-            className={`rounded-full px-3 py-1.5 text-[10px] font-bold ${
+            className={`rounded-full px-4 py-2 text-xs font-semibold transition ${
               category === "ipuclari"
                 ? "bg-blue-600 text-white"
-                : "bg-slate-100 text-slate-600"
+                : "border border-slate-200 bg-white text-slate-600 hover:border-blue-300 hover:text-blue-600"
             }`}
           >
-            İpuçları
-          </a>
-
+            Seyahat İpuçları
+          </Link>
         </div>
-
       </section>
 
       {/* POSTS */}
-      <section className="mx-auto max-w-6xl px-5 py-10">
+      <section className="px-4 py-10">
+        <div className="mx-auto max-w-6xl">
+          <div className="mb-6 flex items-center justify-between">
+            <div>
+              <p className="text-[11px] font-semibold uppercase tracking-wider text-blue-600">
+                Blog
+              </p>
 
-        {filteredPosts.length === 0 ? (
-          <div className="rounded-2xl border border-slate-200 bg-slate-50 p-10 text-center">
-            <div className="text-3xl">🌍</div>
+              <h2 className="mt-1 text-xl font-bold text-slate-900">
+                {activeCategoryName}
+              </h2>
+            </div>
 
-            <h2 className="mt-3 text-lg font-black">
-              Bu kategoride henüz yazı yok.
-            </h2>
-
-            <p className="mt-2 text-xs text-slate-500">
-              Diğer seyahat rehberlerine göz atabilirsin.
-            </p>
-
-            <a
-              href="/blog"
-              className="mt-4 inline-flex rounded-lg bg-blue-600 px-4 py-2 text-[10px] font-bold text-white"
-            >
-              Tüm yazıları göster
-            </a>
+            <span className="text-xs text-slate-400">
+              {filteredPosts.length} yazı
+            </span>
           </div>
-        ) : (
-          <div className="grid gap-5 md:grid-cols-2">
 
-            {filteredPosts.map((post) => (
-              <article
-                key={post.slug}
-                className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+          {filteredPosts.length > 0 ? (
+            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {filteredPosts.map((post) => (
+                <article
+                  key={post.slug}
+                  className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+                >
+                  <Link href={`/blog/${post.slug}`}>
+                    <div className="relative h-44 overflow-hidden">
+                      <img
+                        src={post.image}
+                        alt={post.title}
+                        className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                      />
+
+                      <div className="absolute left-3 top-3 rounded-full bg-white/95 px-2.5 py-1 text-[10px] font-semibold text-blue-600 shadow-sm">
+                        {post.categoryName}
+                      </div>
+                    </div>
+
+                    <div className="p-5">
+                      <div className="mb-2 flex items-center gap-2 text-[10px] text-slate-400">
+                        <span>UçGit Blog</span>
+                        <span>•</span>
+                        <span>{post.read}</span>
+                      </div>
+
+                      <h3 className="text-base font-bold leading-6 text-slate-900 transition group-hover:text-blue-600">
+                        {post.title}
+                      </h3>
+
+                      <p className="mt-2 line-clamp-3 text-xs leading-5 text-slate-500">
+                        {post.description}
+                      </p>
+
+                      <div className="mt-4 text-xs font-semibold text-blue-600">
+                        Yazıyı oku →
+                      </div>
+                    </div>
+                  </Link>
+                </article>
+              ))}
+            </div>
+          ) : (
+            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-10 text-center">
+              <div className="text-3xl">📝</div>
+
+              <h3 className="mt-3 text-base font-bold text-slate-900">
+                Bu kategoride henüz yazı yok
+              </h3>
+
+              <p className="mt-2 text-xs text-slate-500">
+                Diğer seyahat yazılarımıza göz atabilirsiniz.
+              </p>
+
+              <Link
+                href="/blog"
+                className="mt-5 inline-flex rounded-xl bg-blue-600 px-4 py-2.5 text-xs font-semibold text-white transition hover:bg-blue-700"
               >
-
-                <div className="relative h-44 overflow-hidden">
-
-                  <img
-                    src={post.image}
-                    alt={post.title}
-                    className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
-                  />
-
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-
-                  <span className="absolute bottom-3 left-3 rounded-full bg-white/95 px-3 py-1 text-[10px] font-bold text-blue-600">
-                    {post.categoryName}
-                  </span>
-
-                </div>
-
-                <div className="p-5">
-
-                  <div className="flex gap-2 text-[10px] text-slate-400">
-                    <span>UçGit Blog</span>
-                    <span>•</span>
-                    <span>{post.read}</span>
-                  </div>
-
-                  <h2 className="mt-2 text-lg font-black leading-snug">
-                    {post.title}
-                  </h2>
-
-                  <p className="mt-2 text-xs leading-5 text-slate-500">
-                    {post.description}
-                  </p>
-
-                  <a
-                    href={`/blog/${post.slug}`}
-                    className="mt-4 inline-flex rounded-lg bg-[#020817] px-4 py-2.5 text-[10px] font-bold text-white transition hover:bg-blue-600"
-                  >
-                    Yazıyı oku →
-                  </a>
-
-                </div>
-
-              </article>
-            ))}
-
-          </div>
-        )}
-
+                Tüm yazıları göster
+              </Link>
+            </div>
+          )}
+        </div>
       </section>
 
-      {/* UÇUŞ CTA */}
-      <section className="bg-gradient-to-r from-blue-600 to-purple-600 py-9">
-
-        <div className="mx-auto max-w-4xl px-5 text-center text-white">
-
-          <div className="text-2xl">
-            ✈️
-          </div>
-
-          <h2 className="mt-2 text-2xl font-black">
-            Seyahatini planlamaya hazır mısın?
+      {/* CTA */}
+      <section className="px-4 pb-12">
+        <div className="mx-auto max-w-6xl overflow-hidden rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 px-6 py-8 text-center text-white">
+          <h2 className="text-xl font-bold">
+            Uçuşunuzu şimdi arayın
           </h2>
 
-          <p className="mt-2 text-xs text-white/80">
-            Gideceğin rotayı seç ve uçuş seçeneklerini UçGit ile karşılaştır.
+          <p className="mx-auto mt-2 max-w-xl text-xs leading-5 text-blue-50">
+            Farklı uçuş seçeneklerini karşılaştırın ve seyahatiniz için uygun
+            bileti bulun.
           </p>
 
-          <a
+          <Link
             href="/"
-            className="mt-4 inline-flex rounded-lg bg-white px-5 py-2.5 text-[10px] font-bold text-blue-600"
+            className="mt-5 inline-flex rounded-xl bg-white px-5 py-2.5 text-xs font-bold text-blue-600 shadow-sm transition hover:bg-slate-50"
           >
-            Uçuş ara →
-          </a>
-
+            Uçuş Ara →
+          </Link>
         </div>
-
       </section>
 
       {/* FOOTER */}
-      <footer className="border-t border-slate-200 bg-white py-5">
+      <footer className="border-t border-slate-200 bg-slate-50 px-4 py-7">
+        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 md:flex-row">
+          <div className="flex items-center gap-3">
+            <img
+              src="/logo.jpg"
+              alt="UçGit"
+              className="h-8 w-auto object-contain"
+            />
 
-        <div className="mx-auto max-w-7xl px-5 text-center">
-
-          <img
-            src="/logo.jpg"
-            alt="UçGit"
-            className="mx-auto h-8 w-auto rounded-lg"
-          />
-
-          <p className="mt-1.5 text-[10px] text-slate-500">
-            © 2026 UçGit. Tüm hakları saklıdır.
-          </p>
-
-          <div className="mt-2.5 flex flex-wrap justify-center gap-3 text-[10px] text-slate-500">
-
-            <a href="/about" className="hover:text-blue-600">
-              Hakkımızda
-            </a>
-
-            <a href="/discover" className="hover:text-blue-600">
-              Keşfet
-            </a>
-
-            <a href="/contact" className="hover:text-blue-600">
-              İletişim
-            </a>
-
-            <a href="/faq" className="hover:text-blue-600">
-              SSS
-            </a>
-
-            <a href="/privacy-policy" className="hover:text-blue-600">
-              Gizlilik
-            </a>
-
-            <a href="/terms" className="hover:text-blue-600">
-              Kullanım Şartları
-            </a>
-
+            <span className="text-[11px] text-slate-400">
+              © 2026 UçGit
+            </span>
           </div>
 
+          <div className="flex flex-wrap justify-center gap-4 text-[11px] text-slate-500">
+            <Link href="/about" className="hover:text-blue-600">
+              Hakkımızda
+            </Link>
+
+            <Link href="/contact" className="hover:text-blue-600">
+              İletişim
+            </Link>
+
+            <Link href="/faq" className="hover:text-blue-600">
+              SSS
+            </Link>
+
+            <Link href="/privacy" className="hover:text-blue-600">
+              Gizlilik
+            </Link>
+
+            <Link href="/terms" className="hover:text-blue-600">
+              Kullanım Şartları
+            </Link>
+          </div>
         </div>
-
       </footer>
-
     </main>
+  );
+}
+
+export default function BlogPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen bg-white" />
+      }
+    >
+      <BlogPageContent />
+    </Suspense>
   );
 }
