@@ -37,7 +37,7 @@ const destinations = [
       "İspanyol Merdivenleri",
     ],
     tips:
-      "Roma'yı yürüyerek keşfetmek birçok bölgeyi görmek için oldukça kullanışlıdır. Rahat ayakkabı tercih etmek iyi olabilir.",
+      "Roma'yı yürüyerek keşfetmek birçok bölgeyi görmek için oldukça kullanışlıdır.",
   },
   {
     name: "Londra",
@@ -91,7 +91,7 @@ const destinations = [
       "Jumeirah",
     ],
     tips:
-      "Dubai'de şehir içindeki mesafeler uzun olabildiğinden metro, taksi ve araç seçeneklerini birlikte değerlendirmek faydalı olabilir.",
+      "Dubai'de şehir içindeki mesafeler uzun olabildiğinden ulaşım seçeneklerini birlikte değerlendirmek faydalı olabilir.",
   },
   {
     name: "İstanbul",
@@ -141,63 +141,63 @@ const travelIdeas = [
 ];
 
 export default function DiscoverPage() {
-  const [selected, setSelected] = useState<(typeof destinations)[number] | null>(
-    null
-  );
+  const [selected, setSelected] = useState<
+    (typeof destinations)[number] | null
+  >(null);
 
   return (
     <main className="min-h-screen overflow-x-hidden bg-white text-slate-900">
 
       {/* HEADER */}
       <header className="sticky top-0 z-40 border-b border-slate-200 bg-white/95 backdrop-blur-xl">
-        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5">
+        <div className="mx-auto flex h-14 max-w-7xl items-center justify-between px-5">
 
           <a href="/" className="flex items-center">
             <img
               src="/logo.jpg"
               alt="UçGit"
-              className="h-11 w-auto rounded-lg"
+              className="h-9 w-auto rounded-lg"
             />
           </a>
 
-          <nav className="hidden items-center gap-6 md:flex">
+          <nav className="hidden items-center gap-5 md:flex">
             <a
               href="/"
-              className="text-xs font-semibold text-slate-700 hover:text-blue-600"
+              className="text-[11px] font-semibold text-slate-700 hover:text-blue-600"
             >
               ✈️ Uçuşlar
             </a>
 
             <a
               href="/hotels"
-              className="text-xs font-semibold text-slate-700 hover:text-blue-600"
+              className="text-[11px] font-semibold text-slate-700 hover:text-blue-600"
             >
               🏨 Otel
             </a>
 
             <a
               href="/cars"
-              className="text-xs font-semibold text-slate-700 hover:text-blue-600"
+              className="text-[11px] font-semibold text-slate-700 hover:text-blue-600"
             >
               🚗 Araç Kiralama
             </a>
 
             <a
               href="/discover"
-              className="text-xs font-bold text-blue-600"
+              className="text-[11px] font-bold text-blue-600"
             >
               🌍 Keşfet
             </a>
           </nav>
 
           <div className="hidden items-center gap-2 md:flex">
-            <button className="rounded-full border border-slate-200 px-3 py-1.5 text-[11px] font-semibold">
+            <button className="rounded-full border border-slate-200 px-2.5 py-1 text-[10px] font-semibold">
               TR 🇹🇷
             </button>
 
             <a
               href="/login"
-              className="flex h-8 w-8 items-center justify-center rounded-full bg-slate-100 text-xs"
+              className="flex h-7 w-7 items-center justify-center rounded-full bg-slate-100 text-[10px]"
             >
               ♟
             </a>
@@ -206,36 +206,32 @@ export default function DiscoverPage() {
       </header>
 
       {/* HERO */}
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50" />
+      <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-purple-50">
+        <div className="absolute -right-32 -top-32 h-64 w-64 rounded-full bg-blue-400/10 blur-3xl" />
+        <div className="absolute -left-32 bottom-0 h-64 w-64 rounded-full bg-purple-400/10 blur-3xl" />
 
-        <div className="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-blue-400/10 blur-3xl" />
+        <div className="relative mx-auto max-w-6xl px-5 py-11">
+          <div className="max-w-2xl">
 
-        <div className="absolute -left-32 bottom-0 h-96 w-96 rounded-full bg-purple-400/10 blur-3xl" />
-
-        <div className="relative mx-auto max-w-6xl px-5 py-20">
-          <div className="max-w-3xl">
-
-            <span className="inline-flex rounded-full bg-blue-100 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-blue-700">
+            <span className="inline-flex rounded-full bg-blue-100 px-2.5 py-1 text-[9px] font-bold uppercase tracking-wider text-blue-700">
               UÇGİT KEŞFET
             </span>
 
-            <h1 className="mt-5 text-4xl font-black leading-tight md:text-6xl">
-              Bir sonraki
-              <br />
+            <h1 className="mt-3 text-3xl font-black leading-tight md:text-4xl">
+              Bir sonraki seyahatini{" "}
               <span className="text-blue-600">
-                seyahatini keşfet.
+                keşfet.
               </span>
             </h1>
 
-            <p className="mt-5 max-w-2xl text-sm leading-7 text-slate-600 md:text-base">
-              Dünyanın popüler şehirlerini keşfet, gezilecek yerleri öğren,
-              seyahat fikirlerinden ilham al ve rotanı UçGit ile planla.
+            <p className="mt-3 max-w-xl text-xs leading-6 text-slate-600">
+              Dünyanın popüler şehirlerini keşfet, gezilecek yerleri öğren ve
+              bir sonraki rotanı UçGit ile planla.
             </p>
 
             <a
               href="/"
-              className="mt-7 inline-flex rounded-xl bg-blue-600 px-6 py-3 text-xs font-bold text-white shadow-lg shadow-blue-600/20 transition hover:bg-blue-700"
+              className="mt-5 inline-flex rounded-lg bg-blue-600 px-4 py-2.5 text-[11px] font-bold text-white shadow-md transition hover:bg-blue-700"
             >
               Uçuş aramaya başla →
             </a>
@@ -244,70 +240,66 @@ export default function DiscoverPage() {
         </div>
       </section>
 
-      {/* DESTINATIONS */}
-      <section className="bg-white py-16">
+      {/* DESTİNASYONLAR */}
+      <section className="bg-white py-9">
         <div className="mx-auto max-w-6xl px-5">
 
-          <p className="text-[11px] font-bold uppercase tracking-wider text-blue-600">
+          <p className="text-[9px] font-bold uppercase tracking-wider text-blue-600">
             POPÜLER DESTİNASYONLAR
           </p>
 
-          <div className="mt-2 flex flex-col justify-between gap-3 md:flex-row md:items-end">
-            <div>
-              <h2 className="text-3xl font-black">
-                Nereye gitmek istersin?
-              </h2>
+          <h2 className="mt-1 text-2xl font-black">
+            Nereye gitmek istersin?
+          </h2>
 
-              <p className="mt-2 text-sm text-slate-500">
-                Şehir seç ve seyahat rehberini keşfet.
-              </p>
-            </div>
-          </div>
+          <p className="mt-1 text-xs text-slate-500">
+            Bir şehir seç ve seyahat rehberini keşfet.
+          </p>
 
-          <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-5 grid gap-3.5 sm:grid-cols-2 lg:grid-cols-3">
 
             {destinations.map((destination) => (
               <button
                 key={destination.name}
                 onClick={() => setSelected(destination)}
-                className="group overflow-hidden rounded-2xl border border-slate-200 bg-white text-left shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
+                className="group overflow-hidden rounded-xl border border-slate-200 bg-white text-left shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
               >
 
-                <div className="relative h-52 overflow-hidden">
+                <div className="relative h-36 overflow-hidden">
 
                   <img
                     src={destination.image}
                     alt={destination.name}
-                    className="h-full w-full object-cover transition duration-700 group-hover:scale-110"
+                    className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
                   />
 
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
 
-                  <div className="absolute bottom-0 left-0 right-0 p-5">
+                  <div className="absolute bottom-0 left-0 right-0 p-3.5">
 
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-white/70">
+                    <span className="text-[8px] font-bold uppercase tracking-wider text-white/75">
                       {destination.region}
                     </span>
 
-                    <h3 className="mt-1 text-2xl font-black text-white">
+                    <h3 className="mt-0.5 text-lg font-black text-white">
                       {destination.name}
                     </h3>
 
-                    <p className="text-xs text-white/80">
+                    <p className="text-[9px] text-white/80">
                       {destination.country}
                     </p>
 
                   </div>
                 </div>
 
-                <div className="p-5">
+                <div className="p-3.5">
 
-                  <p className="line-clamp-2 text-xs leading-5 text-slate-500">
+                  <p className="line-clamp-2 text-[10px] leading-4 text-slate-500">
                     {destination.description}
                   </p>
 
-                  <span className="mt-4 inline-flex text-xs font-bold text-blue-600">
-                    Keşfet →
+                  <span className="mt-2.5 inline-flex text-[10px] font-bold text-blue-600">
+                    Şehri keşfet →
                   </span>
 
                 </div>
@@ -318,99 +310,107 @@ export default function DiscoverPage() {
         </div>
       </section>
 
-      {/* DETAIL */}
+      {/* ŞEHİR DETAYI - DAHA YUKARIDA VE KOMPAKT */}
       {selected && (
-        <section className="bg-slate-50 py-16">
-          <div className="mx-auto max-w-6xl px-5">
+        <section className="-mt-2 bg-slate-50 pb-9 pt-2">
+          <div className="mx-auto max-w-5xl px-5">
 
-            <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-lg">
+            <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-md">
 
-              <div className="grid md:grid-cols-2">
+              <div className="grid md:grid-cols-[42%_58%]">
 
-                <div className="relative min-h-[350px]">
+                <div className="relative min-h-[230px]">
+
                   <img
                     src={selected.image}
                     alt={selected.name}
                     className="absolute inset-0 h-full w-full object-cover"
                   />
 
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
 
-                  <div className="absolute bottom-6 left-6">
-                    <p className="text-[10px] font-bold uppercase tracking-wider text-white/70">
+                  <div className="absolute bottom-4 left-4">
+                    <p className="text-[8px] font-bold uppercase tracking-wider text-white/75">
                       {selected.region}
                     </p>
 
-                    <h2 className="mt-1 text-4xl font-black text-white">
+                    <h2 className="mt-0.5 text-2xl font-black text-white">
                       {selected.name}
                     </h2>
                   </div>
                 </div>
 
-                <div className="p-7 md:p-10">
+                <div className="p-5">
 
                   <div className="flex items-start justify-between">
+
                     <div>
-                      <p className="text-xs font-bold text-blue-600">
+                      <p className="text-[9px] font-bold text-blue-600">
                         {selected.country}
                       </p>
 
-                      <h2 className="mt-1 text-2xl font-black">
+                      <h2 className="mt-0.5 text-xl font-black">
                         {selected.name} rehberi
                       </h2>
                     </div>
 
                     <button
                       onClick={() => setSelected(null)}
-                      className="flex h-8 w-8 items-center justify-center rounded-full bg-slate-100 text-slate-500 hover:bg-slate-200"
+                      className="flex h-7 w-7 items-center justify-center rounded-full bg-slate-100 text-xs text-slate-500 hover:bg-slate-200"
                     >
                       ×
                     </button>
+
                   </div>
 
-                  <p className="mt-5 text-sm leading-7 text-slate-600">
+                  <p className="mt-3 text-[11px] leading-5 text-slate-600">
                     {selected.description}
                   </p>
 
-                  <div className="mt-7">
-                    <h3 className="text-sm font-black">
+                  <div className="mt-4">
+
+                    <h3 className="text-[10px] font-black">
                       Görülecek yerler
                     </h3>
 
-                    <div className="mt-3 flex flex-wrap gap-2">
+                    <div className="mt-2 flex flex-wrap gap-1.5">
+
                       {selected.places.map((place) => (
                         <span
                           key={place}
-                          className="rounded-full border border-slate-200 bg-white px-3 py-2 text-[11px] font-semibold text-slate-600"
+                          className="rounded-full border border-slate-200 bg-white px-2.5 py-1 text-[9px] font-semibold text-slate-600"
                         >
                           {place}
                         </span>
                       ))}
+
                     </div>
                   </div>
 
-                  <div className="mt-7 rounded-2xl bg-blue-50 p-5">
-                    <p className="text-xs font-bold text-blue-700">
+                  <div className="mt-4 rounded-xl bg-blue-50 p-3">
+
+                    <p className="text-[9px] font-bold text-blue-700">
                       Seyahat ipucu
                     </p>
 
-                    <p className="mt-2 text-xs leading-6 text-slate-600">
+                    <p className="mt-1 text-[9px] leading-4 text-slate-600">
                       {selected.tips}
                     </p>
+
                   </div>
 
-                  <div className="mt-7 flex flex-wrap gap-3">
+                  <div className="mt-4 flex flex-wrap gap-2">
 
                     <a
                       href="/"
-                      className="rounded-xl bg-blue-600 px-5 py-3 text-xs font-bold text-white hover:bg-blue-700"
+                      className="rounded-lg bg-blue-600 px-3.5 py-2 text-[9px] font-bold text-white hover:bg-blue-700"
                     >
                       {selected.name} için uçuş ara →
                     </a>
 
                     <a
                       href="/blog"
-                      className="rounded-xl border border-slate-200 bg-white px-5 py-3 text-xs font-bold text-slate-700 hover:border-blue-300 hover:text-blue-600"
+                      className="rounded-lg border border-slate-200 px-3.5 py-2 text-[9px] font-bold text-slate-700 hover:border-blue-300 hover:text-blue-600"
                     >
                       Seyahat rehberleri
                     </a>
@@ -424,60 +424,60 @@ export default function DiscoverPage() {
         </section>
       )}
 
-      {/* TRAVEL IDEAS */}
-      <section className="bg-slate-50 py-16">
+      {/* SEYAHAT FİKİRLERİ */}
+      <section className="bg-slate-50 py-10">
         <div className="mx-auto max-w-6xl px-5">
 
           <div className="text-center">
-            <p className="text-[11px] font-bold uppercase tracking-wider text-blue-600">
+            <p className="text-[9px] font-bold uppercase tracking-wider text-blue-600">
               SEYAHAT FİKİRLERİ
             </p>
 
-            <h2 className="mt-2 text-3xl font-black">
+            <h2 className="mt-1 text-2xl font-black">
               Seyahat tarzını seç
             </h2>
 
-            <p className="mx-auto mt-3 max-w-xl text-sm leading-6 text-slate-500">
-              Bir sonraki seyahatinin nasıl olacağına karar ver ve ilham
-              almaya başla.
+            <p className="mx-auto mt-2 max-w-xl text-xs text-slate-500">
+              Bir sonraki seyahatinden ilham al.
             </p>
           </div>
 
-          <div className="mt-9 grid gap-5 md:grid-cols-3">
+          <div className="mt-5 grid gap-3.5 md:grid-cols-3">
 
             {travelIdeas.map((idea) => (
               <a
                 key={idea.title}
                 href="/blog"
-                className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+                className="group overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
               >
 
-                <div className="relative h-48 overflow-hidden">
+                <div className="relative h-32 overflow-hidden">
 
                   <img
                     src={idea.image}
                     alt={idea.title}
-                    className="h-full w-full object-cover transition duration-700 group-hover:scale-110"
+                    className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
                   />
 
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/65 to-transparent" />
 
-                  <span className="absolute bottom-4 left-4 rounded-full bg-white/90 px-3 py-1 text-[10px] font-bold text-blue-600">
+                  <span className="absolute bottom-2.5 left-3 rounded-full bg-white/90 px-2 py-1 text-[8px] font-bold text-blue-600">
                     {idea.tag}
                   </span>
+
                 </div>
 
-                <div className="p-5">
+                <div className="p-4">
 
-                  <h3 className="text-lg font-black">
+                  <h3 className="text-sm font-black">
                     {idea.title}
                   </h3>
 
-                  <p className="mt-2 text-xs leading-6 text-slate-500">
+                  <p className="mt-1.5 text-[10px] leading-4 text-slate-500">
                     {idea.text}
                   </p>
 
-                  <span className="mt-4 inline-block text-xs font-bold text-blue-600">
+                  <span className="mt-2.5 inline-block text-[10px] font-bold text-blue-600">
                     Rehberleri keşfet →
                   </span>
 
@@ -490,92 +490,92 @@ export default function DiscoverPage() {
       </section>
 
       {/* BLOG */}
-      <section className="bg-white py-16">
+      <section className="bg-white py-10">
         <div className="mx-auto max-w-6xl px-5">
 
-          <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
+          <div className="flex items-end justify-between gap-3">
 
             <div>
-              <p className="text-[11px] font-bold uppercase tracking-wider text-blue-600">
+              <p className="text-[9px] font-bold uppercase tracking-wider text-blue-600">
                 UÇGİT BLOG
               </p>
 
-              <h2 className="mt-2 text-3xl font-black">
+              <h2 className="mt-1 text-2xl font-black">
                 Seyahatini daha iyi planla
               </h2>
 
-              <p className="mt-2 text-sm text-slate-500">
-                Uçuş ve seyahat planlamasıyla ilgili pratik bilgiler.
+              <p className="mt-1 text-xs text-slate-500">
+                Seyahat planlamasıyla ilgili pratik bilgiler.
               </p>
             </div>
 
             <a
               href="/blog"
-              className="text-xs font-bold text-blue-600"
+              className="text-[10px] font-bold text-blue-600"
             >
-              Tüm yazıları gör →
+              Tüm yazılar →
             </a>
 
           </div>
 
-          <div className="mt-8 grid gap-5 md:grid-cols-3">
+          <div className="mt-5 grid gap-3.5 md:grid-cols-3">
 
             <a
               href="/blog"
-              className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
+              className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
             >
-              <span className="text-2xl">✈️</span>
+              <span className="text-xl">✈️</span>
 
-              <h3 className="mt-4 text-sm font-black">
+              <h3 className="mt-2 text-xs font-black">
                 Uçak bileti alırken nelere dikkat edilmeli?
               </h3>
 
-              <p className="mt-2 text-xs leading-5 text-slate-500">
+              <p className="mt-1.5 text-[10px] leading-4 text-slate-500">
                 Bilet koşulları, bagaj ve uçuş detaylarını kontrol etmek için
                 pratik öneriler.
               </p>
 
-              <span className="mt-4 inline-block text-xs font-bold text-blue-600">
+              <span className="mt-2.5 inline-block text-[10px] font-bold text-blue-600">
                 Yazıyı incele →
               </span>
             </a>
 
             <a
               href="/blog"
-              className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
+              className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
             >
-              <span className="text-2xl">🌍</span>
+              <span className="text-xl">🌍</span>
 
-              <h3 className="mt-4 text-sm font-black">
+              <h3 className="mt-2 text-xs font-black">
                 Avrupa seyahati için pratik öneriler
               </h3>
 
-              <p className="mt-2 text-xs leading-5 text-slate-500">
+              <p className="mt-1.5 text-[10px] leading-4 text-slate-500">
                 Avrupa'da şehir gezisi planlarken işine yarayabilecek temel
                 bilgileri keşfet.
               </p>
 
-              <span className="mt-4 inline-block text-xs font-bold text-blue-600">
+              <span className="mt-2.5 inline-block text-[10px] font-bold text-blue-600">
                 Yazıyı incele →
               </span>
             </a>
 
             <a
               href="/blog"
-              className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
+              className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
             >
-              <span className="text-2xl">🧳</span>
+              <span className="text-xl">🧳</span>
 
-              <h3 className="mt-4 text-sm font-black">
+              <h3 className="mt-2 text-xs font-black">
                 Seyahat öncesi kontrol listesi
               </h3>
 
-              <p className="mt-2 text-xs leading-5 text-slate-500">
+              <p className="mt-1.5 text-[10px] leading-4 text-slate-500">
                 Bilet, pasaport, bagaj ve diğer hazırlıklarını seyahatten önce
                 kontrol et.
               </p>
 
-              <span className="mt-4 inline-block text-xs font-bold text-blue-600">
+              <span className="mt-2.5 inline-block text-[10px] font-bold text-blue-600">
                 Yazıyı incele →
               </span>
             </a>
@@ -585,23 +585,24 @@ export default function DiscoverPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-gradient-to-r from-blue-600 to-purple-600 py-14">
+      <section className="bg-gradient-to-r from-blue-600 to-purple-600 py-9">
         <div className="mx-auto max-w-4xl px-5 text-center text-white">
 
-          <div className="text-3xl">✈️</div>
+          <div className="text-2xl">
+            ✈️
+          </div>
 
-          <h2 className="mt-3 text-3xl font-black">
+          <h2 className="mt-2 text-2xl font-black">
             Rotanı bulmaya hazır mısın?
           </h2>
 
-          <p className="mx-auto mt-3 max-w-xl text-sm leading-6 text-white/80">
-            Gideceğin şehri keşfet, ardından uçuş seçeneklerini UçGit ile
-            karşılaştır.
+          <p className="mx-auto mt-2 max-w-xl text-xs leading-5 text-white/80">
+            Gideceğin şehri keşfet ve uçuş seçeneklerini UçGit ile karşılaştır.
           </p>
 
           <a
             href="/"
-            className="mt-6 inline-flex rounded-xl bg-white px-6 py-3 text-xs font-bold text-blue-600 shadow-lg"
+            className="mt-4 inline-flex rounded-lg bg-white px-5 py-2.5 text-[10px] font-bold text-blue-600 shadow-md"
           >
             Uçuş ara →
           </a>
@@ -610,20 +611,20 @@ export default function DiscoverPage() {
       </section>
 
       {/* FOOTER */}
-      <footer className="border-t border-slate-200 bg-white py-7">
+      <footer className="border-t border-slate-200 bg-white py-5">
         <div className="mx-auto max-w-7xl px-5 text-center">
 
           <img
             src="/logo.jpg"
             alt="UçGit"
-            className="mx-auto h-9 w-auto rounded-lg"
+            className="mx-auto h-8 w-auto rounded-lg"
           />
 
-          <p className="mt-2 text-[11px] text-slate-500">
+          <p className="mt-1.5 text-[10px] text-slate-500">
             © 2026 UçGit. Tüm hakları saklıdır.
           </p>
 
-          <div className="mt-3 flex flex-wrap justify-center gap-4 text-[11px] text-slate-500">
+          <div className="mt-2.5 flex flex-wrap justify-center gap-3 text-[10px] text-slate-500">
 
             <a href="/about" className="hover:text-blue-600">
               Hakkımızda
