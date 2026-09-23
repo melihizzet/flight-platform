@@ -1,19 +1,23 @@
 import Link from "next/link";
+import { notFound } from "next/navigation";
+
+export const dynamic = "force-dynamic";
+export const dynamicParams = true;
 
 const posts = {
   "2026da-en-uygun-avrupa-rotalari": {
-    title: "2026’da En Uygun Avrupa Rotaları",
+    title: "2026'da En Uygun Avrupa Rotaları",
     category: "Avrupa",
     read: "5 dk",
     image:
-      "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=1600&q=85",
+      "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1400&q=80",
     intro:
-      "Avrupa seyahati planlayanlar için şehir seçimi, rota oluşturma ve uçuş ararken dikkat edilebilecek noktaları bir araya getirdik.",
+      "Avrupa seyahati planlayanlar için popüler şehirleri, seyahat planlamasını ve bilet ararken dikkat edilmesi gereken noktaları keşfedin.",
     sections: [
       {
-        title: "Avrupa seyahatine nereden başlanır?",
+        title: "Avrupa seyahatinize nereden başlarsınız?",
         text:
-          "Avrupa seyahatinde ilk adım gitmek istediğin şehirleri belirlemek ve seyahat süresine uygun bir rota oluşturmaktır. Tek bir şehirde kalabileceğin gibi birbirine yakın şehirleri aynı seyahatte değerlendirebilirsin.",
+          "Avrupa seyahatinde ilk adım gitmek istediğiniz şehirleri belirlemek ve seyahat süresine uygun bir rota oluşturmaktır. Tek bir şehirde kalabileceğiniz gibi birbirine yakın şehirleri aynı seyahatte değerlendirebilirsiniz.",
       },
       {
         title: "Popüler Avrupa şehirleri",
@@ -21,9 +25,9 @@ const posts = {
           "Paris, Roma, Londra ve Amsterdam farklı şehir deneyimleri sunan popüler rotalar arasında yer alır. Tarih, sanat, mimari, müze ve şehir yaşamı gibi ilgi alanlarına göre rota seçilebilir.",
       },
       {
-        title: "Uçuş ararken nelere dikkat edilmeli?",
+        title: "Uçak bileti ararken",
         text:
-          "Uçuş karşılaştırması yaparken yalnızca bilet fiyatına değil, bagaj hakkına, aktarma süresine, havalimanına ve toplam seyahat süresine de bakmak önemlidir.",
+          "Uçuş ararken yalnızca bilet fiyatına değil, bagaj, aktarma süresi, havalimanı ve toplam seyahat maliyetine de dikkat etmek faydalıdır.",
       },
     ],
   },
@@ -33,24 +37,24 @@ const posts = {
     category: "Şehir Rehberi",
     read: "7 dk",
     image:
-      "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1600&q=85",
+      "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1400&q=80",
     intro:
-      "Paris; tarihi yapıları, müzeleri, meydanları ve Seine Nehri boyunca uzanan şehir dokusuyla Avrupa’nın en popüler şehirlerinden biridir.",
+      "Paris'te görülecek önemli noktalar, şehir içi ulaşım ve kısa süreli bir gezi planı için kullanabileceğiniz öneriler.",
     sections: [
       {
-        title: "Paris’te görülmesi gereken yerler",
+        title: "Paris'te görülmesi gereken yerler",
         text:
-          "Eyfel Kulesi, Louvre Müzesi, Notre-Dame, Montmartre ve Şanzelize Paris gezilerinde öne çıkan noktalardandır.",
+          "Eyfel Kulesi, Louvre Müzesi, Notre-Dame çevresi, Champs-Élysées ve Montmartre Paris gezilerinin en bilinen durakları arasındadır.",
       },
       {
-        title: "Paris’te şehir içi ulaşım",
+        title: "Şehir içi ulaşım",
         text:
-          "Paris'in metro ağı şehrin birçok bölgesine ulaşmayı kolaylaştırır. Gezilecek yerleri bölgelere ayırarak planlamak yürüyüş ve ulaşım süresini azaltabilir.",
+          "Paris'te metro ve tren ağı şehrin farklı bölgelerine ulaşmayı kolaylaştırır. Kısa seyahatlerde toplu taşıma seçeneklerini önceden planlamak zaman kazandırabilir.",
       },
       {
-        title: "Paris gezisi için küçük öneriler",
+        title: "Paris seyahati için ipucu",
         text:
-          "Müze ve yoğun ziyaret edilen noktalar için önceden çalışma yapmak, günlük gezi programını daha rahat hale getirebilir.",
+          "Seyahat tarihinizi belirledikten sonra uçuş ve konaklama seçeneklerini mümkün olduğunca erken karşılaştırmak faydalı olabilir.",
       },
     ],
   },
@@ -60,24 +64,24 @@ const posts = {
     category: "Şehir Rehberi",
     read: "7 dk",
     image:
-      "https://images.unsplash.com/photo-1529260830199-42c24126f198?auto=format&fit=crop&w=1600&q=85",
+      "https://images.unsplash.com/photo-1529260830199-42c24126f198?auto=format&fit=crop&w=1400&q=80",
     intro:
       "Roma, antik dönemden günümüze ulaşan yapıları, meydanları, müzeleri ve İtalyan mutfağıyla şehir gezisi için zengin seçenekler sunar.",
     sections: [
       {
-        title: "Roma’da görülmesi gereken yerler",
+        title: "Roma'da görülmesi gereken yerler",
         text:
           "Kolezyum, Trevi Çeşmesi, Pantheon, Vatikan ve İspanyol Merdivenleri Roma gezilerinde öne çıkan duraklardır.",
       },
       {
-        title: "Roma’yı keşfetmek",
+        title: "Roma'yı keşfetmek",
         text:
           "Roma'nın tarihi merkezinde birçok nokta birbirine yürüyüş mesafesinde bulunur. Günlük planı bölgelere ayırmak şehir gezisini daha kolay hale getirebilir.",
       },
       {
-        title: "Roma’da yemek kültürü",
+        title: "Roma'da yemek kültürü",
         text:
-          "İtalyan mutfağının farklı örneklerini şehir genelinde deneyebilirsin. Yerel restoranları araştırmak seyahate farklı bir deneyim katabilir.",
+          "İtalyan mutfağının farklı örneklerini şehir genelinde deneyebilirsiniz. Yerel restoranları araştırmak seyahate farklı bir deneyim katabilir.",
       },
     ],
   },
@@ -85,90 +89,86 @@ const posts = {
   "balkanlar-seyahat-rehberi": {
     title: "Balkanlar Seyahat Rehberi",
     category: "Balkanlar",
-    read: "6 dk",
+    read: "7 dk",
     image:
-      "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1600&q=85",
+      "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=1400&q=80",
     intro:
-      "Balkanlar; birbirine yakın şehirleri, farklı kültürleri ve doğal güzellikleriyle keşif odaklı seyahatler için ilgi çekici rotalar sunar.",
+      "Balkan şehirlerini keşfetmek isteyenler için rota önerileri ve seyahat planlama ipuçları.",
     sections: [
       {
-        title: "Balkan seyahati nasıl planlanır?",
+        title: "Balkan rotaları",
         text:
-          "Seyahat süresine göre tek bir ülkeye odaklanabilir veya birbirine yakın şehirleri aynı rota içerisinde değerlendirebilirsin.",
+          "Saraybosna, Belgrad, Üsküp, Priştine ve Sofya gibi şehirler farklı kültürleri ve tarihi bölgeleri keşfetmek isteyen seyahatseverler için çeşitli seçenekler sunar.",
       },
       {
-        title: "Şehirleri birlikte değerlendirmek",
+        title: "Birden fazla şehir",
         text:
-          "Balkan rotalarında şehirler arası ulaşım seçeneklerini önceden araştırmak, seyahat süresini daha verimli kullanmana yardımcı olabilir.",
+          "Balkan seyahatlerinde birden fazla ülkeyi aynı gezi içerisinde görmek mümkündür. Rota oluştururken şehirler arasındaki ulaşım sürelerini kontrol etmek önemlidir.",
       },
       {
-        title: "Seyahat öncesi kontrol",
+        title: "Bütçe planlaması",
         text:
-          "Pasaport, ulaşım, konaklama ve giriş koşullarını seyahat tarihinden önce kontrol etmek önemlidir.",
+          "Uçuş, konaklama, şehir içi ulaşım ve yeme-içme giderlerini birlikte değerlendirerek seyahat bütçenizi daha kolay oluşturabilirsiniz.",
       },
     ],
   },
 
   "sehir-kacamaklari": {
-    title: "2–4 Günlük Şehir Kaçamakları",
-    category: "Şehir Kaçamağı",
+    title: "Kısa Şehir Kaçamakları İçin Öneriler",
+    category: "Şehir Kaçamakları",
     read: "5 dk",
     image:
-      "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=1600&q=85",
+      "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=1400&q=80",
     intro:
-      "Uzun tatil için zaman bulamayanlar için birkaç günlük şehir gezileri, yeni bir destinasyonu kısa sürede keşfetmenin güzel yollarından biridir.",
+      "Hafta sonu veya birkaç günlük kısa tatiller için şehir seçimi ve planlama önerileri.",
     sections: [
       {
         title: "Kısa seyahat nasıl planlanır?",
         text:
-          "2–4 günlük bir seyahatte şehir merkezine yakın bölgeleri tercih etmek ve görülmek istenen noktaları önceden belirlemek zaman kazandırabilir.",
+          "Kısa şehir gezilerinde havalimanından merkeze ulaşım süresi ve şehirde görmek istediğiniz yerlerin birbirine uzaklığı önemlidir.",
       },
       {
-        title: "Günlük rota oluştur",
+        title: "Doğru uçuşu seçin",
         text:
-          "Birbirine yakın müze, meydan, restoran ve tarihi noktaları aynı gün içerisinde planlamak gereksiz ulaşım süresini azaltabilir.",
+          "Gidiş ve dönüş saatlerini birlikte değerlendirerek şehirde geçireceğiniz zamanı artırabilirsiniz.",
       },
       {
-        title: "Uçuş saatlerini karşılaştır",
+        title: "Önceden plan yapmak",
         text:
-          "Kısa seyahatlerde uçuş saatleri özellikle önemlidir. Varış ve dönüş saatlerinin şehirde geçireceğin zamanı nasıl etkilediğini değerlendir.",
+          "Konaklama, ulaşım ve önemli ziyaret noktalarını önceden belirlemek kısa tatillerde zaman kazanmanıza yardımcı olur.",
       },
     ],
   },
 
   "ucak-bileti-alirken-dikkat-edilecekler": {
-    title: "Uçak Bileti Alırken Nelere Dikkat Edilmeli?",
-    category: "İpuçları",
+    title: "Uçak Bileti Alırken Dikkat Edilecekler",
+    category: "Seyahat İpuçları",
     read: "4 dk",
     image:
-      "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1600&q=85",
+      "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1400&q=80",
     intro:
-      "Uçak bileti karşılaştırırken yalnızca görünen fiyatı değil, biletin sunduğu koşulları ve toplam seyahat deneyimini değerlendirmek önemlidir.",
+      "Uçak bileti ararken fiyatları karşılaştırmak ve seyahat planınızı daha doğru yapmak için önemli noktalar.",
     sections: [
       {
-        title: "Bagaj hakkını kontrol et",
+        title: "Tarihleri karşılaştırın",
         text:
-          "Bilet türüne göre kabin veya uçak altı bagaj hakkı değişebilir. Satın alma öncesinde havayolunun güncel bagaj koşullarını kontrol etmek faydalıdır.",
+          "Seyahat tarihleriniz esnekse farklı günleri karşılaştırmak daha fazla uçuş seçeneği görmenizi sağlayabilir.",
       },
       {
-        title: "Aktarma süresine bak",
+        title: "Bagaj kurallarını kontrol edin",
         text:
-          "Daha ucuz görünen bir uçuşun çok uzun aktarma süresi olabilir. Toplam seyahat süresini birlikte değerlendirmek gerekir.",
+          "Bilet fiyatlarını karşılaştırırken kabin ve kayıtlı bagaj kurallarını da kontrol etmek toplam maliyeti anlamanıza yardımcı olur.",
       },
       {
-        title: "Havalimanını kontrol et",
+        title: "Aktarmaları değerlendirin",
         text:
-          "Bazı şehirlerde birden fazla havalimanı bulunabilir. Bilet seçerken havalimanının şehir merkezine uzaklığını da hesaba kat.",
+          "Direkt uçuş ile aktarmalı uçuş arasında yalnızca fiyatı değil, toplam seyahat süresini de karşılaştırmak önemlidir.",
       },
     ],
   },
 };
 
-export function generateStaticParams() {
-  return Object.keys(posts).map((slug) => ({
-    slug,
-  }));
-}
+type Post = (typeof posts)[keyof typeof posts];
 
 export default async function BlogDetailPage({
   params,
@@ -177,250 +177,141 @@ export default async function BlogDetailPage({
 }) {
   const { slug } = await params;
 
-  const post = posts[slug as keyof typeof posts];
+  const post = posts[slug as keyof typeof posts] as Post | undefined;
 
   if (!post) {
-    return (
-      <main className="min-h-screen bg-white text-slate-900">
-        <div className="mx-auto max-w-3xl px-5 py-24 text-center">
-          <div className="text-5xl">🌍</div>
-
-          <h1 className="mt-5 text-3xl font-black">
-            Yazı bulunamadı
-          </h1>
-
-          <p className="mt-3 text-sm text-slate-500">
-            Aradığın seyahat yazısı bulunamadı.
-          </p>
-
-          <Link
-            href="/blog"
-            className="mt-6 inline-flex rounded-xl bg-blue-600 px-5 py-3 text-xs font-bold text-white"
-          >
-            Blog'a dön →
-          </Link>
-        </div>
-      </main>
-    );
+    notFound();
   }
 
   return (
-    <main className="min-h-screen overflow-x-hidden bg-white text-slate-900">
-
-      {/* HEADER */}
-      <header className="sticky top-0 z-30 border-b border-slate-200 bg-white/95 backdrop-blur-xl">
-        <div className="mx-auto flex h-14 max-w-7xl items-center justify-between px-5">
-
+    <main className="min-h-screen bg-white text-slate-900">
+      <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
+        <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4">
           <Link href="/" className="flex items-center">
             <img
               src="/logo.jpg"
               alt="UçGit"
-              className="h-9 w-auto rounded-lg"
+              className="h-9 w-auto object-contain"
             />
           </Link>
 
           <nav className="hidden items-center gap-5 md:flex">
-
-            <Link
-              href="/"
-              className="text-[11px] font-semibold text-slate-700 hover:text-blue-600"
-            >
+            <Link href="/" className="text-xs font-medium text-slate-600">
               ✈️ Uçuşlar
             </Link>
 
-            <Link
-              href="/hotels"
-              className="text-[11px] font-semibold text-slate-700 hover:text-blue-600"
-            >
+            <Link href="/hotels" className="text-xs font-medium text-slate-600">
               🏨 Otel
             </Link>
 
-            <Link
-              href="/cars"
-              className="text-[11px] font-semibold text-slate-700 hover:text-blue-600"
-            >
+            <Link href="/cars" className="text-xs font-medium text-slate-600">
               🚗 Araç Kiralama
             </Link>
 
             <Link
               href="/discover"
-              className="text-[11px] font-semibold text-slate-700 hover:text-blue-600"
+              className="text-xs font-medium text-slate-600"
             >
               🌍 Keşfet
             </Link>
 
-            <Link
-              href="/blog"
-              className="text-[11px] font-bold text-blue-600"
-            >
-              📝 Blog
+            <Link href="/blog" className="text-xs font-semibold text-blue-600">
+              Blog
             </Link>
-
           </nav>
 
           <Link
             href="/login"
-            className="flex h-7 w-7 items-center justify-center rounded-full bg-slate-100 text-[10px]"
+            className="rounded-full border border-slate-200 px-3 py-1.5 text-xs font-medium"
           >
-            ♟
+            Giriş
           </Link>
-
         </div>
       </header>
 
-      {/* FOTOĞRAF */}
-      <section className="relative">
-        <div className="relative h-[280px] overflow-hidden md:h-[360px]">
-
-          <img
-            src={post.image}
-            alt={post.title}
-            className="h-full w-full object-cover"
-          />
-
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10" />
-
-          <div className="absolute bottom-0 left-0 right-0">
-            <div className="mx-auto max-w-4xl px-5 pb-9">
-
-              <span className="rounded-full bg-white/95 px-3 py-1.5 text-[10px] font-bold text-blue-600">
-                {post.category}
-              </span>
-
-              <h1 className="mt-3 max-w-3xl text-3xl font-black leading-tight text-white md:text-5xl">
-                {post.title}
-              </h1>
-
-              <div className="mt-3 flex gap-3 text-[10px] text-white/80">
-                <span>UçGit Blog</span>
-                <span>•</span>
-                <span>{post.read} okuma</span>
-              </div>
-
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      {/* YAZI */}
-      <article className="mx-auto max-w-3xl px-5 py-10">
-
-        <p className="text-base font-semibold leading-7 text-slate-700">
-          {post.intro}
-        </p>
-
-        <div className="mt-8 space-y-8">
-
-          {post.sections.map((section) => (
-            <section key={section.title}>
-
-              <h2 className="text-xl font-black">
-                {section.title}
-              </h2>
-
-              <p className="mt-3 text-sm leading-7 text-slate-600">
-                {section.text}
-              </p>
-
-            </section>
-          ))}
-
-        </div>
-
-        {/* UÇUŞ BUTONU */}
-        <div className="mt-10 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 p-6 text-center text-white">
-
-          <div className="text-2xl">
-            ✈️
-          </div>
-
-          <h2 className="mt-2 text-xl font-black">
-            Bu rotayı keşfetmeye hazır mısın?
-          </h2>
-
-          <p className="mt-2 text-xs leading-5 text-white/80">
-            Gideceğin şehir için uçuş seçeneklerini UçGit üzerinden
-            karşılaştır.
-          </p>
-
-          <Link
-            href="/"
-            className="mt-4 inline-flex rounded-lg bg-white px-5 py-2.5 text-[10px] font-bold text-blue-600"
-          >
-            Uçuş ara →
-          </Link>
-
-        </div>
-
-        {/* GERİ BUTONLARI */}
-        <div className="mt-8 flex justify-between gap-3">
-
+      <section className="bg-gradient-to-br from-blue-50 via-white to-purple-50 px-4 py-8">
+        <div className="mx-auto max-w-5xl">
           <Link
             href="/blog"
-            className="rounded-lg border border-slate-200 px-4 py-2.5 text-[10px] font-bold text-slate-700 hover:border-blue-300 hover:text-blue-600"
+            className="text-xs font-semibold text-blue-600"
           >
             ← Blog'a dön
           </Link>
 
-          <Link
-            href="/discover"
-            className="rounded-lg bg-slate-900 px-4 py-2.5 text-[10px] font-bold text-white"
-          >
-            Keşfet'e dön →
-          </Link>
-
+          <div className="mt-5 overflow-hidden rounded-2xl border border-slate-200">
+            <img
+              src={post.image}
+              alt={post.title}
+              className="h-56 w-full object-cover md:h-72"
+            />
+          </div>
         </div>
+      </section>
 
+      <article className="px-4 py-10">
+        <div className="mx-auto max-w-3xl">
+          <span className="rounded-full bg-blue-50 px-3 py-1 text-[10px] font-semibold text-blue-600">
+            {post.category}
+          </span>
+
+          <h1 className="mt-4 text-3xl font-bold leading-tight md:text-4xl">
+            {post.title}
+          </h1>
+
+          <div className="mt-2 text-[11px] text-slate-400">
+            UçGit Blog • {post.read} okuma
+          </div>
+
+          <p className="mt-6 text-sm leading-7 text-slate-600">
+            {post.intro}
+          </p>
+
+          <div className="mt-8 space-y-7">
+            {post.sections.map((section) => (
+              <section key={section.title}>
+                <h2 className="text-xl font-bold">
+                  {section.title}
+                </h2>
+
+                <p className="mt-2 text-sm leading-7 text-slate-600">
+                  {section.text}
+                </p>
+              </section>
+            ))}
+          </div>
+
+          <div className="mt-10 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 p-6 text-center text-white">
+            <h2 className="text-lg font-bold">
+              Uçuşunuzu şimdi arayın
+            </h2>
+
+            <p className="mt-2 text-xs text-blue-50">
+              Seyahatiniz için farklı uçuş seçeneklerini karşılaştırın.
+            </p>
+
+            <Link
+              href="/"
+              className="mt-4 inline-flex rounded-xl bg-white px-5 py-2.5 text-xs font-bold text-blue-600"
+            >
+              Uçuş Ara →
+            </Link>
+          </div>
+        </div>
       </article>
 
-      {/* FOOTER */}
-      <footer className="border-t border-slate-200 bg-white py-6">
-
-        <div className="mx-auto max-w-7xl px-5 text-center">
-
+      <footer className="border-t border-slate-200 bg-slate-50 px-4 py-7">
+        <div className="mx-auto flex max-w-6xl items-center justify-between">
           <img
             src="/logo.jpg"
             alt="UçGit"
-            className="mx-auto h-8 w-auto rounded-lg"
+            className="h-8 w-auto object-contain"
           />
 
-          <p className="mt-2 text-[10px] text-slate-500">
-            © 2026 UçGit. Tüm hakları saklıdır.
-          </p>
-
-          <div className="mt-3 flex flex-wrap justify-center gap-3 text-[10px] text-slate-500">
-
-            <Link href="/about" className="hover:text-blue-600">
-              Hakkımızda
-            </Link>
-
-            <Link href="/discover" className="hover:text-blue-600">
-              Keşfet
-            </Link>
-
-            <Link href="/contact" className="hover:text-blue-600">
-              İletişim
-            </Link>
-
-            <Link href="/faq" className="hover:text-blue-600">
-              SSS
-            </Link>
-
-            <Link href="/privacy-policy" className="hover:text-blue-600">
-              Gizlilik
-            </Link>
-
-            <Link href="/terms" className="hover:text-blue-600">
-              Kullanım Şartları
-            </Link>
-
-          </div>
-
+          <span className="text-[11px] text-slate-400">
+            © 2026 UçGit
+          </span>
         </div>
-
       </footer>
-
     </main>
   );
 }
