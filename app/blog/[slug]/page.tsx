@@ -28,9 +28,9 @@ const posts = {
     ],
   },
 
-  "paris-gezi-rehberi-ilk-kez-gideceklere-oneriler": {
+  "paris-gezi-rehberi": {
     title: "Paris Gezi Rehberi: İlk Kez Gideceklere Öneriler",
-    category: "Gezi Rehberi",
+    category: "Şehir Rehberi",
     date: "20 Eylül 2026",
     image:
       "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1600&q=80",
@@ -55,9 +55,9 @@ const posts = {
     ],
   },
 
-  "roma-gezi-rehberi-tarih-ve-lezzet-rotasi": {
+  "roma-gezi-rehberi": {
     title: "Roma Gezi Rehberi: Tarih ve Lezzet Rotası",
-    category: "Gezi Rehberi",
+    category: "Şehir Rehberi",
     date: "19 Eylül 2026",
     image:
       "https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=1600&q=80",
@@ -109,9 +109,9 @@ const posts = {
     ],
   },
 
-  "kisa-sehir-kacamaklari-icin-oneriler": {
+  "sehir-kacamaklari": {
     title: "Kısa Şehir Kaçamakları İçin Öneriler",
-    category: "Seyahat İpuçları",
+    category: "Şehir Kaçamakları",
     date: "17 Eylül 2026",
     image:
       "https://images.unsplash.com/photo-1522083165195-3424ed129620?auto=format&fit=crop&w=1600&q=80",
@@ -138,7 +138,7 @@ const posts = {
 
   "ucak-bileti-alirken-dikkat-edilecekler": {
     title: "Uçak Bileti Alırken Dikkat Edilecekler",
-    category: "Uçuş Rehberi",
+    category: "Seyahat İpuçları",
     date: "16 Eylül 2026",
     image:
       "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1600&q=80",
@@ -189,6 +189,7 @@ export default async function BlogDetailPage({
       <main className="min-h-screen bg-white text-slate-900 flex items-center justify-center px-6">
         <div className="text-center">
           <h1 className="text-4xl font-bold mb-4">Yazı bulunamadı</h1>
+
           <p className="text-slate-500 mb-6">
             Aradığınız blog yazısı mevcut değil.
           </p>
@@ -206,9 +207,11 @@ export default async function BlogDetailPage({
 
   return (
     <main className="min-h-screen bg-white text-slate-900">
+
       {/* HEADER */}
       <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5">
+
           <Link href="/">
             <img
               src="/logo.jpg"
@@ -218,6 +221,7 @@ export default async function BlogDetailPage({
           </Link>
 
           <nav className="hidden items-center gap-6 md:flex">
+
             <Link
               href="/"
               className="text-xs font-medium text-slate-600 hover:text-blue-600"
@@ -252,10 +256,13 @@ export default async function BlogDetailPage({
             >
               📝 Blog
             </Link>
+
           </nav>
 
           <div className="flex items-center gap-3">
-            <span className="text-xs font-semibold text-slate-600">TR</span>
+            <span className="text-xs font-semibold text-slate-600">
+              TR
+            </span>
 
             <Link
               href="/login"
@@ -264,11 +271,13 @@ export default async function BlogDetailPage({
               Giriş
             </Link>
           </div>
+
         </div>
       </header>
 
-      {/* HERO IMAGE */}
+      {/* HERO */}
       <section className="relative">
+
         <img
           src={post.image}
           alt={post.title}
@@ -278,7 +287,9 @@ export default async function BlogDetailPage({
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
 
         <div className="absolute bottom-0 left-0 right-0">
+
           <div className="mx-auto max-w-4xl px-5 pb-10">
+
             <div className="mb-3 inline-flex rounded-full bg-blue-600 px-3 py-1 text-[11px] font-semibold text-white">
               {post.category}
             </div>
@@ -287,20 +298,26 @@ export default async function BlogDetailPage({
               {post.title}
             </h1>
 
-            <p className="mt-3 text-xs text-white/80">{post.date}</p>
+            <p className="mt-3 text-xs text-white/80">
+              {post.date}
+            </p>
+
           </div>
         </div>
       </section>
 
       {/* CONTENT */}
       <article className="mx-auto max-w-3xl px-5 py-12">
+
         <p className="mb-10 text-lg leading-8 text-slate-600">
           {post.intro}
         </p>
 
         <div className="space-y-10">
+
           {post.sections.map((section) => (
             <section key={section.title}>
+
               <h2 className="mb-3 text-2xl font-bold text-slate-900">
                 {section.title}
               </h2>
@@ -308,19 +325,22 @@ export default async function BlogDetailPage({
               <p className="text-[15px] leading-7 text-slate-600">
                 {section.text}
               </p>
+
             </section>
           ))}
+
         </div>
 
         {/* CTA */}
         <div className="mt-12 rounded-2xl border border-blue-100 bg-gradient-to-r from-blue-50 to-purple-50 p-6">
+
           <h2 className="text-xl font-bold text-slate-900">
             Uçuşunuzu şimdi arayın
           </h2>
 
           <p className="mt-2 text-sm leading-6 text-slate-600">
-            UçGit ile farklı uçuş seçeneklerini karşılaştırarak seyahatiniz
-            için uygun uçuşu keşfedin.
+            UçGit ile farklı uçuş seçeneklerini karşılaştırarak
+            seyahatiniz için uygun uçuşu keşfedin.
           </p>
 
           <Link
@@ -329,22 +349,28 @@ export default async function BlogDetailPage({
           >
             ✈ Uçuş Ara
           </Link>
+
         </div>
 
         {/* BACK */}
         <div className="mt-8">
+
           <Link
             href="/blog"
             className="text-sm font-semibold text-blue-600 hover:text-blue-700"
           >
             ← Tüm Blog Yazılarına Dön
           </Link>
+
         </div>
+
       </article>
 
       {/* FOOTER */}
       <footer className="border-t border-slate-200 bg-slate-50 py-6">
+
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-5 md:flex-row">
+
           <img
             src="/logo.jpg"
             alt="UçGit"
@@ -356,20 +382,34 @@ export default async function BlogDetailPage({
           </p>
 
           <div className="flex gap-4 text-[11px] text-slate-500">
-            <Link href="/privacy" className="hover:text-blue-600">
+
+            <Link
+              href="/privacy"
+              className="hover:text-blue-600"
+            >
               Gizlilik
             </Link>
 
-            <Link href="/terms" className="hover:text-blue-600">
+            <Link
+              href="/terms"
+              className="hover:text-blue-600"
+            >
               Kullanım Şartları
             </Link>
 
-            <Link href="/contact" className="hover:text-blue-600">
+            <Link
+              href="/contact"
+              className="hover:text-blue-600"
+            >
               İletişim
             </Link>
+
           </div>
+
         </div>
+
       </footer>
+
     </main>
   );
 }
