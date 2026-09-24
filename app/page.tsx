@@ -32,23 +32,23 @@ export default function HomePage() {
 
       free: "Ücretsiz karşılaştırma",
       secure: "Güvenli ödeme",
-      support247: "7/24 destek",
+      support247: "Seyahat Desteği",
 
       bestPrices: "En Uygun Fiyatlar",
       bestPricesText:
         "Yüzlerce siteyi karşılaştır, en iyi fiyatı bul.",
 
-      secureShopping: "Güvenli Alışveriş",
+      secureShopping: "Güvenilir Sağlayıcılar",
       secureShoppingText:
-        "SSL sertifikalı altyapımız ile güvenli ödeme.",
+        "Güvenilir seyahat sağlayıcılarının seçeneklerini karşılaştırın.",
 
       fastEasy: "Hızlı ve Kolay",
       fastEasyText:
         "Saniyeler içinde yüzlerce seçeneği karşılaştır.",
 
-      supportTitle: "7/24 Destek",
+      supportTitle: "Seyahat Desteği",
       supportText:
-        "Her zaman yanınızdayız, desteğimiz 7/24 sizinle.",
+        "UçGit kullanımıyla ilgili sorularınız için bizimle iletişime geçin.",
 
       company: "Şirket",
       about: "Hakkımızda",
