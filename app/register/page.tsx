@@ -1,4 +1,73 @@
+"use client";
+
+import { FormEvent, useState } from "react";
+import { createClient } from "../utils/supabase/client";
+
 export default function RegisterPage() {
+  const supabase = createClient();
+
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState("");
+  const [error, setError] = useState("");
+
+  async function handleRegister(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+
+    setError("");
+    setMessage("");
+
+    if (!fullName.trim()) {
+      setError("Lütfen ad soyadınızı girin.");
+      return;
+    }
+
+    if (!email.trim()) {
+      setError("Lütfen e-posta adresinizi girin.");
+      return;
+    }
+
+    if (password.length < 6) {
+      setError("Şifreniz en az 6 karakter olmalıdır.");
+      return;
+    }
+
+    setLoading(true);
+
+    const { error } = await supabase.auth.signUp({
+      email: email.trim(),
+      password,
+      options: {
+        data: {
+          full_name: fullName.trim(),
+        },
+      },
+    });
+
+    setLoading(false);
+
+    if (error) {
+      if (error.message.toLowerCase().includes("already registered")) {
+        setError("Bu e-posta adresi zaten kayıtlı.");
+      } else {
+        setError(error.message);
+      }
+
+      return;
+    }
+
+    setMessage(
+      "Kayıt başarılı! E-posta adresinize doğrulama bağlantısı gönderildi. E-postanızı doğruladıktan sonra giriş yapabilirsiniz."
+    );
+
+    setFullName("");
+    setEmail("");
+    setPassword("");
+  }
+
   return (
     <main className="min-h-screen overflow-x-hidden bg-white text-slate-900">
 
@@ -11,10 +80,8 @@ export default function RegisterPage() {
 
       {/* HEADER */}
       <header className="absolute left-0 right-0 top-0 z-20">
-
         <div className="mx-auto flex max-w-7xl items-center px-5 py-4">
 
-          {/* LOGO */}
           <a href="/" className="flex items-center">
             <img
               src="/logo.jpg"
@@ -24,7 +91,6 @@ export default function RegisterPage() {
           </a>
 
         </div>
-
       </header>
 
       {/* REGISTER */}
@@ -52,59 +118,77 @@ export default function RegisterPage() {
           {/* FORM CARD */}
           <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-lg">
 
-            <form className="space-y-3.5">
+            <form onSubmit={handleRegister} className="space-y-3.5">
 
               {/* AD SOYAD */}
               <div>
-
                 <label className="mb-1.5 block text-[11px] font-semibold text-slate-600">
                   Ad Soyad
                 </label>
 
                 <input
                   type="text"
+                  value={fullName}
+                  onChange={(e) => setFullName(e.target.value)}
                   placeholder="Ad Soyad"
+                  autoComplete="name"
                   className="w-full rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2.5 text-xs text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-blue-400 focus:bg-white"
                 />
-
               </div>
 
               {/* EMAIL */}
               <div>
-
                 <label className="mb-1.5 block text-[11px] font-semibold text-slate-600">
                   E-posta
                 </label>
 
                 <input
                   type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   placeholder="E-posta adresiniz"
+                  autoComplete="email"
                   className="w-full rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2.5 text-xs text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-blue-400 focus:bg-white"
                 />
-
               </div>
 
               {/* ŞİFRE */}
               <div>
-
                 <label className="mb-1.5 block text-[11px] font-semibold text-slate-600">
                   Şifre
                 </label>
 
                 <input
                   type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                   placeholder="Şifreniz"
+                  autoComplete="new-password"
                   className="w-full rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2.5 text-xs text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-blue-400 focus:bg-white"
                 />
-
               </div>
+
+              {/* ERROR */}
+              {error && (
+                <div className="rounded-xl border border-red-200 bg-red-50 px-3 py-2.5 text-xs text-red-600">
+                  {error}
+                </div>
+              )}
+
+              {/* SUCCESS */}
+              {message && (
+                <div className="rounded-xl border border-green-200 bg-green-50 px-3 py-2.5 text-xs leading-5 text-green-700">
+                  {message}
+                </div>
+              )}
 
               {/* BUTTON */}
               <button
                 type="submit"
-                className="w-full rounded-xl bg-[#020817] py-2.5 text-xs font-bold text-white transition hover:bg-blue-600"
+                disabled={loading}
+                className="w-full rounded-xl bg-[#020817] py-2.5 text-xs font-bold text-white transition hover:bg-blue-600 disabled:cursor-not-allowed disabled:opacity-60"
               >
-                Hesap Oluştur →
+                {loading ? "Hesap oluşturuluyor..." : "Hesap Oluştur →"}
               </button>
 
             </form>
