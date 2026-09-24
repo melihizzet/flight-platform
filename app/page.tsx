@@ -17,8 +17,6 @@ export default function HomePage() {
   const text = {
     tr: {
       flights: "Uçuşlar",
-      hotel: "Otel",
-      cars: "Araç Kiralama",
       discover: "Keşfet",
       support: "Destek",
 
@@ -52,7 +50,6 @@ export default function HomePage() {
 
       company: "Şirket",
       about: "Hakkımızda",
-      career: "Kariyer",
       contact: "İletişim",
 
       supportMenu: "Destek",
@@ -75,8 +72,6 @@ export default function HomePage() {
 
     en: {
       flights: "Flights",
-      hotel: "Hotels",
-      cars: "Car Rental",
       discover: "Discover",
       support: "Support",
 
@@ -110,7 +105,6 @@ export default function HomePage() {
 
       company: "Company",
       about: "About Us",
-      career: "Careers",
       contact: "Contact",
 
       supportMenu: "Support",
@@ -284,78 +278,6 @@ export default function HomePage() {
 
 
         /* ----------------------------------------------------- */
-        /* OTEL                                                  */
-        /* ----------------------------------------------------- */
-
-        @keyframes hotelFly {
-          0% {
-            transform: translateY(0px) rotate(0deg);
-          }
-
-          35% {
-            transform: translateY(-2px) rotate(-1deg);
-          }
-
-          65% {
-            transform: translateY(-5px) rotate(1deg);
-          }
-
-          100% {
-            transform: translateY(0px) rotate(0deg);
-          }
-        }
-
-
-        /* ----------------------------------------------------- */
-        /* ARABA                                                 */
-        /* ----------------------------------------------------- */
-
-        @keyframes carDrive {
-          0% {
-            transform: translateX(0px);
-          }
-
-          20% {
-            transform: translateX(3px) translateY(-1px);
-          }
-
-          40% {
-            transform: translateX(7px);
-          }
-
-          60% {
-            transform: translateX(11px) translateY(-1px);
-          }
-
-          80% {
-            transform: translateX(5px);
-          }
-
-          100% {
-            transform: translateX(0px);
-          }
-        }
-
-
-        .animate-plane-fly {
-          display: inline-block;
-          animation: planeFly 2.2s ease-in-out infinite;
-        }
-
-
-        .animate-hotel-fly {
-          display: inline-block;
-          animation: hotelFly 2.5s ease-in-out infinite;
-        }
-
-
-        .animate-car-drive {
-          display: inline-block;
-          animation: carDrive 1.5s ease-in-out infinite;
-        }
-
-
-        /* ----------------------------------------------------- */
         /* BİLET SEÇ BUTONU                                      */
         /* ----------------------------------------------------- */
 
@@ -437,31 +359,13 @@ export default function HomePage() {
             </a>
 
 
-            {/* OTEL */}
+            {/* BLOG */}
             <a
-              href="/hotels"
+              href="/blog"
               className="text-sm font-medium text-slate-700 transition hover:text-blue-600"
             >
-              <span className="mr-1 inline-block animate-hotel-fly">
-                🏨
-              </span>
-
-              {text.hotel}
+              📝 {text.blog}
             </a>
-
-
-            {/* ARAÇ */}
-            <a
-              href="/cars"
-              className="text-sm font-medium text-slate-700 transition hover:text-blue-600"
-            >
-              <span className="mr-1 inline-block animate-car-drive">
-                🚗
-              </span>
-
-              {text.cars}
-            </a>
-
 
             {/* KEŞFET */}
             <a
@@ -740,13 +644,6 @@ export default function HomePage() {
                 className="block transition hover:text-blue-600"
               >
                 {text.about}
-              </a>
-
-              <a
-                href="/career"
-                className="block transition hover:text-blue-600"
-              >
-                {text.career}
               </a>
 
               <a
