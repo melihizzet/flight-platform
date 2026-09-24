@@ -60,75 +60,125 @@ const posts = [
 export default function BlogPage() {
   return (
     <main className="min-h-screen bg-white text-slate-900">
+      <style>{`
+        @keyframes planeFly {
+          0% {
+            transform: translate3d(-2px, 2px, 0) rotate(-5deg);
+          }
+
+          25% {
+            transform: translate3d(2px, -2px, 0) rotate(-2deg);
+          }
+
+          50% {
+            transform: translate3d(5px, -5px, 0) rotate(2deg);
+          }
+
+          75% {
+            transform: translate3d(2px, -2px, 0) rotate(-1deg);
+          }
+
+          100% {
+            transform: translate3d(-2px, 2px, 0) rotate(-5deg);
+          }
+        }
+
+        .animate-plane-fly {
+          display: inline-block;
+          animation: planeFly 2.8s ease-in-out infinite;
+          transform-origin: center;
+          will-change: transform;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .animate-plane-fly {
+            animation: none;
+          }
+        }
+      `}</style>
+
       {/* HEADER */}
       <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
-        <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4">
-          <Link href="/" className="flex items-center">
+        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
+          {/* LOGO */}
+          <Link href="/" className="flex items-center shrink-0">
             <img
               src="/logo.jpg"
               alt="UçGit"
-              className="h-9 w-auto object-contain"
+              className="h-10 w-auto object-contain"
             />
           </Link>
 
-          <nav className="hidden items-center gap-5 md:flex">
+          {/* MENU */}
+          <nav className="hidden items-center gap-8 md:flex">
             <Link
               href="/"
-              className="text-xs font-medium text-slate-600 hover:text-blue-600"
+              className="text-sm font-medium text-slate-600 transition hover:text-blue-600"
             >
-              ✈️ Uçuşlar
-            </Link>
-
-            <Link
-              href="/hotels"
-              className="text-xs font-medium text-slate-600 hover:text-blue-600"
-            >
-              🏨 Otel
-            </Link>
-
-            <Link
-              href="/cars"
-              className="text-xs font-medium text-slate-600 hover:text-blue-600"
-            >
-              🚗 Araç Kiralama
+              <span className="mr-1 inline-block animate-plane-fly">
+                ✈️
+              </span>
+              Uçuşlar
             </Link>
 
             <Link
               href="/discover"
-              className="text-xs font-medium text-slate-600 hover:text-blue-600"
+              className="text-sm font-medium text-slate-600 transition hover:text-blue-600"
             >
               🌍 Keşfet
             </Link>
 
             <Link
               href="/blog"
-              className="text-xs font-semibold text-blue-600"
+              className="text-sm font-semibold text-blue-600"
             >
-              Blog
+              📝 Blog
+            </Link>
+
+            <Link
+              href="/contact"
+              className="text-sm font-medium text-slate-600 transition hover:text-blue-600"
+            >
+              ♧ Destek
             </Link>
           </nav>
 
-          <Link
-            href="/login"
-            className="rounded-full border border-slate-200 px-3 py-1.5 text-xs font-medium text-slate-700 hover:border-blue-300 hover:text-blue-600"
-          >
-            Giriş
-          </Link>
+          {/* RIGHT */}
+          <div className="flex items-center gap-3">
+            <button
+              type="button"
+              className="hidden rounded-full border border-slate-200 px-3 py-1.5 text-xs font-medium text-slate-600 transition hover:border-blue-300 hover:text-blue-600 sm:block"
+            >
+              TR ▾
+            </button>
+
+            <Link
+              href="/login"
+              className="rounded-full border border-slate-200 px-4 py-2 text-xs font-semibold text-slate-700 transition hover:border-blue-300 hover:text-blue-600"
+            >
+              Giriş
+            </Link>
+          </div>
         </div>
       </header>
 
       {/* HERO */}
-      <section className="bg-gradient-to-br from-blue-50 via-white to-purple-50 px-4 py-14">
-        <div className="mx-auto max-w-6xl text-center">
-          <span className="text-xs font-semibold uppercase tracking-wider text-blue-600">
-            UçGit Blog
-          </span>
+      <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-purple-50 px-6 py-20">
+        {/* BACKGROUND BLUR */}
+        <div className="pointer-events-none absolute -left-24 top-10 h-64 w-64 rounded-full bg-blue-400/10 blur-3xl" />
+        <div className="pointer-events-none absolute -right-24 bottom-0 h-72 w-72 rounded-full bg-purple-400/10 blur-3xl" />
 
-          <h1 className="mt-3 text-3xl font-bold tracking-tight md:text-4xl">
+        <div className="relative mx-auto max-w-7xl text-center">
+          <div className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-white/80 px-4 py-2 text-xs font-semibold text-blue-600 shadow-sm">
+            <span className="animate-plane-fly">✈️</span>
+            UçGit Blog
+          </div>
+
+          <h1 className="mt-6 text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
             Seyahat için ilham ve rehberler
           </h1>
 
-          <p className="mx-auto mt-4 max-w-2xl text-sm leading-6 text-slate-500">
+          <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-slate-500 md:text-base">
             Uçuşlar, şehirler, seyahat rotaları ve uçak bileti hakkında
             faydalı içerikler.
           </p>
@@ -136,42 +186,61 @@ export default function BlogPage() {
       </section>
 
       {/* POSTS */}
-      <section className="px-4 py-12">
-        <div className="mx-auto max-w-6xl">
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <section className="px-6 py-16">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-8">
+            <h2 className="text-2xl font-bold tracking-tight text-slate-900">
+              Son Yazılar
+            </h2>
+
+            <p className="mt-2 text-sm text-slate-500">
+              Seyahat planını kolaylaştıracak rehberleri keşfet.
+            </p>
+          </div>
+
+          <div className="grid gap-7 md:grid-cols-2 lg:grid-cols-3">
             {posts.map((post) => (
               <article
                 key={post.slug}
-                className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md"
+                className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl"
               >
-                <Link href={`/blog/${post.slug}`}>
-                  <img
-                    src={post.image}
-                    alt={post.title}
-                    className="h-48 w-full object-cover"
-                  />
+                <Link href={`/blog/${post.slug}`} className="block">
+                  {/* IMAGE */}
+                  <div className="relative overflow-hidden">
+                    <img
+                      src={post.image}
+                      alt={post.title}
+                      className="h-52 w-full object-cover transition duration-500 group-hover:scale-105"
+                    />
 
-                  <div className="p-5">
-                    <div className="flex items-center justify-between gap-2">
-                      <span className="rounded-full bg-blue-50 px-3 py-1 text-[10px] font-semibold text-blue-600">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 transition group-hover:opacity-100" />
+                  </div>
+
+                  {/* CONTENT */}
+                  <div className="p-6">
+                    <div className="flex items-center justify-between gap-3">
+                      <span className="rounded-full bg-blue-50 px-3 py-1.5 text-[11px] font-semibold text-blue-600">
                         {post.category}
                       </span>
 
-                      <span className="text-[11px] text-slate-400">
+                      <span className="text-xs text-slate-400">
                         {post.read}
                       </span>
                     </div>
 
-                    <h2 className="mt-4 text-lg font-bold leading-snug text-slate-900">
+                    <h2 className="mt-5 text-lg font-bold leading-snug text-slate-900 transition group-hover:text-blue-600">
                       {post.title}
                     </h2>
 
-                    <p className="mt-2 text-sm leading-6 text-slate-500">
+                    <p className="mt-3 text-sm leading-6 text-slate-500">
                       {post.text}
                     </p>
 
-                    <div className="mt-4 text-xs font-bold text-blue-600">
-                      Yazıyı Oku →
+                    <div className="mt-5 flex items-center text-sm font-semibold text-blue-600">
+                      Yazıyı Oku
+                      <span className="ml-2 transition-transform duration-300 group-hover:translate-x-1">
+                        →
+                      </span>
                     </div>
                   </div>
                 </Link>
@@ -182,33 +251,53 @@ export default function BlogPage() {
       </section>
 
       {/* FOOTER */}
-      <footer className="border-t border-slate-200 bg-slate-50 px-4 py-7">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 md:flex-row">
+      <footer className="border-t border-slate-200 bg-slate-50 px-6 py-8">
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-5 md:flex-row">
           <div className="flex items-center gap-3">
             <img
               src="/logo.jpg"
               alt="UçGit"
-              className="h-8 w-auto object-contain"
+              className="h-9 w-auto object-contain"
             />
-            <span className="text-[11px] text-slate-400">
+
+            <span className="text-xs text-slate-400">
               © 2026 UçGit
             </span>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-4 text-[11px] text-slate-500">
-            <Link href="/about" className="hover:text-blue-600">
+          <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-xs text-slate-500">
+            <Link
+              href="/about"
+              className="transition hover:text-blue-600"
+            >
               Hakkımızda
             </Link>
-            <Link href="/contact" className="hover:text-blue-600">
+
+            <Link
+              href="/contact"
+              className="transition hover:text-blue-600"
+            >
               İletişim
             </Link>
-            <Link href="/faq" className="hover:text-blue-600">
+
+            <Link
+              href="/faq"
+              className="transition hover:text-blue-600"
+            >
               SSS
             </Link>
-            <Link href="/privacy" className="hover:text-blue-600">
+
+            <Link
+              href="/privacy-policy"
+              className="transition hover:text-blue-600"
+            >
               Gizlilik
             </Link>
-            <Link href="/terms" className="hover:text-blue-600">
+
+            <Link
+              href="/terms"
+              className="transition hover:text-blue-600"
+            >
               Kullanım Şartları
             </Link>
           </div>
