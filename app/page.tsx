@@ -31,7 +31,7 @@ export default function HomePage() {
         "Yüzlerce havayolu ve seyahat sitesini anında karşılaştır, en uygun uçak bileti fiyatını bul.",
 
       free: "Ücretsiz karşılaştırma",
-      secure: "Güvenli ödeme",
+      secure: "Güvenilir Sağlayıcılar",
       support247: "Seyahat Desteği",
 
       bestPrices: "En Uygun Fiyatlar",
