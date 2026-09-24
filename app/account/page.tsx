@@ -46,7 +46,7 @@ export default function AccountPage() {
     user?.user_metadata?.full_name || "UçGit Kullanıcısı";
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 text-slate-900">
+    <main className="min-h-screen overflow-x-hidden bg-gradient-to-br from-blue-50 via-white to-purple-50 text-slate-900">
 
       {/* HEADER */}
       <header className="border-b border-slate-200 bg-white/95 backdrop-blur-xl">
@@ -73,13 +73,14 @@ export default function AccountPage() {
       {/* ACCOUNT */}
       <section className="mx-auto max-w-3xl px-5 py-16">
 
+        {/* TITLE */}
         <div className="mb-8 text-center">
 
           <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-blue-100 text-2xl">
             👤
           </div>
 
-          <h1 className="text-3xl font-black">
+          <h1 className="text-3xl font-black text-slate-900">
             Hesabım
           </h1>
 
@@ -92,7 +93,7 @@ export default function AccountPage() {
         {/* PROFILE CARD */}
         <div className="rounded-3xl border border-slate-200 bg-white p-7 shadow-xl">
 
-          <h2 className="mb-6 text-lg font-bold">
+          <h2 className="mb-6 text-lg font-bold text-slate-900">
             Profil Bilgileri
           </h2>
 
@@ -100,6 +101,7 @@ export default function AccountPage() {
 
             {/* NAME */}
             <div className="rounded-2xl bg-slate-50 p-4">
+
               <p className="text-xs font-medium text-slate-500">
                 Ad Soyad
               </p>
@@ -107,10 +109,12 @@ export default function AccountPage() {
               <p className="mt-1 text-sm font-bold text-slate-900">
                 {fullName}
               </p>
+
             </div>
 
             {/* EMAIL */}
             <div className="rounded-2xl bg-slate-50 p-4">
+
               <p className="text-xs font-medium text-slate-500">
                 E-posta
               </p>
@@ -118,11 +122,12 @@ export default function AccountPage() {
               <p className="mt-1 text-sm font-bold text-slate-900">
                 {user?.email}
               </p>
+
             </div>
 
           </div>
 
-          {/* FUTURE */}
+          {/* ACCOUNT INFO */}
           <div className="mt-6 rounded-2xl border border-blue-100 bg-blue-50 p-5">
 
             <h3 className="text-sm font-bold text-blue-900">
