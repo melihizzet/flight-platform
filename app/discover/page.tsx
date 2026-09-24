@@ -121,6 +121,7 @@ const travelIdeas = [
     text:
       "Paris, Roma, Amsterdam ve Londra gibi şehirleri farklı seyahat planlarıyla keşfet.",
     tag: "Avrupa",
+    href: "/blog/2026da-en-uygun-avrupa-rotalari",
   },
   {
     title: "Balkanlar",
@@ -129,6 +130,7 @@ const travelIdeas = [
     text:
       "Yakın coğrafyalarda farklı şehirleri, kültürleri ve doğal güzellikleri keşfet.",
     tag: "Yakın Rotalar",
+    href: "/blog/balkanlar-seyahat-rehberi",
   },
   {
     title: "Şehir Kaçamakları",
@@ -137,6 +139,7 @@ const travelIdeas = [
     text:
       "2–4 günlük kısa seyahatler için şehir merkezli gezi fikirlerinden ilham al.",
     tag: "Kısa Tatil",
+    href: "/blog/sehir-kacamaklari",
   },
 ];
 
@@ -144,6 +147,34 @@ export default function DiscoverPage() {
   const [selected, setSelected] = useState<
     (typeof destinations)[number] | null
   >(null);
+
+  const getGuideLink = (city: string) => {
+    if (city === "Paris") {
+      return "/blog/paris-gezi-rehberi";
+    }
+
+    if (city === "Roma") {
+      return "/blog/roma-gezi-rehberi";
+    }
+
+    if (city === "Londra") {
+      return "/travel-guide";
+    }
+
+    if (city === "Amsterdam") {
+      return "/travel-guide";
+    }
+
+    if (city === "Dubai") {
+      return "/travel-guide";
+    }
+
+    if (city === "İstanbul") {
+      return "/travel-guide";
+    }
+
+    return "/travel-guide";
+  };
 
   return (
     <main className="min-h-screen overflow-x-hidden bg-white text-slate-900">
@@ -161,6 +192,7 @@ export default function DiscoverPage() {
           </a>
 
           <nav className="hidden items-center gap-5 md:flex">
+
             <a
               href="/"
               className="text-[11px] font-semibold text-slate-700 hover:text-blue-600"
@@ -169,7 +201,7 @@ export default function DiscoverPage() {
             </a>
 
             <a
-              href="/hotels"
+              href="/hotel"
               className="text-[11px] font-semibold text-slate-700 hover:text-blue-600"
             >
               🏨 Otel
@@ -188,9 +220,18 @@ export default function DiscoverPage() {
             >
               🌍 Keşfet
             </a>
+
+            <a
+              href="/blog"
+              className="text-[11px] font-semibold text-slate-700 hover:text-blue-600"
+            >
+              📝 Blog
+            </a>
+
           </nav>
 
           <div className="hidden items-center gap-2 md:flex">
+
             <button className="rounded-full border border-slate-200 px-2.5 py-1 text-[10px] font-semibold">
               TR 🇹🇷
             </button>
@@ -201,16 +242,20 @@ export default function DiscoverPage() {
             >
               ♟
             </a>
+
           </div>
         </div>
       </header>
 
       {/* HERO */}
       <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-purple-50">
+
         <div className="absolute -right-32 -top-32 h-64 w-64 rounded-full bg-blue-400/10 blur-3xl" />
+
         <div className="absolute -left-32 bottom-0 h-64 w-64 rounded-full bg-purple-400/10 blur-3xl" />
 
         <div className="relative mx-auto max-w-6xl px-5 py-11">
+
           <div className="max-w-2xl">
 
             <span className="inline-flex rounded-full bg-blue-100 px-2.5 py-1 text-[9px] font-bold uppercase tracking-wider text-blue-700">
@@ -242,6 +287,7 @@ export default function DiscoverPage() {
 
       {/* DESTİNASYONLAR */}
       <section className="bg-white py-9">
+
         <div className="mx-auto max-w-6xl px-5">
 
           <p className="text-[9px] font-bold uppercase tracking-wider text-blue-600">
@@ -259,6 +305,7 @@ export default function DiscoverPage() {
           <div className="mt-5 grid gap-3.5 sm:grid-cols-2 lg:grid-cols-3">
 
             {destinations.map((destination) => (
+
               <button
                 key={destination.name}
                 onClick={() => setSelected(destination)}
@@ -303,16 +350,20 @@ export default function DiscoverPage() {
                   </span>
 
                 </div>
+
               </button>
+
             ))}
 
           </div>
         </div>
       </section>
 
-      {/* ŞEHİR DETAYI - DAHA YUKARIDA VE KOMPAKT */}
+      {/* ŞEHİR DETAYI */}
       {selected && (
+
         <section className="-mt-2 bg-slate-50 pb-9 pt-2">
+
           <div className="mx-auto max-w-5xl px-5">
 
             <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-md">
@@ -330,6 +381,7 @@ export default function DiscoverPage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
 
                   <div className="absolute bottom-4 left-4">
+
                     <p className="text-[8px] font-bold uppercase tracking-wider text-white/75">
                       {selected.region}
                     </p>
@@ -337,6 +389,7 @@ export default function DiscoverPage() {
                     <h2 className="mt-0.5 text-2xl font-black text-white">
                       {selected.name}
                     </h2>
+
                   </div>
                 </div>
 
@@ -345,6 +398,7 @@ export default function DiscoverPage() {
                   <div className="flex items-start justify-between">
 
                     <div>
+
                       <p className="text-[9px] font-bold text-blue-600">
                         {selected.country}
                       </p>
@@ -352,6 +406,7 @@ export default function DiscoverPage() {
                       <h2 className="mt-0.5 text-xl font-black">
                         {selected.name} rehberi
                       </h2>
+
                     </div>
 
                     <button
@@ -376,12 +431,14 @@ export default function DiscoverPage() {
                     <div className="mt-2 flex flex-wrap gap-1.5">
 
                       {selected.places.map((place) => (
+
                         <span
                           key={place}
                           className="rounded-full border border-slate-200 bg-white px-2.5 py-1 text-[9px] font-semibold text-slate-600"
                         >
                           {place}
                         </span>
+
                       ))}
 
                     </div>
@@ -409,7 +466,7 @@ export default function DiscoverPage() {
                     </a>
 
                     <a
-                      href="/blog"
+                      href={getGuideLink(selected.name)}
                       className="rounded-lg border border-slate-200 px-3.5 py-2 text-[9px] font-bold text-slate-700 hover:border-blue-300 hover:text-blue-600"
                     >
                       Seyahat rehberleri
@@ -426,9 +483,11 @@ export default function DiscoverPage() {
 
       {/* SEYAHAT FİKİRLERİ */}
       <section className="bg-slate-50 py-10">
+
         <div className="mx-auto max-w-6xl px-5">
 
           <div className="text-center">
+
             <p className="text-[9px] font-bold uppercase tracking-wider text-blue-600">
               SEYAHAT FİKİRLERİ
             </p>
@@ -440,14 +499,16 @@ export default function DiscoverPage() {
             <p className="mx-auto mt-2 max-w-xl text-xs text-slate-500">
               Bir sonraki seyahatinden ilham al.
             </p>
+
           </div>
 
           <div className="mt-5 grid gap-3.5 md:grid-cols-3">
 
             {travelIdeas.map((idea) => (
+
               <a
                 key={idea.title}
-                href="/blog"
+                href={idea.href}
                 className="group overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
               >
 
@@ -482,7 +543,9 @@ export default function DiscoverPage() {
                   </span>
 
                 </div>
+
               </a>
+
             ))}
 
           </div>
@@ -491,11 +554,13 @@ export default function DiscoverPage() {
 
       {/* BLOG */}
       <section className="bg-white py-10">
+
         <div className="mx-auto max-w-6xl px-5">
 
           <div className="flex items-end justify-between gap-3">
 
             <div>
+
               <p className="text-[9px] font-bold uppercase tracking-wider text-blue-600">
                 UÇGİT BLOG
               </p>
@@ -507,6 +572,7 @@ export default function DiscoverPage() {
               <p className="mt-1 text-xs text-slate-500">
                 Seyahat planlamasıyla ilgili pratik bilgiler.
               </p>
+
             </div>
 
             <a
@@ -521,10 +587,13 @@ export default function DiscoverPage() {
           <div className="mt-5 grid gap-3.5 md:grid-cols-3">
 
             <a
-              href="/blog"
+              href="/blog/ucak-bileti-alirken-dikkat-edilecekler"
               className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
             >
-              <span className="text-xl">✈️</span>
+
+              <span className="text-xl">
+                ✈️
+              </span>
 
               <h3 className="mt-2 text-xs font-black">
                 Uçak bileti alırken nelere dikkat edilmeli?
@@ -538,13 +607,17 @@ export default function DiscoverPage() {
               <span className="mt-2.5 inline-block text-[10px] font-bold text-blue-600">
                 Yazıyı incele →
               </span>
+
             </a>
 
             <a
-              href="/blog"
+              href="/blog/2026da-en-uygun-avrupa-rotalari"
               className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
             >
-              <span className="text-xl">🌍</span>
+
+              <span className="text-xl">
+                🌍
+              </span>
 
               <h3 className="mt-2 text-xs font-black">
                 Avrupa seyahati için pratik öneriler
@@ -558,13 +631,17 @@ export default function DiscoverPage() {
               <span className="mt-2.5 inline-block text-[10px] font-bold text-blue-600">
                 Yazıyı incele →
               </span>
+
             </a>
 
             <a
-              href="/blog"
+              href="/blog/ucak-bileti-alirken-dikkat-edilecekler"
               className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
             >
-              <span className="text-xl">🧳</span>
+
+              <span className="text-xl">
+                🧳
+              </span>
 
               <h3 className="mt-2 text-xs font-black">
                 Seyahat öncesi kontrol listesi
@@ -578,6 +655,7 @@ export default function DiscoverPage() {
               <span className="mt-2.5 inline-block text-[10px] font-bold text-blue-600">
                 Yazıyı incele →
               </span>
+
             </a>
 
           </div>
@@ -586,6 +664,7 @@ export default function DiscoverPage() {
 
       {/* CTA */}
       <section className="bg-gradient-to-r from-blue-600 to-purple-600 py-9">
+
         <div className="mx-auto max-w-4xl px-5 text-center text-white">
 
           <div className="text-2xl">
@@ -612,6 +691,7 @@ export default function DiscoverPage() {
 
       {/* FOOTER */}
       <footer className="border-t border-slate-200 bg-white py-5">
+
         <div className="mx-auto max-w-7xl px-5 text-center">
 
           <img
