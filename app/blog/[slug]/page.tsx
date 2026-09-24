@@ -186,17 +186,17 @@ export default async function BlogDetailPage({
 
   if (!post) {
     return (
-      <main className="min-h-screen bg-white text-slate-900 flex items-center justify-center px-6">
+      <main className="flex min-h-screen items-center justify-center bg-white px-6 text-slate-900">
         <div className="text-center">
-          <h1 className="text-4xl font-bold mb-4">Yazı bulunamadı</h1>
+          <h1 className="mb-4 text-4xl font-bold">Yazı bulunamadı</h1>
 
-          <p className="text-slate-500 mb-6">
+          <p className="mb-6 text-slate-500">
             Aradığınız blog yazısı mevcut değil.
           </p>
 
           <Link
             href="/blog"
-            className="inline-flex rounded-xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white hover:bg-blue-700"
+            className="inline-flex rounded-xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-blue-700"
           >
             ← Bloga Dön
           </Link>
@@ -207,209 +207,253 @@ export default async function BlogDetailPage({
 
   return (
     <main className="min-h-screen bg-white text-slate-900">
+      <style>{`
+        @keyframes planeFly {
+          0% {
+            transform: translate3d(-2px, 2px, 0) rotate(-5deg);
+          }
+
+          25% {
+            transform: translate3d(2px, -2px, 0) rotate(-2deg);
+          }
+
+          50% {
+            transform: translate3d(5px, -5px, 0) rotate(2deg);
+          }
+
+          75% {
+            transform: translate3d(2px, -2px, 0) rotate(-1deg);
+          }
+
+          100% {
+            transform: translate3d(-2px, 2px, 0) rotate(-5deg);
+          }
+        }
+
+        .animate-plane-fly {
+          display: inline-block;
+          animation: planeFly 2.8s ease-in-out infinite;
+          transform-origin: center;
+          will-change: transform;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .animate-plane-fly {
+            animation: none;
+          }
+        }
+      `}</style>
 
       {/* HEADER */}
       <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
-        <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5">
-
-          <Link href="/">
+        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
+          {/* LOGO */}
+          <Link href="/" className="flex shrink-0 items-center">
             <img
               src="/logo.jpg"
               alt="UçGit"
-              className="h-11 w-auto object-contain"
+              className="h-10 w-auto object-contain"
             />
           </Link>
 
-          <nav className="hidden items-center gap-6 md:flex">
-
+          {/* MENU */}
+          <nav className="hidden items-center gap-8 md:flex">
             <Link
               href="/"
-              className="text-xs font-medium text-slate-600 hover:text-blue-600"
+              className="text-sm font-medium text-slate-600 transition hover:text-blue-600"
             >
-              ✈ Uçuşlar
-            </Link>
-
-            <Link
-              href="/hotel"
-              className="text-xs font-medium text-slate-600 hover:text-blue-600"
-            >
-              🏨 Otel
-            </Link>
-
-            <Link
-              href="/cars"
-              className="text-xs font-medium text-slate-600 hover:text-blue-600"
-            >
-              🚗 Araç Kiralama
+              <span className="mr-1 inline-block animate-plane-fly">
+                ✈️
+              </span>
+              Uçuşlar
             </Link>
 
             <Link
               href="/discover"
-              className="text-xs font-medium text-slate-600 hover:text-blue-600"
+              className="text-sm font-medium text-slate-600 transition hover:text-blue-600"
             >
               🌍 Keşfet
             </Link>
 
             <Link
               href="/blog"
-              className="text-xs font-semibold text-blue-600"
+              className="text-sm font-semibold text-blue-600"
             >
               📝 Blog
             </Link>
 
+            <Link
+              href="/contact"
+              className="text-sm font-medium text-slate-600 transition hover:text-blue-600"
+            >
+              ♧ Destek
+            </Link>
           </nav>
 
+          {/* RIGHT */}
           <div className="flex items-center gap-3">
-            <span className="text-xs font-semibold text-slate-600">
-              TR
-            </span>
+            <button
+              type="button"
+              className="hidden rounded-full border border-slate-200 px-3 py-1.5 text-xs font-medium text-slate-600 transition hover:border-blue-300 hover:text-blue-600 sm:block"
+            >
+              TR ▾
+            </button>
 
             <Link
               href="/login"
-              className="rounded-lg border border-slate-200 px-3 py-2 text-xs font-semibold text-slate-700 hover:border-blue-300 hover:text-blue-600"
+              className="rounded-full border border-slate-200 px-4 py-2 text-xs font-semibold text-slate-700 transition hover:border-blue-300 hover:text-blue-600"
             >
               Giriş
             </Link>
           </div>
-
         </div>
       </header>
 
-      {/* HERO */}
-      <section className="relative">
-
+      {/* HERO IMAGE */}
+      <section className="relative overflow-hidden">
         <img
           src={post.image}
           alt={post.title}
-          className="h-[300px] w-full object-cover"
+          className="h-[360px] w-full object-cover md:h-[430px]"
         />
 
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/30 to-transparent" />
 
-        <div className="absolute bottom-0 left-0 right-0">
+        <div className="absolute inset-x-0 bottom-0">
+          <div className="mx-auto max-w-7xl px-6 pb-10 md:pb-12">
+            <div className="max-w-4xl">
+              <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-blue-600 px-4 py-1.5 text-xs font-semibold text-white">
+                <span className="animate-plane-fly">✈️</span>
+                {post.category}
+              </div>
 
-          <div className="mx-auto max-w-4xl px-5 pb-10">
+              <h1 className="max-w-4xl text-3xl font-bold leading-tight text-white md:text-5xl">
+                {post.title}
+              </h1>
 
-            <div className="mb-3 inline-flex rounded-full bg-blue-600 px-3 py-1 text-[11px] font-semibold text-white">
-              {post.category}
+              <p className="mt-4 text-sm text-white/80">
+                {post.date}
+              </p>
             </div>
-
-            <h1 className="max-w-3xl text-3xl font-bold leading-tight text-white md:text-5xl">
-              {post.title}
-            </h1>
-
-            <p className="mt-3 text-xs text-white/80">
-              {post.date}
-            </p>
-
           </div>
         </div>
       </section>
 
       {/* CONTENT */}
-      <article className="mx-auto max-w-3xl px-5 py-12">
-
-        <p className="mb-10 text-lg leading-8 text-slate-600">
-          {post.intro}
-        </p>
-
-        <div className="space-y-10">
-
-          {post.sections.map((section) => (
-            <section key={section.title}>
-
-              <h2 className="mb-3 text-2xl font-bold text-slate-900">
-                {section.title}
-              </h2>
-
-              <p className="text-[15px] leading-7 text-slate-600">
-                {section.text}
-              </p>
-
-            </section>
-          ))}
-
-        </div>
-
-        {/* CTA */}
-        <div className="mt-12 rounded-2xl border border-blue-100 bg-gradient-to-r from-blue-50 to-purple-50 p-6">
-
-          <h2 className="text-xl font-bold text-slate-900">
-            Uçuşunuzu şimdi arayın
-          </h2>
-
-          <p className="mt-2 text-sm leading-6 text-slate-600">
-            UçGit ile farklı uçuş seçeneklerini karşılaştırarak
-            seyahatiniz için uygun uçuşu keşfedin.
+      <article className="px-6 py-16">
+        <div className="mx-auto max-w-4xl">
+          <p className="mb-12 max-w-3xl text-lg leading-8 text-slate-600 md:text-xl">
+            {post.intro}
           </p>
 
-          <Link
-            href="/"
-            className="mt-5 inline-flex rounded-xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-blue-700"
-          >
-            ✈ Uçuş Ara
-          </Link>
+          <div className="space-y-12">
+            {post.sections.map((section) => (
+              <section key={section.title}>
+                <h2 className="mb-4 text-2xl font-bold tracking-tight text-slate-900 md:text-3xl">
+                  {section.title}
+                </h2>
 
+                <p className="max-w-3xl text-[15px] leading-8 text-slate-600 md:text-base">
+                  {section.text}
+                </p>
+              </section>
+            ))}
+          </div>
+
+          {/* CTA */}
+          <div className="relative mt-14 overflow-hidden rounded-3xl border border-blue-100 bg-gradient-to-r from-blue-50 to-purple-50 p-7 md:p-9">
+            <div className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-purple-400/10 blur-3xl" />
+
+            <div className="relative">
+              <div className="mb-3 text-2xl">
+                <span className="inline-block animate-plane-fly">
+                  ✈️
+                </span>
+              </div>
+
+              <h2 className="text-2xl font-bold text-slate-900">
+                Uçuşunuzu şimdi arayın
+              </h2>
+
+              <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-600">
+                UçGit ile farklı uçuş seçeneklerini karşılaştırarak
+                seyahatiniz için uygun uçuşu keşfedin.
+              </p>
+
+              <Link
+                href="/"
+                className="mt-6 inline-flex rounded-xl bg-blue-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-blue-700"
+              >
+                ✈️ Uçuş Ara
+              </Link>
+            </div>
+          </div>
+
+          {/* BACK */}
+          <div className="mt-9">
+            <Link
+              href="/blog"
+              className="inline-flex text-sm font-semibold text-blue-600 transition hover:text-blue-700"
+            >
+              ← Tüm Blog Yazılarına Dön
+            </Link>
+          </div>
         </div>
-
-        {/* BACK */}
-        <div className="mt-8">
-
-          <Link
-            href="/blog"
-            className="text-sm font-semibold text-blue-600 hover:text-blue-700"
-          >
-            ← Tüm Blog Yazılarına Dön
-          </Link>
-
-        </div>
-
       </article>
 
       {/* FOOTER */}
-      <footer className="border-t border-slate-200 bg-slate-50 py-6">
+      <footer className="border-t border-slate-200 bg-slate-50 px-6 py-8">
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-5 md:flex-row">
+          <div className="flex items-center gap-3">
+            <img
+              src="/logo.jpg"
+              alt="UçGit"
+              className="h-9 w-auto object-contain"
+            />
 
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-5 md:flex-row">
+            <span className="text-xs text-slate-400">
+              © 2026 UçGit
+            </span>
+          </div>
 
-          <img
-            src="/logo.jpg"
-            alt="UçGit"
-            className="h-9 w-auto object-contain"
-          />
-
-          <p className="text-[11px] text-slate-500">
-            © 2026 UçGit. Tüm hakları saklıdır.
-          </p>
-
-          <div className="flex gap-4 text-[11px] text-slate-500">
+          <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-xs text-slate-500">
+            <Link
+              href="/about"
+              className="transition hover:text-blue-600"
+            >
+              Hakkımızda
+            </Link>
 
             <Link
-              href="/privacy"
-              className="hover:text-blue-600"
+              href="/contact"
+              className="transition hover:text-blue-600"
+            >
+              İletişim
+            </Link>
+
+            <Link
+              href="/faq"
+              className="transition hover:text-blue-600"
+            >
+              SSS
+            </Link>
+
+            <Link
+              href="/privacy-policy"
+              className="transition hover:text-blue-600"
             >
               Gizlilik
             </Link>
 
             <Link
               href="/terms"
-              className="hover:text-blue-600"
+              className="transition hover:text-blue-600"
             >
               Kullanım Şartları
             </Link>
-
-            <Link
-              href="/contact"
-              className="hover:text-blue-600"
-            >
-              İletişim
-            </Link>
-
           </div>
-
         </div>
-
       </footer>
-
     </main>
   );
 }
