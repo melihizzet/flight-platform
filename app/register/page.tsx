@@ -37,35 +37,44 @@ export default function RegisterPage() {
 
     setLoading(true);
 
-    const { error } = await supabase.auth.signUp({
-      email: email.trim(),
-      password,
-      options: {
-        data: {
-          full_name: fullName.trim(),
+    try {
+      const { data, error } = await supabase.auth.signUp({
+        email: email.trim(),
+        password,
+        options: {
+          emailRedirectTo: "https://www.ucgit.com",
+          data: {
+            full_name: fullName.trim(),
+          },
         },
-      },
-    });
+      });
 
-    setLoading(false);
+      if (error) {
+        console.error("Supabase kayıt hatası:", error);
 
-    if (error) {
-      if (error.message.toLowerCase().includes("already registered")) {
-        setError("Bu e-posta adresi zaten kayıtlı.");
-      } else {
         setError(error.message);
+        setLoading(false);
+        return;
       }
 
-      return;
+      console.log("Supabase kayıt sonucu:", data);
+
+      setMessage(
+        "Kayıt başarılı! E-posta adresinize doğrulama bağlantısı gönderildi. Lütfen e-postanızı kontrol edin."
+      );
+
+      setFullName("");
+      setEmail("");
+      setPassword("");
+    } catch (err) {
+      console.error("Beklenmeyen kayıt hatası:", err);
+
+      setError(
+        "Kayıt sırasında bir bağlantı hatası oluştu. Lütfen tekrar deneyin."
+      );
+    } finally {
+      setLoading(false);
     }
-
-    setMessage(
-      "Kayıt başarılı! E-posta adresinize doğrulama bağlantısı gönderildi. E-postanızı doğruladıktan sonra giriş yapabilirsiniz."
-    );
-
-    setFullName("");
-    setEmail("");
-    setPassword("");
   }
 
   return (
@@ -81,7 +90,6 @@ export default function RegisterPage() {
       {/* HEADER */}
       <header className="absolute left-0 right-0 top-0 z-20">
         <div className="mx-auto flex max-w-7xl items-center px-5 py-4">
-
           <a href="/" className="flex items-center">
             <img
               src="/logo.jpg"
@@ -89,7 +97,6 @@ export default function RegisterPage() {
               className="h-11 w-auto rounded-lg"
             />
           </a>
-
         </div>
       </header>
 
@@ -170,7 +177,7 @@ export default function RegisterPage() {
 
               {/* ERROR */}
               {error && (
-                <div className="rounded-xl border border-red-200 bg-red-50 px-3 py-2.5 text-xs text-red-600">
+                <div className="rounded-xl border border-red-200 bg-red-50 px-3 py-2.5 text-xs leading-5 text-red-600">
                   {error}
                 </div>
               )}
@@ -188,7 +195,9 @@ export default function RegisterPage() {
                 disabled={loading}
                 className="w-full rounded-xl bg-[#020817] py-2.5 text-xs font-bold text-white transition hover:bg-blue-600 disabled:cursor-not-allowed disabled:opacity-60"
               >
-                {loading ? "Hesap oluşturuluyor..." : "Hesap Oluştur →"}
+                {loading
+                  ? "Hesap oluşturuluyor..."
+                  : "Hesap Oluştur →"}
               </button>
 
             </form>
@@ -229,11 +238,9 @@ export default function RegisterPage() {
 
       {/* FOOTER */}
       <footer className="absolute bottom-0 left-0 right-0 py-4 text-center">
-
         <p className="text-[11px] text-slate-400">
           © 2026 UçGit. Tüm hakları saklıdır.
         </p>
-
       </footer>
 
     </main>
