@@ -381,7 +381,7 @@ export default async function BlogDetailPage({
               </p>
 
               <Link
-                href="/"
+                href="/#tpwl-search"
                 className="mt-6 inline-flex rounded-xl bg-blue-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-blue-700"
               >
                 ✈️ Uçuş Ara
