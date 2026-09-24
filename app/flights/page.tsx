@@ -242,7 +242,7 @@ export default function FlightsPage() {
                   </p>
 
                   <Link
-                    href="/"
+                    href="/#tpwl-search"
                     className="mt-6 inline-flex w-full items-center justify-center rounded-xl bg-blue-600 px-4 py-3 text-sm font-semibold text-white transition hover:bg-blue-700"
                   >
                     <span className="mr-2">✈️</span>
