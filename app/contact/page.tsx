@@ -1,320 +1,320 @@
+import Link from "next/link";
+
 export default function ContactPage() {
   return (
-    <main className="min-h-screen overflow-x-hidden bg-white text-slate-900">
+    <main className="min-h-screen bg-white text-slate-900">
 
       {/* HEADER */}
-      <header className="sticky top-0 z-30 border-b border-slate-200 bg-white/95 backdrop-blur-xl">
-        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5">
+      <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
+        <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5">
 
-          {/* LOGO */}
-          <a href="/" className="flex items-center">
+          <Link href="/">
             <img
               src="/logo.jpg"
               alt="UçGit"
-              className="h-11 w-auto rounded-lg"
+              className="h-11 w-auto object-contain"
             />
-          </a>
+          </Link>
 
-          {/* MENU */}
           <nav className="hidden items-center gap-6 md:flex">
 
-            <a
+            <Link
               href="/"
-              className="text-xs font-semibold text-slate-700 transition hover:text-blue-600"
+              className="text-xs font-medium text-slate-600 hover:text-blue-600"
             >
-              ✈️ Uçuşlar
-            </a>
+              ✈ Uçuşlar
+            </Link>
 
-            <a
-              href="/hotels"
-              className="text-xs font-semibold text-slate-700 transition hover:text-blue-600"
+            <Link
+              href="/hotel"
+              className="text-xs font-medium text-slate-600 hover:text-blue-600"
             >
               🏨 Otel
-            </a>
+            </Link>
 
-            <a
+            <Link
               href="/cars"
-              className="flex items-center gap-1 text-xs font-semibold text-slate-700 transition hover:text-blue-600"
+              className="text-xs font-medium text-slate-600 hover:text-blue-600"
             >
-              <span className="inline-block text-sm">
-                🚗
-              </span>
-              Araç Kiralama
-            </a>
+              🚗 Araç Kiralama
+            </Link>
 
-            <a
+            <Link
               href="/discover"
-              className="text-xs font-semibold text-slate-700 transition hover:text-blue-600"
+              className="text-xs font-medium text-slate-600 hover:text-blue-600"
             >
-              ⚙️ Keşfet
-            </a>
+              🌍 Keşfet
+            </Link>
 
-            <a
-              href="/contact"
-              className="text-xs font-semibold text-blue-600"
+            <Link
+              href="/blog"
+              className="text-xs font-medium text-slate-600 hover:text-blue-600"
             >
-              ♧ Destek
-            </a>
+              📝 Blog
+            </Link>
 
           </nav>
 
-          {/* SAĞ TARAF */}
-          <div className="hidden items-center gap-2 md:flex">
-
-            <button className="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-[11px] font-semibold text-slate-700 shadow-sm">
-              TR 🇹🇷
-            </button>
-
-            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-slate-100 text-xs text-slate-600">
-              ♟
-            </div>
-
-          </div>
+          <Link
+            href="/login"
+            className="rounded-lg border border-slate-200 px-3 py-2 text-xs font-semibold text-slate-700 hover:border-blue-300 hover:text-blue-600"
+          >
+            Giriş
+          </Link>
 
         </div>
       </header>
 
       {/* HERO */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-purple-50">
+      <section className="bg-gradient-to-br from-blue-50 via-white to-purple-50 px-5 py-14">
+        <div className="mx-auto max-w-4xl text-center">
 
-        <div className="absolute -right-32 -top-32 h-80 w-80 rounded-full bg-blue-400/10 blur-3xl" />
+          <div className="mb-3 text-3xl">
+            💬
+          </div>
 
-        <div className="absolute -left-32 bottom-0 h-80 w-80 rounded-full bg-purple-400/10 blur-3xl" />
-
-        <div className="relative mx-auto max-w-5xl px-5 py-14 text-center">
-
-          <p className="mb-2 text-[11px] font-bold uppercase tracking-[0.22em] text-blue-600">
-            DESTEK
-          </p>
-
-          <h1 className="text-3xl font-black leading-tight text-slate-900 md:text-4xl">
-            Bizimle iletişime geç
+          <h1 className="text-3xl font-bold md:text-4xl">
+            İletişim
           </h1>
 
-          <p className="mx-auto mt-4 max-w-2xl text-sm leading-6 text-slate-600">
-            Sorularınız, önerileriniz veya iş birlikleri için
-            bizimle iletişime geçebilirsiniz.
+          <p className="mx-auto mt-3 max-w-2xl text-sm leading-7 text-slate-500">
+            UçGit hakkında sorularınız, önerileriniz veya geri bildirimleriniz
+            için bizimle iletişime geçebilirsiniz.
           </p>
 
         </div>
-
       </section>
 
       {/* CONTENT */}
       <section className="mx-auto max-w-5xl px-5 py-12">
 
-        <div className="grid gap-5 md:grid-cols-2">
+        <div className="grid gap-6 md:grid-cols-3">
 
-          {/* İLETİŞİM BİLGİLERİ */}
+          {/* SUPPORT */}
           <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
 
-            <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-blue-100 text-lg">
+            <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-50 text-xl">
               💬
             </div>
 
-            <h2 className="text-lg font-black text-slate-900">
-              İletişim Bilgileri
+            <h2 className="mt-4 text-lg font-bold">
+              Destek
             </h2>
 
-            <div className="mt-5 space-y-5">
+            <p className="mt-2 text-sm leading-6 text-slate-500">
+              UçGit kullanımı ve genel sorularınız için bize ulaşabilirsiniz.
+            </p>
 
-              <div>
-                <p className="text-[10px] font-semibold uppercase tracking-wide text-slate-400">
-                  E-posta
-                </p>
-
-                <div className="mt-2 space-y-1.5 text-xs">
-
-                  <a
-                    href="mailto:support@ucgit.com"
-                    className="block font-medium text-slate-700 transition hover:text-blue-600"
-                  >
-                    support@ucgit.com
-                  </a>
-
-                  <a
-                    href="mailto:info@ucgit.com"
-                    className="block font-medium text-slate-700 transition hover:text-blue-600"
-                  >
-                    info@ucgit.com
-                  </a>
-
-                </div>
-              </div>
-
-              <div>
-                <p className="text-[10px] font-semibold uppercase tracking-wide text-slate-400">
-                  Telefon
-                </p>
-
-                <p className="mt-2 text-xs font-semibold text-slate-700">
-                  +90 850 000 00 00
-                </p>
-              </div>
-
-              <div>
-                <p className="text-[10px] font-semibold uppercase tracking-wide text-slate-400">
-                  Adres
-                </p>
-
-                <p className="mt-2 text-xs font-semibold text-slate-700">
-                  İstanbul, Türkiye
-                </p>
-              </div>
-
-            </div>
+            <a
+              href="mailto:support@ucgit.com"
+              className="mt-4 block text-sm font-semibold text-blue-600 hover:text-blue-700"
+            >
+              support@ucgit.com
+            </a>
 
           </div>
 
-          {/* MESAJ FORMU */}
+          {/* GENERAL */}
           <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
 
-            <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-purple-100 text-lg">
+            <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-purple-50 text-xl">
               ✉️
             </div>
 
-            <h2 className="text-lg font-black text-slate-900">
-              Mesaj Gönder
+            <h2 className="mt-4 text-lg font-bold">
+              Genel İletişim
             </h2>
 
-            <form
-              action="https://formsubmit.co/melihizzetzorluoglu.com"
-              method="POST"
-              className="mt-5 space-y-3"
+            <p className="mt-2 text-sm leading-6 text-slate-500">
+              İş birlikleri ve genel iletişim talepleriniz için:
+            </p>
+
+            <a
+              href="mailto:info@ucgit.com"
+              className="mt-4 block text-sm font-semibold text-blue-600 hover:text-blue-700"
             >
+              info@ucgit.com
+            </a>
 
-              <input
-                type="text"
-                name="name"
-                placeholder="Ad Soyad"
-                required
-                className="w-full rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2.5 text-xs text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-blue-400 focus:bg-white"
-              />
+          </div>
 
-              <input
-                type="email"
-                name="email"
-                placeholder="E-posta adresiniz"
-                required
-                className="w-full rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2.5 text-xs text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-blue-400 focus:bg-white"
-              />
+          {/* LOCATION */}
+          <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
 
-              <textarea
-                name="message"
-                placeholder="Mesajınız"
-                rows={4}
-                required
-                className="w-full resize-none rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2.5 text-xs text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-blue-400 focus:bg-white"
-              />
+            <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-indigo-50 text-xl">
+              📍
+            </div>
 
-              <button
-                type="submit"
-                className="w-full rounded-xl bg-[#020817] py-2.5 text-xs font-semibold text-white transition hover:bg-blue-600"
-              >
-                Mesajı Gönder →
-              </button>
+            <h2 className="mt-4 text-lg font-bold">
+              Konum
+            </h2>
 
-            </form>
+            <p className="mt-2 text-sm leading-6 text-slate-500">
+              UçGit
+              <br />
+              İstanbul, Türkiye
+            </p>
 
           </div>
 
         </div>
 
-      </section>
+        {/* FORM */}
+        <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
 
-      {/* QUICK LINKS */}
-      <section className="bg-slate-50 py-10">
+          <div className="mb-6">
 
-        <div className="mx-auto max-w-5xl px-5 text-center">
+            <p className="text-xs font-semibold uppercase tracking-wider text-blue-600">
+              Bize Yazın
+            </p>
 
-          <h2 className="text-xl font-black text-slate-900">
-            Yardıma mı ihtiyacın var?
-          </h2>
+            <h2 className="mt-2 text-2xl font-bold">
+              Mesaj Gönder
+            </h2>
 
-          <p className="mt-2 text-xs text-slate-500">
-            UçGit hakkında daha fazla bilgiye ulaşabilirsin.
-          </p>
-
-          <div className="mt-5 flex flex-wrap justify-center gap-2">
-
-            <a
-              href="/about"
-              className="rounded-lg border border-slate-200 bg-white px-4 py-2.5 text-xs font-semibold text-slate-700 shadow-sm transition hover:border-blue-300 hover:text-blue-600"
-            >
-              Hakkımızda
-            </a>
-
-            <a
-              href="/faq"
-              className="rounded-lg border border-slate-200 bg-white px-4 py-2.5 text-xs font-semibold text-slate-700 shadow-sm transition hover:border-blue-300 hover:text-blue-600"
-            >
-              SSS
-            </a>
-
-            <a
-              href="/blog"
-              className="rounded-lg border border-slate-200 bg-white px-4 py-2.5 text-xs font-semibold text-slate-700 shadow-sm transition hover:border-blue-300 hover:text-blue-600"
-            >
-              Blog
-            </a>
+            <p className="mt-2 text-sm text-slate-500">
+              Sorularınızı veya önerilerinizi aşağıdaki form üzerinden
+              iletebilirsiniz.
+            </p>
 
           </div>
+
+          <form
+            action="https://formsubmit.co/melihizzetzorluoglu.com"
+            method="POST"
+            className="space-y-5"
+          >
+
+            <input
+              type="hidden"
+              name="_subject"
+              value="UçGit İletişim Formu"
+            />
+
+            <input
+              type="hidden"
+              name="_captcha"
+              value="false"
+            />
+
+            <input
+              type="hidden"
+              name="_template"
+              value="table"
+            />
+
+            <input
+              type="hidden"
+              name="_next"
+              value="https://www.ucgit.com/contact"
+            />
+
+            <div>
+              <label className="mb-2 block text-xs font-semibold text-slate-700">
+                Ad Soyad
+              </label>
+
+              <input
+                type="text"
+                name="name"
+                required
+                placeholder="Adınız ve soyadınız"
+                className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+              />
+            </div>
+
+            <div>
+              <label className="mb-2 block text-xs font-semibold text-slate-700">
+                E-posta
+              </label>
+
+              <input
+                type="email"
+                name="email"
+                required
+                placeholder="ornek@email.com"
+                className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+              />
+            </div>
+
+            <div>
+              <label className="mb-2 block text-xs font-semibold text-slate-700">
+                Konu
+              </label>
+
+              <input
+                type="text"
+                name="subject"
+                required
+                placeholder="Mesajınızın konusu"
+                className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+              />
+            </div>
+
+            <div>
+              <label className="mb-2 block text-xs font-semibold text-slate-700">
+                Mesaj
+              </label>
+
+              <textarea
+                name="message"
+                required
+                rows={6}
+                placeholder="Mesajınızı yazın..."
+                className="w-full resize-none rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+              />
+            </div>
+
+            <button
+              type="submit"
+              className="w-full rounded-xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-blue-700"
+            >
+              Mesajı Gönder →
+            </button>
+
+          </form>
 
         </div>
 
       </section>
 
       {/* FOOTER */}
-      <footer className="border-t border-slate-200 bg-white py-6">
+      <footer className="border-t border-slate-200 bg-slate-50 py-6">
 
-        <div className="mx-auto max-w-7xl px-5 text-center">
+        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-5 md:flex-row">
 
           <img
             src="/logo.jpg"
             alt="UçGit"
-            className="mx-auto h-9 w-auto rounded-lg"
+            className="h-9 w-auto object-contain"
           />
 
-          <p className="mt-2 text-[11px] text-slate-500">
+          <p className="text-[11px] text-slate-500">
             © 2026 UçGit. Tüm hakları saklıdır.
           </p>
 
-          <div className="mt-3 flex flex-wrap justify-center gap-4 text-[11px] text-slate-500">
+          <div className="flex gap-4 text-[11px] text-slate-500">
 
-            <a
-              href="/about"
-              className="transition hover:text-blue-600"
-            >
-              Hakkımızda
-            </a>
-
-            <a
-              href="/blog"
-              className="transition hover:text-blue-600"
-            >
-              Blog
-            </a>
-
-            <a
-              href="/faq"
-              className="transition hover:text-blue-600"
-            >
-              SSS
-            </a>
-
-            <a
+            <Link
               href="/privacy-policy"
-              className="transition hover:text-blue-600"
+              className="hover:text-blue-600"
             >
               Gizlilik
-            </a>
+            </Link>
 
-            <a
+            <Link
               href="/terms"
-              className="transition hover:text-blue-600"
+              className="hover:text-blue-600"
             >
               Kullanım Şartları
-            </a>
+            </Link>
+
+            <Link
+              href="/contact"
+              className="hover:text-blue-600"
+            >
+              İletişim
+            </Link>
 
           </div>
 
