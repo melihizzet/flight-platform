@@ -18,6 +18,7 @@ export default function HomePage() {
     tr: {
       flights: "Uçuşlar",
       discover: "Keşfet",
+      blog: "Blog",
       support: "Destek",
 
       travelWith: "UÇGİT İLE SEYAHAT ET",
@@ -59,7 +60,6 @@ export default function HomePage() {
 
       explore: "Keşfet",
       popularRoutes: "Popüler Rotalar",
-      blog: "Blog",
       travelGuide: "Seyahat Rehberi",
 
       slogan: "Seyahatinizin en kolay yolu.",
@@ -73,6 +73,7 @@ export default function HomePage() {
     en: {
       flights: "Flights",
       discover: "Discover",
+      blog: "Blog",
       support: "Support",
 
       travelWith: "TRAVEL WITH UÇGİT",
@@ -84,24 +85,24 @@ export default function HomePage() {
         "Compare hundreds of airlines and travel websites instantly and find the best flight price.",
 
       free: "Free comparison",
-      secure: "Secure payment",
-      support247: "24/7 support",
+      secure: "Trusted Providers",
+      support247: "Travel Support",
 
       bestPrices: "Best Prices",
       bestPricesText:
         "Compare hundreds of websites and find the best price.",
 
-      secureShopping: "Secure Shopping",
+      secureShopping: "Trusted Providers",
       secureShoppingText:
-        "Secure payment with our SSL-certified infrastructure.",
+        "Compare options from trusted travel providers.",
 
       fastEasy: "Fast & Easy",
       fastEasyText:
         "Compare hundreds of options in seconds.",
 
-      supportTitle: "24/7 Support",
+      supportTitle: "Travel Support",
       supportText:
-        "We are always here for you with 24/7 support.",
+        "Contact us if you have any questions about using UçGit.",
 
       company: "Company",
       about: "About Us",
@@ -114,7 +115,6 @@ export default function HomePage() {
 
       explore: "Explore",
       popularRoutes: "Popular Routes",
-      blog: "Blog",
       travelGuide: "Travel Guide",
 
       slogan: "The easiest way to travel.",
@@ -134,7 +134,7 @@ export default function HomePage() {
       }
     >
       {/* ===================================================== */}
-      {/* SEO */}
+      {/* SEO                                                   */}
       {/* ===================================================== */}
 
       <title>
@@ -246,40 +246,185 @@ export default function HomePage() {
 
       <style jsx global>{`
 
-        /* ----------------------------------------------------- */
-        /* UÇAK                                                  */
-        /* ----------------------------------------------------- */
+        /* ===================================================== */
+        /* PROFESYONEL UÇAK ANİMASYONU                          */
+        /* ===================================================== */
 
         @keyframes planeFly {
+
           0% {
-            transform: translate(0px, 0px) rotate(0deg);
+            transform:
+              translate3d(0, 0, 0)
+              rotate(0deg)
+              scale(1);
           }
 
-          20% {
-            transform: translate(4px, -2px) rotate(-2deg);
+          12% {
+            transform:
+              translate3d(2px, -1px, 0)
+              rotate(-1deg)
+              scale(1.01);
+          }
+
+          25% {
+            transform:
+              translate3d(5px, -4px, 0)
+              rotate(-2deg)
+              scale(1.015);
           }
 
           40% {
-            transform: translate(9px, -6px) rotate(-4deg);
+            transform:
+              translate3d(9px, -7px, 0)
+              rotate(-3deg)
+              scale(1.025);
           }
 
-          60% {
-            transform: translate(14px, -4px) rotate(-2deg);
+          55% {
+            transform:
+              translate3d(12px, -8px, 0)
+              rotate(-3deg)
+              scale(1.03);
+          }
+
+          68% {
+            transform:
+              translate3d(10px, -6px, 0)
+              rotate(-2deg)
+              scale(1.02);
           }
 
           80% {
-            transform: translate(7px, -2px) rotate(-1deg);
+            transform:
+              translate3d(6px, -3px, 0)
+              rotate(-1deg)
+              scale(1.01);
+          }
+
+          92% {
+            transform:
+              translate3d(2px, -1px, 0)
+              rotate(0deg)
+              scale(1);
           }
 
           100% {
-            transform: translate(0px, 0px) rotate(0deg);
+            transform:
+              translate3d(0, 0, 0)
+              rotate(0deg)
+              scale(1);
           }
         }
 
 
-        /* ----------------------------------------------------- */
+        .animate-plane-fly {
+          position: relative;
+          display: inline-block;
+
+          color: #2563eb;
+
+          font-size: 17px;
+          line-height: 1;
+
+          transform-origin: center center;
+
+          animation:
+            planeFly
+            3.8s
+            cubic-bezier(0.45, 0, 0.55, 1)
+            infinite;
+
+          will-change: transform;
+
+          filter:
+            drop-shadow(
+              0 3px 5px rgba(37, 99, 235, 0.15)
+            );
+        }
+
+
+        /* Uçağın arkasındaki çok hafif hava izi */
+
+        .animate-plane-fly::after {
+          content: "";
+
+          position: absolute;
+
+          left: -10px;
+          top: 50%;
+
+          width: 9px;
+          height: 2px;
+
+          border-radius: 999px;
+
+          background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(37, 99, 235, 0.22)
+          );
+
+          opacity: 0;
+
+          transform:
+            translateY(-50%)
+            scaleX(0.5);
+
+          transform-origin: right center;
+
+          animation:
+            planeTrail
+            3.8s
+            ease-in-out
+            infinite;
+
+          pointer-events: none;
+        }
+
+
+        @keyframes planeTrail {
+
+          0%,
+          15% {
+            opacity: 0;
+            transform:
+              translateY(-50%)
+              scaleX(0.3);
+          }
+
+          35%,
+          65% {
+            opacity: 0.65;
+            transform:
+              translateY(-50%)
+              scaleX(1);
+          }
+
+          85%,
+          100% {
+            opacity: 0;
+            transform:
+              translateY(-50%)
+              scaleX(0.3);
+          }
+        }
+
+
+        /* Hareket azaltma tercihi */
+
+        @media (prefers-reduced-motion: reduce) {
+
+          .animate-plane-fly,
+          .animate-plane-fly::after {
+            animation: none !important;
+          }
+
+        }
+
+
+        /* ===================================================== */
         /* BİLET SEÇ BUTONU                                      */
-        /* ----------------------------------------------------- */
+        /* ===================================================== */
 
         .ucgit-ticket-button {
           background: linear-gradient(
@@ -332,6 +477,7 @@ export default function HomePage() {
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
 
           {/* LOGO */}
+
           <a href="/" className="flex items-center">
 
             <img
@@ -344,44 +490,65 @@ export default function HomePage() {
 
 
           {/* MENU */}
+
           <nav className="hidden items-center gap-8 md:flex">
 
             {/* UÇUŞLAR */}
+
             <a
               href="/"
               className="border-b-2 border-blue-600 py-5 text-sm font-semibold text-blue-600"
             >
+
               <span className="mr-1 inline-block animate-plane-fly">
-                ✈️
+                ✈
               </span>
 
               {text.flights}
+
             </a>
 
-
-            {/* BLOG */}
-            <a
-              href="/blog"
-              className="text-sm font-medium text-slate-700 transition hover:text-blue-600"
-            >
-              📝 {text.blog}
-            </a>
 
             {/* KEŞFET */}
+
             <a
               href="/discover"
               className="text-sm font-medium text-slate-700 transition hover:text-blue-600"
             >
-              ⚙ {text.discover}
+
+              <span className="mr-1">
+                🌍
+              </span>
+
+              {text.discover}
+
+            </a>
+
+
+            {/* BLOG */}
+
+            <a
+              href="/blog"
+              className="text-sm font-medium text-slate-700 transition hover:text-blue-600"
+            >
+
+              <span className="mr-1">
+                📝
+              </span>
+
+              {text.blog}
+
             </a>
 
           </nav>
 
 
           {/* SAĞ MENÜ */}
+
           <div className="flex items-center gap-3">
 
             {/* DESTEK */}
+
             <a
               href="/contact"
               className="hidden text-sm font-medium text-slate-700 transition hover:text-blue-600 md:block"
@@ -391,6 +558,7 @@ export default function HomePage() {
 
 
             {/* DİL */}
+
             <div className="relative">
 
               <button
@@ -400,7 +568,13 @@ export default function HomePage() {
                 }
                 className="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium shadow-sm transition hover:border-blue-300 hover:bg-blue-50"
               >
-                {isEnglish ? "🇬🇧 EN" : "🇹🇷 TR"}⌄
+
+                {isEnglish
+                  ? "🇬🇧 EN"
+                  : "🇹🇷 TR"}
+
+                ⌄
+
               </button>
 
 
@@ -409,6 +583,7 @@ export default function HomePage() {
                 <div className="absolute right-0 top-10 z-[100] w-36 rounded-xl border border-slate-200 bg-white p-1.5 shadow-xl">
 
                   {/* TÜRKÇE */}
+
                   <button
                     type="button"
                     onClick={() => {
@@ -421,11 +596,14 @@ export default function HomePage() {
                         : "text-slate-700"
                     }`}
                   >
+
                     🇹🇷 {text.turkish}
+
                   </button>
 
 
                   {/* ENGLISH */}
+
                   <button
                     type="button"
                     onClick={() => {
@@ -438,7 +616,9 @@ export default function HomePage() {
                         : "text-slate-700"
                     }`}
                   >
+
                     🇬🇧 {text.english}
+
                   </button>
 
                 </div>
@@ -449,6 +629,7 @@ export default function HomePage() {
 
 
             {/* LOGIN */}
+
             <a
               href="/login"
               className="flex h-9 w-9 items-center justify-center rounded-full bg-slate-100 text-base transition hover:bg-blue-50"
@@ -470,6 +651,7 @@ export default function HomePage() {
       <section className="relative overflow-hidden">
 
         {/* BACKGROUND */}
+
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
@@ -480,12 +662,14 @@ export default function HomePage() {
 
 
         {/* OVERLAY */}
+
         <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-white/20" />
 
 
         <div className="relative mx-auto max-w-7xl px-6 pb-8 pt-8 md:pb-10 md:pt-9">
 
           {/* HERO TEXT */}
+
           <div className="max-w-2xl">
 
             <p className="mb-2 text-[11px] font-bold uppercase tracking-[0.2em] text-blue-600">
@@ -615,6 +799,7 @@ export default function HomePage() {
         <div className="mx-auto grid max-w-7xl gap-6 px-6 py-6 md:grid-cols-4">
 
           {/* BRAND */}
+
           <div>
 
             <img
@@ -631,6 +816,7 @@ export default function HomePage() {
 
 
           {/* COMPANY */}
+
           <div>
 
             <h3 className="mb-2 text-sm font-bold text-slate-900">
@@ -646,6 +832,7 @@ export default function HomePage() {
                 {text.about}
               </a>
 
+
               <a
                 href="/contact"
                 className="block transition hover:text-blue-600"
@@ -659,6 +846,7 @@ export default function HomePage() {
 
 
           {/* SUPPORT */}
+
           <div>
 
             <h3 className="mb-2 text-sm font-bold text-slate-900">
@@ -674,12 +862,14 @@ export default function HomePage() {
                 {text.faq}
               </a>
 
+
               <a
                 href="/contact"
                 className="block transition hover:text-blue-600"
               >
                 {text.contactUs}
               </a>
+
 
               <a
                 href="/privacy-policy"
@@ -694,6 +884,7 @@ export default function HomePage() {
 
 
           {/* EXPLORE */}
+
           <div>
 
             <h3 className="mb-2 text-sm font-bold text-slate-900">
@@ -709,12 +900,14 @@ export default function HomePage() {
                 {text.popularRoutes}
               </a>
 
+
               <a
                 href="/blog"
                 className="block transition hover:text-blue-600"
               >
                 {text.blog}
               </a>
+
 
               <a
                 href="/travel-guide"
@@ -731,6 +924,7 @@ export default function HomePage() {
 
 
         {/* COPYRIGHT */}
+
         <div className="border-t border-slate-100">
 
           <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-6 py-3 text-[11px] text-slate-400 md:flex-row">
@@ -738,6 +932,7 @@ export default function HomePage() {
             <span>
               © 2026 UçGit. {text.rights}
             </span>
+
 
             <div className="flex gap-4">
 
@@ -754,6 +949,7 @@ export default function HomePage() {
               </span>
 
             </div>
+
 
             <span>
               {text.built}
@@ -790,11 +986,13 @@ function Feature({
         {icon}
       </div>
 
+
       <div>
 
         <h3 className="text-sm font-bold text-slate-900">
           {title}
         </h3>
+
 
         <p className="mt-0.5 text-xs leading-5 text-slate-500">
           {text}
@@ -804,4 +1002,4 @@ function Feature({
 
     </div>
   );
-  }
+}
