@@ -1,4 +1,51 @@
+"use client";
+
+import { FormEvent, useState } from "react";
+import { createClient } from "../utils/supabase/client";
+
 export default function LoginPage() {
+  const supabase = createClient();
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
+  async function handleLogin(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+
+    setError("");
+
+    if (!email.trim() || !password) {
+      setError("Lütfen e-posta ve şifrenizi girin.");
+      return;
+    }
+
+    setLoading(true);
+
+    const { error } = await supabase.auth.signInWithPassword({
+      email: email.trim(),
+      password,
+    });
+
+    setLoading(false);
+
+    if (error) {
+      if (error.message.toLowerCase().includes("email not confirmed")) {
+        setError(
+          "E-posta adresiniz henüz doğrulanmamış. Önce e-postanızdaki doğrulama bağlantısına tıklayın."
+        );
+      } else {
+        setError("E-posta veya şifre hatalı.");
+      }
+
+      return;
+    }
+
+    window.location.href = "/";
+  }
+
   return (
     <main className="min-h-screen overflow-x-hidden bg-white text-slate-900">
 
@@ -51,7 +98,7 @@ export default function LoginPage() {
           {/* FORM CARD */}
           <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-lg">
 
-            <form className="space-y-3.5">
+            <form onSubmit={handleLogin} className="space-y-3.5">
 
               {/* EMAIL */}
               <div>
@@ -62,7 +109,10 @@ export default function LoginPage() {
 
                 <input
                   type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   placeholder="E-posta adresiniz"
+                  autoComplete="email"
                   className="w-full rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2.5 text-xs text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-blue-400 focus:bg-white"
                 />
 
@@ -78,7 +128,7 @@ export default function LoginPage() {
                   </label>
 
                   <a
-                    href="#"
+                    href="/forgot-password"
                     className="text-[11px] font-semibold text-blue-600 transition hover:text-blue-700"
                   >
                     Şifremi unuttum
@@ -88,18 +138,29 @@ export default function LoginPage() {
 
                 <input
                   type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                   placeholder="Şifreniz"
+                  autoComplete="current-password"
                   className="w-full rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2.5 text-xs text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-blue-400 focus:bg-white"
                 />
 
               </div>
 
+              {/* ERROR */}
+              {error && (
+                <div className="rounded-xl border border-red-200 bg-red-50 px-3 py-2.5 text-xs leading-5 text-red-600">
+                  {error}
+                </div>
+              )}
+
               {/* LOGIN BUTTON */}
               <button
                 type="submit"
-                className="w-full rounded-xl bg-[#020817] py-2.5 text-xs font-bold text-white transition hover:bg-blue-600"
+                disabled={loading}
+                className="w-full rounded-xl bg-[#020817] py-2.5 text-xs font-bold text-white transition hover:bg-blue-600 disabled:cursor-not-allowed disabled:opacity-60"
               >
-                Giriş Yap →
+                {loading ? "Giriş yapılıyor..." : "Giriş Yap →"}
               </button>
 
             </form>
