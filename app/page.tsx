@@ -2,7 +2,7 @@
 
 import Script from "next/script";
 import { Inter } from "next/font/google";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { createClient } from "./utils/supabase/client";
 
 const inter = Inter({
@@ -14,7 +14,11 @@ export default function HomePage() {
   const [languageOpen, setLanguageOpen] = useState(false);
 
   const supabase = createClient();
+
   const [user, setUser] = useState<any>(null);
+  const [profileOpen, setProfileOpen] = useState(false);
+
+  const profileRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     async function loadUser() {
@@ -27,6 +31,30 @@ export default function HomePage() {
 
     loadUser();
   }, []);
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        profileRef.current &&
+        !profileRef.current.contains(event.target as Node)
+      ) {
+        setProfileOpen(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  const handleLogout = async () => {
+    await supabase.auth.signOut();
+    setUser(null);
+    setProfileOpen(false);
+    window.location.href = "/";
+  };
 
   const isEnglish = language === "en";
 
@@ -84,6 +112,12 @@ export default function HomePage() {
 
       turkish: "Türkçe",
       english: "English",
+
+      myAccount: "Hesabım",
+      accountSettings: "Hesap Ayarları",
+      logout: "Çıkış Yap",
+      login: "Giriş Yap",
+      register: "Kayıt Ol",
     },
 
     en: {
@@ -139,8 +173,21 @@ export default function HomePage() {
 
       turkish: "Türkçe",
       english: "English",
+
+      myAccount: "My Account",
+      accountSettings: "Account Settings",
+      logout: "Log Out",
+      login: "Login",
+      register: "Register",
     },
   }[language];
+
+  const userName =
+    user?.user_metadata?.full_name ||
+    user?.user_metadata?.name ||
+    (isEnglish ? "UçGit User" : "UçGit Kullanıcısı");
+
+  const userEmail = user?.email || "";
 
   return (
     <main
@@ -597,15 +644,161 @@ export default function HomePage() {
 
             </div>
 
-            {/* KULLANICI / PROFİL */}
+            {/* ================================================= */}
+            {/* KULLANICI / PROFİL DROPDOWN                       */}
+            {/* ================================================= */}
 
-            <a
-              href={user ? "/account" : "/login"}
-              title={user ? "Hesabım" : "Giriş Yap"}
-              className="flex h-9 w-9 items-center justify-center rounded-full bg-slate-100 text-base transition hover:bg-blue-50"
+            <div
+              ref={profileRef}
+              className="relative"
             >
-              👤
-            </a>
+
+              <button
+                type="button"
+                onClick={() => setProfileOpen(!profileOpen)}
+                title={user ? text.myAccount : text.login}
+                className={`flex h-9 w-9 items-center justify-center rounded-full text-base transition ${
+                  profileOpen
+                    ? "bg-blue-100 text-blue-700"
+                    : "bg-slate-100 hover:bg-blue-50"
+                }`}
+              >
+                👤
+              </button>
+
+              {profileOpen && (
+
+                <div className="absolute right-0 top-12 z-[200] w-64 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-2xl">
+
+                  {user ? (
+
+                    <>
+                      {/* USER INFO */}
+
+                      <div className="border-b border-slate-100 bg-slate-50 px-4 py-4">
+
+                        <div className="flex items-center gap-3">
+
+                          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-blue-100 text-xl">
+                            👤
+                          </div>
+
+                          <div className="min-w-0">
+
+                            <p className="truncate text-sm font-bold text-slate-900">
+                              {userName}
+                            </p>
+
+                            <p className="truncate text-[11px] text-slate-500">
+                              {userEmail}
+                            </p>
+
+                          </div>
+
+                        </div>
+
+                      </div>
+
+                      {/* MENU */}
+
+                      <div className="p-1.5">
+
+                        <a
+                          href="/account"
+                          onClick={() => setProfileOpen(false)}
+                          className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-xs font-medium text-slate-700 transition hover:bg-blue-50 hover:text-blue-600"
+                        >
+                          <span className="text-base">
+                            👤
+                          </span>
+
+                          {text.myAccount}
+                        </a>
+
+                        <a
+                          href="/account"
+                          onClick={() => setProfileOpen(false)}
+                          className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-xs font-medium text-slate-700 transition hover:bg-blue-50 hover:text-blue-600"
+                        >
+                          <span className="text-base">
+                            ⚙️
+                          </span>
+
+                          {text.accountSettings}
+                        </a>
+
+                        <button
+                          type="button"
+                          onClick={handleLogout}
+                          className="flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-left text-xs font-medium text-red-600 transition hover:bg-red-50"
+                        >
+                          <span className="text-base">
+                            🚪
+                          </span>
+
+                          {text.logout}
+                        </button>
+
+                      </div>
+
+                    </>
+
+                  ) : (
+
+                    <>
+                      {/* NOT LOGGED IN */}
+
+                      <div className="border-b border-slate-100 bg-slate-50 px-4 py-4">
+
+                        <p className="text-sm font-bold text-slate-900">
+                          UçGit
+                        </p>
+
+                        <p className="mt-1 text-[11px] leading-4 text-slate-500">
+                          {isEnglish
+                            ? "Log in to your UçGit account."
+                            : "UçGit hesabınıza giriş yapın."}
+                        </p>
+
+                      </div>
+
+                      <div className="p-1.5">
+
+                        <a
+                          href="/login"
+                          onClick={() => setProfileOpen(false)}
+                          className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-xs font-semibold text-slate-700 transition hover:bg-blue-50 hover:text-blue-600"
+                        >
+                          <span className="text-base">
+                            🔐
+                          </span>
+
+                          {text.login}
+                        </a>
+
+                        <a
+                          href="/register"
+                          onClick={() => setProfileOpen(false)}
+                          className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-xs font-semibold text-slate-700 transition hover:bg-blue-50 hover:text-blue-600"
+                        >
+                          <span className="text-base">
+                            ✨
+                          </span>
+
+                          {text.register}
+                        </a>
+
+                      </div>
+
+                    </>
+
+                  )}
+
+                </div>
+
+              )}
+
+            </div>
 
           </div>
 
