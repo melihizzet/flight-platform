@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Aktif fiyat alarmlarını kontrol et
+      - name: Supabase bağlantısını test et
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
@@ -19,113 +19,41 @@ jobs:
           set -e
 
           echo "======================================"
-          echo "UçGit fiyat alarmı kontrolü başladı"
+          echo "UçGit Supabase bağlantı testi"
           echo "======================================"
 
-          RESPONSE=$(curl -sS \
+          HTTP_RESPONSE=$(curl -sS \
+            -w "\nHTTP_STATUS:%{http_code}" \
             -H "apikey: $SUPABASE_SERVICE_ROLE_KEY" \
             -H "Authorization: Bearer $SUPABASE_SERVICE_ROLE_KEY" \
             -H "Accept: application/json" \
-            "$SUPABASE_URL/rest/v1/price_alerts?active=eq.true&select=*")
+            "$SUPABASE_URL/rest/v1/price_alerts?select=id,active&active=eq.true")
 
-          echo "Supabase cevabı alındı."
+          BODY=$(echo "$HTTP_RESPONSE" | sed '/HTTP_STATUS:/d')
+          STATUS=$(echo "$HTTP_RESPONSE" | grep "HTTP_STATUS:" | cut -d: -f2)
 
-          echo "$RESPONSE" | jq empty
+          echo "HTTP durumu: $STATUS"
 
-          ALERT_COUNT=$(echo "$RESPONSE" | jq '
-            if type == "array" then length
-            elif .data and (.data | type) == "array" then (.data | length)
-            else 0
-            end
-          ')
-
-          echo "Aktif alarm sayısı: $ALERT_COUNT"
-
-          if [ "$ALERT_COUNT" -eq 0 ]; then
-            echo "Aktif fiyat alarmı bulunamadı."
-            exit 0
+          if [ "$STATUS" != "200" ]; then
+            echo "Supabase hata cevabı:"
+            echo "$BODY"
+            exit 1
           fi
 
-          echo "$RESPONSE" | jq -c '
-            if type == "array" then .[]
-            elif .data and (.data | type) == "array" then .data[]
-            else empty
-            end
-          ' | while read -r ALERT; do
+          echo "Supabase bağlantısı başarılı."
 
-            ID=$(echo "$ALERT" | jq -r '.id')
-            ORIGIN=$(echo "$ALERT" | jq -r '.origin')
-            DESTINATION=$(echo "$ALERT" | jq -r '.destination')
-            DEPARTURE_DATE=$(echo "$ALERT" | jq -r '.departure_date')
-            RETURN_DATE=$(echo "$ALERT" | jq -r '.return_date // empty')
-            TARGET_PRICE=$(echo "$ALERT" | jq -r '.target_price')
+          echo "Dönen kayıt tipi:"
+          echo "$BODY" | jq -r 'type'
 
-            echo ""
-            echo "--------------------------------------"
-            echo "Alarm ID: $ID"
-            echo "Rota: $ORIGIN → $DESTINATION"
-            echo "Gidiş: $DEPARTURE_DATE"
-            echo "Hedef fiyat: $TARGET_PRICE TL"
-            echo "--------------------------------------"
+          echo "Aktif alarm sayısı:"
+          echo "$BODY" | jq 'length'
 
-            API_URL="https://www.ucgit.com/api/flight-price?origin=${ORIGIN}&destination=${DESTINATION}&departure_at=${DEPARTURE_DATE}"
+          echo "Aktif alarm ID'leri:"
+          echo "$BODY" | jq -r '.[].id'
 
-            if [ -n "$RETURN_DATE" ]; then
-              API_URL="${API_URL}&return_at=${RETURN_DATE}"
-            fi
+          echo "Aktif değerleri:"
+          echo "$BODY" | jq -r '.[].active'
 
-            echo "Travelpayouts kontrol ediliyor..."
-
-            RESULT=$(curl -sS "$API_URL")
-
-            SUCCESS=$(echo "$RESULT" | jq -r '.success // false')
-
-            if [ "$SUCCESS" != "true" ]; then
-              echo "Fiyat alınamadı."
-              echo "$RESULT"
-              continue
-            fi
-
-            CURRENT_PRICE=$(echo "$RESULT" | jq -r '
-              [.data[]?.price]
-              | map(select(type == "number"))
-              | if length > 0 then min else empty end
-            ')
-
-            if [ -z "$CURRENT_PRICE" ] || [ "$CURRENT_PRICE" = "null" ]; then
-              echo "Bu rota için fiyat bulunamadı."
-              continue
-            fi
-
-            echo "Bulunan en düşük fiyat: $CURRENT_PRICE TL"
-
-            NOW=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
-
-            curl -sS -X PATCH \
-              -H "apikey: $SUPABASE_SERVICE_ROLE_KEY" \
-              -H "Authorization: Bearer $SUPABASE_SERVICE_ROLE_KEY" \
-              -H "Content-Type: application/json" \
-              -H "Prefer: return=minimal" \
-              "$SUPABASE_URL/rest/v1/price_alerts?id=eq.${ID}" \
-              -d "{\"last_price\":${CURRENT_PRICE},\"last_checked_at\":\"${NOW}\"}" \
-              > /dev/null
-
-            echo "Supabase son fiyat bilgisi güncellendi."
-
-            if awk "BEGIN {exit !($CURRENT_PRICE <= $TARGET_PRICE)}"; then
-              echo ""
-              echo "🎉🎉🎉 HEDEF FİYATA ULAŞILDI 🎉🎉🎉"
-              echo "Mevcut fiyat: $CURRENT_PRICE TL"
-              echo "Hedef fiyat: $TARGET_PRICE TL"
-              echo ""
-              echo "Mail sistemi henüz bağlanmadı."
-            else
-              echo "Hedef fiyata henüz ulaşılmadı."
-            fi
-
-          done
-
-          echo ""
           echo "======================================"
-          echo "UçGit fiyat alarmı kontrolü tamamlandı."
+          echo "Test tamamlandı."
           echo "======================================"
