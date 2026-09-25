@@ -65,7 +65,7 @@ export default function HomePage() {
       blog: "Blog",
       support: "Destek",
 
-      travelWith: "UÇGİT İLE SEYAHAT ET",
+      travelWith: "UÇGİT İLE SEYAHAT",
 
       title1: "Uçuşunu karşılaştır,",
       title2: "en uygun fiyatı uçur!",
@@ -113,6 +113,7 @@ export default function HomePage() {
       turkish: "Türkçe",
       english: "English",
 
+      priceAlert: "Fiyat Alarmı",
       myAccount: "Hesabım",
       accountSettings: "Hesap Ayarları",
       logout: "Çıkış Yap",
@@ -174,6 +175,7 @@ export default function HomePage() {
       turkish: "Türkçe",
       english: "English",
 
+      priceAlert: "Price Alert",
       myAccount: "My Account",
       accountSettings: "Account Settings",
       logout: "Log Out",
@@ -302,9 +304,7 @@ export default function HomePage() {
       {/* ===================================================== */}
 
       <style jsx global>{`
-
         @keyframes planeFly {
-
           0% {
             transform:
               translate3d(0, 0, 0)
@@ -424,7 +424,6 @@ export default function HomePage() {
         }
 
         @keyframes planeTrail {
-
           0%,
           15% {
             opacity: 0;
@@ -451,12 +450,10 @@ export default function HomePage() {
         }
 
         @media (prefers-reduced-motion: reduce) {
-
           .animate-plane-fly,
           .animate-plane-fly::after {
             animation: none !important;
           }
-
         }
 
         .ucgit-ticket-button {
@@ -489,7 +486,6 @@ export default function HomePage() {
           box-shadow:
             0 10px 24px rgba(91, 44, 255, 0.25) !important;
         }
-
       `}</style>
 
       {/* ===================================================== */}
@@ -497,78 +493,62 @@ export default function HomePage() {
       {/* ===================================================== */}
 
       <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur-xl">
-
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
 
           {/* LOGO */}
-
           <a href="/" className="flex items-center">
-
             <img
               src="/logo.jpg"
               alt="UçGit"
               className="h-10 w-auto object-contain"
             />
-
           </a>
 
           {/* MENU */}
-
           <nav className="hidden items-center gap-8 md:flex">
 
             {/* UÇUŞLAR */}
-
             <a
               href="/"
               className="border-b-2 border-blue-600 py-5 text-sm font-semibold text-blue-600"
             >
-
               <span className="mr-1 inline-block animate-plane-fly">
                 ✈
               </span>
 
               {text.flights}
-
             </a>
 
             {/* KEŞFET */}
-
             <a
               href="/discover"
               className="text-sm font-medium text-slate-700 transition hover:text-blue-600"
             >
-
               <span className="mr-1">
                 🌍
               </span>
 
               {text.discover}
-
             </a>
 
             {/* BLOG */}
-
             <a
               href="/blog"
               className="text-sm font-medium text-slate-700 transition hover:text-blue-600"
             >
-
               <span className="mr-1">
                 📝
               </span>
 
               {text.blog}
-
             </a>
 
           </nav>
 
           {/* SAĞ MENÜ */}
-
           <div className="flex items-center gap-3">
 
             {/* DESTEK */}
-
             <a
               href="/contact"
               className="hidden text-sm font-medium text-slate-700 transition hover:text-blue-600 md:block"
@@ -577,7 +557,6 @@ export default function HomePage() {
             </a>
 
             {/* DİL */}
-
             <div className="relative">
 
               <button
@@ -587,21 +566,17 @@ export default function HomePage() {
                 }
                 className="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium shadow-sm transition hover:border-blue-300 hover:bg-blue-50"
               >
-
                 {isEnglish
                   ? "🇬🇧 EN"
                   : "🇹🇷 TR"}
 
                 ⌄
-
               </button>
 
               {languageOpen && (
-
                 <div className="absolute right-0 top-10 z-[100] w-36 rounded-xl border border-slate-200 bg-white p-1.5 shadow-xl">
 
                   {/* TÜRKÇE */}
-
                   <button
                     type="button"
                     onClick={() => {
@@ -614,13 +589,10 @@ export default function HomePage() {
                         : "text-slate-700"
                     }`}
                   >
-
                     🇹🇷 {text.turkish}
-
                   </button>
 
                   {/* ENGLISH */}
-
                   <button
                     type="button"
                     onClick={() => {
@@ -633,15 +605,11 @@ export default function HomePage() {
                         : "text-slate-700"
                     }`}
                   >
-
                     🇬🇧 {text.english}
-
                   </button>
 
                 </div>
-
               )}
-
             </div>
 
             {/* ================================================= */}
@@ -667,16 +635,12 @@ export default function HomePage() {
               </button>
 
               {profileOpen && (
-
                 <div className="absolute right-0 top-12 z-[200] w-64 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-2xl">
 
                   {user ? (
-
                     <>
                       {/* USER INFO */}
-
                       <div className="border-b border-slate-100 bg-slate-50 px-4 py-4">
-
                         <div className="flex items-center gap-3">
 
                           <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-blue-100 text-xl">
@@ -694,15 +658,26 @@ export default function HomePage() {
                             </p>
 
                           </div>
-
                         </div>
-
                       </div>
 
                       {/* MENU */}
-
                       <div className="p-1.5">
 
+                        {/* FİYAT ALARMI */}
+                        <a
+                          href="/price-alert"
+                          onClick={() => setProfileOpen(false)}
+                          className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-xs font-semibold text-blue-600 transition hover:bg-blue-50"
+                        >
+                          <span className="text-base">
+                            🔔
+                          </span>
+
+                          {text.priceAlert}
+                        </a>
+
+                        {/* HESABIM */}
                         <a
                           href="/account"
                           onClick={() => setProfileOpen(false)}
@@ -715,6 +690,7 @@ export default function HomePage() {
                           {text.myAccount}
                         </a>
 
+                        {/* HESAP AYARLARI */}
                         <a
                           href="/account"
                           onClick={() => setProfileOpen(false)}
@@ -727,6 +703,7 @@ export default function HomePage() {
                           {text.accountSettings}
                         </a>
 
+                        {/* ÇIKIŞ */}
                         <button
                           type="button"
                           onClick={handleLogout}
@@ -740,14 +717,10 @@ export default function HomePage() {
                         </button>
 
                       </div>
-
                     </>
-
                   ) : (
-
                     <>
                       {/* NOT LOGGED IN */}
-
                       <div className="border-b border-slate-100 bg-slate-50 px-4 py-4">
 
                         <p className="text-sm font-bold text-slate-900">
@@ -789,13 +762,10 @@ export default function HomePage() {
                         </a>
 
                       </div>
-
                     </>
-
                   )}
 
                 </div>
-
               )}
 
             </div>
@@ -803,7 +773,6 @@ export default function HomePage() {
           </div>
 
         </div>
-
       </header>
 
       {/* ===================================================== */}
@@ -813,7 +782,6 @@ export default function HomePage() {
       <section className="relative overflow-hidden">
 
         {/* BACKGROUND */}
-
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
@@ -823,13 +791,11 @@ export default function HomePage() {
         />
 
         {/* OVERLAY */}
-
         <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-white/20" />
 
         <div className="relative mx-auto max-w-7xl px-6 pb-8 pt-8 md:pb-10 md:pt-9">
 
           {/* HERO TEXT */}
-
           <div className="max-w-2xl">
 
             <p className="mb-2 text-[11px] font-bold uppercase tracking-[0.2em] text-blue-600">
@@ -837,7 +803,6 @@ export default function HomePage() {
             </p>
 
             <h1 className="text-3xl font-black leading-[1.08] tracking-tight text-slate-900 md:text-5xl">
-
               {text.title1}
 
               <br />
@@ -845,7 +810,6 @@ export default function HomePage() {
               <span className="text-blue-600">
                 {text.title2}
               </span>
-
             </h1>
 
             <p className="mt-3 max-w-xl text-sm leading-6 text-slate-600 md:text-base">
@@ -949,7 +913,6 @@ export default function HomePage() {
         <div className="mx-auto grid max-w-7xl gap-6 px-6 py-6 md:grid-cols-4">
 
           {/* BRAND */}
-
           <div>
 
             <img
@@ -965,7 +928,6 @@ export default function HomePage() {
           </div>
 
           {/* COMPANY */}
-
           <div>
 
             <h3 className="mb-2 text-sm font-bold text-slate-900">
@@ -993,7 +955,6 @@ export default function HomePage() {
           </div>
 
           {/* SUPPORT */}
-
           <div>
 
             <h3 className="mb-2 text-sm font-bold text-slate-900">
@@ -1028,7 +989,6 @@ export default function HomePage() {
           </div>
 
           {/* EXPLORE */}
-
           <div>
 
             <h3 className="mb-2 text-sm font-bold text-slate-900">
@@ -1065,7 +1025,6 @@ export default function HomePage() {
         </div>
 
         {/* COPYRIGHT */}
-
         <div className="border-t border-slate-100">
 
           <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-6 py-3 text-[11px] text-slate-400 md:flex-row">
