@@ -1,6 +1,56 @@
+"use client";
+
 import Link from "next/link";
+import { useState } from "react";
 
 export default function ContactPage() {
+  const [messageSent, setMessageSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
+
+  async function handleSubmit(
+    e: React.FormEvent<HTMLFormElement>
+  ) {
+    e.preventDefault();
+
+    setMessageSent(false);
+    setError("");
+    setSending(true);
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch(
+        "https://formsubmit.co/ajax/melihizzetzorluoglu@gmail.com",
+        {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+          },
+          body: formData,
+        }
+      );
+
+      const data = await response.json();
+
+      if (data.success === "true" || data.success === true) {
+        setMessageSent(true);
+        form.reset();
+      } else {
+        setError(
+          "Mesaj gönderilemedi. Lütfen tekrar deneyin."
+        );
+      }
+    } catch {
+      setError(
+        "Mesaj gönderilirken bir hata oluştu. Lütfen tekrar deneyin."
+      );
+    } finally {
+      setSending(false);
+    }
+  }
+
   return (
     <main className="min-h-screen bg-white text-slate-900">
       <style>{`
@@ -43,8 +93,12 @@ export default function ContactPage() {
       {/* HEADER */}
       <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
+
           {/* LOGO */}
-          <Link href="/" className="flex shrink-0 items-center">
+          <Link
+            href="/"
+            className="flex shrink-0 items-center"
+          >
             <img
               src="/logo.jpg"
               alt="UçGit"
@@ -54,6 +108,7 @@ export default function ContactPage() {
 
           {/* MENU */}
           <nav className="hidden items-center gap-8 md:flex">
+
             <Link
               href="/"
               className="text-sm font-medium text-slate-600 transition hover:text-blue-600"
@@ -84,10 +139,12 @@ export default function ContactPage() {
             >
               ♧ Destek
             </Link>
+
           </nav>
 
           {/* SAĞ TARAF */}
           <div className="flex items-center gap-3">
+
             <button
               type="button"
               className="hidden rounded-full border border-slate-200 px-3 py-1.5 text-xs font-medium text-slate-600 transition hover:border-blue-300 hover:text-blue-600 sm:block"
@@ -101,17 +158,20 @@ export default function ContactPage() {
             >
               Giriş
             </Link>
+
           </div>
         </div>
       </header>
 
       {/* HERO */}
       <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-purple-50 px-5 py-16 md:py-20">
+
         <div className="absolute -right-32 -top-32 h-80 w-80 rounded-full bg-blue-400/10 blur-3xl" />
 
         <div className="absolute -left-32 bottom-0 h-80 w-80 rounded-full bg-purple-400/10 blur-3xl" />
 
         <div className="relative mx-auto max-w-4xl text-center">
+
           <div className="mb-4 text-3xl">
             <span className="inline-block animate-plane-fly">
               💬
@@ -130,15 +190,19 @@ export default function ContactPage() {
             UçGit hakkında sorularınız, önerileriniz veya geri
             bildirimleriniz için bizimle iletişime geçebilirsiniz.
           </p>
+
         </div>
       </section>
 
       {/* CONTENT */}
       <section className="mx-auto max-w-5xl px-5 py-14">
+
         {/* İLETİŞİM KARTLARI */}
         <div className="grid gap-5 md:grid-cols-3">
+
           {/* SUPPORT */}
           <div className="rounded-2xl border border-slate-200 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+
             <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-100 text-xl">
               💬
             </div>
@@ -158,10 +222,12 @@ export default function ContactPage() {
             >
               support@ucgit.com
             </a>
+
           </div>
 
           {/* GENERAL */}
           <div className="rounded-2xl border border-slate-200 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+
             <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-purple-100 text-xl">
               ✉️
             </div>
@@ -181,10 +247,12 @@ export default function ContactPage() {
             >
               info@ucgit.com
             </a>
+
           </div>
 
           {/* LOCATION */}
           <div className="rounded-2xl border border-slate-200 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+
             <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-indigo-100 text-xl">
               📍
             </div>
@@ -198,12 +266,16 @@ export default function ContactPage() {
               <br />
               İstanbul, Türkiye
             </p>
+
           </div>
+
         </div>
 
         {/* FORM */}
         <div className="mt-6 rounded-2xl border border-slate-200 bg-white p-7 shadow-sm md:p-9">
+
           <div className="mb-7">
+
             <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-600">
               BİZE YAZIN
             </p>
@@ -216,13 +288,70 @@ export default function ContactPage() {
               Sorularınızı veya önerilerinizi aşağıdaki form
               üzerinden bize iletebilirsiniz.
             </p>
+
           </div>
 
+          {/* BAŞARILI MESAJ */}
+          {messageSent && (
+            <div className="mb-6 rounded-2xl border border-emerald-200 bg-emerald-50 px-5 py-4">
+
+              <div className="flex items-start gap-3">
+
+                <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-emerald-600">
+                  ✓
+                </div>
+
+                <div>
+
+                  <h3 className="text-sm font-bold text-emerald-800">
+                    Mesajınız başarıyla gönderildi!
+                  </h3>
+
+                  <p className="mt-1 text-xs leading-5 text-emerald-700">
+                    Mesajınız bize ulaştı. En kısa sürede
+                    sizinle iletişime geçeceğiz.
+                  </p>
+
+                </div>
+
+              </div>
+
+            </div>
+          )}
+
+          {/* HATA MESAJI */}
+          {error && (
+            <div className="mb-6 rounded-2xl border border-red-200 bg-red-50 px-5 py-4">
+
+              <div className="flex items-start gap-3">
+
+                <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-red-100 text-red-600">
+                  !
+                </div>
+
+                <div>
+
+                  <h3 className="text-sm font-bold text-red-800">
+                    Mesaj gönderilemedi
+                  </h3>
+
+                  <p className="mt-1 text-xs leading-5 text-red-700">
+                    {error}
+                  </p>
+
+                </div>
+
+              </div>
+
+            </div>
+          )}
+
+          {/* FORM */}
           <form
-            action="https://formsubmit.co/melihizzetzorluoglu@gmail.com"
-            method="POST"
+            onSubmit={handleSubmit}
             className="space-y-5"
           >
+
             <input
               type="hidden"
               name="_subject"
@@ -241,13 +370,8 @@ export default function ContactPage() {
               value="table"
             />
 
-            <input
-              type="hidden"
-              name="_next"
-              value="https://www.ucgit.com/contact"
-            />
-
             <div>
+
               <label className="mb-2 block text-xs font-semibold text-slate-700">
                 Ad Soyad
               </label>
@@ -259,9 +383,11 @@ export default function ContactPage() {
                 placeholder="Adınız ve soyadınız"
                 className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
               />
+
             </div>
 
             <div>
+
               <label className="mb-2 block text-xs font-semibold text-slate-700">
                 E-posta
               </label>
@@ -273,9 +399,11 @@ export default function ContactPage() {
                 placeholder="ornek@email.com"
                 className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
               />
+
             </div>
 
             <div>
+
               <label className="mb-2 block text-xs font-semibold text-slate-700">
                 Konu
               </label>
@@ -287,9 +415,11 @@ export default function ContactPage() {
                 placeholder="Mesajınızın konusu"
                 className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
               />
+
             </div>
 
             <div>
+
               <label className="mb-2 block text-xs font-semibold text-slate-700">
                 Mesaj
               </label>
@@ -301,21 +431,30 @@ export default function ContactPage() {
                 placeholder="Mesajınızı yazın..."
                 className="w-full resize-none rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
               />
+
             </div>
 
             <button
               type="submit"
-              className="w-full rounded-xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-blue-700"
+              disabled={sending}
+              className="w-full rounded-xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-60"
             >
-              Mesajı Gönder →
+              {sending
+                ? "Gönderiliyor..."
+                : "Mesajı Gönder →"}
             </button>
+
           </form>
+
         </div>
 
         {/* ALT CTA */}
         <div className="mt-6 overflow-hidden rounded-2xl bg-[#020817] p-7 text-white shadow-lg">
+
           <div className="flex flex-col items-start justify-between gap-5 md:flex-row md:items-center">
+
             <div>
+
               <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-400">
                 UÇGİT
               </p>
@@ -328,6 +467,7 @@ export default function ContactPage() {
                 Uçuş seçeneklerini keşfetmek için uçuş aramayı
                 başlatabilirsiniz.
               </p>
+
             </div>
 
             <Link
@@ -339,14 +479,20 @@ export default function ContactPage() {
               </span>
               Uçuş Ara
             </Link>
+
           </div>
+
         </div>
+
       </section>
 
       {/* FOOTER */}
       <footer className="border-t border-slate-200 bg-slate-50 px-5 py-8">
+
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-5 md:flex-row">
+
           <div className="flex items-center gap-3">
+
             <img
               src="/logo.jpg"
               alt="UçGit"
@@ -356,9 +502,11 @@ export default function ContactPage() {
             <span className="text-xs text-slate-400">
               © 2026 UçGit
             </span>
+
           </div>
 
           <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-xs text-slate-500">
+
             <Link
               href="/about"
               className="transition hover:text-blue-600"
@@ -393,9 +541,13 @@ export default function ContactPage() {
             >
               Kullanım Şartları
             </Link>
+
           </div>
+
         </div>
+
       </footer>
+
     </main>
   );
 }
