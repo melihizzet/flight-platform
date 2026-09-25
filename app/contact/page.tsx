@@ -219,7 +219,7 @@ export default function ContactPage() {
           </div>
 
           <form
-            action="https://formsubmit.co/melihizzetzorluoglu.com"
+            action="https://formsubmit.co/melihizzetzorluoglu@gmail.com"
             method="POST"
             className="space-y-5"
           >
