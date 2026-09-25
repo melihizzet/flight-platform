@@ -14,6 +14,7 @@ jobs:
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+
         run: |
           set -e
 
@@ -21,15 +22,36 @@ jobs:
           echo "UçGit fiyat alarmı kontrolü başladı"
           echo "======================================"
 
-          ALERTS=$(curl -sS \
+          RESPONSE=$(curl -sS \
             -H "apikey: $SUPABASE_SERVICE_ROLE_KEY" \
             -H "Authorization: Bearer $SUPABASE_SERVICE_ROLE_KEY" \
+            -H "Accept: application/json" \
             "$SUPABASE_URL/rest/v1/price_alerts?active=eq.true&select=*")
 
-          echo "Aktif alarmlar:"
-          echo "$ALERTS" | jq length
+          echo "Supabase cevabı alındı."
 
-          echo "$ALERTS" | jq -c '.[]' | while read -r ALERT; do
+          echo "$RESPONSE" | jq empty
+
+          ALERT_COUNT=$(echo "$RESPONSE" | jq '
+            if type == "array" then length
+            elif .data and (.data | type) == "array" then (.data | length)
+            else 0
+            end
+          ')
+
+          echo "Aktif alarm sayısı: $ALERT_COUNT"
+
+          if [ "$ALERT_COUNT" -eq 0 ]; then
+            echo "Aktif fiyat alarmı bulunamadı."
+            exit 0
+          fi
+
+          echo "$RESPONSE" | jq -c '
+            if type == "array" then .[]
+            elif .data and (.data | type) == "array" then .data[]
+            else empty
+            end
+          ' | while read -r ALERT; do
 
             ID=$(echo "$ALERT" | jq -r '.id')
             ORIGIN=$(echo "$ALERT" | jq -r '.origin')
@@ -40,10 +62,11 @@ jobs:
 
             echo ""
             echo "--------------------------------------"
-            echo "Alarm: $ID"
+            echo "Alarm ID: $ID"
             echo "Rota: $ORIGIN → $DESTINATION"
             echo "Gidiş: $DEPARTURE_DATE"
             echo "Hedef fiyat: $TARGET_PRICE TL"
+            echo "--------------------------------------"
 
             API_URL="https://www.ucgit.com/api/flight-price?origin=${ORIGIN}&destination=${DESTINATION}&departure_at=${DEPARTURE_DATE}"
 
@@ -51,7 +74,7 @@ jobs:
               API_URL="${API_URL}&return_at=${RETURN_DATE}"
             fi
 
-            echo "Travelpayouts fiyatı kontrol ediliyor..."
+            echo "Travelpayouts kontrol ediliyor..."
 
             RESULT=$(curl -sS "$API_URL")
 
@@ -70,7 +93,7 @@ jobs:
             ')
 
             if [ -z "$CURRENT_PRICE" ] || [ "$CURRENT_PRICE" = "null" ]; then
-              echo "Bu alarm için fiyat bulunamadı."
+              echo "Bu rota için fiyat bulunamadı."
               continue
             fi
 
@@ -87,10 +110,14 @@ jobs:
               -d "{\"last_price\":${CURRENT_PRICE},\"last_checked_at\":\"${NOW}\"}" \
               > /dev/null
 
+            echo "Supabase son fiyat bilgisi güncellendi."
+
             if awk "BEGIN {exit !($CURRENT_PRICE <= $TARGET_PRICE)}"; then
-              echo "🎉 HEDEF FİYATA ULAŞILDI!"
+              echo ""
+              echo "🎉🎉🎉 HEDEF FİYATA ULAŞILDI 🎉🎉🎉"
               echo "Mevcut fiyat: $CURRENT_PRICE TL"
               echo "Hedef fiyat: $TARGET_PRICE TL"
+              echo ""
               echo "Mail sistemi henüz bağlanmadı."
             else
               echo "Hedef fiyata henüz ulaşılmadı."
@@ -100,5 +127,5 @@ jobs:
 
           echo ""
           echo "======================================"
-          echo "Fiyat alarmı kontrolü tamamlandı."
+          echo "UçGit fiyat alarmı kontrolü tamamlandı."
           echo "======================================"
